@@ -1,0 +1,14 @@
+{
+    "name": "pleio/rijkshuisstijl",
+    "description": "Het Rijkshuisstijl thema voor Elgg",
+    "type": "elgg-plugin",
+    "keywords": ["elgg", "plugin", "theme"],
+    "license": "GPL-2.0",
+    "support": {
+        "source": "https://github.com/Pleio/rijkshuisstijl",
+        "issues": "https://github.com/Pleio/rijkshuisstijl/issues"
+    },
+    "require": {
+        "composer/installers": "^1.0.8"
+    }
+}
