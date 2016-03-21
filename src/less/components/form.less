@@ -1,0 +1,212 @@
+.@{namespace}-form {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  font-size: @font-size--base;
+}
+
+.@{namespace}-form__group {
+  position: relative;
+  margin-top: 2rem;
+
+  &:first-child {
+    margin-top: 2rem;
+  }
+
+  .@{namespace}-form__group--euro {
+
+  }
+}
+
+.@{namespace}-form__label {
+  font-size: 1.8rem;
+  display: block;
+
+  a {
+    .link()
+  }
+}
+
+.@{namespace}-form__label-text {
+  display: block;
+  padding: 0 0 0.38rem 0;
+  font-family: @font--bold;
+  line-height: @line-height--medium;
+
+  a {
+    color: @color-quaternary;
+    text-decoration: none;
+  }
+}
+
+.@{namespace}-form__label--medium-bottom-padding {
+  padding-bottom: 0.6rem;
+}
+
+.@{namespace}-form__label--large-bottom-padding {
+  padding-bottom: 0.8rem;
+}
+
+.@{namespace}-form__label-text--hidden {
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+}
+
+.@{namespace}-form__label-message {
+  display: block;
+  padding: 0.6rem 0 0 0;
+  color: @color-alert;
+  font-size: @font-size--medium;
+  line-height: @line-height--extra-small;
+}
+
+.@{namespace}-form__label-message--above-input {
+  padding-top: 0;
+  padding-bottom: 0.6rem;
+}
+
+.@{namespace}-form__label-message--inline {
+  display: inline;
+  padding-top: 0;
+  padding-left: 0.5rem;
+}
+
+.@{namespace}-form__label-message--problem {
+  color: @color-error;
+}
+
+.@{namespace}-form__label-extra-info { // Under the form element (such as a __input)
+  display: block;
+  padding: 0.75rem 0 0 0;
+  color: @color-grey--60;
+  font-size: @font-size--medium;
+  line-height: @line-height--medium;
+}
+
+.@{namespace}-form__input {
+  width: 100%;
+  font-size: 1.8rem;
+  line-height: 2.2rem;
+  border: 0.1rem solid @color-grey--50;
+  padding: 1.1rem 1rem 1.1rem 1.25rem;
+  transition: @trans-all;
+
+  &::placeholder {
+    font-size: 1.8rem;
+    line-height: 2.4rem;
+    color: @color-grey--60;
+  }
+
+  label.__problem & {
+    border-color: @color-error;
+  }
+
+  &.@{namespace}-form__input--euro {
+    padding-left: 3rem;
+  }
+
+  &:hover {
+    border-color: @color-quaternary;
+  }
+
+  &:focus,
+  &:active {
+    border-color: @color-quaternary;
+  }
+
+  &.error {
+    border: 0.1rem solid @color-error;
+  }
+}
+
+.@{namespace}-form__input--fit {
+  padding: 0 0.5rem;
+  font-size: inherit;
+}
+
+.@{namespace}-form__input--small-right-inset {
+  padding-right: 0.4rem;
+}
+
+.@{namespace}-form-sign--euro {
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+  left: 2.4rem;
+}
+
+.@{namespace}-form__actions {
+  margin: 0;
+  padding-top: 1.5rem;
+  text-align: right;
+
+  a, button {
+    margin-left: 1.5rem;
+  }
+}
+
+.@{namespace}-form__actions--small-button-margin {
+
+  a, button {
+    margin-left: 0.75rem;
+  }
+}
+
+.@{namespace}-form__actions-block {
+  margin-left: 2rem;
+}
+
+.@{namespace}-form__under-tinymce {
+  position: absolute;
+  bottom: 2rem;
+  right: 2rem;
+}
+
+.@{namespace}-form__element {
+  margin: 0 0 1.8rem 0;
+}
+
+.@{namespace}-form__element--text {
+  font-size: @font-size--medium;
+}
+
+.@{namespace}-form__element--small-padding {
+  margin: 0 0 1rem 0;
+}
+
+.@{namespace}-form__element--no-padding {
+  margin: 0;
+}
+
+.@{namespace}-form__background {
+  margin: 0 -1rem 1rem -1rem;
+  padding: 1rem 1.5rem 0.5rem 1.5rem;
+  font-size: @font-size--medium;
+  background: @color-secondary--40;
+}
+
+////
+//// FORM - Date
+//// Consists of three input fields
+////
+
+.@{namespace}-form__date {
+  .clearfix
+}
+
+.@{namespace}-form__date__input {
+  float: left;
+}
+
+.@{namespace}-form__date__input--day {
+  width: 28%;
+}
+
+.@{namespace}-form__date__input--month {
+  width: 32%;
+  padding: 0 0.5rem;
+}
+
+.@{namespace}-form__date__input--year {
+  width: 40%;
+}

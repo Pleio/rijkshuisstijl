@@ -1,0 +1,85 @@
+.@{namespace}-article {
+  box-shadow: @box-shadow;
+  background-color: @color-white;
+  overflow: hidden;
+  position: relative;
+}
+
+.@{namespace}-article__image {
+  background-position: top left;
+  background-size: cover;
+  height: 10rem;
+
+  @media(min-width: @screen-md) {
+    min-height: 34.5rem;
+    float: left;
+    width: 50%;
+  }
+
+  @media(min-width: @screen-lg) {
+    min-height: 36.5rem;
+    width: 100%;
+  }
+}
+
+.@{namespace}-article__content {
+  padding: 3rem;
+  position: relative;
+  background-color: @color-white;
+
+  @media(min-width: @screen-md) {
+    min-height: 34.5rem;
+    float: right;
+    width: 50%;
+  }
+
+  @media(min-width: @screen-lg) {
+    min-height: 36.5rem;
+    float: right;
+    width: 33.5rem;
+    position: absolute;
+    right: 0;
+  }
+}
+
+.@{namespace}-article__title {
+  margin: 0 0 1rem 0;
+  font-size: @font-size--title-small;
+  line-height: @line-height--title-small;
+
+  @media(min-width: @screen-md) {
+    font-size: @font-size--title-normal;
+    line-height: @line-height--title-normal;
+  }
+}
+
+.@{namespace}-article__category {
+  color: @color-grey--60;
+  font-size: @font-size--medium;
+  line-height: @line-height--medium;
+
+  @media(min-width: @screen-md) {
+    font-size: @font-size--base;
+    line-height: @line-height--base;
+  }
+}
+
+.@{namespace}-article__text {
+  font-size: @font-size--medium;
+  line-height: @line-height--medium;
+  .multiline-ellipsis(@font-size--medium, @line-height--medium, 3);
+
+  @media(min-width: @screen-md) {
+    font-size: @font-size--base;
+    line-height: @line-height--base;
+    .multiline-ellipsis(@font-size--base, @line-height--base, 5);
+  }
+}
+
+.@{namespace}-article__read-more {
+  @media(min-width: @screen-md) {
+    position: absolute;
+    bottom: 3rem;
+    left: 3rem;
+  }
+}

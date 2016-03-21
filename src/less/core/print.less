@@ -1,0 +1,102 @@
+.print-header {
+  display: none;
+}
+
+@media print {
+
+  html {
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  @page {
+    size: A4;
+  }
+  @page :first {
+    margin-top: 0;
+  }
+
+  html, body {
+    width: 210mm;
+    height: auto;
+    background-color: white;
+  }
+
+  body {
+    padding: 0 25mm;
+    font-family: @font;
+    font-size: 11pt;
+    line-height: 14pt;
+  }
+
+  h2, h3, h4 {
+    font-family: @font--bold;
+    font-weight: normal;
+    font-size: 15pt;
+    line-height: 19pt;
+  }
+
+  p {
+    margin-bottom: 11pt;
+  }
+
+  /*!
+   *  Print header
+   */
+  .print-header {
+    display: block;
+    height: 78mm;
+
+    img {
+      position: relative;
+      left: 73.5mm;
+      width: 40.758mm;
+      height: auto;
+    }
+  }
+
+  /*!
+   *  Page Styling
+   */
+
+  .@{namespace}-header,
+  .@{namespace}-lead,
+  .@{namespace}-footer,
+  .@{namespace}-top-navigation,
+  .@{namespace}-main-navigation,
+  .featured-pages,
+  .content-page__share,
+  .main-articles,
+  .check-filter,
+  .results-content__controls {
+    display: none;
+  }
+
+  .content-page {
+    padding: 0 !important;
+  }
+
+  .@{namespace}-container {
+    width: auto;
+    max-width: 100%;
+  }
+
+  div[class*='@{namespace}-col-'] {
+    width: 100% !important;
+    margin: 0 !important;
+    float: none !important;
+    clear: both;
+  }
+
+  .content-page__title {
+    font-size: 24pt;
+    line-height: 30pt;
+  }
+
+}

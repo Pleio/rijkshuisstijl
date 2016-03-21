@@ -1,0 +1,97 @@
+.js-editableFields {
+    position: relative;
+}
+
+.js-editableFieldsToggle {
+    position: absolute;
+    display: block;
+    z-index: 2;
+    top: -2rem;
+    right: -2rem;
+    text-indent: -9999px;
+    cursor: pointer;
+
+    @media( min-width: @screen-md-max ) {
+        display: none;
+    }
+
+    &:after {
+        content: @icon-pencil;
+        position: absolute;
+        top: 2rem;
+        right: 2rem;
+        margin: 0 0 0 0.5rem;
+        color: @color-septenary;
+        font-family: @font--icons;
+        font-size: 2rem;
+        text-indent: 0;
+        transition: @trans-all;
+    }
+
+    &:hover:after {
+        color: @color-black;
+    }
+}
+
+.js-editableFields--toggled .js-editableFieldsToggle {
+    width: 10rem;
+    height: 10rem;
+    bottom: auto;
+    left: auto;
+
+    &:after {
+        content: @icon-cross;
+    }
+}
+
+.editable-field-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    transition: @trans-all;
+
+    &:after {
+        opacity: 0;
+        position: absolute;
+        margin: 0 0 0 0.5rem;
+        content: @icon-pencil;
+        color: @color-septenary;
+        font-family: @font--icons;
+        font-size: 70%;
+        transition: @trans-all;
+    }
+
+    &--show-on-mobile {
+        @media( max-width: @screen-md-max ) {
+            &:after {
+                color: @color-grey--50;
+                opacity: 1;
+            }
+        }
+    }
+
+    &:hover {
+        color: @color-septenary;
+        &:after {
+            opacity: 1;
+        }
+    }
+}
+
+
+
+.editable-field-link--empty {
+    color: @color-grey--50;
+
+    &:before {
+        content: '...';
+    }
+
+    &:hover {
+        color: @color-quaternary;
+
+        &:before {
+            content: 'Meteen invullen';
+        }
+    }
+}

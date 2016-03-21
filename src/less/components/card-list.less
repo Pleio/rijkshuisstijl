@@ -1,0 +1,153 @@
+.@{namespace}-card-list {
+  border-bottom: 1px solid @color-grey--60;
+  position: relative;
+  &:after {
+    content: @icon-angle-down;
+    font-family: @font--icons;
+    position: absolute;
+    right: 0.5rem;
+    top: 1rem;
+    color: @color-quaternary;
+    font-size: 1.4rem;
+  }
+  &.open {
+    &:after {
+      transform: scaleY(-1);
+    }
+  }
+
+  @media (min-width: @screen-md) {
+    padding: 3rem;
+    box-shadow: @box-shadow-big;
+    border: none;
+    margin-bottom: 2rem;
+    &:after {
+      display: none;
+    }
+  }
+  @media (min-width: @screen-md) {
+    background-color: #fff;
+  }
+}
+
+.@{namespace}-card-list__title {
+  font-size: 1.8rem;
+  line-height: 2.4rem;
+  margin: 0;
+  padding: 1rem 2rem 1rem 0;
+  @media (min-width: @screen-md) {
+    margin: 0 0 1rem;
+    padding: 0;
+    font-size: 2.4rem;
+  }
+}
+
+.@{namespace}-card-list__content {
+  display: none;
+  padding-bottom: 2.5rem;
+
+  .open & {
+    display: block;
+  }
+  @media (min-width: @screen-md) {
+    display: block;
+    padding-bottom: 0;
+  }
+}
+
+.@{namespace}-card-list__list {
+  margin: 2.5rem 0 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.@{namespace}-card-list__item {
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+  width: 100%;
+  border-bottom: 1px solid #ccc;
+  padding: 1rem 0;
+  text-decoration: none;
+  display: block;
+  &:hover {
+    .@{namespace}-card-list__text {
+      color: @color-quaternary;
+    }
+  }
+}
+
+.@{namespace}-card-list__table {
+  width: 100%;
+  position: relative;
+}
+
+.@{namespace}-card-list__text {
+  padding: 0 1rem 0 0;
+  color: @color-black;
+  transition: @trans-color, border 0.2s ease;
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+  .multiline-ellipsis(1.6rem, 2.4rem, 1);
+  @media (max-width: @screen-sm-max) {
+    display: block;
+    .multiline-ellipsis(1.6rem, 2.4rem, 1);
+    padding: 0;
+  }
+}
+
+.@{namespace}-card-list__date {
+  color: @color-septenary;
+  min-width: 5rem;
+  max-width: 6rem;
+  @media (max-width: @screen-sm-max) {
+    display: block;
+  }
+}
+
+.@{namespace}-card-list__number {
+  color: @color-grey--50;
+  padding-left: 1rem;
+  position: relative;
+  min-width: 4.6rem;
+  text-align: right;
+  span {
+    &:before {
+      content: @icon-chatbox;
+      font-family: @font--icons;
+      position: absolute;
+      margin-left: -2rem;
+    }
+  }
+  @media (max-width: @screen-sm-max) {
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 0;
+    text-align: right;
+    width: auto;
+    span {
+      &:before {
+        left: auto;
+        margin-left: -2rem;
+      }
+    }
+  }
+}
+
+.@{namespace}-card-list__readmore {
+  position: relative;
+  margin-top: 2.5rem;
+  .@{namespace}-read-more__icon {
+    transform: none;
+    margin-left: -2.8rem;
+  }
+  @media (max-width: @screen-sm-max) {
+    text-align: right;
+    padding-left: 0;
+    padding-right: 2.8rem;
+    .@{namespace}-read-more__icon {
+      left: auto;
+      right: 0;
+    }
+  }
+}

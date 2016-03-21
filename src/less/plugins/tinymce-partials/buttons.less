@@ -1,0 +1,65 @@
+.mce-btn {
+  background-color: @color-white !important;
+  border: none !important;
+  &:hover {
+    .mce-ico {
+      color: @color-quaternary !important;
+    }
+  }
+}
+
+.mce-btn-group .mce-btn {
+  line-height: 1;
+  top: 2px;
+}
+
+.mce-btn button {
+  background-color: #fff !important;
+  border: none;
+  padding: 0 !important;
+  margin-right: 1rem !important;
+  line-height: 2rem !important;
+
+  &:hover {
+    background-color: #fff;
+  }
+}
+
+
+#mceu_1 {
+  // Italic button
+  margin-left:0.5rem;
+}
+
+#mceu_2 {
+  //ol list button
+  margin-left:0.6rem;
+}
+
+#mceu_3 {
+  //ul list button
+  margin-top:0.1rem;
+  margin-left:1rem;
+}
+
+
+#mceu_4 {
+  // link button
+  margin-left:1rem;
+  display: none;
+  @media (min-width: @screen-md){
+    display: inline-block;
+  }
+}
+
+
+#mceu_5 {
+  //upload picture button
+  position: absolute !important;
+  right: 1rem;
+  display: none;
+  top: 1.2rem;
+  @media (min-width: @screen-md){
+    display: inline-block;
+  }
+}

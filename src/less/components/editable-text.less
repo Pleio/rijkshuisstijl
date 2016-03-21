@@ -1,0 +1,55 @@
+.@{namespace}-editable-text {
+  position: relative;
+  cursor: pointer;
+
+  &:after {
+    opacity:0;
+    content: @icon-pencil;
+    position: absolute;
+    top: -3rem;
+    right: 0;
+    margin: 0 0 0 0.5rem;
+    color: @color-septenary;
+    font-family: @font--icons;
+    font-size: 2rem;
+    text-indent: 0;
+    transition: @trans-all;
+  }
+
+  &:hover {
+    &:after {
+        opacity: 1;
+    }
+  }
+}
+
+.@{namespace}-editable-text--editing {
+  cursor: default;
+
+  &:after {
+    display: none;
+  }
+}
+
+.@{namespace}-editable-text__content {
+
+  &:hover {
+    color: @color-septenary;
+    text-decoration: underline;
+  }
+
+  .@{namespace}-editable-text--editing > & {
+    display: none;
+  }
+}
+
+.@{namespace}-editable-text__editor {
+  position: absolute;
+  top: -9999px;
+  right: 0;
+  left: 0;
+  max-width: 1000px;
+  .@{namespace}-editable-text--editing > & {
+    position: static;
+  }
+}

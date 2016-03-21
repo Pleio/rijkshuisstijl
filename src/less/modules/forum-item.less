@@ -1,0 +1,248 @@
+.@{namespace}-card-user-content {
+  padding: 2rem 0 7.2rem;
+  @media (min-width: @screen-md) {
+    padding: 4rem 0 7.2rem;
+  }
+}
+
+.@{namespace}-card-user-content__title {
+  font-size: 2.8rem;
+  line-height: 3.4rem;
+  margin: 1rem 0 1.2rem;
+  color: @color-quaternary;
+  @media (min-width: @screen-md) {
+    font-size: 3.6rem;
+    line-height: 4.4rem;
+  }
+}
+
+.@{namespace}-card-user-content__meta {
+  padding-left: 4.8rem;
+  position: relative;
+  @media (min-width: @screen-md){
+    padding-left: 4rem;
+  }
+}
+
+.@{namespace}-card-user-content__profile {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  display: inline-block;
+  position: absolute;
+  left: 0;
+  overflow: hidden;
+  img {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+  }
+  &:before {
+    content: "";
+    background-color: @color-quaternary;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+    position: absolute;
+    transition: 0.2s ease;
+    border-radius: 50%;
+  }
+  &:hover {
+    &:before {
+      opacity: 0.25;
+    }
+  }
+  @media (max-width: @screen-sm-max) {
+    width: 4rem;
+    height: 4rem;
+    top: 0.1rem;
+    img {
+      width: 4rem;
+      height: 4rem;
+    }
+  }
+}
+
+.@{namespace}-card-user-content__data {
+  display: inline-block;
+  line-height: 3.2rem;
+  font-size: 1.6rem;
+  color: @color-grey--60;
+
+  a {
+    margin-right: 0.4rem;
+    font-family: @font--bold;
+    text-decoration: none;
+    color: @color-quaternary;
+    transition: @trans-color, border 0.2s ease;
+    &:hover {
+      color: @color-septenary;
+    }
+  }
+  @media (max-width: @screen-sm-max) {
+    line-height: 2.2rem;
+    span {
+      display: block;
+    }
+  }
+}
+
+.@{namespace}-card-user-content__content {
+  margin: 2rem 0;
+  text-decoration: none;
+  display: block;
+  color: @color-black;
+
+  @media (min-width: @screen-md) {
+    margin: 2rem 0 4rem;
+  }
+  &.editable {
+    @media (min-width: @screen-lg) {
+      cursor: pointer;
+      > * {
+        display: inline !important;
+        border-bottom: 0.1rem dotted transparent;
+        &:after {
+          content: "";
+          display: block;
+          height: 2rem;
+        }
+        &:last-child {
+          &:after {
+            display: inline-block;
+            content: @icon-pencil;
+            font-size: 1.3rem;
+            font-family: @font--icons;
+            opacity: 0;
+            visibility: hidden;
+            position: absolute;
+            margin-left: 0.5rem;
+          }
+        }
+      }
+
+      &:hover {
+        > * {
+          color: @color-septenary;
+          border-bottom: 0.1rem dotted @color-quaternary;
+          &:last-child {
+            &:after {
+              visibility: visible;
+              opacity: 1;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.@{namespace}-card-user-content__options {
+  padding-top: 5rem;
+  position: relative;
+  @media (min-width: @screen-md) {
+    padding-top: 0;
+  }
+}
+
+.@{namespace}-card-user-content__button {
+  @media (min-width: @screen-md) {
+    float: left;
+  }
+}
+
+.@{namespace}-card-user-content__mobile-top {
+  position: absolute;
+  top: 0;
+  @media (min-width: @screen-md) {
+    position: relative;
+    top: auto;
+    display: inline-block;
+  }
+}
+
+.@{namespace}-card-user-content__views {
+  display: inline-block;
+  color: @color-grey--50;
+  position: relative;
+  padding-left: 1.9rem;
+  font-size: 1.6rem;
+  &:before {
+    position: absolute;
+    left: 0;
+    content: @icon-eye;
+    font-family: @font--icons;
+  }
+  @media (min-width: @screen-md) {
+    margin-left: 1.5rem;
+  }
+}
+
+.@{namespace}-card-user-content__follow {
+  display: inline-block;
+  font-size: 1.6rem;
+  color: @color-grey--50;
+  margin-left: 1.5rem;
+  position: relative;
+  text-decoration: none;
+  padding-left: 2rem;
+  &:before {
+    left: 0;
+    position: absolute;
+    content: @icon-chat-boxes;
+    font-family: @font--icons;
+  }
+  &:hover {
+    color: @color-quaternary;
+  }
+}
+
+.@{namespace}-card-user-content__amount {
+  position: relative;
+  padding-left: 2.5rem;
+  display: block;
+  text-decoration: none;
+  color: @color-grey--80;
+  font-family: @font--bold;
+  line-height: 2.2rem;
+  font-size: 1.6rem;
+  margin-top: 3rem;
+  &:before {
+    content: @icon-chatbox;
+    font-family: @font--icons;
+    position: absolute;
+    left: 0;
+    color: @color-quaternary;
+  }
+  @media (min-width: @screen-md) {
+    display: block;
+    line-height: 2.4rem;
+    font-size: 1.8rem;
+    margin-top: 4rem;
+  }
+}
+
+.card-user-content__edit-btn {
+  display: block;
+  position: absolute;
+  right: 2rem;
+  text-decoration: none;
+  color: @color-septenary;
+  top:0.5rem;
+
+  &:before {
+    content: @icon-pencil;
+    font-family: @font--icons;
+    color: @color-septenary;
+  }
+  @media (min-width: @screen-md){
+    right: 2rem;
+    top:0;
+  }
+
+  @media (min-width: @screen-lg) {
+    display: none;
+  }
+}

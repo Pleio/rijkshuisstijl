@@ -1,0 +1,313 @@
+.@{namespace}-video-block {
+  display: block;
+  margin-top: 2rem;
+  box-shadow: @box-shadow-big;
+  .clearfix();
+
+  .@{namespace}-theme__section &, .@{namespace}-home__section & {
+    margin-top: 0;
+    margin-bottom: 2rem;
+  }
+}
+
+.@{namespace}-video-block__left {
+  padding: 2rem 2rem;
+  position: relative;
+  min-height: 21.2rem;
+
+  @media (min-width: @screen-md) {
+    width: 42.8%;
+    float: left;
+    display: inline-block;
+    min-height: 36.6rem;
+    padding: 2.5rem;
+    background-color: @color-white;
+    transition: background-color 0.2s ease;
+    .@{namespace}-video-block--open & {
+      background-color: @color-grey--20;
+    }
+  }
+
+  @media (min-width: @screen-lg) {
+    width: 34%;
+    padding: 3rem;
+  }
+}
+
+.@{namespace}-video-block__right {
+
+  @media (min-width: @screen-md) {
+    width: 57.2%;
+    float: right;
+    display: inline-block;
+    min-height: 36.6rem;
+    position: relative;
+  }
+
+  @media (min-width: @screen-lg) {
+    width: 66%;
+  }
+}
+
+.@{namespace}-video-block__background {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  position: relative;
+  height: 14.8rem;
+
+  @media (min-width: @screen-md) {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: auto;
+  }
+}
+
+.@{namespace}-video-block__play {
+  text-decoration: none;
+  position: absolute;
+  background-color: @color-white;
+  border-radius: 50%;
+  width: 6rem;
+  height: 6rem;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: @box-shadow-big;
+  display: block;
+  text-align: center;
+  line-height: 6rem !important;
+  color: @color-tertiary;
+  font-size: 3rem;
+  transition: all 0.2s ease;
+
+  .@{namespace}-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-42%, -50%);
+  }
+
+  &:hover {
+    background-color: @color-tertiary;
+    color: @color-white;
+  }
+}
+
+.@{namespace}-video-block__date {
+  color: @color-quaternary;
+  font-size: 1.6rem;
+  line-height: 2.2rem;
+  @media (min-width: @screen-md) {
+    font-size: 1.8rem;
+    line-height: 2.8rem;
+  }
+}
+
+.@{namespace}-video-block__subject {
+  color: @color-primary;
+  font-size: 1.6rem;
+  line-height: 2.2rem;
+  @media (min-width: @screen-md) {
+    font-size: 1.8rem;
+    line-height: 2.8rem;
+  }
+}
+
+.@{namespace}-video-block__title {
+  font-size: 2rem;
+  line-height: 2.6rem;
+  color: @color-septenary;
+  margin: 0;
+  font-family: @font--bold;
+  @media (min-width: @screen-md) {
+    font-size: 2.8rem;
+    line-height: 3.4rem;
+  }
+  .@{namespace}-video-block__menu & {
+    padding-right: 2rem;
+    margin-bottom: 1rem;
+    @media (min-width: @screen-md) {
+      display: none;
+    }
+  }
+}
+
+.@{namespace}-video-block__readmore {
+  position: absolute;
+  bottom: 2rem;
+  transition: color 0.2s ease, visibility 0.2s ease, opacity 0.2s ease;
+  .@{namespace}-read-more__icon {
+    transform: none;
+    margin-left: -2.8rem;
+  }
+
+  .@{namespace}-video-block--open & {
+    opacity: 0;
+    visibility: hidden;
+  }
+  @media (min-width: @screen-md) {
+    bottom: 3rem;
+  }
+}
+
+.@{namespace}-video-block__back {
+  opacity: 0;
+  visibility: hidden;
+  z-index: 2;
+  .@{namespace}-read-more__icon {
+    color: @color-white;
+    &:before {
+      z-index: 1;
+    }
+    &:after {
+      background-color: @color-quaternary;
+      content: "";
+      width: 1rem;
+      height: 1rem;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      transition: background-color 0.2s;
+    }
+  }
+  @media (max-width: @screen-md-max) {
+    left: 2.5rem;
+    .@{namespace}-read-more__icon {
+      color: @color-quaternary;
+      &:after {
+        background-color: @color-white;
+      }
+    }
+  }
+  .@{namespace}-video-block--open & {
+    opacity: 1;
+    visibility: visible;
+  }
+  &:hover {
+    .@{namespace}-read-more__icon {
+      &:after {
+        background-color: @color-white;
+      }
+    }
+  }
+  @media (max-width: @screen-sm-max) {
+    display: none;
+  }
+}
+
+.@{namespace}-video-block__menu {
+  visibility: hidden;
+  opacity: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: @color-white;
+  z-index: 1;
+  padding: 2rem 2rem 11rem;
+  overflow: scroll;
+  transition: visibility 0.2s ease, opacity 0.2s ease;
+
+  @media (min-width: @screen-md) {
+    left: -74.7%;
+    position: absolute;
+    box-shadow: @box-shadow;
+    padding: 5rem 2.5rem 2rem;
+
+  }
+  @media (min-width: @screen-lg) {
+    left: 0;
+    padding: 5rem 2rem 2rem;
+  }
+  .@{namespace}-video-block--open & {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+.@{namespace}-video-block__item {
+  position: relative;
+  padding-top: 0.7rem;
+  padding-bottom: 0.7rem;
+  &:after {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background-color: @color-grey--60;
+    content: "";
+  }
+  @media (min-width: @screen-md) {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+}
+
+.@{namespace}-video-block__link {
+  display: block;
+  position: relative;
+  color: @color-black;
+  text-decoration: none;
+  transition: @trans-color;
+  padding-right: 2.5rem;
+  font-size: 1.6rem;
+  line-height: 2.2rem;
+  .multiline-ellipsis(1.6rem, 2.2rem, 1);
+
+  &:before {
+    content: @icon-angle-right;
+    position: absolute;
+    right: 0.7rem;
+    bottom: -1.2rem;
+    font-family: @font--icons;
+    transform: translate(0, -50%);
+    font-size: 1.1rem;
+    transition: 0.2s right ease;
+  }
+  &:hover {
+    color: @color-quaternary;
+    &:before {
+      right: 0.4rem;
+    }
+  }
+  &.visited {
+    color: @color-grey--60;
+    &:hover {
+      color: @color-quaternary;
+      &:before {
+        right: 0.4rem;
+      }
+    }
+  }
+  @media (min-width: @screen-md) {
+    font-size: 1.8rem;
+    line-height: 2.4rem;
+    .multiline-ellipsis(1.8rem, 2.4rem, 1);
+  }
+}
+
+.@{namespace}-video-block__menu-close {
+  position: absolute;
+  top: 2.4rem;
+  right: 2rem;
+  color: @color-grey--60;
+  transition: @trans-color;
+  text-decoration: none;
+  font-size: 1.4rem;
+
+  &:hover {
+    color: @color-quaternary;
+  }
+  @media (min-width: @screen-md) {
+    top: 2rem;
+    right: 2.2rem;
+  }
+}

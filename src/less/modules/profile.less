@@ -1,0 +1,171 @@
+.@{namespace}-profile__title {
+  margin: 0 0 3.5rem 0;
+  padding: 0;
+  font-size: @font-size--title-main;
+  line-height: 4.2rem;
+  color: @color-quaternary;
+}
+
+.@{namespace}-profile__actions {
+  text-align: right;
+}
+
+/////
+///// Content
+/////
+
+.@{namespace}-profile-blocks {
+  padding: 4rem 0 6rem 0;
+}
+
+///
+/// Inside content
+///
+
+.@{namespace}-profile-about {
+  padding: 2.5rem 0 0 0;
+}
+
+/////
+///// Information
+/////
+
+.@{namespace}-profile-information {
+  margin: 0;
+  .clearafter();
+
+  dt {
+    margin: 0;
+    padding: 1.5rem 0 0 0;
+
+    @media( min-width: @screen-sm-min ) {
+      width: 16rem;
+      padding: 0 0 0.65rem 0;
+      clear: both;
+      float: left;
+    }
+  }
+
+  dd {
+    margin: 0;
+    font-family: @font--bold;
+
+    @media( min-width: @screen-sm-min ) {
+      float: left;
+      position: relative;
+      padding: 0 0 0.65rem 0;
+      width: ~"calc( 100% - 16rem )";
+    }
+  }
+}
+
+.@{namespace}-profile-information__link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.@{namespace}-profile-image__examples {
+  padding: 0.5rem 0 2rem 0;
+  .clearafter();
+
+  > img {
+    float:left;
+    display:block;
+    width: 100%; max-width: 14rem;
+    height: auto; max-height: 14rem;
+    border-radius: 30rem;
+
+    &:first-child {
+      margin: 0 1rem 0 0;
+    }
+
+    &.__small {
+      width: 4rem;
+      heigth: 4rem;
+    }
+  }
+}
+
+
+.@{namespace}-profile__photo {
+  position:relative;
+  margin: 0.2rem 0 2rem 0;
+  height: 25rem;
+
+  @media( min-width: @screen-sm) {
+    margin-right: 2rem;
+  }
+}
+
+// Dropzone
+
+.@{namespace}-profile__photo-dropzone {
+  position: absolute;
+  overflow: hidden;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+  padding: 1rem;
+  border: 4px dashed @color-quaternary;
+  background: lighten(@color-quaternary, 52%);
+  border-radius: @border-radius-input;
+  transition: @trans-all;
+  cursor: pointer;
+
+  &:after {
+    content: '+ Foto uploaden';
+    position:absolute;
+    margin: -10px 0 0 0;
+    top: 50%;
+    right: 0;
+    left: 0;
+    text-align: center;
+    color: @color-quaternary;
+    font-size: 2.4rem;
+  }
+
+  > .dz-preview {
+    padding:25rem 0 0 0;
+  }
+
+  &:hover,
+  &.dz-drag-hover {
+    background: lighten(@color-quaternary, 49%);
+  }
+
+  &.dz-drag-hover {
+    background: lighten(@color-quaternary, 45%);
+  }
+}
+
+// Cropper
+
+.@{namespace}-profile__photo-upload-interactive {
+
+  .lt-ie10 & {
+    display: none;
+  }
+}
+
+.@{namespace}-profile__photo-upload-static {
+  display:none;
+
+  .lt-ie10 & {
+    display: block;
+  }
+}
+
+.@{namespace}-profile__photo-cropper {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: none;
+}
+
+.@{namespace}-profile__photo-cropper--active {
+  display: block;
+}

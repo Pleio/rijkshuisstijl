@@ -1,0 +1,84 @@
+.@{namespace}-pagination {
+  height: 4rem;
+  line-height: 4rem;
+  position: relative;
+  padding: 0 7rem 0 5.5rem;
+  overflow: hidden;
+}
+
+.@{namespace}-pagination__form {
+  float: right;
+}
+
+.@{namespace}-pagination__previous,
+.@{namespace}-pagination__next {
+  color: @color-white;
+  background-color: @color-grey--50;
+  text-decoration: none;
+  border-radius: @border-radius-button;
+  width: 4rem;
+  height: 4rem;
+  display: block;
+  text-align: center;
+  line-height: 4rem;
+  position: absolute;
+  top: 0;
+  transition: @trans-all;
+
+  &:hover {
+    background-color: @color-quaternary;
+  }
+
+  &.disabled {
+    color: @color-grey--50;
+    background-color: transparent;
+    border: 1px solid @color-grey--50;
+    cursor: default;
+    pointer-events: none;
+  }
+}
+
+.@{namespace}-pagination__previous {
+  left: 0;
+}
+.@{namespace}-pagination__next {
+  right: 0;
+}
+
+.@{namespace}-pagination__icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  .@{namespace}-pagination__previous & {
+    padding-right: 0.3rem;
+  }
+
+  .@{namespace}-pagination__next & {
+    padding-left: 0.3rem;
+  }
+}
+
+.@{namespace}-pagination__input {
+  text-align: right;
+  width: 8rem;
+  height: 4rem;
+  font-size: @font-size--medium;
+  line-height: @line-height--medium;
+  border-radius: @border-radius-input;
+  padding: 0 2rem;
+  border: 1px solid @color-grey--50;
+  margin-right: 1.5rem;
+  &:disabled {
+    background-color: transparent;
+  }
+}
+
+.@{namespace}-pagination__maximum {
+  font-size: @font-size--medium;
+
+  @media (min-width: @screen-md) {
+    font-size: @font-size--base;
+  }
+}

@@ -1,0 +1,43 @@
+.@{namespace}-bulletin {
+
+}
+
+.@{namespace}-bulletin__title {
+  position: relative;
+  color: @color-quaternary;
+  margin: 2rem 0;
+  font-size: @font-size--title-normal;
+  line-height: 3.2rem;
+
+  @media (min-width: @screen-md) {
+    color: @color-white;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
+    font-size: 5rem;
+    line-height: 5.6rem;
+    margin: 0 0 2rem;
+    position: relative;
+  }
+}
+
+.@{namespace}-bulletin__description {
+  position: relative;
+  margin:0;
+  @media (min-width: @screen-md){
+    font-size: 2.4rem;
+    line-height: 3rem;
+    color: @color-white;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
+  }
+}
+
+.@{namespace}-lead--bulletin {
+  @media (min-width: @screen-md){
+    min-height: 19.8rem;
+    padding: 4.2rem 0;
+  }
+  .@{namespace}-container {
+    @media (max-width: @screen-sm-max){
+      display: none;
+    }
+  }
+}

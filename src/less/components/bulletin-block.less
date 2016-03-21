@@ -1,0 +1,126 @@
+.@{namespace}-bulletin-block {
+  position: relative;
+  padding:3rem;
+  box-shadow: @box-shadow-big;
+  border:none;
+  margin-bottom:2rem;
+  background-color: #fff;
+  min-height: 25.5rem;
+  @media (min-width: @screen-md){
+    min-height: 28rem;
+  }
+}
+
+.@{namespace}-bulletin-block__title {
+  font-size:2.4rem;
+  line-height: 3rem;
+  margin:0;
+  padding:0;
+  @media(min-width: @screen-md) {
+    margin:0 0 1rem;
+    padding:0;
+    font-size:2.4rem;
+  }
+}
+
+.@{namespace}-bulletin-block__content {
+    display: block;
+    padding-bottom:0;
+}
+
+.@{namespace}-bulletin-block__list {
+  margin:2.5rem 0 0;
+  padding:0;
+  list-style-type: none;
+}
+
+.@{namespace}-bulletin-block__item {
+  font-size:1.6rem;
+  line-height: 2.4rem;
+  width:100%;
+  border-bottom:1px solid @color-grey--50;
+  padding:1rem 0;
+  text-decoration: none;
+  display: block;
+  &:hover {
+    .@{namespace}-bulletin-block__text, .@{namespace}-bulletin-block__date {
+      color:@color-quaternary;
+    }
+  }
+}
+
+.@{namespace}-bulletin-block__table {
+  width:100%;
+  position: relative;
+}
+
+.@{namespace}-bulletin-block__text {
+  padding:0 1rem 0 0;
+  color: @color-black;
+  transition: @trans-color, border 0.2s ease;
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+  .multiline-ellipsis(1.6rem, 2.4rem, 1);
+  @media (max-width: @screen-sm-max){
+    display: block;
+    .multiline-ellipsis(1.6rem, 2.4rem,1);
+    padding:0;
+  }
+}
+
+.@{namespace}-bulletin-block__date {
+  color: @color-septenary;
+  min-width:5rem;
+  max-width:6rem;
+  @media (max-width: @screen-sm-max){
+    display: block;
+  }
+}
+
+.@{namespace}-bulletin-block__number {
+  color: @color-grey--50;
+  padding-left:2rem;
+  position: relative;
+  min-width:4.6rem;
+  text-align: right;
+  span {
+    &:before {
+      content:@icon-chatbox;
+      font-family: @font--icons;
+      position: absolute;
+      margin-left: -2rem;
+    }
+  }
+  @media (max-width: @screen-sm-max){
+    display: block;
+    position: absolute;
+    right:0;
+    top:0;
+    text-align: right;
+    width: auto;
+    span {
+      &:before {
+        left: auto;
+        margin-left: -2rem;
+      }
+    }
+  }
+}
+
+.@{namespace}-bulletin-block__readmore {
+  position: relative;
+  margin-top:2.5rem;
+  .@{namespace}-read-more__icon {
+    transform: none;
+    margin-left:-2.8rem;
+  }
+  @media (max-width: @screen-sm-max){
+    text-align: right;
+    padding-left:0;
+    padding-right:2.8rem;
+    .@{namespace}-read-more__icon {
+      left:auto;
+      right:0;
+    }
+  }
+}

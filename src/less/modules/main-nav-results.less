@@ -1,0 +1,83 @@
+.@{namespace}-main-nav-results {
+  position: absolute;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: auto;
+  min-height: 0;
+  top: 0;
+  background-color: @color-secondary--40;
+  z-index: @lift-20;
+  opacity: 0;
+  visibility: hidden;
+  transition: visibility 0.2s, opacity 0.2s, top 0s 0.3s, height 0s 0.3s, min-height 0s 0.3s;
+  padding-top: 2.5rem;
+  bottom: 0;
+
+  &.@{namespace}-main-nav-search--open {
+    opacity: 1;
+    visibility: visible;
+    top: 12.8rem;
+    height: auto;
+    display: block;
+    min-height: 100%;
+    transition: visibility 0.2s, opacity 0.2s, top 0s 0s, height 0s 0s, min-height 0s 0s;
+    overflow-y: auto;
+    @media (min-width: @screen-sm) {
+      top: 12.8rem;
+    }
+  }
+  @media (min-width: @screen-md) {
+    padding-top: 3.5rem;
+
+    &.@{namespace}-main-nav-search--open {
+      top: 13.3rem;
+      height: auto;
+      min-height: 100%;
+      bottom: 0;
+    }
+  }
+  @media (min-width: @screen-lg) {
+    &.@{namespace}-main-nav-search--open {
+      top: 16.2rem;
+    }
+  }
+  .@{namespace}-container {
+    height: auto;
+    padding-bottom: 10rem;
+  }
+}
+
+.@{namespace}-main-nav-results__submit {
+  color: @color-septenary;
+  margin-top: 1rem;
+  position: relative;
+  padding-left: 1.3rem;
+  text-decoration: none;
+  display: inline-block;
+  transition: @trans-color;
+
+  &:before {
+    font-family: @font--icons;
+    content: @icon-angle-right;
+    position: absolute;
+    font-size: 1rem;
+    line-height: 1;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    display: block;
+    transition: @trans-all;
+    color: @color-septenary;
+  }
+
+  &:hover {
+    color: @color-quaternary;
+  }
+
+  @media (max-width: @screen-sm-max){
+    font-size:1.6rem;
+    line-height: 2.2rem;
+    margin-top:0;
+  }
+}

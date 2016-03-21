@@ -1,0 +1,61 @@
+.mce-ico {
+  color: @color-grey--60 !important;
+  transition: @trans-color;
+  font-size: 1.45rem !important;
+  text-align: center !important;
+  &:before {
+  }
+  .mce-active & {
+    color: @color-black !important;
+  }
+}
+
+.mce-i-bold {
+  &:before {
+    font-family: @font--icons;
+    content: "\e927" !important;
+  }
+}
+
+.mce-i-italic {
+  font-size: 1.4rem !important;
+  &:before {
+    font-family: @font--icons;
+    content: "\e926" !important;
+  }
+}
+
+.mce-i-numlist {
+  font-size: 1.4rem !important;
+  &:before {
+    font-family: @font--icons;
+    content: "\e925" !important;
+  }
+}
+
+.mce-i-bullist {
+  font-size: 1.3rem !important;
+  &:before {
+    font-family: @font--icons;
+    content: "\e924" !important;
+    position: absolute;
+    margin-top:-0.1rem;
+    left:0;
+  }
+}
+
+.mce-i-link {
+  font-size: 10px !important;
+  margin-left: -2px;
+  &:before {
+    font-family: @font--icons;
+    content: "\e923" !important;
+  }
+}
+
+.mce-i-image {
+  &:before {
+    font-family: @font--icons;
+    content: "\e922" !important;
+  }
+}

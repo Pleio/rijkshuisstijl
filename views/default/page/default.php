@@ -27,9 +27,10 @@ if (elgg_get_context() == 'admin') {
 $topbar = elgg_view('page/elements/topbar', $vars);
 
 // @todo: show messages
-//$messages = elgg_view('page/elements/messages', array('object' => $vars['sysmessages']));
+$messages = elgg_view('page/elements/messages', array('object' => $vars['sysmessages']));
 
 $header = elgg_view('page/elements/header', $vars);
+$main_navigation = elgg_view('page/elements/main_navigation', $vars);
 $body = elgg_view('page/elements/body', $vars);
 $footer = elgg_view('page/elements/footer', $vars);
 
@@ -46,34 +47,48 @@ $lang = get_current_language();
   <?php echo elgg_view('page/elements/head', $vars); ?>
 </head>
 <body>
-<div class="page-wrapper elgg-page elgg-page-default">
+<!-- Header set -->
+<div class="rhs-page-wrapper">
 	<div class="print-header"><img src="<?php echo rijkshuisstijl_asset("image/logo-print.png"); ?>"></div>
 	<?php if (elgg_is_logged_in()){ ?>
-		<div class="elgg-page-topbar">
-			<div class="elgg-inner">
+		<div class="rhs-top-navigation">
+			<div class="rhs-container">
 				<?php echo $topbar; ?>
 			</div>
 		</div>
 	<?php } ?>
 
-	<div class="elgg-page-messages">
-		<?php echo $messages; ?>
-	</div>
-
-	<div class="elgg-page-header">
-		<div class="elgg-inner">
+	<div class="rhs-header">
+		<div class="rhs-container">
 			<?php echo $header; ?>
 		</div>
 	</div>
-	<div class="elgg-page-body">
-		<div class="elgg-inner">
-			<?php echo $body; ?>
+
+	<div class="rhs-main-navigation-wrapper">
+		<nav class="rhs-main-navigation">
+			<div class="rhs-container">
+				<?php echo $main_navigation; ?>
+			</div>
+		</nav>
+	</div>
+
+    <div class="elgg-page-messages">
+		<?php echo $messages; ?>
+	</div>
+
+	<div class="rhs-home__content">
+		<div class="rhs-home__section">
+			<div class="rhs-container">
+				<?php echo $body; ?>
+			</div>
 		</div>
 	</div>
-	<div class="elgg-page-footer">
-		<div class="elgg-inner">
-			<?php echo $footer; ?>
-		</div>
+</div>
+
+<!-- Footer -->
+<div class="rhs-footer">
+	<div class="rhs-container">
+		<?php echo $footer; ?>
 	</div>
 </div>
 <?php echo elgg_view('page/elements/foot'); ?>

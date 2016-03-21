@@ -1,0 +1,84 @@
+.@{namespace}-content-editable,
+#content-editable {
+  font-size: @font-size--medium;
+  line-height: @line-height--medium;
+
+  @media (min-width: @screen-md) {
+    font-size: @font-size--base;
+    line-height: @line-height--base;
+  }
+
+  h2, h3 {
+    font-size: 3.6rem;
+    line-height: 4.4rem;
+    color: @color-quaternary;
+
+    @media (min-width: @screen-md) {
+      font-size: 2.8rem;
+      line-height: 3.4rem;
+    }
+  }
+
+  h4, h5 {
+    font-size: 2.8rem;
+    line-height: 3.4rem;
+
+    @media (min-width: @screen-md) {
+      font-size: 2.2rem;
+      line-height: 2.8rem;
+    }
+  }
+
+  p {
+    font-size: @font-size--medium;
+    line-height: @line-height--medium;
+
+    @media (min-width: @screen-md) {
+      font-size: @font-size--base;
+      line-height: @line-height--base;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  a {
+    font-family: @font--bold;
+    border-bottom: 1px dotted @color-quaternary;
+    text-decoration: none;
+    color: @color-quaternary;
+    transition: @trans-color, border 0.2s ease;
+
+    &:hover {
+      border-bottom: 1px dotted @color-quaternary;
+    }
+  }
+
+  strong,
+  em {
+    font-family: @font--bold;
+    font-weight: 400;
+  }
+
+  img {
+    width: 100%;
+    margin-bottom: 2rem;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+#content-editable {
+  margin: 0;
+  padding: 1.5rem 2rem !important;
+  font-size: @font-size--medium !important;
+  line-height: @line-height--medium !important;
+
+  @media (min-width: @screen-md) {
+    font-size: @font-size--base !important;
+    line-height: @line-height--base !important;
+  }
+}

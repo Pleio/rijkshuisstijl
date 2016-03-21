@@ -1,0 +1,174 @@
+.@{namespace}-button {
+  .appearance(none);
+  position: relative;
+  border: none;
+  border-radius: @border-radius-button;
+  background-color: @color-grey--60;
+  height: 4rem;
+  padding: 0.8rem 2rem;
+  font-family: @font--bold;
+  font-size: @font-size--base;
+  line-height: @line-height--base;
+  transition: color 0.2s ease, background-color 0.2s ease;
+  text-decoration: none;
+  display: inline-block;
+  color: @color-white;
+  cursor: pointer; 
+
+  &:hover,
+  &:focus {
+    background: @color-quaternary;
+  }
+
+  &:focus {
+    outline: #0079d3 dotted thin;
+    outline-offset: 0;
+  }
+}
+
+.@{namespace}-button--inline {
+  height: 4.6rem;
+  padding: 1.1rem 2rem;
+}
+
+.@{namespace}-button--full-width {
+  width: 100%;
+  text-align: center;
+  height: 4.6rem;
+  padding: 1.1rem 2rem;
+}
+
+.@{namespace}-button--check-filter {
+  background-color: @color-septenary;
+
+  &:hover,
+  &:focus  {
+    background-color: @color-white;
+    color: @color-tertiary;
+  }
+}
+
+.@{namespace}-button--control {
+  line-height: 4rem;
+  transition: @trans-all;
+  text-decoration: none;
+  display: inline-block;
+  color: @color-white;
+
+  &:hover,
+  &:focus {
+    background-color: @color-septenary;
+  }
+
+  &:disabled {
+    background-color: @color-grey--50;
+  }
+}
+
+.@{namespace}-button--color-septenary {
+  background: @color-septenary;
+  color: @color-white;
+
+  &:hover,
+  &:focus {
+    background: @color-tertiary;
+  }
+
+  &:disabled {
+    background-color: @color-grey--60;
+  }
+}
+
+.@{namespace}-button--primary {
+  background-color: @color-senary;
+  color: @color-white;
+
+  &:hover,
+  &:focus {
+    background-color: @color-septenary;
+  }
+
+  &:disabled {
+    background-color: @color-grey--50;
+  }
+}
+
+.@{namespace}-button--with-icon {
+  span {
+    margin-right: 0.7rem;
+  }
+
+  .@{namespace}-icon-print {
+    font-size: 1.3rem;
+  }
+
+  .@{namespace}-icon-pencil {
+    font-size: 1.5rem;
+  }
+}
+
+.@{namespace}-button--only-icon-on-mobile { //TODO: Leroy, even reviewen
+
+  > span {
+    display:none;
+  }
+
+  @media( max-width: @screen-sm ) { 
+    width: 4rem;
+    border-radius: 99rem;
+    text-indent: 4rem;
+
+    > span {
+      display: block;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+      text-indent: 0;
+    }
+  }
+
+}
+
+.@{namespace}-button--link {
+  color: @color-grey--80;
+  border: 0;
+  padding: 1.2rem 0 0 0;
+  background: transparent;
+  transition: @trans-color;
+  font-family: @font;
+  font-size: @font-size--base;
+  line-height: 3.4rem;
+  border-bottom: 1px solid;
+  border-radius: 0;
+
+  &:hover,
+  &:focus {
+    color: @color-black;
+    background: transparent;
+  }
+}
+
+
+.@{namespace}-button--disabled {
+  background: @color-grey--50;
+
+  &:hover,
+  &:focus {
+    background: @color-grey--50;
+  }
+}
+
+///
+/// For input(type="file")
+///
+
+.@{namespace}-button__file-upload {
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  cursor: pointer;
+}

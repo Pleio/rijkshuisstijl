@@ -8,6 +8,4 @@ $site_name = $site->name;
 $site_url = elgg_get_site_url();
 ?>
 
-<div class="header">
-  <div class="container"><a href="<?php echo $site_url; ?>" title="Terug naar home" class="header__logo"><img src="<?php echo rijkshuisstijl_asset('image/rijks_logo.png'); ?>" alt="<?php echo $site_name; ?>"></a></div>
-</div>
+<a href="<?php echo $site_url; ?>" title="Terug naar home" class="rhs-header__logo"><img src="<?php echo rijkshuisstijl_asset('image/rijks_logo.png'); ?>" alt="<?php echo $site_name; ?>"></a>

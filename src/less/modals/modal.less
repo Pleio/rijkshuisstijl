@@ -1,0 +1,116 @@
+.@{namespace}-modal {
+  opacity: 0;
+  position: fixed;
+  display: none;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  max-height: 100vh;
+  overflow: auto;
+  z-index: @lift-40;
+  transition: opacity 200ms linear;
+}
+
+.@{namespace}-modal--open {
+  opacity: 1;
+}
+
+.@{namespace}-modal__background {
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  visibility: hidden;
+  opacity:0;
+  background-color: rgba(0,0,0,0.15);
+  opacity:1;
+  visibility: visible;
+  transition: @swift-ease-out;
+}
+
+.@{namespace}-modal__box {
+  position: absolute;
+  z-index: @lift-30;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  overflow: auto;
+  box-shadow: @box-shadow-very-big;
+  background: #fff;
+
+  @media (min-width: @screen-md) {
+    max-width: 72.8rem;
+    width: 100%;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: 0 auto;
+    overflow: auto;
+  }
+
+  @media (min-width: @screen-md) and (min-height: 650px) {
+    top: 20vh;
+    bottom: auto;
+    max-height: 80vh;
+  }
+}
+
+.@{namespace}-modal__close {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 6rem;
+  height: 6rem;
+  border:0;
+  background: none;
+  color: @color-grey--60;
+  text-decoration: none;
+  text-indent: -9999px;
+  font-size: @font-size--small;
+  transition: @trans-color;
+
+  &:hover,
+  &:focus {
+    color: @color-quaternary;
+  }
+
+  &:focus {
+    outline: #0079d3 dotted thin;
+    outline-offset: 0;
+  }
+
+  &:before {
+    content: @icon-cross;
+    display: block;
+    position: absolute;
+    top: 2.5rem; right: 3rem;
+    text-indent: 0;
+    font-family: @font--icons;
+  }
+}
+
+.@{namespace}-modal__title {
+  margin: 0;
+  padding: 2rem 2rem 0 2rem;
+  font-size: @font-size--title-normal;
+  line-height: @line-height--title-normal;
+  color: @color-quaternary;
+
+  @media (min-width: @screen-md) {
+    padding: 3rem 4rem 0 4rem;
+    font-size: @font-size--title-main;
+    line-height: @line-height--title-main;
+  }
+}
+
+.@{namespace}-modal__content {
+  padding: 2.5rem 2rem 2rem 2rem;
+
+  @media( min-width: @screen-md ) {
+    padding: 2.5rem 4rem 4rem 4rem;
+  }
+}

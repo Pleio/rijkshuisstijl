@@ -1,0 +1,100 @@
+.@{namespace}-main-nav-search {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  line-height: 4rem;
+  min-height: 4rem;
+  background-color: @color-secondary;
+  opacity: 0;
+  visibility: hidden;
+  transition: visibility 0.3s ease, opacity 0.3s;
+
+  .@{namespace}-main-nav-search--open & {
+    transition: visibility 0s ease, opacity 0.3s;
+    opacity: 1;
+    visibility: visible;
+  }
+  @media (min-width: @screen-md-min) {
+    line-height: 4.5rem;
+  }
+}
+
+.@{namespace}-main-nav-search__input {
+  width: 100%;
+  border: none;
+  background-color: transparent;
+  position: absolute;
+  left: 0;
+  height: 4rem;
+  font-family: @font--bold;
+  padding: 1rem 10rem 1rem 4rem;
+  color: @color-septenary;
+  line-height: 2rem;
+
+  @media (min-width: @screen-md-min) {
+    height: 4.5rem;
+  }
+  @media (max-width: @screen-sm-max){
+    font-size:1.4rem;
+  }
+}
+
+.@{namespace}-main-nav-search__label {
+  font-size: 1.3rem;
+  line-height: 1;
+  color: @color-septenary;
+  position: absolute;
+  top: 50%;
+  left: 2rem;
+  transform: translateY(-50%);
+}
+
+.@{namespace}-main-nav-search__close {
+  float: right;
+  position: relative;
+  z-index: @lift-100;
+  display: block;
+  font-size: 1.8rem;
+  padding: 0.2rem 2rem 0 2rem;
+  line-height: 3.8rem;
+  color: @color-septenary;
+  font-family: "ROsanswebtext_bold", sans-serif;
+  text-decoration: none;
+  transition: color 0.2s;
+  text-indent: -9999px;
+
+  &:before {
+    font-family: @font--icons;
+    content: @icon-cross;
+    position: absolute;
+    font-size: 1.2rem;
+    line-height: 1;
+    top: 50%;
+    right: 1rem;
+    transform: translateY(-50%);
+    display: block;
+    color: @color-septenary;
+    text-indent: 0;
+
+    @media (min-width: @screen-sm) {
+      display: none;
+    }
+  }
+
+  @media (min-width: @screen-sm) {
+    padding: 0 2rem;
+    text-indent: 0;
+  }
+  @media (min-width: @screen-md) {
+    line-height: 4.3rem;
+    padding:0.2rem 1rem 0 2rem;
+  }
+  &:hover {
+    color: @color-tertiary;
+  }
+}
+
+.@{namespace}-main-nav-search__container {
+  position: relative;
+}

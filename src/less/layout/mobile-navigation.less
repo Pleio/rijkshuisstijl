@@ -1,0 +1,202 @@
+.@{namespace}-mobile-navigation {
+
+  @media (max-width: @screen-md-max) {
+    position: fixed;
+    top: 0;
+    height: 100%;
+    width: 90%;
+    left: 0;
+    min-width: 30rem;
+    max-width: 35rem;
+    transform: translate(-100%, 0) translateZ(0);
+    z-index: 999;
+    background-color: @color-white;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    padding-top: 5.2rem;
+    transition: transform 0.3s, box-shadow 0.3s;
+
+    .mobile-menu--open & {
+      left: 0;
+      box-shadow: @box-shadow-very-big;
+      transform: translate(0%, 0) translateZ(0);
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+  @media (max-width: @screen-sm) {
+    overflow-y: auto;
+  }
+  @media (min-width: @screen-lg) {
+    opacity: 1;
+    visibility: visible;
+    position: relative;
+    display: inline;
+    top: auto;
+    left: auto;
+    bottom: auto;
+    width: auto;
+    transform: translate(-100%, 0);
+    transition: none;
+    z-index: 0;
+    .mobile-menu--open & {
+      transition: 0s;
+      transform: none;
+      left: auto;
+      position: relative;
+    }
+  }
+}
+
+.@{namespace}-mobile-navigation-bar {
+  background-color: @color-primary;
+  min-height: 4rem;
+  position: relative;
+  width: 5rem;
+  transition: opacity 0.2s ease, visibility 0.2s ease;
+  @media (min-width: @screen-lg) {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+.@{namespace}-mobile-navigation-bar__trigger {
+  float: left;
+  position: absolute;
+  left: 0;
+  line-height: 4rem;
+  padding: 0 2rem;
+  background-color: @color-secondary;
+  min-width: 4rem;
+  height: 4rem;
+  overflow: hidden;
+  cursor: pointer;
+
+  .@{namespace}-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1rem;
+  }
+  @media (min-width: @screen-sm-min) and (max-width: @screen-md-max) {
+    padding-left: 4rem;
+
+    .@{namespace}-icon {
+      left: 2rem;
+      transform: translate(0, -50%);
+    }
+  }
+  @media (min-width: @screen-md) and (max-width: @screen-md-max) {
+    height: 4.6rem;
+    line-height: 4.6rem;
+  }
+  @media (min-width: @screen-lg) {
+    display: none
+  }
+
+}
+
+.@{namespace}-mobile-navigation-bar__span {
+  display: none;
+  line-height: 4.2rem;
+  font-family: @font--bold;
+  @media (min-width: @screen-sm-min) and (max-width: @screen-md-max) {
+    display: block;
+  }
+  @media (min-width: @screen-md) and (max-width: @screen-lg) {
+    line-height: 4.7rem;
+  }
+}
+
+.@{namespace}-mobile-navigation__close {
+  display: none;
+  position: absolute;
+  top: 1.6rem;
+  right: 2rem;
+  cursor: pointer;
+  font-size: 1.4rem;
+  color: @color-grey--60;
+  @media (max-width: @screen-md-max) {
+    display: block;
+  }
+}
+
+.@{namespace}-mobile-navigation__search {
+  height: 4rem;
+  line-height: 2rem;
+  padding: 0.5rem 2rem;
+  position: relative;
+  background-color: @color-secondary;
+  margin-bottom: 1rem;
+  @media (min-width: @screen-lg) {
+    display: none;
+  }
+  input {
+    background-color: transparent;
+    border: none;
+    width: 100%;
+    line-height: 1.2;
+    padding: 0.5rem 0 0 2.5rem;
+  }
+  label {
+    top: 55%;
+    transform: translate(0, -50%);
+    position: absolute;
+    font-size: 1.7rem;
+    color: @color-septenary;
+  }
+  ::-webkit-input-placeholder {
+    /* Safari, Chrome and Opera */
+    color: @color-primary;
+    font-family: @font--bold;
+  }
+
+  :-moz-placeholder {
+    /* Firefox 18- */
+    color: @color-primary;
+    font-family: @font--bold;
+  }
+
+  ::-moz-placeholder {
+    /* Firefox 19+ */
+    color: @color-primary;
+    font-family: @font--bold;
+  }
+
+  :-ms-input-placeholder {
+    /* IE 10+ */
+    color: @color-primary;
+    font-family: @font--bold;
+  }
+
+  :-ms-input-placeholder {
+    /* Edge */
+    color: @color-primary;
+    font-family: @font--bold;
+  }
+}
+
+
+.@{namespace}-mobile-navigation__profile {
+  img {
+    max-width: 2rem;
+    border-radius: 50%;
+    position: absolute;
+    left:2rem;
+    top:50%;
+    transform: translate(0,-50%);
+  }
+  font-size: 1.6rem;
+  line-height: 3rem;
+  padding:0 2rem 0 4.5rem;
+  position: relative;
+  margin-bottom:1rem;
+  display: block;
+  text-decoration: none;
+  color: @color-black;
+
+  @media (min-width: @screen-lg){
+    display: none;
+  }
+}

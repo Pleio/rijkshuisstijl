@@ -1,0 +1,72 @@
+.@{namespace}-video-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  display: none;
+  z-index: @lift-max;
+}
+
+.@{namespace}-video-modal__box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 98.4rem;
+  height: 55.3rem;
+  z-index: @lift-max;
+  @media (max-width: @screen-sm-max){
+    width: 70%;
+    height: 20rem;
+  }
+}
+
+.@{namespace}-video-modal__box iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.@{namespace}-video-modal__overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: @lift-100;
+}
+
+.@{namespace}-video-modal__close {
+  background-color: @color-white;
+  color: @color-black;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  transform: translate(50%, -50%);
+  z-index: @lift-max;
+  cursor: pointer;
+  display: block;
+
+  &:before {
+    font-family: @font--icons;
+    content: @icon-cross;
+    font-size: 1.3rem;
+    text-align: center;
+    line-height: 3.1rem;
+    display: block;
+    color: @color-black;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: @lift-10;
+    width: 3rem;
+    height: 3rem;
+  }
+}

@@ -1,0 +1,33 @@
+.@{namespace}-breadcrumbs {
+  font-size:1.6rem;
+  line-height: 2.2rem;
+  a {
+    text-decoration: none;
+    color: @color-grey--60;
+    margin-left: 2.5rem;
+    position: relative;
+    transition: @trans-color;
+    &:before {
+      content: @icon-angle-right;
+      font-family: @font--icons;
+      color: @color-grey--60 !important;
+      position: absolute;
+      transform: translate(-50%, 5%);
+      margin-left: -1.4rem;
+      font-size: 1rem;
+      pointer-events: none;
+    }
+    &:hover {
+      color: @color-septenary;
+      &:before {
+        color: @color-grey--60;
+      }
+    }
+    &:first-child {
+      margin-left:0;
+      &:before {
+        display: none;
+      }
+    }
+  }
+}

@@ -1,0 +1,63 @@
+.@{namespace}-checkbox-switch {
+  display: block;
+  padding-top: 0.4rem;
+  padding-bottom: 0.6rem;
+  padding-left: 4.4rem;
+  position: relative;
+  cursor: pointer;
+
+  a {
+    .link()
+  }
+}
+
+.@{namespace}-checkbox-switch__placeholder {
+  width: 3.7rem;
+  height: 2rem;
+  position: absolute;
+  display: block;
+  left: 0;
+  top: 0.5rem;
+  border: 0;
+  border-radius: 1rem;
+  background-color: @color-grey--50;
+  transition: @trans-all;
+
+  .chosen & {
+    background-color: @color-quaternary;
+  }
+
+  &:after {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 2.2rem;
+    height: 2.2rem;
+    top:-0.1rem;
+    left:-0.1rem;
+    border-radius: 50%;
+    background-color: @color-white;
+    border: 1px solid @color-grey--50;
+    transition: @trans-all;
+
+    .chosen > & {
+      left:1.6rem;
+      border-color: @color-quaternary;
+    }
+
+    .focus > & {
+      border-color: @color-quaternary;
+    }
+
+    .chosen.focus > & {
+      border-color: @color-black;
+    }
+  }
+}
+
+.@{namespace}-checkbox-switch__input {
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+}

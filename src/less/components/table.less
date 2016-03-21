@@ -1,0 +1,36 @@
+.@{namespace}-table {
+  width: 100%;
+  max-width: 40rem;
+  font-size: @font-size--medium;
+  line-height: 3.2rem;
+  margin-bottom: 3rem;
+
+  @media(min-width: @screen-sm) {
+    font-size: @font-size--base;
+  }
+}
+
+.@{namespace}-table th {
+  font-family: @font;
+  font-weight: normal;
+  text-align: left;
+}
+
+.@{namespace}-table td {
+  border-top: 1px dotted @color-black;
+  font-family: @font--bold;
+
+  &:first-child {
+    width: 75%;
+    font-family: @font;
+
+    @media(@screen-sm) {
+      width: 55%;
+    }
+  }
+}
+
+.@{namespace}-table tr:last-child td {
+  color: @color-quinary;
+  border-top: 1px dotted @color-quinary;
+}

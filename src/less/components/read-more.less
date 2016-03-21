@@ -1,0 +1,39 @@
+.@{namespace}-read-more {
+  text-decoration: none;
+  color: @color-black;
+  display: block;
+  line-height: @line-height--medium;
+  font-family: @font--bold;
+  padding-left:2.8rem;
+  position: relative;
+  font-size:1.4rem;
+  @media (min-width: @screen-sm){
+    font-size: @font-size--medium;
+  }
+
+}
+
+.@{namespace}-read-more__icon {
+  position: absolute;
+  color: @color-quaternary;
+  border-radius: 50%;
+  text-align: center;
+  width: 2rem;
+  height: 2rem;
+  display: inline-block;
+  top: 0;
+  margin-left: -3rem;
+  transition: color 0.2s, background-color 0.2s;
+  font-size:2rem;
+
+  &:before {
+    position: absolute;
+    top:51%;
+    left:50%;
+    transform:translate(-50%,-50%);
+  }
+
+  .@{namespace}-read-more:hover & {
+    color: @color-tertiary;
+  }
+}

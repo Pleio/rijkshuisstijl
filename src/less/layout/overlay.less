@@ -1,0 +1,27 @@
+.@{namespace}-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.2s ease;
+  background-color: rgba(0,0,0,0.15);
+  z-index: @lift-30;
+
+  @media (max-width: @screen-md-max){
+    .mobile-menu--open & {
+      opacity:1;
+      visibility: visible;
+    }
+  }
+  .@{namespace}-question-modal--open & {
+    opacity:1;
+    visibility: visible;
+  }
+  .modal--open & {
+    opacity:1;
+    visibility: visible;
+  }
+}

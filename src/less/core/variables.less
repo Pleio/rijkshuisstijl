@@ -1,0 +1,251 @@
+// Namespacing
+// -------------------------------
+
+@namespace:                     rhs;
+
+
+
+// Colors
+// -------------------------------
+
+@belastingdienst--1:            #8FCAE7;
+@belastingdienst--2:            #DDEFF8;
+@belastingdienst--3:            #154273;
+@belastingdienst--4:            #009ee3;
+@belastingdienst--5:            #0E6999;
+@belastingdienst--6:            #1AA0E0;
+@belastingdienst--7:            #01689b;
+@belastingdienst--8:            #EEF7FB;
+@belastingdienst--9:            #F2F9FC;
+
+
+@douane:                        #76D2B6;
+@douane-2:                      #D6F1E9;
+
+@szw:                           #C80E5E;
+@szw-2:                         #92104C;
+
+// Blacks & Whites
+@color-black:                   #000;
+@color-white:                   #fff;
+
+// GREYS
+@color-grey--10:                #000;
+@color-grey--20:                #F3F3F3;
+@color-grey--30:                #000;
+@color-grey--40:                #E6E6E6;
+@color-grey--50:                #CCCCCC;
+@color-grey--60:                #B4B4B4;
+@color-grey--70:                #000;
+@color-grey--80:                #535353;
+@color-grey--90:                #000;
+@color-grey--100:               #000;
+
+@color-grey:                    @color-grey--50;
+
+
+
+
+
+//BASE COLORS
+@color-primary:                 @belastingdienst--1;
+@color-secondary:               @belastingdienst--2;
+@color-secondary--40:           tint(@belastingdienst--2, 60%);
+@color-tertiary:                @belastingdienst--3;
+@color-quaternary:              @belastingdienst--4;
+@color-quinary:                 @belastingdienst--5;
+@color-senary:                  @belastingdienst--6;
+@color-septenary:               @belastingdienst--7;
+@color-octanary:                fadeout(@color-secondary, 40%);
+@color-nonary:                  @belastingdienst--8;
+
+@color-link:                    @belastingdienst--4;
+
+@color-body:                    #F9F9F9;
+@color-input:                   @color-black;
+@color-placeholder:             @color-grey;
+
+
+@color-main-navigation:         @color-primary;
+@color-main-navigation-active:  @color-secondary;
+@color-main-navigation-hover:   fadeout(@color-secondary, 50%);
+
+//STATE COLORS
+@color-error:                   #d52b1e;
+@color-success:                 #73b62a;
+@color-alert:                   #e17000;
+@color-attention:               #a90061;
+
+//GENERAL COLORS
+@color-orange:                  #f8b007;
+@color-green:                   #7cb928;
+
+//SHARE COLORS
+@color-twitter:                 #55acee;
+@color-facebook:                #3664a2;
+@color-google-plus:             #db4f3f;
+@color-linked-in:               #0073b2;
+@color-mailto:                  #535353;
+
+
+
+
+// Fonts
+// -------------------------------
+
+
+@font:                            "ROsanswebtext_regular", sans-serif;
+@font--bold:                      "ROsanswebtext_bold", sans-serif;
+@font--italic:                    "ROsanswebtext_italic", sans-serif;
+@font--icons:                     "pleio";
+
+@heading:                         "ROsanswebtext_bold", sans-serif;
+@heading--bold:                   "ROsanswebtext_bold", sans-serif;
+@heading--italic:                 "ROsanswebtext_italic", sans-serif;
+
+@font-primary:                    @font;
+
+@font-size--base:                  1.8rem;
+@font-size--extra-small:           1.2rem;
+@font-size--small:                 1.4rem;
+@font-size--medium:                1.6rem;
+@font-size--large:                 2.0rem;
+@font-size--button:                2.2rem;
+
+@font-size--title-main:            3.6rem;
+@font-size--title-normal:          2.8rem;
+@font-size--title-small:           2.4rem;
+
+@font-weight--light:               300;
+@font-weight--normal:              400;
+@font-weight--bold:                700;
+
+@line-height--addition:            0.6rem;
+@line-height--base:                @font-size--base + @line-height--addition;
+@line-height--extra-small:         @font-size--extra-small + @line-height--addition;
+@line-height--small:               @font-size--small + @line-height--addition;
+@line-height--medium:              @font-size--medium + @line-height--addition;
+@line-height--large:               @font-size--large + @line-height--addition;
+
+@line-height--title-main:          @font-size--title-main + @line-height--addition;
+@line-height--title-normal:        @font-size--title-normal + @line-height--addition;
+@line-height--title-small:         @font-size--title-small + @line-height--addition;
+
+
+
+
+// Borders
+// -------------------------------
+@border-grey: 1px solid @color-grey;
+@border-white: 1px solid @color-white;
+@border-primary: 1px solid @color-primary;
+@border-secondary: 1px solid @color-secondary;
+
+// Border radius
+// -------------------------------
+@border-radius-base:              0;
+@border-radius-button:            0.5rem;
+@border-radius-input:             0.5rem;
+
+
+// Box shadows
+// -------------------------------
+@box-shadow:                      0 2px 4px 0 rgba(0, 0, 0, 0.2);
+@box-shadow--negative:            0 2px 8px 0 rgba(0, 0, 0, 0.2);
+@box-shadow--50:                  0 2px 4px 0 rgba(0, 0, 0, 0.5);
+@box-shadow--inset:               0 2px 4px 0 rgba(0, 0, 0, 0.15) inset;
+@box-shadow-big:                  0 2px 10px 0 rgba(0, 0, 0, 0.25);
+@box-shadow-big--no-shift:        0 0 5px 0 rgba(0, 0, 0, 0.25);
+@box-shadow-very-big:             0 0 10px 0 rgba(0, 0, 0, 0.24);
+@box-shadow-big--inset:           0 0 10px 0 rgba(0, 0, 0, 0.23) inset;
+
+@box-shadow-input--inset:         0 1px 4px 0 rgba(0, 0, 0, 0.22) inset;
+
+// Text shadows
+// -------------------------------
+@text-shadow:                     0 2px 5px rgba(0, 0, 0, 0.25);
+
+// Z-indexes
+// -------------------------------
+@lift-10:                         10;
+@lift-20:                         20;
+@lift-30:                         30;
+@lift-40:                         40;
+@lift-50:                         50;
+@lift-60:                         60;
+@lift-70:                         70;
+@lift-80:                         80;
+@lift-90:                         90;
+@lift-100:                        100;
+@lift-max:                        9999;
+
+@z-mainnav:                       @lift-10;
+@z-lead:                          @lift-20;
+
+// Transitions
+// -------------------------------
+@swift-ease-out-duration:           0.3s;
+@swift-ease-out-timing-function:    cubic-bezier(0.25, 0.95, 0.25, 1);
+@swift-ease-out:                    all @swift-ease-out-duration @swift-ease-out-timing-function;
+
+@swift-ease-in-duration:            0.3s;
+@swift-ease-in-timing-function:     cubic-bezier(0.55, 0, 0.55, 0.2);
+@swift-ease-in:                     all @swift-ease-in-duration @swift-ease-in-timing-function;
+
+@swift-ease-in-out-duration:        0.5s;
+@swift-ease-in-out-timing-function: cubic-bezier(0.35, 0, 0.25, 1);
+@swift-ease-in-out:                 all @swift-ease-in-out-duration @swift-ease-in-out-timing-function;
+
+
+@trans-all:                          all 0.2s ease;
+@trans-color:                        color 0.2s ease;
+
+
+// ICONS
+@icon-building: "\e929";
+@icon-log-out: "\e92a";
+@icon-star: "\e928";
+@icon-featured: "\e928";
+@icon-edit-pic: "\e922";
+@icon-edit-link: "\e923";
+@icon-edit-ul: "\e924";
+@icon-edit-ol: "\e925";
+@icon-edit-italic: "\e926";
+@icon-edit-bold: "\e927";
+@icon-hammer: "\e921";
+@icon-jurisprudentie: "\e921";
+@icon-mobile-menu: "\e920";
+@icon-angle-left: "\e900";
+@icon-angle-right: "\e901";
+@icon-angle-up: "\e902";
+@icon-angle-down: "\e903";
+@icon-pencil: "\e904";
+@icon-camera: "\e905";
+@icon-eye: "\e906";
+@icon-chatbox: "\e907";
+@icon-community: "\e908";
+@icon-chat-boxes: "\e909";
+@icon-arrow-right-circle: "\e90a";
+@icon-arrow-right: "\e90b";
+@icon-checkmark-circle: "\e90c";
+@icon-chevron-down: "\e90d";
+@icon-chevron-left: "\e90e";
+@icon-chevron-right: "\e90f";
+@icon-chevron-up: "\e910";
+@icon-cross: "\e911";
+@icon-download: "\e912";
+@icon-envelope: "\e913";
+@icon-facebook: "\e914";
+@icon-flip-circle: "\e915";
+@icon-flip: "\e916";
+@icon-google-plus: "\e917";
+@icon-help: "\e918";
+@icon-linked-in: "\e919";
+@icon-play: "\e91a";
+@icon-print: "\e91b";
+@icon-question-mark: "\e91c";
+@icon-search: "\e91d";
+@icon-share: "\e91e";
+@icon-twitter: "\e91f";
+@icon-trashcan: "\e911"; //TODO: Leroy, please add trashcan icon (profile logout)
+

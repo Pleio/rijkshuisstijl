@@ -1,7 +1,7 @@
 <?php
 
 function rijkshuisstijl_asset($asset) {
-    return '/mod/rijkshuisstijl/assets/' . $asset;
+    return '/mod/rijkshuisstijl/dist/' . $asset;
 }
 
 ?>
