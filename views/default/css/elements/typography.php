@@ -36,13 +36,11 @@
 	color: #666666;
 	font-size: 85%;
 	line-height: 1.2em;
-	font-style: italic;
 }
 
 .elgg-text-help {
 	display: block;
 	font-size: 85%;
-	font-style: italic;
 }
 
 .elgg-quiet {
