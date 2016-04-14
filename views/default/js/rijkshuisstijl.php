@@ -16745,10 +16745,32 @@ return jQuery;
 })();
 
 jQuery(document).ready(function () {
-	jQuery('.elgg-input-radio').parent().attr('class', 'elgg-input-radio-label');
-	jQuery('.elgg-input-radio').after('<span class="elgg-input-radio-placeholder"></span>');
+	var radioElements = jQuery('.elgg-input-radio');
+	radioElements.parent().attr('class', 'elgg-input-radio-label');
+	radioElements.after('<span class="elgg-input-radio-placeholder"></span>');
 	jQuery('.elgg-input-radio-placeholder').click(function () {
-		jQuery('.elgg-input-radio').attr('checked', false);
+		var selector = '.elgg-input-radio[name=' + jQuery(this).prev().attr('name')+ ']';
+		jQuery(selector).attr('checked', false);
+		jQuery(selector).parent().attr('class', 'elgg-input-radio-label');
 		jQuery(this).prev().attr('checked', true);
+		jQuery(this).parent().attr('class', 'elgg-input-radio-label chosen');
+	});
+
+	var checkBoxElements = jQuery('.elgg-input-checkbox');
+	checkBoxElements.parent().attr('class', 'elgg-input-checkbox-label');
+	checkBoxElements.after('<span class="elgg-input-checkbox-placeholder"></span>');
+	jQuery('.elgg-input-checkbox-placeholder').click(function () {
+		var inputNode = jQuery(this).prev();
+		var checked = inputNode.attr('checked');
+		if (checked)
+		{
+			inputNode.attr('checked', false);
+			jQuery(this).parent().attr('class', 'elgg-input-checkbox-label');
+		}
+		else
+		{
+			inputNode.attr('checked', true);
+			jQuery(this).parent().attr('class', 'elgg-input-checkbox-label chosen');
+		}
 	});
 });

@@ -439,3 +439,76 @@ input[type="radio"] {
           box-sizing: border-box;
   padding: 0;
 }
+
+.elgg-input-checkbox-label {
+  display: block;
+  padding-left: 2.4rem;
+  padding-bottom: 0.6rem;
+  position: relative;
+  cursor: pointer;
+}
+.elgg-input-checkbox-label a {
+  font-family: "ROsanswebtext_bold", sans-serif;
+  border-bottom: 1px dotted #009ee3;
+  text-decoration: none;
+  color: #009ee3;
+  -webkit-transition: color 0.2s ease, border 0.2s ease;
+       -o-transition: color 0.2s ease, border 0.2s ease;
+          transition: color 0.2s ease, border 0.2s ease;
+}
+.elgg-input-checkbox-label a:hover {
+  border-bottom: 1px dotted #009ee3;
+}
+.elgg-input-checkbox-floated {
+  float: left;
+  margin-right: 3rem;
+}
+.elgg-input-checkbox-placeholder {
+  width: 1.6rem;
+  height: 1.6rem;
+  position: absolute;
+  left: 0;
+  top: 0.4rem;
+  background-color: #fff;
+  border: 2px solid #B4B4B4;
+  border-radius: 0.4rem;
+  -webkit-transition: all 0.2s ease;
+       -o-transition: all 0.2s ease;
+          transition: all 0.2s ease;
+}
+.focus > .elgg-input-checkbox-placeholder {
+  border-color: #01689b;
+}
+.elgg-input-checkbox-placeholder:after {
+  content: "\e92b";
+  position: absolute;
+  top: 53%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+       -o-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  font-size: 1.2rem;
+  color: transparent;
+  -webkit-transition: all 0.2s ease;
+       -o-transition: all 0.2s ease;
+          transition: all 0.2s ease;
+  font-family: "pleio";
+}
+:hover > .elgg-input-checkbox-placeholder:after {
+  color: #CCCCCC;
+}
+.chosen > .elgg-input-checkbox-placeholder:after {
+  color: #01689b;
+}
+@media (min-width: 1681px) {
+  .elgg-input-checkbox-placeholder:after {
+    top: 55%;
+  }
+}
+.elgg-input-checkbox {
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
