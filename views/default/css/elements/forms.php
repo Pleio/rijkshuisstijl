@@ -512,3 +512,561 @@ input[type="radio"] {
   top: 0;
   left: 0;
 }
+
+.elgg-input-plaintext {
+	width: 100%;
+  	font-size: 1.8rem;
+  	line-height: 2.2rem;
+  	border: 0.1rem solid #CCCCCC;
+  	padding: 1.1rem 1rem 1.1rem 1.25rem;
+    -webkit-transition: all 0.2s ease;
+         -o-transition: all 0.2s ease;
+            transition: all 0.2s ease;
+}
+
+.elgg-input-plaintext:focus {
+	border-color: #009ee3;
+}
+
+.elgg-input-plaintext:hover {
+	border-color: #009ee3;
+}
+
+.elgg-input-longtext {
+	width: 100%;
+  	font-size: 1.8rem;
+  	line-height: 2.2rem;
+  	border: 0.1rem solid #CCCCCC;
+  	padding: 1.1rem 1rem 1.1rem 1.25rem;
+    -webkit-transition: all 0.2s ease;
+         -o-transition: all 0.2s ease;
+            transition: all 0.2s ease;
+}
+
+.elgg-input-longtext:focus {
+	border-color: #009ee3;
+}
+
+.elgg-input-longtext:hover {
+	border-color: #009ee3;
+}
+
+.elgg-input-user-picker {
+  	font-size: 1.8rem;
+  	line-height: 2.2rem;
+  	border: 0.1rem solid #CCCCCC;
+  	padding: 1.1rem 1rem 1.1rem 1.25rem;
+    -webkit-transition: all 0.2s ease;
+         -o-transition: all 0.2s ease;
+            transition: all 0.2s ease;
+}
+
+.elgg-input-user-picker:focus {
+	border-color: #009ee3;
+}
+
+.elgg-input-user-picker:hover {
+	border-color: #009ee3;
+}
+
+.elgg-input-date {
+  	font-size: 1.8rem;
+  	line-height: 2.2rem;
+  	border: 0.1rem solid #CCCCCC;
+  	padding: 1.1rem 1rem 1.1rem 1.25rem;
+    -webkit-transition: all 0.2s ease;
+         -o-transition: all 0.2s ease;
+            transition: all 0.2s ease;
+}
+
+.elgg-input-date:focus {
+	border-color: #009ee3;
+}
+
+.elgg-input-date:hover {
+	border-color: #009ee3;
+}
+
+.elgg-input-autocomplete {
+  	font-size: 1.8rem;
+  	line-height: 2.2rem;
+  	border: 0.1rem solid #CCCCCC;
+  	padding: 1.1rem 1rem 1.1rem 1.25rem;
+    -webkit-transition: all 0.2s ease;
+         -o-transition: all 0.2s ease;
+            transition: all 0.2s ease;
+}
+
+.elgg-input-autocomplete:focus {
+	border-color: #009ee3;
+}
+
+.elgg-input-autocomplete:hover {
+	border-color: #009ee3;
+}
+
+.elgg-input-email {
+  	font-size: 1.8rem;
+  	line-height: 2.2rem;
+  	border: 0.1rem solid #CCCCCC;
+  	padding: 1.1rem 1rem 1.1rem 1.25rem;
+    -webkit-transition: all 0.2s ease;
+         -o-transition: all 0.2s ease;
+            transition: all 0.2s ease;
+}
+
+.elgg-input-email:focus {
+	border-color: #009ee3;
+}
+
+.elgg-input-email:hover {
+	border-color: #009ee3;
+}
+
+.elgg-input-tags {
+  	font-size: 1.8rem;
+  	line-height: 2.2rem;
+  	border: 0.1rem solid #CCCCCC;
+  	padding: 1.1rem 1rem 1.1rem 1.25rem;
+    -webkit-transition: all 0.2s ease;
+         -o-transition: all 0.2s ease;
+            transition: all 0.2s ease;
+}
+
+.elgg-input-tags:focus {
+	border-color: #009ee3;
+}
+
+.elgg-input-tags:hover {
+	border-color: #009ee3;
+}
+
+.elgg-input-url {
+  	font-size: 1.8rem;
+  	line-height: 2.2rem;
+  	border: 0.1rem solid #CCCCCC;
+  	padding: 1.1rem 1rem 1.1rem 1.25rem;
+    -webkit-transition: all 0.2s ease;
+         -o-transition: all 0.2s ease;
+            transition: all 0.2s ease;
+}
+
+.elgg-input-url:focus {
+	border-color: #009ee3;
+}
+
+.elgg-input-url:hover {
+	border-color: #009ee3;
+}
+
+.elgg-input-file {
+	border: 0.1rem solid #CCCCCC;
+	padding: 1.1rem 1rem 1.1rem 1.25rem;
+	transition: all 0.2s ease;
+}
+
+.elgg-input-file:focus {
+	border-color: #009ee3;
+}
+
+.elgg-input-file:hover {
+	border-color: #009ee3;
+}
+.elgg-input-selecter {
+  position: relative;
+  display: block;
+  margin: 10px 0;
+  z-index: 1;
+  max-width: 30%;
+}
+.elgg-input-selecter:focus {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  outline: none;
+}
+.elgg-input-selecter,
+.elgg-input-selecter * {
+  -webkit-user-select: none !important;
+  -moz-user-select: none !important;
+  -ms-user-select: none !important;
+  user-select: none !important;
+}
+.elgg-input-selecter,
+.elgg-input-selecter *,
+.elgg-input-selecter *:before,
+.elgg-input-selecter *:after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.elgg-input-selecter-element {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  opacity: 0;
+  z-index: -1;
+}
+.elgg-input-selecter-element,
+.elgg-input-selecter-element:focus {
+  outline: none;
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+  -webkit-tap-highlight-color: transparent;
+}
+.no-opacity .elgg-input-selecter-element {
+  left: -999999px;
+}
+.elgg-input-selecter-selected {
+  position: relative;
+  background: #ffffff;
+  border: 1px solid #cccccc;
+  color: #222222;
+  cursor: pointer;
+  display: block;
+  font-size: 13px;
+  margin: 0;
+  overflow: hidden;
+  padding: 10px 15px;
+  text-overflow: clip;
+  z-index: 2;
+  border-radius: 3px;
+}
+.elgg-input-selecter-selected:after {
+  height: 0;
+  width: 0;
+  position: absolute;
+  top: 0;
+  right: 15px;
+  bottom: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid #cccccc;
+  content: '';
+  display: block;
+  margin: auto 0;
+}
+.no-touch .elgg-input-selecter-selected:hover {
+  color: #333333;
+}
+.no-touch .elgg-input-selecter.disabled .elgg-input-selecter-selected:hover {
+  color: #cccccc;
+}
+.elgg-input-selecter-options {
+  width: 100%;
+  max-height: 260px;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  border: 1px solid #cccccc;
+  border-width: 0 1px 1px;
+  background-color: #ffffff;
+  display: none;
+  margin: 0;
+  overflow: auto;
+  overflow-x: hidden;
+  padding: 0;
+  z-index: 50;
+  border-radius: 0 0 3px 3px;
+  -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+          box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+}
+.elgg-input-selecter-options.scroller {
+  position: absolute;
+}
+.no-opacity .elgg-input-selecter-options {
+  width: auto;
+}
+.elgg-input-selecter-group {
+  border-bottom: 1px solid #cccccc;
+  color: #999999;
+  display: block;
+  font-size: 11px;
+  padding: 10px 15px;
+  text-transform: uppercase;
+}
+.elgg-input-selecter-item {
+  width: 100%;
+  background: #ffffff;
+  border-bottom: 1px solid #cccccc;
+  color: #222222;
+  cursor: pointer;
+  display: block;
+  font-size: 13px;
+  margin: 0;
+  overflow: hidden;
+  padding: 10px 15px;
+  text-decoration: none;
+  text-overflow: ellipsis;
+}
+.elgg-input-selecter-item.placeholder {
+  display: none;
+}
+.elgg-input-selecter-item.selected {
+  background: #eeeeee;
+}
+.elgg-input-selecter-item.disabled {
+  color: #999999;
+  cursor: default;
+}
+.elgg-input-selecter-item:first-child {
+  border-radius: 0;
+}
+.elgg-input-selecter-item:last-child {
+  border-bottom: 0;
+  border-radius: 0 0 2px 2px;
+}
+.no-touch .elgg-input-selecter-item:hover,
+.no-touch .elgg-input-selecter-item.selected:hover {
+  color: #333333;
+  background-color: #cccccc;
+}
+.elgg-input-selecter-item.disabled,
+.no-touch .elgg-input-selecter-item.disabled:hover {
+  color: #cccccc;
+  background-color: #ffffff;
+}
+.elgg-input-selecter.open {
+  z-index: 3;
+}
+.elgg-input-selecter.open .elgg-input-selecter-selected {
+  z-index: 51;
+  border-radius: 3px 3px 0 0;
+}
+.elgg-input-selecter.open .elgg-input-selecter-selected,
+.elgg-input-selecter.focus .elgg-input-selecter-selected {
+  background-color: #ffffff;
+  -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+.elgg-input-selecter.cover .elgg-input-selecter-options {
+  border-width: 1px;
+  top: 0;
+  border-radius: 3px;
+}
+.elgg-input-selecter.cover .elgg-input-selecter-options .elgg-input-selecter-item.first {
+  border-radius: 3px 3px 0 0;
+}
+.elgg-input-selecter.cover.open .elgg-input-selecter-selected {
+  z-index: 49;
+  border-radius: 3px 3px 0 0;
+}
+.elgg-input-selecter.bottom .elgg-input-selecter-options {
+  top: auto;
+  bottom: 100%;
+  border-width: 1px 1px 0;
+}
+.elgg-input-selecter.bottom .elgg-input-selecter-item:last-child {
+  border: none;
+}
+.elgg-input-selecter.bottom.open .elgg-input-selecter-selected {
+  border-radius: 0 0 3px 3px;
+}
+.elgg-input-selecter.bottom.open .elgg-input-selecter-options {
+  border-radius: 3px 3px 0 0;
+}
+.elgg-input-selecter.bottom .cover .elgg-input-selecter-options {
+  top: auto;
+  bottom: 0;
+}
+.elgg-input-selecter.bottom .cover.open .elgg-input-selecter-selected {
+  border-radius: 3px;
+}
+.elgg-input-selecter.bottom .cover.open .elgg-input-selecter-options {
+  border-radius: 3px;
+}
+.elgg-input-selecter.multiple .elgg-input-selecter-options {
+  width: 100%;
+  position: static;
+  border-width: 1px;
+  display: block;
+  border-radius: 3px;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+.elgg-input-selecter.disabled .elgg-input-selecter-selected {
+  background: #ffffff;
+  border-color: #cccccc;
+  color: #cccccc;
+  cursor: default;
+}
+.elgg-input-selecter.disabled .elgg-input-selecter-options {
+  background: #ffffff;
+  border-color: #cccccc;
+}
+.elgg-input-selecter.disabled .elgg-input-selecter-group,
+.elgg-input-selecter.disabled .elgg-input-selecter-item {
+  border-color: #cccccc;
+  color: #cccccc;
+  cursor: default;
+}
+.elgg-input-selecter.disabled .elgg-input-selecter-item.selected,
+.no-touch .elgg-input-selecter.disabled .elgg-input-selecter-item.selected:hover {
+  background: #fafafa;
+}
+.elgg-input-selecter.disabled .elgg-input-selecter-item,
+.no-touch .elgg-input-selecter.disabled .elgg-input-selecter-item:hover {
+  color: #cccccc;
+  background-color: #ffffff;
+}
+.elgg-input-selecter-options.scroller {
+  overflow: hidden;
+}
+.elgg-input-selecter-options.scroller .scroller-content {
+  max-height: 260px;
+  padding: 0;
+}
+@media screen and (max-width: 740px) {
+  .elgg-input-selecter {
+    max-width: 40%;
+  }
+}
+@media screen and (max-width: 500px) {
+  .elgg-input-selecter {
+    max-width: 100%;
+  }
+}
+
+.elgg-input-selecter {
+  /*max-width: 100% !important;*/
+  margin: 0 !important;
+  text-align: left;
+}
+.rhs-news .elgg-input-selecter {
+  margin-bottom: 1rem !important;
+}
+@media (min-width: 768px) {
+  .rhs-news .elgg-input-selecter {
+    margin-bottom: 0 !important;
+  }
+}
+span.elgg-input-selecter-selected {
+  -webkit-box-shadow: none !important;
+          box-shadow: none !important;
+  padding: 0.6rem 3rem 0.6rem 2rem !important;
+  font-size: 1.6rem !important;
+  line-height: 3.2rem;
+  border-radius: 0 !important;
+  min-height: 4.6rem;
+  -webkit-transition: all 0.2s ease;
+       -o-transition: all 0.2s ease;
+          transition: all 0.2s ease;
+}
+span.elgg-input-selecter-selected:hover {
+  border-color: #009ee3;
+}
+.elgg-input-selecter.focus span.elgg-input-selecter-selected {
+  border-color: #009ee3;
+}
+span.elgg-input-selecter-selected:after {
+  border: none;
+  width: auto;
+  height: auto;
+  font-family: "pleio";
+  content: "\e903";
+  color: #000;
+  font-size: 1rem;
+  bottom: auto;
+  top: 50%;
+  -webkit-transform: translate(0, -50%);
+      -ms-transform: translate(0, -50%);
+       -o-transform: translate(0, -50%);
+          transform: translate(0, -50%);
+  display: block;
+}
+.elgg-input-selecter.open span.elgg-input-selecter-selected {
+  border-radius: 0;
+  -webkit-box-shadow: none !important;
+          box-shadow: none !important;
+  border: 1px solid transparent;
+}
+@media (min-width: 768px) {
+  span.elgg-input-selecter-selected {
+    font-size: 1.8rem !important;
+  }
+}
+.elgg-input-selecter-options {
+  border-radius: 0 !important;
+  max-height: none !important;
+  -webkit-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2) !important;
+          box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2) !important;
+  padding: 0.6rem 0 !important;
+  border: 1px solid #fff !important;
+  top: 0 !important;
+  z-index: 60 !important;
+}
+.elgg-input-selecter-options:after {
+  font-family: "pleio";
+  content: "\e902";
+  z-index: 9999;
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  color: #B4B4B4;
+  font-size: 1rem;
+  line-height: 1;
+}
+@media (min-width: 768px) {
+  .rhs-modal__content .elgg-input-selecter-options {
+    margin-bottom: 2rem;
+  }
+}
+.elgg-input-selecter-item {
+  font-size: 1.6rem !important;
+  line-height: 3.2rem !important;
+  padding: 0 2rem !important;
+  border: none !important;
+  position: relative !important;
+  z-index: 80 !important;
+  background: #fff;
+}
+.elgg-input-selecter-item:hover {
+  color: #009ee3 !important;
+  background-color: transparent !important;
+}
+.elgg-input-selecter-item.selected {
+  color: #009ee3 !important;
+  background-color: transparent !important;
+}
+.elgg-input-selecter-item:disabled {
+  color: #B4B4B4 !important;
+}
+.elgg-input-selecter-item:disabled:hover {
+  color: #B4B4B4 !important;
+}
+.elgg-input-selecter-item.disabled {
+  color: #B4B4B4 !important;
+}
+.elgg-input-selecter-item.disabled:hover {
+  color: #B4B4B4 !important;
+}
+@media (min-width: 768px) {
+  .elgg-input-selecter-item {
+    font-size: 1.8rem !important;
+  }
+}
+.elgg-input-selecter.open .elgg-input-selecter-selected {
+  color: #009ee3 !important;
+}
+.elgg-input-selecter.open .elgg-input-selecter-selected:disabled {
+  color: #B4B4B4 !important;
+}
+.elgg-input-selecter.open .elgg-input-selecter-selected:disabled:hover {
+  color: #B4B4B4 !important;
+}
+
+.elgg-input-dropdown {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	opacity: 0;
+	z-index: -1;
+}
+
+.elgg-input-access {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	opacity: 0;
+	z-index: -1;
+}

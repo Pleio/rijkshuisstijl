@@ -16773,4 +16773,54 @@ jQuery(document).ready(function () {
 			jQuery(this).parent().attr('class', 'elgg-input-checkbox-label chosen');
 		}
 	});
+
+	var selectElements = jQuery('.elgg-input-dropdown');
+	selectElements.after('<div class="elgg-input-selecter closed"></div>');
+	selectElements.each(function() {
+		jQuery(this).appendTo(jQuery(this).next());
+	});
+	selectElements.after('<span class="elgg-input-selecter-selected"></span><div class="elgg-input-selecter-options" style="display: none;"></div>');
+
+	selectElements.each(function() { 
+		var selectElement = jQuery(this);
+		var optionElements = jQuery(this).children();
+		var spanElement = jQuery(this).next();
+		var divElement = spanElement.next();
+		var divParent = jQuery(this).parent();
+
+		spanElement.click(function() { 
+			selectElement.focus();
+		});
+
+		selectElement.focus(function () {
+			divParent.attr('class', 'elgg-input-selecter open');
+			divElement.attr('style', 'display: block');
+		});
+
+		selectElement.blur(function () {
+			setTimeout(function() {
+				divParent.attr('class', 'elgg-input-selecter closed');
+				divElement.attr('style', 'display: none');
+			}, 100);
+		});
+
+		var first = true;
+		optionElements.each(function() { 
+			if (first)
+			{
+				spanElement.text(jQuery(this).text());
+				first = false;
+			}
+
+			if (jQuery(this).attr('value') != undefined)
+				divElement.append('<span class="elgg-input-selecter-item" data-value="' + jQuery(this).attr('value') + '">' + jQuery(this).text() + '</span>');
+			else
+				divElement.append('<span class="elgg-input-selecter-item" data-value="' + jQuery(this).text() + '">' + jQuery(this).text() + '</span>');
+		});
+	});
+
+	jQuery(document).on('click','.elgg-input-selecter-item', function() { 
+		jQuery(this).parent().prev().prev().val(jQuery(this).attr('data-value'));
+		jQuery(this).parent().prev().text(jQuery(this).text());
+	});
 });
