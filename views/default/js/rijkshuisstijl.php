@@ -16743,3 +16743,12 @@ return jQuery;
     }
 
 })();
+
+jQuery(document).ready(function () {
+	jQuery('.elgg-input-radio').parent().attr('class', 'elgg-input-radio-label');
+	jQuery('.elgg-input-radio').after('<span class="elgg-input-radio-placeholder"></span>');
+	jQuery('.elgg-input-radio-placeholder').click(function () {
+		jQuery('.elgg-input-radio').attr('checked', false);
+		jQuery(this).prev().attr('checked', true);
+	});
+});

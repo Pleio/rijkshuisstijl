@@ -26,6 +26,34 @@
 	margin:5px 0 0 0;
 }
 
+.elgg-input-text {
+	border: 0.1rem solid #CCCCCC;
+	padding: 1.1rem 1rem 1.1rem 1.25rem;
+	transition: all 0.2s ease;
+}
+
+.elgg-input-text:focus {
+	border-color: #009ee3;
+}
+
+.elgg-input-text:hover {
+	border-color: #009ee3;
+}
+
+.elgg-input-password {
+	border: 0.1rem solid #CCCCCC;
+	padding: 1.1rem 1rem 1.1rem 1.25rem;
+	transition: all 0.2s ease;
+}
+
+.elgg-input-password:focus {
+	border-color: #009ee3;
+}
+
+.elgg-input-password:hover {
+	border-color: #009ee3;
+}
+
 .elgg-input-checkboxes.elgg-horizontal li,
 .elgg-input-radios.elgg-horizontal li {
 	display: inline;
@@ -326,4 +354,88 @@
 	border: 1px solid #0054A7;
 	color: #0054A7;
 	background: #E4ECF5;
+}
+.elgg-input-radios:before,
+.elgg-input-radios:after {
+  content: " ";
+  display: table;
+}
+.elgg-input-radios:after {
+  clear: both;
+}
+.elgg-input-radio-label {
+  display: block;
+  padding-left: 3rem;
+  padding-top: 0.1rem;
+  padding-bottom: 0.3rem;
+  position: relative;
+  cursor: pointer;
+}
+.elgg-input-radio-label a {
+  font-family: "ROsanswebtext_bold", sans-serif;
+  border-bottom: 1px dotted #009ee3;
+  text-decoration: none;
+  color: #009ee3;
+  -webkit-transition: color 0.2s ease, border 0.2s ease;
+       -o-transition: color 0.2s ease, border 0.2s ease;
+          transition: color 0.2s ease, border 0.2s ease;
+}
+.elgg-input-radio-label a:hover {
+  border-bottom: 1px dotted #009ee3;
+}
+.elgg-input-radio-label-floated {
+  float: left;
+  margin-right: 3rem;
+}
+.elgg-input-radio-placeholder {
+  width: 2rem;
+  height: 2rem;
+  position: absolute;
+  left: 0;
+  top: 0.4rem;
+  background-color: #fff;
+  border: 2px solid #B4B4B4;
+  border-radius: 50% !important;
+  -webkit-transition: all 0.2s ease;
+       -o-transition: all 0.2s ease;
+          transition: all 0.2s ease;
+}
+.focus > .elgg-input-radio-placeholder {
+  border-color: #01689b;
+}
+.elgg-input-radio-placeholder:after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%) scale(0.6);
+      -ms-transform: translate(-50%, -50%) scale(0.6);
+       -o-transform: translate(-50%, -50%) scale(0.6);
+          transform: translate(-50%, -50%) scale(0.6);
+  width: 2rem;
+  height: 2rem;
+  background-color: #fff;
+  -webkit-transition: all 0.2s ease;
+       -o-transition: all 0.2s ease;
+          transition: all 0.2s ease;
+}
+:hover > .elgg-input-radio-placeholder:after {
+  background-color: #CCCCCC;
+}
+.chosen .elgg-input-radio-placeholder:after {
+  background-color: #154273;
+}
+.elgg-input-radio {
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 0;
 }
