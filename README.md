@@ -22,4 +22,8 @@ Bouw vervolgens de CSS en de JS met het commando
 
     webpack
 
-Dit commando haalt de bron uit [src/](src/) en bouwt een nieuwe versie in de map [assets/](assets/).
+Dit commando haalt de bron uit [src/](src/) en bouwt een nieuwe versie in de map [assets/](assets/). Gebruik het commando
+
+    webpack --watch
+
+om een nieuwe versie te bouwen wanneer er wijzigingen zijn.
