@@ -2,6 +2,8 @@
  * Checkbox-switch input
  */
 
+var $ = require("jquery");
+
  (function () {
     'use strict';
 

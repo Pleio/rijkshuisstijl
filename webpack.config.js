@@ -6,6 +6,7 @@ module.exports = {
         path: "./assets",
         publicPath: "/mod/rijkshuisstijl/assets/",
         filename: "rijkshuisstijl.js",
+        sourceMapFilename: "rijkshuisstijl.map",
         chunkFilename: "[id].js"
     },
     module: {

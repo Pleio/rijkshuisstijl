@@ -1,14 +1,8 @@
-require("jquery");
-require("dropzone");
-require("cropper");
-require("fastclick");
-
 // require CSS entry file
 require("../less/all.less");
 
 // require non-NPM libraries
 require("./plugins/jquery.dotdotdot-1.7.4.js");
-require("./plugins/jquery.fs.selecter-3.2.4.js");
 
 require("./default/accordion.js");
 require("./default/app.js");
@@ -34,6 +28,7 @@ require("./default/tinymce.js");
 require("./default/video-block.js");
 require("./default/video-player.js");
 
+var jQuery = require("jquery");
 jQuery(document).ready(function () {
     var radioElements = jQuery('.elgg-input-radio');
     radioElements.parent().attr('class', 'elgg-input-radio-label');

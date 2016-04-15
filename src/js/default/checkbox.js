@@ -2,6 +2,8 @@
  * Checkbox input
  */
 
+var $ = require("jquery");
+
  (function () {
     'use strict';
 

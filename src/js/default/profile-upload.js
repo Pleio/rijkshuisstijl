@@ -1,3 +1,4 @@
+var $ = require("jquery");
 
 ////////
 ////////  P R O F I L E  P H O T O  U P L O A D

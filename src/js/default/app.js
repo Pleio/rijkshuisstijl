@@ -1,3 +1,5 @@
+var $ = require("jquery");
+
 (function () {
     'use strict';
 
@@ -79,7 +81,7 @@
     });
 
 
-    $(".selecter-default").selecter({
+/*    $(".selecter-default").selecter({
         callback: selecterCallback
     });
     function selecterCallback(){
@@ -88,7 +90,7 @@
 
     $(".selecter-menu").selecter({
         links: true
-    });
+    });*/
 
 
 
@@ -103,7 +105,7 @@
 
 
     //fast-click for devices to remove 300ms delay
-
+    var FastClick = require('fastclick');
     FastClick.attach(document.body);
 
 
