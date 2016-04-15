@@ -3048,7 +3048,6 @@ th {
 .rhs-main-navigation__link {
   display: block;
   font-size: 1.8rem;
-  float: left;
   line-height: 4.3rem;
   color: #000;
   padding: 0.2rem 2rem 0;
@@ -3396,7 +3395,7 @@ th {
 }
 .rhs-mobile-navigation__profile img {
   max-width: 2rem;
-  border-radius: 50%;
+  border-radius: 50% !important;
   position: absolute;
   left: 2rem;
   top: 50%;
