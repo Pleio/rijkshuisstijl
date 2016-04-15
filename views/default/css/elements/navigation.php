@@ -50,15 +50,12 @@
 *************************************** */
 .elgg-tabs {
     margin-bottom: 5px;
-    border-bottom: 2px solid #cccccc;
     display: table;
     width: 100%;
 }
 .elgg-tabs li {
     float: left;
-    border: 2px solid #ccc;
     border-bottom: 0;
-    background: #eee;
     margin: 0 0 0 10px;
     
     -webkit-border-radius: 5px 5px 0 0;
@@ -66,15 +63,19 @@
     border-radius: 5px 5px 0 0;
 }
 .elgg-tabs a {
-    text-decoration: none;
-    display: block;
-    padding: 3px 10px 0 10px;
-    text-align: center;
-    height: 21px;
-    color: #999;
+  text-decoration: none;
+  font-size: 1.8rem;
+  line-height: 2.7rem;
+  color: #000;
+  -webkit-transition: color 0.2s ease;
+       -o-transition: color 0.2s ease;
+          transition: color 0.2s ease;
+  margin: 0 1.5rem 0 0;
+  padding: 0 0.5rem 0.8rem;
+  position: relative;
+  display: inline-block;
 }
 .elgg-tabs a:hover {
-    background: #dedede;
     color: #4690D6;
 }
 .elgg-tabs .elgg-state-selected {
@@ -83,8 +84,10 @@
 }
 .elgg-tabs .elgg-state-selected a {
     position: relative;
-    top: 2px;
+    color: #01689b;
     background: white;
+    line-height: 2.7rem;
+    border-bottom: 0.5rem solid #009ee3;
 }
 
 /* ***************************************
@@ -283,15 +286,11 @@
 *************************************** */
 .elgg-menu-filter {
     margin-bottom: 5px;
-    border-bottom: 2px solid #ccc;
     display: table;
     width: 100%;
 }
 .elgg-menu-filter > li {
     float: left;
-    border: 2px solid #ccc;
-    border-bottom: 0;
-    background: #eee;
     margin: 0 0 0 10px;
 
     -webkit-border-radius: 5px 5px 0 0;
@@ -299,17 +298,22 @@
     border-radius: 5px 5px 0 0;
 }
 .elgg-menu-filter > li:hover {
-    background: #dedede;
+    
 }
 .elgg-menu-filter > li > a {
-    text-decoration: none;
-    display: block;
-    padding: 3px 10px 0;
-    text-align: center;
-    color: #999;
+  text-decoration: none;
+  font-size: 1.8rem;
+  line-height: 2.7rem;
+  color: #000;
+  -webkit-transition: color 0.2s ease;
+       -o-transition: color 0.2s ease;
+          transition: color 0.2s ease;
+  margin: 0 1.5rem 0 0;
+  padding: 0 0.5rem 0.8rem;
+  position: relative;
+  display: inline-block;
 }
 .elgg-menu-filter > li > a:hover {
-    background: #dedede;
     color: #4690D6;
 }
 .elgg-menu-filter > .elgg-state-selected {
@@ -318,8 +322,9 @@
 }
 .elgg-menu-filter > .elgg-state-selected > a {
     position: relative;
-    top: 2px;
+    color: #01689b;
     background: white;
+    border-bottom: 0.5rem solid #009ee3;
 }
 
 /* ***************************************

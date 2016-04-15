@@ -3070,6 +3070,7 @@ th {
 }
 .rhs-main-navigation__link {
   display: block;
+  float: left;
   font-size: 1.8rem;
   line-height: 4.3rem;
   color: #000;

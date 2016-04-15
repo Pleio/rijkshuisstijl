@@ -16823,4 +16823,36 @@ jQuery(document).ready(function () {
 		jQuery(this).parent().prev().prev().val(jQuery(this).attr('data-value'));
 		jQuery(this).parent().prev().text(jQuery(this).text());
 	});
+
+	var navigationElements = jQuery('.rhs-main-navigation__link');
+	navigationElements.each(function (){ 
+		var childMenu = jQuery(this).next();
+		if (!childMenu.hasClass('elgg-child-menu'))
+			return;
+
+		jQuery(this).after('<div class="rhs-dropdown__wrapper"></div>');
+
+		var divElement = jQuery(this).next();
+
+		var liElements = childMenu.children();
+		if (liElements.size() <= 0)
+			return;
+
+		jQuery(this).before('<div class="rhs-dropdown"></div>');
+
+		var containerDivElement = jQuery(this).prev();
+		containerDivElement.append(jQuery(this));
+		containerDivElement.append(divElement);
+
+		jQuery(this).removeClass('rhs-main-navigation');
+		jQuery(this).addClass('rhs-main-navigation-dropdown');
+
+		liElements.each(function () {
+			var aElement = liElements.children().first();
+			aElement.addClass('rhs-dropdown__link');
+			divElement.append(aElement);
+		});
+
+		childMenu.detach();
+	});
 });
