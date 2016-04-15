@@ -1,8 +1,7 @@
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
-    // The standard entry point and output config
-    entry: "./src/js/entry.js",
+    entry: "./src/js/rijkshuisstijl.js",
     output: {
         path: "./assets",
         publicPath: "/mod/rijkshuisstijl/assets/",
