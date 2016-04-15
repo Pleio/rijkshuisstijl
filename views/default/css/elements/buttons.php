@@ -20,7 +20,7 @@
     font-size: 1.8rem;
     line-height: 2.4rem;
 
-    height: 4.6rem;
+    height: 4.0rem;
 
     text-decoration: none;
     line-height: 2.4rem;
@@ -37,7 +37,7 @@
 }
 
 a.elgg-button {
-	padding: 1.1rem 2rem;
+	padding: 0.8rem 2rem;
 }
 
 /* Submit: This button should convey, "you're about to take some definitive action" */
