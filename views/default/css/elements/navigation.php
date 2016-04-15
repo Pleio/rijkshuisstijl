@@ -340,15 +340,21 @@
     -webkit-border-radius: 8px;
     -moz-border-radius: 8px;
     border-radius: 8px;
+    color: #000;
     
     background-color: white;
     margin: 0 0 3px;
     padding: 2px 4px 2px 8px;
+
+    border-bottom: 1px solid #ccc;
+    text-decoration: none;
+
+    -webkit-transition: color 0.2s ease;
+         -o-transition: color 0.2s ease;
+            transition: color 0.2s ease;
 }
 .elgg-menu-page a:hover {
-    background-color: #0054A7;
-    color: white;
-    text-decoration: none;
+    color: #009ee3;
 }
 .elgg-menu-page li.elgg-state-selected > a {
     background-color: #4690D6;
