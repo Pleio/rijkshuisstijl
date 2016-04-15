@@ -1,6 +1,6 @@
 <div class="rhs-main-navigation__wrapper rhs-mobile-navigation">
     <!-- @todo: fix this!! -->
-    <a href="profile.html" title="profiel" class="rhs-mobile-navigation__profile"><img src="/mod/rijkshuisstijl/dist/image/profile-picture.jpg">Sarah Hendriks</a>
+    <a href="profile.html" title="profiel" class="rhs-mobile-navigation__profile"><img src="<?php echo rijkshuisstijl_asset('image/profile-picture.jpg'); ?>">Sarah Hendriks</a>
     <div data-mobile-nav-trigger="" class="rhs-mobile-navigation__close"><span class="rhs-icon rhs-icon-cross"></span></div>
     <div class="rhs-mobile-navigation__search">
         <form action="">

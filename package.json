@@ -1,0 +1,15 @@
+{
+  "name": "rijkshuisstijl",
+  "version": "1.0.0",
+  "private": true,
+  "devDependencies": {
+    "extract-text-webpack-plugin": "^1.0.1",
+    "less-loader": "^2.2.3",
+    "webpack": "^1.12.15",
+    "css-loader": "^0.23.1",
+    "file-loader": "^0.8.5",
+    "less": "^2.6.1",
+    "style-loader": "^0.13.1"
+  },
+  "dependencies": {}
+}
