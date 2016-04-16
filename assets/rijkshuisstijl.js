@@ -166,7 +166,7 @@
 
 	        var divElement = jQuery(this).next();
 
-	        divElement.append('<div class="rhs-dropdown__mobile"><a href="#" class="rhs-dropdown__back">Terug</a><div class="rhs-dropdown__subject">Thema\'s</div></div>');
+	        divElement.append('<div class="rhs-dropdown__mobile"><a href="#" class="rhs-dropdown__back">Terug</a><div class="rhs-dropdown__subject">' + jQuery(this).text() + '</div></div>');
 
 	        var liElements = childMenu.children();
 	        if (liElements.size() <= 0)
@@ -188,8 +188,10 @@
 	        });
 
 	        jQuery(this).click(function (event) {
-	            jQuery(this).parent().addClass('dropdown--open');
-	            event.preventDefault();
+	            var parent = jQuery(this).parent();
+	            parent.siblings('.rhs-dropdown').removeClass('dropdown--open');
+	            parent.addClass('dropdown--open');
+	            event.preventDefault(); 
 	        });
 
 	        childMenu.detach();
@@ -204,8 +206,10 @@
 	    });
 
 	    jQuery('.rhs-mobile-navigation__close').click(function () {
-			jQuery('.rhs-mobile-navigation').css('transform', '');
+	       jQuery('.rhs-mobile-navigation').css('transform', ''); 
 	    });
+
+	    jQuery('.elgg-form-login fieldset div input').prev('<br/>');
 	});
 
 /***/ },
