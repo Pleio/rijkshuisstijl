@@ -34,6 +34,7 @@
     -webkit-transition: color 0.2s ease, background-color 0.2s ease;
        -o-transition: color 0.2s ease, background-color 0.2s ease;
           transition: color 0.2s ease, background-color 0.2s ease;
+    margin: 0.8rem;
 }
 
 a.elgg-button {

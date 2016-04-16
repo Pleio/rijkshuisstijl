@@ -154,4 +154,6 @@ jQuery(document).ready(function () {
     jQuery('.rhs-mobile-navigation-bar__trigger').click(function() {
         jQuery('.rhs-mobile-navigation').css('transform', 'unset');
     });
+
+    jQuery('.elgg-form-login fieldset div input').prev('<br/>');
 });

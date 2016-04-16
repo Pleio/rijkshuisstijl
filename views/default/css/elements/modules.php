@@ -62,7 +62,7 @@
     
     display:none;
     
-    width: 210px;
+    width: 30rem;
     padding: 12px;
     margin-right: 0px;
     z-index:100;

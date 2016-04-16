@@ -60,8 +60,12 @@
 	padding-right: 10px;
 }
 
-.elgg-form-login, .elgg-form-account {
-	max-width: 450px;
+.elgg-form-login fieldset div input[type='text'] {
+  width: 100%;
+}
+
+.elgg-form-login fieldset div input[type='password'] {
+  width: 100%;
 }
 
 /* ***************************************
