@@ -989,7 +989,6 @@ span.elgg-input-selecter-selected:after {
 }
 .elgg-input-selecter-options {
   border-radius: 0 !important;
-  max-height: none !important;
   -webkit-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2) !important;
           box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2) !important;
   padding: 0.6rem 0 !important;
