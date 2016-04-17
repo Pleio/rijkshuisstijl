@@ -20,7 +20,8 @@
 }
 .elgg-image-block .elgg-image {
 	float: left;
-	margin-right: 2.5rem;
+	margin-left: 1.25rem;
+	margin-right: 1.25rem;
 }
 
 .elgg-image-block .elgg-image .elgg-avatar a img {
@@ -52,12 +53,10 @@
 	List
 *************************************** */
 .elgg-list {
-	border-top: 1px dotted #CCCCCC;
 	margin: 5px 0;
 	clear: both;
 }
 .elgg-list > li {
-	border-bottom: 1px dotted #CCCCCC;
 }
 
 .elgg-item .elgg-subtext {
@@ -161,10 +160,10 @@
 	River
 *************************************** */
 .elgg-list-river {
-	border-top: 1px solid #CCC;
+	
 }
 .elgg-list-river > li {
-	border-bottom: 1px solid #CCC;
+	
 }
 .elgg-river-item {
 	padding: 7px 0;
@@ -175,14 +174,13 @@
 .elgg-river-timestamp {
 	color: #666;
 	font-size: 85%;
-	font-style: italic;
+	float: right;
 	line-height: 1.2em;
 }
 
 .elgg-river-attachments,
 .elgg-river-message,
 .elgg-river-content {
-	border-left: 1px solid #CCC;
 	font-size: 85%;
 	line-height: 1.5em;
 	margin: 8px 0 5px 0;

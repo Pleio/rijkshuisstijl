@@ -95,9 +95,11 @@
 *************************************** */
 .elgg-breadcrumbs {
     font-size: 80%;
-    font-weight: bold;
     line-height: 1.2em;
     color: #bababa;
+    -webkit-transition: color 0.2s ease;
+         -o-transition: color 0.2s ease;
+            transition: color 0.2s ease;
 }
 .elgg-breadcrumbs > li {
     display: inline-block;
@@ -108,12 +110,12 @@
     font-weight: normal;
 }
 .elgg-breadcrumbs > li > a {
+    text-decoration: none;
+    color: #B4B4B4;
     display: inline-block;
-    color: #999;
 }
 .elgg-breadcrumbs > li > a:hover {
-    color: #0054a7;
-    text-decoration: underline;
+    color: #01689b;
 }
 
 .elgg-main .elgg-breadcrumbs {

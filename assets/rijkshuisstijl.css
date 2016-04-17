@@ -518,6 +518,78 @@ strong {
   font-family: "ROsanswebtext_bold", sans-serif;
   font-weight: 400;
 }
+.elgg-river-subject {
+  font-size: 1.6rem;
+  line-height: 2.2rem;
+  text-decoration: none;
+  font-family: "ROsanswebtext_bold", sans-serif;
+  color: #01689b;
+  -webkit-transition: color 0.2s ease;
+  -o-transition: color 0.2s ease;
+  transition: color 0.2s ease;
+}
+.elgg-river-subject:hover {
+  color: #009ee3;
+}
+.elgg-river-object {
+  font-size: 1.6rem;
+  line-height: 2.2rem;
+  text-decoration: none;
+  font-family: "ROsanswebtext_bold", sans-serif;
+  color: #01689b;
+  -webkit-transition: color 0.2s ease;
+  -o-transition: color 0.2s ease;
+  transition: color 0.2s ease;
+}
+.elgg-river-object:hover {
+  color: #009ee3;
+}
+.mbn a {
+  font-size: 1.6rem;
+  line-height: 2.2rem;
+  text-decoration: none;
+  font-family: "ROsanswebtext_bold", sans-serif;
+  color: #01689b;
+  -webkit-transition: color 0.2s ease;
+  -o-transition: color 0.2s ease;
+  transition: color 0.2s ease;
+}
+.mbn a:hover {
+  color: #009ee3;
+}
+.elgg-item .elgg-subtext {
+  float: right;
+}
+.elgg-item .elgg-subtext acronym {
+  text-decoration: none;
+  color: #01689b;
+}
+.elgg-river-timestamp acronym {
+  text-decoration: none;
+  color: #01689b;
+}
+.elgg-menu-item-embed a {
+  text-decoration: none;
+  font-family: "ROsanswebtext", sans-serif;
+  color: #000;
+  -webkit-transition: color 0.2s ease;
+  -o-transition: color 0.2s ease;
+  transition: color 0.2s ease;
+}
+.elgg-menu-item-embed a:hover {
+  color: #01689b;
+}
+.elgg-menu-item-tinymce-toggler a {
+  text-decoration: none;
+  font-family: "ROsanswebtext", sans-serif;
+  color: #000;
+  -webkit-transition: color 0.2s ease;
+  -o-transition: color 0.2s ease;
+  transition: color 0.2s ease;
+}
+.elgg-menu-item-tinymce-toggler a:hover {
+  color: #01689b;
+}
 .print-header {
   display: none;
 }
