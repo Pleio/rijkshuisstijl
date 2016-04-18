@@ -35,3 +35,8 @@ echo "<p>";
     endfor;
     echo "</table>";
 echo "</p>";
+
+echo elgg_view("input/hidden", array(
+    'name' => 'on_rijkshuisstijl_settings',
+    'value' => 'true'
+));
