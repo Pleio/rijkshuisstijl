@@ -8,6 +8,9 @@ $site_name = $site->name;
 $site_url = elgg_get_site_url();
 
 $logo = elgg_get_plugin_setting('logo', 'rijkshuisstijl');
+if (!$logo) {
+    $logo = "belastingdienst";
+}
 
 ?>
 
