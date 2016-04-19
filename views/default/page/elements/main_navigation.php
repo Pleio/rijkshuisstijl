@@ -2,14 +2,16 @@
 <?php $logged_in = elgg_get_logged_in_user_entity(); ?>
 <div class="rhs-main-navigation__wrapper rhs-mobile-navigation">
     <!-- @todo: fix this!! -->
-    <a href="/profile/<?php echo $logged_in->username;?>" title="profiel" class="rhs-mobile-navigation__profile"><img src="<?php echo $logged_in->getIconURL('tiny'); ?>"><?php echo $logged_in->name; ?></a>
-    <div data-mobile-nav-trigger="" class="rhs-mobile-navigation__close"><span class="rhs-icon rhs-icon-cross"></span></div>
-    <div class="rhs-mobile-navigation__search">
-        <form action="">
-            <label for="mobile-navigation-search"><span class="rhs-icon rhs-icon-search"></span></label>
-            <input id="mobile-navigation-search" placeholder="Zoeken" name="searchQuery">
-        </form>
-    </div>
+    <?php if ($logged_in): ?>
+        <a href="/profile/<?php echo $logged_in->username;?>" title="profiel" class="rhs-mobile-navigation__profile"><img src="<?php echo $logged_in->getIconURL('tiny'); ?>"><?php echo $logged_in->name; ?></a>
+        <div data-mobile-nav-trigger="" class="rhs-mobile-navigation__close"><span class="rhs-icon rhs-icon-cross"></span></div>
+        <div class="rhs-mobile-navigation__search">
+            <form action="">
+                <label for="mobile-navigation-search"><span class="rhs-icon rhs-icon-search"></span></label>
+                <input id="mobile-navigation-search" placeholder="Zoeken" name="searchQuery">
+            </form>
+        </div>
+    <?php endif ?>
 
     <?php echo elgg_view_menu('site'); ?>
 
