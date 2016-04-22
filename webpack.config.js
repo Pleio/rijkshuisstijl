@@ -6,7 +6,6 @@ module.exports = {
         path: "./assets",
         publicPath: "/mod/rijkshuisstijl/assets/",
         filename: "rijkshuisstijl.js",
-        sourceMapFilename: "rijkshuisstijl.map",
         chunkFilename: "[id].js"
     },
     module: {
@@ -25,7 +24,7 @@ module.exports = {
             }
         ]
     },
-    // Use the plugin to specify the resulting filename (and add needed behavior to the compiler)
+    devtool: "source-map",
     plugins: [
         new ExtractTextPlugin("rijkshuisstijl.css")
     ]
