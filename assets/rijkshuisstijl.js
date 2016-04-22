@@ -209,7 +209,11 @@
 	       jQuery('.rhs-mobile-navigation').css('transform', ''); 
 	    });
 
-	    jQuery('.elgg-form-login fieldset div input').prev('<br/>');
+	    var els = jQuery('.elgg-form-login fieldset div input');
+	    if (els.length > 0)
+	    {
+	        els.prev('<br/>');
+	    }
 	});
 
 /***/ },
@@ -12119,7 +12123,7 @@
 
 	var $ = __webpack_require__(118);
 
-	(function () {
+	jQuery(document).ready(function () {
 	    'use strict';
 
 	    var $body = $('body');
@@ -12178,6 +12182,11 @@
 	                $field.html('<a class="editable-field-link '+attributes.classname+'" href="#Edit field" title="Update veld">'+attributes.value+'</a>');
 	            }
 	        }
+	    };
+
+	    var editFieldCallBack = function(name, value)
+	    {
+	        
 	    };
 
 	    $body.on('click', '.js-editableField', function(e){

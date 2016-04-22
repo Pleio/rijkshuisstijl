@@ -590,6 +590,19 @@ strong {
 .elgg-menu-item-tinymce-toggler a:hover {
   color: #01689b;
 }
+h3 a {
+  font-size: 1.6rem;
+  line-height: 2.2rem;
+  text-decoration: none;
+  font-family: "ROsanswebtext_bold", sans-serif;
+  color: #01689b;
+  -webkit-transition: color 0.2s ease;
+  -o-transition: color 0.2s ease;
+  transition: color 0.2s ease;
+}
+h3 a:hover {
+  color: #009ee3;
+}
 .print-header {
   display: none;
 }
@@ -4197,7 +4210,7 @@ th {
   -moz-appearance: none;
   position: relative;
   border: none;
-  border-radius: 0.5rem;
+  border-radius: 0.5rem !important;
   background-color: #B4B4B4;
   height: 4rem;
   padding: 0.8rem 2rem;
@@ -6297,7 +6310,7 @@ label.__problem .rhs-form__input {
   position: relative;
   overflow: hidden;
   margin: 0 0 0.5rem 0;
-  border-radius: 99rem;
+  border-radius: 99rem !important;
   height: 3.9rem;
   line-height: 3.3rem;
   background: #e6e6e6;
@@ -6316,7 +6329,7 @@ label.__problem .rhs-form__input {
   transition: width cubic-bezier(0.55, 0, 0.55, 0.2) 0.3s, background cubic-bezier(0.55, 0, 0.55, 0.2) 0.3s;
 }
 .rhs-profile-progress__bar--level-2:before {
-  width: 62%;
+  width: inherit;
   background: #7cb928;
 }
 .rhs-profile-progress__bar--level-3:before {
@@ -6372,7 +6385,7 @@ label.__problem .rhs-form__input {
 }
 .rhs-profile-image > img {
   display: block;
-  border-radius: 20rem;
+  border-radius: 20rem !important;
   width: 100%;
   height: auto;
 }

@@ -4,7 +4,7 @@ $contact = unserialize(elgg_get_plugin_setting('contact', 'rijkshuisstijl'));
 <div class="rhs-container">
         <div class="rhs-row">
           <div class="rhs-col-md-4 rhs-col-lg-3">
-            <?php if (count($contact) > 0): ?>
+            <?php if (is_array($contact) && count($contact) > 0): ?>
               <h2 class="rhs-footer__title">Contact</h2>
               <ul class="rhs-footer__list">
                 <?php foreach($contact as $item): ?>

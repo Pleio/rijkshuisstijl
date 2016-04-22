@@ -162,5 +162,9 @@ jQuery(document).ready(function () {
        jQuery('.rhs-mobile-navigation').css('transform', ''); 
     });
 
-    jQuery('.elgg-form-login fieldset div input').prev('<br/>');
+    var els = jQuery('.elgg-form-login fieldset div input');
+    if (els.length > 0)
+    {
+        els.prev('<br/>');
+    }
 });

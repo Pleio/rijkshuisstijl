@@ -23,7 +23,7 @@
 
 var $ = require("jquery");
 
-(function () {
+jQuery(document).ready(function () {
     'use strict';
 
     var $body = $('body');
@@ -82,6 +82,11 @@ var $ = require("jquery");
                 $field.html('<a class="editable-field-link '+attributes.classname+'" href="#Edit field" title="Update veld">'+attributes.value+'</a>');
             }
         }
+    };
+
+    var editFieldCallBack = function(name, value)
+    {
+        
     };
 
     $body.on('click', '.js-editableField', function(e){
