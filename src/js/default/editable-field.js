@@ -23,7 +23,7 @@
 
 var $ = require("jquery");
 
-jQuery(document).ready(function () {
+$(document).ready(function () {
     'use strict';
 
     var $body = $('body');
@@ -133,4 +133,4 @@ jQuery(document).ready(function () {
         }
     });
 
-})();
+});

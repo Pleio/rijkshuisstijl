@@ -12123,7 +12123,7 @@
 
 	var $ = __webpack_require__(118);
 
-	jQuery(document).ready(function () {
+	$(document).ready(function () {
 	    'use strict';
 
 	    var $body = $('body');
@@ -12233,7 +12233,7 @@
 	        }
 	    });
 
-	})();
+	});
 
 /***/ },
 
