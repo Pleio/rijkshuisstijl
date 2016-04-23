@@ -4,7 +4,7 @@
 
 var $ = require("jquery");
 
- (function () {
+ $(document).ready(function () {
     'use strict';
 
     var $body = $('body');
@@ -41,4 +41,4 @@ var $ = require("jquery");
         }
     });
 
-})();
+});

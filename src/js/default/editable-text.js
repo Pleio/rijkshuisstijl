@@ -1,6 +1,6 @@
 var $ = require("jquery");
 
-(function () {
+$(document).ready(function () {
     'use strict';
 
     var $editableTextTrigger = $('[data-editable-text]');
@@ -9,10 +9,10 @@ var $ = require("jquery");
       var $editableBlock = $(this);
 
       if ( $editableBlock.hasClass('rhs-editable-text--editing') ) {
-        // There's no way back: refresh or submit the page
+        
       } else {
         $editableBlock.addClass('rhs-editable-text--editing');
       }
     });
 
-})();
+});

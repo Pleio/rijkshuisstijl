@@ -7,7 +7,7 @@
     forward();
   }
 
-  $categories = profile_manager_get_categorized_fields($user, true, true);
+  $categories = profile_manager_get_categorized_fields($user, true);
 
   $fields = array();
   foreach ($categories['fields'] as $category) 
@@ -35,7 +35,8 @@
     }
   }
 
-  $body = elgg_view('profile/index', array('fields' => $fields));
+  $body = elgg_view('profile/header', array('name' => $user->name, 'username' => $user->username, 'selected' => 'Profiel'));
+  $body = $body . elgg_view('profile/index', array('fields' => $fields));
 
   //elgg_set_context('profile_edit');
 

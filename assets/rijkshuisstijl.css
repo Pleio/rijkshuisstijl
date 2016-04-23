@@ -4169,7 +4169,7 @@ th {
   left: 0;
   top: 0.5rem;
   border: 0;
-  border-radius: 1rem;
+  border-radius: 1rem !important;
   background-color: #CCCCCC;
   transition: all 0.2s ease;
 }
@@ -7972,6 +7972,7 @@ label.__problem .rhs-form__input {
 }
 .rhs-profile-information {
   margin: 0;
+  padding-right: 4rem;
 }
 .rhs-profile-information:after {
   content: ' ';
@@ -8625,3 +8626,5 @@ label.__problem .rhs-form__input {
   font-family: "ROsanswebtext_regular", sans-serif !important;
   font-size: 1.4rem !important;
 }
+
+/*# sourceMappingURL=rijkshuisstijl.css.map*/

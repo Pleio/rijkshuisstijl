@@ -9,26 +9,44 @@ if (!$user)
 $fields = elgg_extract("fields", $vars);
 ?>
 
-<div class="rhs-content-header rhs-content-header--profile">
-  <div class="rhs-container">
-    <div class="rhs-row">
-      <div class="rhs-col-xs-9">
-      <h1 data-name="name" data-value="<?php echo $user->name ?>" data-placeholder="Voor- en achternaam" data-classname="editable-field-link--show-on-mobile" class="rhs-profile__title js-editableField"><a class="editable-field-link editable-field-link--show-on-mobile" href="#Edit field" title="Update veld"><?php echo $user->name ?></a></h1>
-      </div>
-      <div class="rhs-col-xs-3">
-        <div class="rhs-profile__actions"><a class="rhs-button rhs-button--primary rhs-button--only-icon-on-mobile"> <span class="rhs-icon rhs-icon-log-out"></span>Uitloggen</a></div>
-      </div>
-    </div>
-    <div class="rhs-content-header__menu rhs-card-topic__menu--profile"><a href="/profile.html" title="Profiel" class="rhs-content-header__link active">Profiel</a><a href="/profile-interests.html" title="..." class="rhs-content-header__link">Interesses</a><a href="/profile-settings.html" title="..." class="rhs-content-header__link">Instellingen</a><!--<a href="/profile-colleagues.html" title="..." class="rhs-content-header__link">Vakgenoten</a></div>-->
-    <div class="rhs-content-header__dropdown">
-      <div class="selecter  closed" tabindex="0"><select tabindex="-1" name="category" id="selecter-menu" class="selecter-menu selecter-element">
-        <option value="profile.html" selected="selected">Profiel</option>
-        <option value="profile-interests.html">Interesses</option>
-        <option value="profile-settings.html">Instellingen</option>
-        <!--<option value="profile-colleagues.html">Vakgenoten</option>-->
-      </select><span class="selecter-selected">Profiel</span><div class="selecter-options"><a class="selecter-item selected" href="profile.html">Profiel</a><a class="selecter-item" href="profile-interests.html">Interesses</a><a class="selecter-item" href="profile-settings.html">Instellingen</a><!--<a class="selecter-item" href="profile-colleagues.html">Vakgenoten</a>--></div></div>
-    </div>
-  </div>
+<script type="text/javascript">
+  function onEditableTextComplete(event, save)
+  {
+      event.preventDefault();
+      event.stopPropagation();
+      var editableTextTrigger = $('[data-editable-text]');
+
+      if (editableTextTrigger.hasClass('rhs-editable-text--editing')) 
+      {
+          editableTextTrigger.removeClass('rhs-editable-text--editing');
+      }
+
+      if (save)
+      {
+          elgg.action('rijkshuisstijl/profile/setprofileparameter', {
+          data: {
+            name: 'overmij',
+            value: $('textarea').val()
+          },
+          success: function (wrapper) {
+            if (wrapper.output) {
+              if (wrapper.output.success == false)
+                alert('An error occurred setting the value.');
+            } else {
+              // the system prevented the action from running
+            }
+          }
+        });
+
+        $('.rhs-editable-text__content').html($('textarea').val());
+      }
+      else
+      {
+        $('textarea').val($('.rhs-editable-text__content').html());
+      }
+  }
+</script>
+
 <div class="rhs-container">
   <div class="rhs-profile-blocks">
     <div class="rhs-profile-block">
@@ -77,26 +95,24 @@ $fields = elgg_extract("fields", $vars);
                 <?php 
                   if ($field["name"] == 'werklocatie') :
                 ?>
-                  <dd data-name="location" data-value="<?php $field["value"] ?>" class="js-editableField"><a class="editable-field-link <?php echo strlen($field["value"]) > 0 ? '' : 'editable-field-link--empty js-openEditableField' ?>" href="#Edit field" title="Update veld"><?php $field["value"] ?></a></dd>
+                  <dd data-name="<?php echo $field["name"] ?>" data-value="<?php echo $field["value"] ?>" class="js-editableField"></dd>
                 <?php endif ?>
             <?php endforeach ?>
             </dl>
           </div>
           <div class="rhs-profile-about"><strong>Over mij</strong>
-            <div data-editable-text="" class="rhs-editable-text">
+            <div data-editable-text class="rhs-editable-text">
               <?php foreach ($fields as $field) : ?>
                 <?php 
                   if ($field["name"] == 'overmij') :
                 ?>
-                  <div class="rhs-editable-text__content <?php echo strlen($field["value"]) > 0 ? '' : 'editable-field-link--empty js-openEditableField' ?>">
-                    <?php echo $field["value"] ?>
-                  </div>
-                  <form class="rhs-editable-text__editor"> 
-                    <textarea id="js-initiateTinymce">
-                      <?php echo $field["value"] ?>
-                    </textarea>
-                    <div class="rhs-form__actions rhs-form__under-tinymce"><a href="/profile.html" class="rhs-button rhs-button--grey">Annuleer</a>
-                      <button class="rhs-button rhs-button--primary">Opslaan</button>
+                  <div class="rhs-editable-text__content"><?php echo $field["value"] ?></div>
+                  <form class="rhs-editable-text__editor">
+                    <div>
+                      <textarea class="elgg-input-plaintext" id="js-initiateTinymce"><?php echo $field["value"] ?></textarea>
+                    </div>
+                    <div class="rhs-form__actions rhs-form__under-tinymce" style="position: initial;"><a href="#" class="rhs-button rhs-button--grey" onclick="onEditableTextComplete(event, false)">Annuleer</a>
+                      <button class="rhs-button rhs-button--primary" onclick="onEditableTextComplete(event, true)">Opslaan</button>
                     </div>
                   </form>
                 <?php endif ?>

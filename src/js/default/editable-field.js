@@ -86,7 +86,20 @@ $(document).ready(function () {
 
     var editFieldCallBack = function(name, value)
     {
-        
+        elgg.action('rijkshuisstijl/profile/setprofileparameter', {
+          data: {
+            name: name,
+            value: value
+          },
+          success: function (wrapper) {
+            if (wrapper.output) {
+              if (wrapper.output.success == false)
+                alert('An error occurred setting the value.');
+            } else {
+              // the system prevented the action from running
+            }
+          }
+        });
     };
 
     $body.on('click', '.js-editableField', function(e){

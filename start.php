@@ -53,6 +53,11 @@ function rijkshuisstijl_profile_page_handler($page) {
 		require dirname(__FILE__) . "/pages/profile/edit.php";
 		return true;
 	}
+	else if ($action == "interests")
+	{
+		require dirname(__FILE__) . "/pages/profile/interests.php";
+		return true;	
+	}
 	else
 	{
 		require dirname(__FILE__) . "/pages/profile/index.php";
