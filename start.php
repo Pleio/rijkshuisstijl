@@ -13,7 +13,7 @@ function rijkshuisstijl_init() {
     elgg_register_js('rijkshuisstijl', '/mod/rijkshuisstijl/assets/rijkshuisstijl.js');
     elgg_load_js('rijkshuisstijl');
 
-    // fix hacks of older Elgg modules
+    // revert hacks of older Elgg modules
     elgg_unextend_view('page/elements/head', 'subsite_manager/topbar_fix');
 
     elgg_register_page_handler("profilet", "rijkshuisstijl_profile_page_handler");
