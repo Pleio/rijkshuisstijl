@@ -8,7 +8,7 @@
   }
 
   $body = elgg_view('profile/header', array('name' => $user->name, 'username' => $user->username, 'selected' => 'Interesses'));
-  $body = $body . elgg_view('profile/interests', array());
+  $body = $body . elgg_view('profile/interests', array('username' => $user->username));
 
   //elgg_set_context('profile_edit');
 

@@ -1,3 +1,15 @@
+<?php
+  $user = elgg_get_page_owner_entity();
+  if (!$user) 
+  {
+    register_error(elgg_echo("profile:notfound"));
+    forward();
+  }
+
+  $username = elgg_extract("username", $vars);
+  $editable = $user->username == $username;
+?>
+
 <div class="rhs-container">
   <div class="rhs-profile-blocks">
     <div class="rhs-profile-block">

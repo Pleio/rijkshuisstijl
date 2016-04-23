@@ -36,7 +36,7 @@
   }
 
   $body = elgg_view('profile/header', array('name' => $user->name, 'username' => $user->username, 'selected' => 'Profiel'));
-  $body = $body . elgg_view('profile/index', array('fields' => $fields));
+  $body = $body . elgg_view('profile/index', array('fields' => $fields, 'username' => $user->username));
 
   //elgg_set_context('profile_edit');
 
