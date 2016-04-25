@@ -10,6 +10,12 @@
 		forward();
 	}
 
+	if (!$user->canEdit())
+	{
+		register_error('No permission to edit!');
+	    forward();
+	}
+
 	$name = get_input("name");
 	$value = get_input("value");
 

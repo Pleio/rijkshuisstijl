@@ -8,6 +8,8 @@
 
   $username = elgg_extract("username", $vars);
   $editable = $user->username == $username;
+  $interests = array(true, false, false, false, false);
+  $notifications = array(true, false);
 ?>
 
 <div class="rhs-container">
@@ -21,19 +23,19 @@
         <div class="rhs-col-md-4">
           <p class="rhs-form__element rhs-form__element--small-padding">
             <label for="interest-1" class="rhs-checkbox-switch">
-              <input type="checkbox" id="interest-1" name="interest-1" checked class="rhs-checkbox-switch__input"><span class="rhs-checkbox-switch__placeholder"></span>Inkomstenbelasting
+              <input type="checkbox" id="interest-1" name="interest-1" <?php echo $interests[0] ? "checked" : "" ?> class="rhs-checkbox-switch__input"><span class="rhs-checkbox-switch__placeholder"></span>Inkomstenbelasting
             </label>
             <label for="interest-2" class="rhs-checkbox-switch">
-              <input type="checkbox" id="interest-2" name="interest-2" class="rhs-checkbox-switch__input"><span class="rhs-checkbox-switch__placeholder"></span>Toeslagen
+              <input type="checkbox" id="interest-2" name="interest-2" <?php echo $interests[1] ? "checked" : "" ?> class="rhs-checkbox-switch__input"><span class="rhs-checkbox-switch__placeholder"></span>Toeslagen
             </label>
             <label for="interest-3" class="rhs-checkbox-switch">
-              <input type="checkbox" id="interest-3" name="interest-3" class="rhs-checkbox-switch__input"><span class="rhs-checkbox-switch__placeholder"></span>Loonheffingen
+              <input type="checkbox" id="interest-3" name="interest-3" <?php echo $interests[2] ? "checked" : "" ?> class="rhs-checkbox-switch__input"><span class="rhs-checkbox-switch__placeholder"></span>Loonheffingen
             </label>
             <label for="interest-4" class="rhs-checkbox-switch">
-              <input type="checkbox" id="interest-4" name="interest-4" class="rhs-checkbox-switch__input"><span class="rhs-checkbox-switch__placeholder"></span>Omzetbelasting
+              <input type="checkbox" id="interest-4" name="interest-4" <?php echo $interests[3] ? "checked" : "" ?> class="rhs-checkbox-switch__input"><span class="rhs-checkbox-switch__placeholder"></span>Omzetbelasting
             </label>
             <label for="interest-5" class="rhs-checkbox-switch">
-              <input type="checkbox" id="interest-5" name="interest-5" class="rhs-checkbox-switch__input"><span class="rhs-checkbox-switch__placeholder"></span>Inkomstenbelasting
+              <input type="checkbox" id="interest-5" name="interest-5" <?php echo $interests[4] ? "checked" : "" ?> class="rhs-checkbox-switch__input"><span class="rhs-checkbox-switch__placeholder"></span>Vennootschapsbelasting
             </label>
           </p>
         </div>
@@ -45,12 +47,12 @@
           <h2 class="rhs-profile-block__title">Notificaties </h2>
           <p class="rhs-form__element rhs-form__element--no-padding">
             <label for="option-1" class="rhs-checkbox rhs-checkbox--theme">
-              <input type="checkbox" id="option-1" name="options-1" checked class="rhs-checkbox__input js-validateCheckbox"><span class="rhs-checkbox__placeholder"></span>Ontvang een melding als iemand op jou reageert
+              <input type="checkbox" id="option-1" name="options-1" <?php echo $notifications[0] ? "checked" : "" ?> class="rhs-checkbox__input js-validateCheckbox"><span class="rhs-checkbox__placeholder"></span>Ontvang een melding als iemand op jou reageert
             </label>
           </p>
           <p class="rhs-form__element rhs-form__element--no-padding">
             <label for="option-2" class="rhs-checkbox rhs-checkbox--theme">
-              <input type="checkbox" id="option-2" name="options-2" checked class="rhs-checkbox__input"><span class="rhs-checkbox__placeholder"></span>Ik wil de site nieuwsbrief ontvangen
+              <input type="checkbox" id="option-2" name="options-2" <?php echo $notifications[1] ? "checked" : "" ?> class="rhs-checkbox__input"><span class="rhs-checkbox__placeholder"></span>Ik wil de site nieuwsbrief ontvangen
             </label>
           </p>
         </div>

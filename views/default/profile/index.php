@@ -60,7 +60,7 @@
             <dl class="rhs-profile-information">
               <?php foreach ($fields as $field) : ?>
                 <?php 
-                  if ($field["name"] != 'overmij' && $field["name"] != 'werklocatie') :
+                  if ($field["category"] == 'profiel') :
                 ?>
                   <dt><?php echo $field["label"] ?></dt>
                   <dd data-type="<?php echo $field["type"] ?>" data-name="<?php echo $field["name"] ?>" data-value="<?php echo $field["value"] ?>" data-placeholder="<?php echo $field["label"] ?>" <?php echo $editable ? 'class="js-editableField"' : ''?>><?php echo $field["value"] ?></dd>
@@ -95,7 +95,7 @@
               <dt>Werklocatie</dt>
               <?php foreach ($fields as $field) : ?>
                 <?php 
-                  if ($field["name"] == 'werklocatie') :
+                  if ($field["category"] == 'profielLocatie' && $field["name"] != 'overmij') :
                 ?>
                   <dd data-name="<?php echo $field["name"] ?>" data-value="<?php echo $field["value"] ?>" <?php echo $editable ? 'class="js-editableField"' : ''?>><?php echo $field["value"] ?></dd>
                 <?php endif ?>
@@ -107,7 +107,7 @@
               <div data-editable-text class="rhs-editable-text">
                 <?php foreach ($fields as $field) : ?>
                   <?php 
-                    if ($field["name"] == 'overmij') :
+                    if ($field["category"] == 'profielLocatie' && $field["name"] == 'overmij') :
                   ?>
                     <div class="rhs-editable-text__content"><?php echo $field["value"] ?></div>
                     <form class="rhs-editable-text__editor">

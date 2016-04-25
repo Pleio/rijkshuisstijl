@@ -7,12 +7,14 @@
     forward();
   }
 
-  $categories = profile_manager_get_categorized_fields($user, true);
+  $result = profile_manager_get_categorized_fields($user, true);
+  $fields = $result['fields'];
+  $cats = $result['categories'];
 
-  $fields = array();
-  foreach ($categories['fields'] as $category) 
+  $outputFields = array();
+  foreach ($cats as $cat_guid => $cat) 
   {
-    foreach ($category as $field)
+    foreach ($fields[$cat_guid] as $field) 
     {
         $metadata_name = $field->metadata_name;
 
@@ -31,12 +33,12 @@
         else 
           $value = '';
 
-        $fields[] = array('name' => $field->metadata_name, 'value' => $value, 'type' => $field->metadata_type, 'label' => $field->metadata_label);
+        $outputFields[] = array('name' => $field->metadata_name, 'value' => $value, 'type' => $field->metadata_type, 'label' => $field->metadata_label, 'category' => $cat->metadata_name);
     }
   }
 
   $body = elgg_view('profile/header', array('name' => $user->name, 'username' => $user->username, 'selected' => 'Profiel'));
-  $body = $body . elgg_view('profile/index', array('fields' => $fields, 'username' => $user->username));
+  $body = $body . elgg_view('profile/index', array('fields' => $outputFields, 'username' => $user->username));
 
   //elgg_set_context('profile_edit');
 
