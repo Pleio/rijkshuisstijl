@@ -88,6 +88,7 @@ $(document).ready(function () {
     {
         elgg.action('rijkshuisstijl/profile/setprofileparameter', {
           data: {
+            username: gUsername,
             name: name,
             value: value
           },

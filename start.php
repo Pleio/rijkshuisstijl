@@ -20,6 +20,7 @@ function rijkshuisstijl_init() {
 
     $actions_base_profile = dirname(__FILE__) . "/actions/profile";
 	elgg_register_action("rijkshuisstijl/profile/setprofileparameter", "$actions_base_profile/setprofileparameter.php", "public");
+	elgg_register_action("rijkshuisstijl/profile/changepassword", "$actions_base_profile/changepassword.php", "public");
 }
 
 /**
@@ -56,6 +57,11 @@ function rijkshuisstijl_profile_page_handler($page) {
 	else if ($action == "interests")
 	{
 		require dirname(__FILE__) . "/pages/profile/interests.php";
+		return true;	
+	}
+	else if ($action == "settings")
+	{
+		require dirname(__FILE__) . "/pages/profile/settings.php";
 		return true;	
 	}
 	else

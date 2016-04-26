@@ -8,10 +8,19 @@
 
   $fields = elgg_extract("fields", $vars);
   $username = elgg_extract("username", $vars);
-  $editable = $user->username == $username;
+  $targetUser = get_user_by_username($username);
+  if (!$targetUser) 
+  {
+    register_error(elgg_echo("profile:notfound"));
+    forward();
+  }
+
+  $editable = $targetUser->canEdit();
 ?>
 
 <script type="text/javascript">
+  var gUsername = '<?php echo $username ?>';
+
   function onEditableTextComplete(event, save)
   {
       event.preventDefault();
@@ -27,6 +36,7 @@
       {
           elgg.action('rijkshuisstijl/profile/setprofileparameter', {
           data: {
+            username: '<?php echo $username ?>',
             name: 'overmij',
             value: $('textarea').val()
           },

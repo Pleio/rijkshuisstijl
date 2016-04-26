@@ -167,4 +167,26 @@ jQuery(document).ready(function () {
     {
         els.prev('<br/>');
     }
+
+    jQuery('#passwordChangeForm').submit(function (event) {
+        event.preventDefault();
+        
+        gUsername
+        elgg.action('rijkshuisstijl/profile/changepassword', {
+            data: {
+              username: gUsername,
+              currentPassword: jQuery('#password').val(),
+              newPassword: jQuery('#new_password').val(),
+              newPasswordValidation: jQuery('#newPasswordValidation').val()
+            },
+            success: function (wrapper) {
+              if (wrapper.output) {
+                if (wrapper.output.success == false)
+                  alert('An error occurred setting the value.');
+              } else {
+                // the system prevented the action from running
+              }
+            }
+        });
+    });
 });

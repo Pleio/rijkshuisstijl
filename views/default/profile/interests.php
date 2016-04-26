@@ -7,10 +7,22 @@
   }
 
   $username = elgg_extract("username", $vars);
-  $editable = $user->username == $username;
   $interests = array(true, false, false, false, false);
   $notifications = array(true, false);
+
+  $targetUser = get_user_by_username($username);
+  if (!$targetUser) 
+  {
+    register_error(elgg_echo("profile:notfound"));
+    forward();
+  }
+
+  $editable = $targetUser->canEdit();
 ?>
+
+<script type="text/javascript">
+  var gUsername = '<?php echo $username ?>';
+</script>
 
 <div class="rhs-container">
   <div class="rhs-profile-blocks">

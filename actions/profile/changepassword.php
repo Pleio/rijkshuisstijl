@@ -27,28 +27,26 @@
 	  forward();
 	}
 
-	$name = get_input("name");
-	$value = get_input("value");
+	$currentPassword = get_input("currentPassword");
+	$newPassword = get_input("newPassword");
+	$newPasswordValidation = get_input("newPasswordValidation");
 
 	$categories = profile_manager_get_categorized_fields($targetUser, true);
 
 	$success = false;
-	$fieldNames = '';
-	foreach ($categories['fields'] as $category) 
-	{
-		foreach ($category as $field)
-		{
-	    	$fieldNames = $fieldNames . ' ' . $field->metadata_name;
-	    	if ($field->metadata_name == $name)
-	    	{
-	    		create_metadata($user->guid, $name, $value);
-	    		$success = true;
-	    		break;
-	    	}
-	    }
 
-	    if ($success)
-	    	break;
+	$passHash = generate_user_password($targetUser, $currentPassword);
+	
+	if ($currentPassword != $newPassword && $newPassword == $newPasswordValidation && validate_password($newPassword) && $targetUser->password == $passHash)
+	{
+		$ia = elgg_set_ignore_access();
+
+		$targetUser->salt = generate_random_cleartext_password();
+		$hash = generate_user_password($targetUser, $newPassword);
+		$targetUser->password = $hash;
+		$success = (bool)$targetUser->save();
+
+		elgg_set_ignore_access($ia);
 	}
 
 	echo json_encode([
