@@ -22,6 +22,7 @@ function rijkshuisstijl_init() {
     $actions_base_profile = dirname(__FILE__) . "/actions/profile";
 	elgg_register_action("rijkshuisstijl/profile/setprofileparameter", "$actions_base_profile/setprofileparameter.php", "public");
 	elgg_register_action("rijkshuisstijl/profile/changepassword", "$actions_base_profile/changepassword.php", "public");
+	elgg_register_action("rijkshuisstijl/profile/setprofilefield", "$actions_base_profile/setprofilefield.php", "public");
 }
 
 /**

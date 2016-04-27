@@ -34,11 +34,11 @@
 
       if (save)
       {
-          elgg.action('rijkshuisstijl/profile/setprofileparameter', {
+          elgg.action('rijkshuisstijl/profile/setprofilefield', {
           data: {
             username: '<?php echo $username ?>',
-            name: 'overmij',
-            value: $('textarea').val()
+            name: 'aboutme',
+            value: '"' + $('textarea').val().replace("\"","\\\"") + '"'
           },
           success: function (wrapper) {
             if (wrapper.output) {
@@ -115,24 +115,18 @@
           <div class="rhs-profile-about"><strong>Over mij</strong>
             <?php if ($editable) : ?>
               <div data-editable-text class="rhs-editable-text">
-                <?php foreach ($fields as $field) : ?>
-                  <?php 
-                    if ($field["category"] == 'profielLocatie' && $field["name"] == 'overmij') :
-                  ?>
-                    <div class="rhs-editable-text__content"><?php echo $field["value"] ?></div>
-                    <form class="rhs-editable-text__editor">
-                      <div>
-                        <textarea class="elgg-input-plaintext" id="js-initiateTinymce"><?php echo $field["value"] ?></textarea>
-                      </div>
-                      <div class="rhs-form__actions rhs-form__under-tinymce" style="position: initial;"><a href="#" class="rhs-button rhs-button--grey" onclick="onEditableTextComplete(event, false)">Annuleer</a>
-                        <button class="rhs-button rhs-button--primary" onclick="onEditableTextComplete(event, true)">Opslaan</button>
-                      </div>
-                    </form>
-                  <?php endif ?>
-                <?php endforeach ?>
+                <div class="rhs-editable-text__content"><?php echo isset($user->aboutme) ? $user->aboutme : "Empty" ?></div>
+                <form class="rhs-editable-text__editor">
+                  <div>
+                    <textarea class="elgg-input-plaintext" id="js-initiateTinymce"><?php echo isset($user->aboutme) ? $user->aboutme : "" ?></textarea>
+                  </div>
+                  <div class="rhs-form__actions rhs-form__under-tinymce" style="position: initial;"><a href="#" class="rhs-button rhs-button--grey" onclick="onEditableTextComplete(event, false)">Annuleer</a>
+                    <button class="rhs-button rhs-button--primary" onclick="onEditableTextComplete(event, true)">Opslaan</button>
+                  </div>
+                </form>
               </div>
             <?php else : ?>
-              <p><?php echo $field["value"] ?></p>
+              <p><?php echo isset($user->aboutme) ? $user->aboutme : "" ?></p>
             <?php endif ?>
           </div>
         </div>

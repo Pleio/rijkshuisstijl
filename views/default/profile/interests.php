@@ -8,6 +8,7 @@
 
   $username = elgg_extract("username", $vars);
   $interests = array(true, false, false, false, false);
+
   $notifications = array(true, false);
 
   $targetUser = get_user_by_username($username);
@@ -15,6 +16,18 @@
   {
     register_error(elgg_echo("profile:notfound"));
     forward();
+  }
+
+  if (isset($targetUser->notifications))
+  {
+    for ($i = 0; $i < max(count($targetUser->notifications), count($notifications)); $i++)
+      $notifications[$i] = $targetUser->notifications[$i] != "0";
+  }
+
+  if (isset($targetUser->interests))
+  {
+    for ($i = 0; $i < max(count($targetUser->interests), count($interests)); $i++)
+      $interests[$i] = $targetUser->interests[$i] != "0";
   }
 
   $editable = $targetUser->canEdit();

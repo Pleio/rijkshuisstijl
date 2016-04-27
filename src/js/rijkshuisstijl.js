@@ -189,4 +189,64 @@ jQuery(document).ready(function () {
             }
         });
     });
+
+    $('#interest-1, #interest-2, #interest-3, #interest-4, #interest-5').click(function ()
+    {
+        setTimeout(function () {
+        elgg.action('rijkshuisstijl/profile/setprofilefield', {
+          data: {
+            username: gUsername,
+            name: 'interests',
+            value: '[ ' + $('#interest-1').parent().hasClass('chosen') + ', ' + $('#interest-2').parent().hasClass('chosen') + ', ' + $('#interest-3').parent().hasClass('chosen') + ', ' + $('#interest-4').parent().hasClass('chosen') + ', ' + $('#interest-5').parent().hasClass('chosen') + ' ]'
+          },
+          success: function (wrapper) {
+            if (wrapper.output) {
+              if (wrapper.output.success == false)
+                alert('An error occurred setting the value.');
+            } else {
+              // the system prevented the action from running
+            }
+          }
+        })}, 100);
+    });
+
+    $('#option-1, #option-2').click(function ()
+    {
+        setTimeout(function () {
+        elgg.action('rijkshuisstijl/profile/setprofilefield', {
+          data: {
+            username: gUsername,
+            name: 'notifications',
+            value: '[ ' + $('#option-1').parent().hasClass('chosen') + ', ' + $('#option-2').parent().hasClass('chosen') + ' ]'
+          },
+          success: function (wrapper) {
+            if (wrapper.output) {
+              if (wrapper.output.success == false)
+                alert('An error occurred setting the value.');
+            } else {
+              // the system prevented the action from running
+            }
+          }
+        })}, 100);
+    });
+
+    $('#emailChangeForm').submit(function (event) {
+        event.preventDefault();
+        
+        elgg.action('rijkshuisstijl/profile/setprofilefield', {
+          data: {
+            username: gUsername,
+            name: 'email',
+            value: '"' + $('#emailAddress').val() + '"'
+          },
+          success: function (wrapper) {
+            if (wrapper.output) {
+              if (wrapper.output.success == false)
+                alert('An error occurred setting the value.');
+            } else {
+              // the system prevented the action from running
+            }
+          }
+        });
+    });
 });

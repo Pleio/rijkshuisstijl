@@ -58,12 +58,15 @@
     <div class="rhs-profile-block">
       <div class="rhs-row">
         <div class="rhs-col-md-5">
-          <form method="get" novalidate class="js-validateForm">
+          <form method="get" novalidate class="js-validateForm" id="emailChangeForm">
             <h2 class="rhs-profile-block__title">Account e-mailadres</h2>
             <p class="rhs-form__element rhs-form__element--small-padding">
               <label class="rhs-form__label"><span class="rhs-form__label-text rhs-form__label-text--hidden">Account e-mailadres</span>
-                <input type="email" placeholder="Account e-mailadres" required data-validation=".+@.+..{2}" data-validationMessage="Vul een geldig e-mailadres in" value="<?php echo $targetUser->email ?>" class="rhs-form__input js-validateInput">
+                <input id="emailAddress" type="email" placeholder="Account e-mailadres" required data-validation=".+@.+..{2}" data-validationMessage="Vul een geldig e-mailadres in" value="<?php echo $targetUser->email ?>" class="rhs-form__input js-validateInput">
               </label>
+            </p>
+            <p class="rhs-form__element rhs-form__element--small-padding">
+              <button class="rhs-button rhs-button rhs-button--color-septenary rhs-button--disabled js-submitForm">Update e-mailadres</button>
             </p>
           </form>
         </div>
