@@ -16,6 +16,15 @@
   }
 
   $editable = $targetUser->canEdit();
+
+  $answer_options = array(
+    "type" => "object",
+    "subtype" => $answer_subtype,
+    "container_guid" => $question->getGUID(),
+    "count" => true
+  );
+
+  $num_answers = elgg_get_entities($answer_options);
 ?>
 
 <script type="text/javascript">
