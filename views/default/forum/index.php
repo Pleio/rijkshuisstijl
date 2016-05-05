@@ -2,6 +2,19 @@
 	$group = elgg_get_page_owner_entity();
 
 	$questions = elgg_extract("questions", $vars);
+
+	function getNumAnswers($question)
+	{
+		$answerOptions = array(
+			"type" => "object",
+			"subtype" => "answer",
+			"container_guid" => $question->getGUID(),
+			"count" => true
+		);
+
+		$numAnswers = elgg_get_entities($answerOptions);
+		return $numAnswers;
+	}
 ?>
 
 <div class="rhs-lead rhs-lead--forum">
@@ -15,7 +28,7 @@
 					</div>
 					<div class="rhs-col-xs-6 rhs-col-md-4 rhs-col-lg-3">
 						<div class="rhs-forum-action__indicator">
-							<p><span id="amout-of-users">73</span> <span class="hidden-mobile">gebruikers</span> online <span class="rhs-icon rhs-icon-community"> </span></p>
+							<p><span id="amout-of-users"><?php $usersOnline = count(find_active_users()); echo $usersOnline ?></span> <span class="hidden-mobile">gebruiker<?php echo $usersOnline == 1 ? "" : "s" ?></span> online <span class="rhs-icon rhs-icon-community"> </span></p>
 						</div>
 					</div>
 				</div>
@@ -47,20 +60,13 @@
 				<div data-accordion-item class="rhs-card-list">
 					<h3 data-accordion-trigger class="rhs-card-list__title">Recente vragen</h3>
 					<div class="rhs-card-list__content">
-						<?php foreach ($questions as $question) : ?>
-							<a href="<?php echo $question->getURL() ?>" title="..." class="rhs-card-list__item">
-								<table class="rhs-card-list__table">
-									<tbody>
-										<tr>
-											<td class="rhs-card-list__date"><?php echo date("d M", $question->getLatestAnswer()->time_created) ?></td>
-											<td class="rhs-card-list__text" style="min-width: 20rem;"><?php echo $question->title ?></td>
-											<td class="rhs-card-list__number"><span>5</span></td>
-										</tr>
-									</tbody>
-								</table>
-							</a>
-						<?php endforeach ?>
-						<a href="forum-subject.html" title="Bekijk alles" class="rhs-read-more rhs-card-list__read-more"><span class="rhs-icon-arrow-right-circle rhs-read-more__icon"></span>Alles</a>
+						<?php 
+							foreach ($questions as $question)
+							{
+								require "forumQuestionRow.php";
+							}
+						?>
+						<a href="/questions/all" title="Bekijk alles" class="rhs-read-more rhs-card-list__read-more"><span class="rhs-icon-arrow-right-circle rhs-read-more__icon"></span>Alles</a>
 					</div>
 				</div>
 			</div>
@@ -74,52 +80,13 @@
 			<div class="rhs-col-md-6">
 				<div data-accordion-item class="rhs-card-list">
 					<h3 data-accordion-trigger class="rhs-card-list__title">Recente vragen</h3>
-					<div class="rhs-card-list__content"><a href="forum-item.html" title="..." class="rhs-card-list__item">
-						<table class="rhs-card-list__table">
-							<tbody>
-								<tr>
-									<td class="rhs-card-list__date">22 jan</td>
-									<td class="rhs-card-list__text">Huurwoning in België, zakelijk aftrekbaar?</td>
-									<td class="rhs-card-list__number"><span>5</span></td>
-								</tr>
-							</tbody>
-						</table></a><a href="forum-item.html" title="..." class="rhs-card-list__item">
-						<table class="rhs-card-list__table">
-							<tbody>
-								<tr>
-									<td class="rhs-card-list__date">22 jan</td>
-									<td class="rhs-card-list__text">Huurwoning in België, zakelijk aftrekbaar?</td>
-									<td class="rhs-card-list__number"><span>5</span></td>
-								</tr>
-							</tbody>
-						</table></a><a href="forum-item.html" title="..." class="rhs-card-list__item">
-						<table class="rhs-card-list__table">
-							<tbody>
-								<tr>
-									<td class="rhs-card-list__date">22 jan</td>
-									<td class="rhs-card-list__text">Huurwoning in België, zakelijk aftrekbaar?</td>
-									<td class="rhs-card-list__number"><span>5</span></td>
-								</tr>
-							</tbody>
-						</table></a><a href="forum-item.html" title="..." class="rhs-card-list__item">
-						<table class="rhs-card-list__table">
-							<tbody>
-								<tr>
-									<td class="rhs-card-list__date">22 jan</td>
-									<td class="rhs-card-list__text">Huurwoning in België, zakelijk aftrekbaar?</td>
-									<td class="rhs-card-list__number"><span>5</span></td>
-								</tr>
-							</tbody>
-						</table></a><a href="forum-item.html" title="..." class="rhs-card-list__item">
-						<table class="rhs-card-list__table">
-							<tbody>
-								<tr>
-									<td class="rhs-card-list__date">22 jan</td>
-									<td class="rhs-card-list__text">Huurwoning in België, zakelijk aftrekbaar?</td>
-									<td class="rhs-card-list__number"><span>5</span></td>
-								</tr>
-							</tbody>
-						</table></a><a href="forum-subject.html" title="Bekijk alles" class="rhs-read-more rhs-card-list__read-more"><span class="rhs-icon-arrow-right-circle rhs-read-more__icon"></span>Alles</a>
+					<div class="rhs-card-list__content">
+						<?php 
+							foreach ($questions as $question)
+							{
+								require "forumQuestionRow.php";
+							}
+						?>
 					</div>
 				</div>
 			</div>

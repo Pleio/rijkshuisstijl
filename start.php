@@ -93,26 +93,16 @@ function rijkshuisstijl_forum_page_handler($page) {
 		$action = $page[0];
 	}
 
-	/*if ($action == "edit") {
-		// use the core profile edit page
-		require dirname(__FILE__) . "/pages/profile/edit.php";
+	if ($action == "category") 
+	{
+		require dirname(__FILE__) . "/pages/forum/category.php";
 		return true;
 	}
-	else if ($action == "interests")
-	{
-		require dirname(__FILE__) . "/pages/profile/interests.php";
-		return true;	
-	}
-	else if ($action == "settings")
-	{
-		require dirname(__FILE__) . "/pages/profile/settings.php";
-		return true;	
-	}
 	else
-	{*/
+	{
 		require dirname(__FILE__) . "/pages/forum/index.php";
 		return true;	
-	/*}*/
+	}
 
 	return true;
 }

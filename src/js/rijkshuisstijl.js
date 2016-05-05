@@ -27,6 +27,7 @@ require("./default/share-button.js");
 require("./default/tinymce.js");
 require("./default/video-block.js");
 require("./default/video-player.js");
+require("./default/selecter.js");
 
 var jQuery = require("jquery");
 jQuery(document).ready(function () {
@@ -249,4 +250,6 @@ jQuery(document).ready(function () {
           }
         });
     });
+
+    //$("#filter").selecter();
 });
