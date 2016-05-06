@@ -5,6 +5,8 @@
  * @package ElggQuestions
  */
 
+die('aaaaaaaaaaa');
+
 $guid = (int) get_input('guid');
 $question = get_entity($guid);
 

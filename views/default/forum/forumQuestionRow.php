@@ -1,6 +1,22 @@
 <?php
 	if (!isset($question))
 		return;
+
+	if (!function_exists("getNumAnswers"))
+  	{
+	    function getNumAnswers($question)
+	    {
+	      $answerOptions = array(
+	        "type" => "object",
+	        "subtype" => "answer",
+	        "container_guid" => $question->getGUID(),
+	        "count" => true
+	      );
+
+	      $numAnswers = elgg_get_entities($answerOptions);
+	      return $numAnswers;
+	    }
+  	}
 ?>
 
 <a href="<?php echo $question->getURL() ?>" title="..." class="rhs-card-list__item">

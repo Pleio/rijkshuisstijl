@@ -6,6 +6,7 @@ elgg_register_event_handler('init', 'system', 'rijkshuisstijl_init');
 
 function rijkshuisstijl_init() {
     elgg_register_plugin_hook_handler('action', 'plugins/settings/save', 'rijkshuisstijl_plugins_settings_save');
+    elgg_register_plugin_hook_handler("route", "questions", "rijkshuisstijl_route_questions_hook");
 
     elgg_register_css('rijkshuisstijl', '/mod/rijkshuisstijl/assets/rijkshuisstijl.css');
     elgg_load_css('rijkshuisstijl');
@@ -31,7 +32,8 @@ function rijkshuisstijl_init() {
  * @param array $page Array of URL segments passed by the page handling mechanism
  * @return bool
  */
-function rijkshuisstijl_profile_page_handler($page) {
+function rijkshuisstijl_profile_page_handler($page) 
+{
 	if (isset($page[0])) {
 		$username = $page[0];
 		$user = get_user_by_username($username);
@@ -80,14 +82,14 @@ function rijkshuisstijl_profile_page_handler($page) {
 	return true;
 }
 
-
 /**
  * Forum page handler
  *
  * @param array $page Array of URL segments passed by the page handling mechanism
  * @return bool
  */
-function rijkshuisstijl_forum_page_handler($page) {
+function rijkshuisstijl_forum_page_handler($page) 
+{
 	$action = NULL;
 	if (isset($page[0])) {
 		$action = $page[0];
@@ -105,4 +107,26 @@ function rijkshuisstijl_forum_page_handler($page) {
 	}
 
 	return true;
+}
+
+
+function rijkshuisstijl_route_questions_hook($hook_name, $entity_type, $return_value, $params) 
+{
+	if (!empty($return_value) && is_array($return_value)) 
+	{
+		$page = elgg_extract("segments", $return_value);
+			
+		switch ($page[0]) 
+		{
+			case "view":
+				if (isset($page[1])) 
+				{
+					set_input("guid", $page[1]);
+				}
+
+				include(dirname(dirname(__FILE__)) . "/pages/questions/view.php");
+				return false;
+				break;
+		}
+	}
 }
