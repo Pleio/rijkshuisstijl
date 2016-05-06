@@ -58,6 +58,7 @@
 	  	}
 	  ?>
   </div>
+  <?php if ($maxPage > 1) : ?>
   <div class="forum__pagination">
     <div class="rhs-pagination"><a href="#" title="Volgende pagina" class="rhs-pagination__previous disabled"><span class="rhs-icon-angle-left rhs-pagination__icon"></span></a>
       <form action="#" class="rhs-pagination__form">
@@ -65,6 +66,7 @@
       </form><a href="#" title="Volgende pagina" class="rhs-pagination__next"><span class="rhs-icon-angle-right rhs-pagination__icon"></span></a>
     </div>
   </div>
+  <?php endif ?>
 </div>
 <div id="modal-item" tabindex="0" class="rhs-modal">
   <div data-modal-id="#modal-item" class="rhs-modal__background js-toggleModal"></div>

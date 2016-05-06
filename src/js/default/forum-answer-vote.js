@@ -13,7 +13,4 @@ var $ = require("jquery");
             $(this).addClass("active");
         }
     });
-
-
-
 })();

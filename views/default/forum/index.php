@@ -2,19 +2,6 @@
 	$group = elgg_get_page_owner_entity();
 
 	$questions = elgg_extract("questions", $vars);
-
-	function getNumAnswers($question)
-	{
-		$answerOptions = array(
-			"type" => "object",
-			"subtype" => "answer",
-			"container_guid" => $question->getGUID(),
-			"count" => true
-		);
-
-		$numAnswers = elgg_get_entities($answerOptions);
-		return $numAnswers;
-	}
 ?>
 
 <div class="rhs-lead rhs-lead--forum">

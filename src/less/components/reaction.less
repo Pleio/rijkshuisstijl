@@ -1,0 +1,262 @@
+.@{namespace}-reaction {
+  background-color: #f1f9fc;
+  padding: 3rem 2rem;
+  margin: 2rem -2rem 0;
+}
+@media (min-width: 768px) {
+  .@{namespace}-reaction {
+    margin: 2rem 0 0;
+    padding: 2rem 2rem;
+  }
+}
+@media (min-width: 1024px) {
+  .@{namespace}-reaction {
+    padding: 3rem 2rem;
+  }
+}
+.@{namespace}-reaction--myanswer {
+  position: relative;
+  border: 0.2rem solid #01689b;
+}
+.@{namespace}-reaction__top {
+  padding-left: 5rem;
+  position: relative;
+  margin-bottom: 1rem;
+}
+@media (min-width: 768px) {
+  .@{namespace}-reaction__top {
+    padding-left: 6rem;
+  }
+}
+.@{namespace}-reaction__body {
+  display: block;
+  text-decoration: none;
+  color: #000;
+}
+@media (min-width: 768px) {
+  .@{namespace}-reaction__body {
+    padding-left: 6rem;
+  }
+}
+.@{namespace}-reaction__profile {
+  width: 4rem;
+  height: 4rem;
+  position: absolute;
+  left: 0;
+  margin-top: 0.2rem;
+  border-radius: 50% !important;
+  overflow: hidden;
+}
+@media (min-width: 1024px) {
+  .@{namespace}-reaction__profile {
+    margin-top: -0.7rem;
+  }
+}
+.@{namespace}-reaction__profile img {
+  width: 4rem;
+  height: 4rem;
+}
+.@{namespace}-reaction__profile:before {
+  background-color: #009ee3;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  content: "";
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: opacity 0.25s ease, visibility 0.25s ease;
+       -o-transition: opacity 0.25s ease, visibility 0.25s ease;
+          transition: opacity 0.25s ease, visibility 0.25s ease;
+  border-radius: 50% !important;
+}
+.@{namespace}-reaction__profile:hover:before {
+  visibility: visible;
+  opacity: 0.25;
+}
+.@{namespace}-reaction__name {
+  font-size: 1.6rem;
+  line-height: 2.2rem;
+  text-decoration: none;
+  font-family: "ROsanswebtext_bold", sans-serif;
+  color: #01689b;
+  -webkit-transition: color 0.2s ease, border 0.2s ease;
+       -o-transition: color 0.2s ease, border 0.2s ease;
+          transition: color 0.2s ease, border 0.2s ease;
+}
+@media (min-width: 768px) {
+  .@{namespace}-reaction__name {
+    display: inline;
+    font-size: 1.8rem;
+    line-height: 2.4rem;
+  }
+}
+.@{namespace}-reaction__name:hover {
+  color: #009ee3;
+}
+.@{namespace}-reaction__time {
+  display: block;
+  font-size: 1.6rem;
+  line-height: 2.2rem;
+  color: #01689b;
+}
+@media (min-width: 1024px) {
+  .@{namespace}-reaction__time {
+    display: inline-block;
+    float: right;
+    line-height: 2.4rem;
+  }
+}
+@media (min-width: 768px) {
+  .@{namespace}-reaction__bottom {
+    padding-left: 6rem;
+  }
+}
+.@{namespace}-reaction__upvote,
+.@{namespace}-reaction__downvote {
+  color: #8FCAE7;
+  font-size: 1.6rem;
+  line-height: 2.2rem;
+  position: relative;
+  padding-left: 1.6rem;
+  text-decoration: none;
+  -webkit-transition: color 0.2s ease;
+       -o-transition: color 0.2s ease;
+          transition: color 0.2s ease;
+}
+.@{namespace}-reaction__upvote:before,
+.@{namespace}-reaction__downvote:before {
+  font-family: "pleio";
+  content: "\e902";
+  position: absolute;
+  left: 0;
+  font-size: 1.3rem;
+}
+.@{namespace}-reaction__upvote:hover,
+.@{namespace}-reaction__downvote:hover {
+  color: #01689b;
+}
+.@{namespace}-reaction__upvote span,
+.@{namespace}-reaction__downvote span {
+  margin-right: 0.3rem;
+}
+.@{namespace}-reaction__downvote {
+  margin-left: 2rem;
+}
+.@{namespace}-reaction__downvote:before {
+  content: "\e903";
+}
+@media (min-width: 768px) {
+  .@{namespace}-reaction__downvote {
+    display: inline-block;
+    margin-left: 2rem;
+    margin-top: 0;
+  }
+}
+.@{namespace}-reaction__vote.active {
+  color: #01689b;
+  font-family: "ROsanswebtext_bold", sans-serif;
+}
+.@{namespace}-reaction__description {
+  margin-left: 1.5rem;
+  color: #8FCAE7;
+}
+.@{namespace}-reaction__edit {
+  color: #009ee3;
+  position: relative;
+  padding-left: 2rem;
+  -webkit-transition: color 0.2s ease;
+       -o-transition: color 0.2s ease;
+          transition: color 0.2s ease;
+  cursor: pointer;
+  margin-right: 2rem;
+}
+.@{namespace}-reaction__edit:before {
+  content: "\e904";
+  font-family: "pleio";
+  position: absolute;
+  left: 0;
+  font-size: 1.4rem;
+  margin-top: -0.2rem;
+}
+.@{namespace}-reaction__edit:hover {
+  color: #01689b;
+}
+.@{namespace}-reaction__remove {
+  color: #009ee3;
+  position: relative;
+  padding-left: 2rem;
+  -webkit-transition: color 0.2s ease;
+       -o-transition: color 0.2s ease;
+          transition: color 0.2s ease;
+  cursor: pointer;
+}
+.@{namespace}-reaction__remove:before {
+  content: "\e911";
+  font-family: "pleio";
+  position: absolute;
+  left: 0;
+  font-size: 1.3rem;
+  margin-top: -0.1rem;
+}
+.@{namespace}-reaction__remove:hover {
+  color: #01689b;
+}
+@media (min-width: 1024px) {
+  .@{namespace}-reaction__editable {
+    padding-bottom: 2rem;
+    cursor: pointer;
+  }
+  .@{namespace}-reaction__editable > * {
+    display: inline !important;
+    border-bottom: 0.1rem dotted transparent;
+  }
+  .@{namespace}-reaction__editable > *:after {
+    content: "";
+    display: block;
+    height: 2rem;
+  }
+  .@{namespace}-reaction__editable > *:last-child:after {
+    display: inline-block;
+    content: "\e904";
+    font-size: 1.3rem;
+    font-family: "pleio";
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    margin-left: 0.5rem;
+  }
+  .@{namespace}-reaction__editable:hover > * {
+    color: #01689b;
+    border-bottom: 0.1rem dotted #009ee3;
+  }
+  .@{namespace}-reaction__editable:hover > *:last-child:after {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+.@{namespace}-reaction__edit-btn {
+  display: block;
+  position: absolute;
+  right: 2rem;
+  text-decoration: none;
+  color: #01689b;
+  top: 0.5rem;
+}
+.@{namespace}-reaction__edit-btn:before {
+  content: "\e904";
+  font-family: "pleio";
+  color: #01689b;
+}
+@media (min-width: 768px) {
+  .@{namespace}-reaction__edit-btn {
+    right: 2rem;
+    top: 0;
+  }
+}
+@media (min-width: 1024px) {
+  .@{namespace}-reaction__edit-btn {
+    display: none;
+  }
+}
