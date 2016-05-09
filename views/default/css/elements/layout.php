@@ -100,7 +100,6 @@
 .elgg-main {
 	position: relative;
 	min-height: 360px;
-	padding: 10px;
 }
 .elgg-main > .elgg-head {
 	padding-bottom: 3px;

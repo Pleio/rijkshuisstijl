@@ -7,17 +7,19 @@ elgg_register_event_handler('init', 'system', 'rijkshuisstijl_init');
 function rijkshuisstijl_init() {
     elgg_register_plugin_hook_handler('action', 'plugins/settings/save', 'rijkshuisstijl_plugins_settings_save');
     elgg_register_plugin_hook_handler("route", "questions", "rijkshuisstijl_route_questions_hook");
+	elgg_register_plugin_hook_handler("index", "system", "rijkshuisstijl_custom_index", 40); // must be very early
+
 
     elgg_register_css('rijkshuisstijl', '/mod/rijkshuisstijl/assets/rijkshuisstijl.css');
     elgg_load_css('rijkshuisstijl');
 
-    elgg_register_js('rijkshuisstijl', '/mod/rijkshuisstijl/assets/rijkshuisstijl.js');
+    elgg_register_js('rijkshuisstijl', '/mod/rijkshuisstijl/assets/rijkshuisstijl.js', "footer");
     elgg_load_js('rijkshuisstijl');
 
     // revert hacks of older Elgg modules
     elgg_unextend_view('page/elements/head', 'subsite_manager/topbar_fix');
 
-    elgg_register_page_handler("profilet", "rijkshuisstijl_profile_page_handler");
+    elgg_register_page_handler("profile", "rijkshuisstijl_profile_page_handler");
     elgg_register_page_handler("forum", "rijkshuisstijl_forum_page_handler");
 
     $actions_base_profile = dirname(__FILE__) . "/actions/profile";
@@ -32,8 +34,7 @@ function rijkshuisstijl_init() {
  * @param array $page Array of URL segments passed by the page handling mechanism
  * @return bool
  */
-function rijkshuisstijl_profile_page_handler($page) 
-{
+function rijkshuisstijl_profile_page_handler($page) {
 	if (isset($page[0])) {
 		$username = $page[0];
 		$user = get_user_by_username($username);
@@ -88,14 +89,14 @@ function rijkshuisstijl_profile_page_handler($page)
  * @param array $page Array of URL segments passed by the page handling mechanism
  * @return bool
  */
-function rijkshuisstijl_forum_page_handler($page) 
+function rijkshuisstijl_forum_page_handler($page)
 {
 	$action = NULL;
 	if (isset($page[0])) {
 		$action = $page[0];
 	}
 
-	if ($action == "category") 
+	if ($action == "category")
 	{
 		require dirname(__FILE__) . "/pages/forum/category.php";
 		return true;
@@ -103,7 +104,7 @@ function rijkshuisstijl_forum_page_handler($page)
 	else
 	{
 		require dirname(__FILE__) . "/pages/forum/index.php";
-		return true;	
+		return true;
 	}
 
 	return true;

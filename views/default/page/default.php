@@ -30,9 +30,11 @@ $topbar = elgg_view('page/elements/topbar', $vars);
 $messages = elgg_view('page/elements/messages', array('object' => $vars['sysmessages']));
 
 $header = elgg_view('page/elements/header', $vars);
+$leader = elgg_view('page/elements/leader', $vars);
 $main_navigation = elgg_view('page/elements/main_navigation', $vars);
 $body = elgg_view('page/elements/body', $vars);
 $footer = elgg_view('page/elements/footer', $vars);
+$navresults = elgg_view('page/elements/navresults', $vars);
 
 // Set the content type
 header("Content-type: text/html; charset=utf-8");
@@ -65,23 +67,19 @@ $lang = get_current_language();
 	</div>
 
 	<div class="rhs-main-navigation-wrapper">
-		<nav class="rhs-main-navigation">
-			<div class="rhs-container">
-				<?php echo $main_navigation; ?>
-			</div>
-		</nav>
+		<?php echo $main_navigation; ?>
 	</div>
 
     <div class="elgg-page-messages">
 		<?php echo $messages; ?>
 	</div>
 
+	<?php if ($vars['leader']): ?>
+		<?php echo $leader; ?>
+	<?php endif ?>
+
 	<div class="rhs-home__content">
-		<div class="rhs-home__section">
-			<div class="rhs-container">
-				<?php echo $body; ?>
-			</div>
-		</div>
+		<?php echo $body; ?>
 	</div>
 </div>
 
@@ -91,6 +89,11 @@ $lang = get_current_language();
 		<?php echo $footer; ?>
 	</div>
 </div>
+
+<div data-nav-results class="rhs-main-nav-results">
+	<?php echo $navresults; ?>
+</div>
+<div class="rhs-overlay"></div>
 <?php echo elgg_view('page/elements/foot'); ?>
 </body>
 </html>

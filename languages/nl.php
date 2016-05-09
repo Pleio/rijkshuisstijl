@@ -3,7 +3,8 @@ $dutch = array(
     'rijkshuisstijl:logo' => 'Logo',
     'rijkshuisstijl:contact' => 'Contact links',
     'rijkshuisstijl:title' => 'Titel',
-    'rijkshuisstijl:url' => 'URL'
+    'rijkshuisstijl:url' => 'URL',
+    'rijkshuisstijl:close' => 'Sluiten'
 );
 
 add_translation('nl', $dutch);

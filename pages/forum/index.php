@@ -19,11 +19,14 @@
   );
 
   $questions = elgg_get_entities($options, 'elgg_get_entities_from_private_settings');
-  
+
   $body = $body . elgg_view('forum/index', array('questions' => $questions));
 
   //elgg_set_context('profile_edit');
 
   $title = elgg_echo('profile:edit');
-  echo elgg_view_page($title, $body);
+
+  echo elgg_view_page($title, $body, 'default', array(
+    'leader' => elgg_view('rijkshuisstijl/leader/forum')
+  ));
 ?>
