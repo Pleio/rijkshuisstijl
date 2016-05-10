@@ -2,7 +2,7 @@
           <div class="rhs-container">
             <div class="rhs-row">
               <div class="rhs-col-md-12">
-                <h2 class="rhs-home__subtitle">Forum</h2><a href="forum.html" title="..." class="rhs-home__readmore">Alles</a>
+                <h2 class="rhs-home__subtitle">Forum</h2><a href="/forum" title="..." class="rhs-home__readmore"><?php echo elgg_echo("rijkshuisstijl:all"); ?></a>
               </div>
             </div>
             <div class="rhs-row">

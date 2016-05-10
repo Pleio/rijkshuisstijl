@@ -7,10 +7,6 @@ $content = elgg_view('rijkshuisstijl/elements/forum');
 $content .= elgg_view('rijkshuisstijl/elements/news');
 $content .= elgg_view('rijkshuisstijl/elements/videos');
 
-$body = elgg_view_layout("one_column", array(
-    "content" => $content
-));
-
-echo elgg_view_page("", $body, "default", array(
+echo elgg_view_page("", $content, "default", array(
     'leader' => elgg_view('rijkshuisstijl/leader/home')
 ));

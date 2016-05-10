@@ -681,7 +681,6 @@ input[type="radio"] {
   display: block;
   margin: 10px 0;
   z-index: 1;
-  max-width: 30%;
 }
 .elgg-input-selecter:focus {
   -webkit-box-shadow: none;

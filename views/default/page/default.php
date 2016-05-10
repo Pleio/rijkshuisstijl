@@ -48,7 +48,8 @@ $lang = get_current_language();
 <head>
   <?php echo elgg_view('page/elements/head', $vars); ?>
 </head>
-<body>
+
+<body class="<?php echo isset($vars['body_class']) ? $vars['body_class'] : ""; ?>">
 <!-- Header set -->
 <div class="rhs-page-wrapper">
 	<div class="print-header"><img src="<?php echo rijkshuisstijl_asset("image/logo-print.png"); ?>"></div>
@@ -78,9 +79,7 @@ $lang = get_current_language();
 		<?php echo $leader; ?>
 	<?php endif ?>
 
-	<div class="rhs-home__content">
-		<?php echo $body; ?>
-	</div>
+	<?php echo $body; ?>
 </div>
 
 <!-- Footer -->
@@ -93,7 +92,9 @@ $lang = get_current_language();
 <div data-nav-results class="rhs-main-nav-results">
 	<?php echo $navresults; ?>
 </div>
+
 <div class="rhs-overlay"></div>
 <?php echo elgg_view('page/elements/foot'); ?>
+
 </body>
 </html>

@@ -1,7 +1,7 @@
 <?php $site = elgg_get_site_entity(); ?>
 
 <div class="rhs-lead rhs-lead--forum">
-        <div style="background-image: url('/mod/rijkshuisstijl/assets/image/lead.jpg')" class="rhs-lead__background"></div>
+        <div style="background-image: url('<?php echo rijkshuisstijl_asset("image/lead.jpg"); ?>')" class="rhs-lead__background"></div>
         <div class="rhs-lead__content">
           <div class="rhs-container">
             <div class="rhs-forum-action">

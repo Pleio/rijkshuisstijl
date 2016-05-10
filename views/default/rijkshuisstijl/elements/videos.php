@@ -9,7 +9,7 @@
               <div class="rhs-col-md-12">
                 <div data-video-block="" class="rhs-video-block">
                   <div class="rhs-video-block__right">
-                    <div style="background-image:url('asset/image/dummy-video.jpg');" class="rhs-video-block__background"><a href="#" title="Speel video af" data-video-block-trigger="" data-video-type="youtube" data-video-id="77-pNVbE0Uw" class="rhs-video-block__play"><span class="rhs-icon rhs-icon-play"></span></a></div>
+                    <div style="background-image:url('<?php echo rijkshuisstijl_asset("image/dummy-video.jpg"); ?>');" class="rhs-video-block__background"><a href="#" title="Speel video af" data-video-block-trigger="" data-video-type="youtube" data-video-id="77-pNVbE0Uw" class="rhs-video-block__play"><span class="rhs-icon rhs-icon-play"></span></a></div>
                     <div class="rhs-video-block__menu"><a href="#" title="Sluit overzicht" data-video-block-trigger="" class="rhs-video-block__menu-close"><span class="rhs-icon rhs-icon-cross"></span></a>
                       <div class="rhs-video-block__title">Kwalificerende buitenlandse belastingplicht</div>
                       <div class="rhs-video-block__list">

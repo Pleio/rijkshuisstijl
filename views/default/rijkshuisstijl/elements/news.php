@@ -9,7 +9,7 @@
               <div class="rhs-col-md-12">
                 <div class="rhs-news__featured-article">
                   <div class="rhs-article rhs-article--content-right">
-                    <div style="background-image: url('/asset/image/woman.jpg');" class="rhs-article__image"></div>
+                    <div style="background-image: url('<?php echo rijkshuisstijl_asset("image/woman.jpg"); ?>');" class="rhs-article__image"></div>
                     <div class="rhs-article__content">
                       <h2 class="rhs-article__title">Busciis a in non eium xplabo ratectatae</h2><span class="rhs-article__category">Toeslagen</span>
                       <p class="rhs-article__text" style="word-wrap: break-word;">Nuscianditate secatin ulliti audanih illendisciis explabo ratectatae. Is rendi lorem ipsum. Nuscianditate secatin ulliti audanih illendisciis explabo ratectatae. Is rendi lorem ipsum</p>
