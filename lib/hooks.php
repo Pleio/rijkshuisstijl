@@ -6,7 +6,10 @@ function rijkshuisstijl_plugins_settings_save($hook, $type, $value, $params) {
     }
 
     $params = get_input('params');
+
     $params['contact'] = serialize($params['contact']);
+    $params['topics'] = serialize($params['topics']);
+
     set_input('params', $params);
 }
 
@@ -15,20 +18,58 @@ function rijkshuisstijl_custom_index($hook, $type, $value, $params) {
     return true;
 }
 
-function rijkshuisstijl_menu_handler($hook, $type, $menu, $params) {
-    $menu['default'] = array();
-    $menu['default'][] = new ElggMenuItem('home', elgg_echo('rijkshuisstijl:menu:home'), '/');
-    $menu['default'][] = new ElggMenuItem('forum', elgg_echo('rijkshuisstijl:menu:forum'), '/forum');
-    $menu['default'][] = new ElggMenuItem('news', elgg_echo('rijkshuisstijl:menu:news'), '/news');
-    $menu['default'][] = new ElggMenuItem('videos', elgg_echo('rijkshuisstijl:menu:videos'), '/videos');
+function rijkshuisstijl_menu_handler($hook, $type, $items, $params) {
+    $items = array();
 
-    $themes = new ElggMenuItem('themes', elgg_echo('rijkshuisstijl:menu:themes'), '#');
-    $themes->addChild(new ElggMenuItem('inkomstenbelasting', 'Inkomstenbelasting', '/themes/inkomstenbelasting'));
-    $themes->addChild(new ElggMenuItem('loonheffing', 'Loonheffing', '/themes/loonheffing'));
-    $themes->addChild(new ElggMenuItem('omzetbelasting', 'Omzetbelasting', '/themes/omzetbelasting'));
-    $menu['default'][] = $themes;
+    $items[] = ElggMenuItem::factory(array(
+        'name' => 'home',
+        'text' => elgg_echo('rijkshuisstijl:menu:home'),
+        'href' => '/',
+        'priority' => 100
+    ));
 
-    $menu['default'][] = new ElggMenuItem('pinboard', elgg_echo('rijkshuisstijl:menu:pinboard'), '/pinboard');
+    $items[] = ElggMenuItem::factory(array(
+        'name' => 'forum',
+        'text' => elgg_echo('rijkshuisstijl:menu:forum'),
+        'href' => 'forum',
+        'priority' => 101
+    ));
 
-    return $menu;
+    $items[] = ElggMenuItem::factory(array(
+        'name' => 'news',
+        'text' => elgg_echo('rijkshuisstijl:menu:news'),
+        'href' => '/news',
+        'priority' => 102
+    ));
+
+    $items[] = ElggMenuItem::factory(array(
+        'name' => 'videos',
+        'text' => elgg_echo('rijkshuisstijl:menu:videos'),
+        'href' => '/videos',
+        'priority' => 103
+    ));
+
+    $children = array();
+    $topics = unserialize(elgg_get_plugin_setting('topics', 'rijkshuisstijl'));
+
+    foreach ($topics as $topic) {
+        $children[] = new ElggMenuItem($topic['title'], $topic['title'], '/themes/' . $topic['tag']);
+    }
+
+    $items[] = ElggMenuItem::factory(array(
+        'name' => 'themes',
+        'text' => elgg_echo('rijkshuisstijl:menu:themes'),
+        'href' => '/',
+        'priority' => 104,
+        'children' => $children
+    ));
+
+    $items[] = ElggMenuItem::factory(array(
+        'name' => 'pinboard',
+        'text' => elgg_echo('rijkshuisstijl:menu:pinboard'),
+        'href' => '/cafe',
+        'priority' => 105
+    ));
+
+    return $items;
 }

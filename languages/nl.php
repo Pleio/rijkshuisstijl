@@ -7,6 +7,7 @@ $dutch = array(
     'rijkshuisstijl:logout' => 'Uitloggen',
     'rijkshuisstijl:close' => 'Sluiten',
     'rijkshuisstijl:back' => 'Terug',
+    'rijkshuisstijl:settings:topics' => 'Onderwerpen',
     'rijkshuisstijl:search:view_all_results' => 'Bekijk alle resultaten',
     'rijkshuisstijl:menu:home' => 'Home',
     'rijkshuisstijl:menu:forum' => 'Forum',

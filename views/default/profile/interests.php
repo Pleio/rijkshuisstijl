@@ -1,18 +1,16 @@
 <?php
   $user = elgg_get_page_owner_entity();
-  if (!$user) 
+  if (!$user)
   {
     register_error(elgg_echo("profile:notfound"));
     forward();
   }
 
   $username = elgg_extract("username", $vars);
-  $interests = array(true, false, false, false, false);
-
   $notifications = array(true, false);
 
   $targetUser = get_user_by_username($username);
-  if (!$targetUser) 
+  if (!$targetUser)
   {
     register_error(elgg_echo("profile:notfound"));
     forward();
@@ -24,13 +22,10 @@
       $notifications[$i] = $targetUser->notifications[$i] != "0";
   }
 
-  if (isset($targetUser->interests))
-  {
-    for ($i = 0; $i < max(count($targetUser->interests), count($interests)); $i++)
-      $interests[$i] = $targetUser->interests[$i] != "0";
-  }
-
   $editable = $targetUser->canEdit();
+
+  $topics = unserialize(elgg_get_plugin_setting('topics', 'rijkshuisstijl'));
+  $interests = unserialize($targetUser->interests);
 ?>
 
 <script type="text/javascript">
@@ -47,21 +42,11 @@
         <div class="rhs-col-md-1"></div>
         <div class="rhs-col-md-4">
           <p class="rhs-form__element rhs-form__element--small-padding">
-            <label for="interest-1" class="rhs-checkbox-switch">
-              <input type="checkbox" id="interest-1" name="interest-1" <?php echo $interests[0] ? "checked" : "" ?> class="rhs-checkbox-switch__input"><span class="rhs-checkbox-switch__placeholder"></span>Inkomstenbelasting
-            </label>
-            <label for="interest-2" class="rhs-checkbox-switch">
-              <input type="checkbox" id="interest-2" name="interest-2" <?php echo $interests[1] ? "checked" : "" ?> class="rhs-checkbox-switch__input"><span class="rhs-checkbox-switch__placeholder"></span>Toeslagen
-            </label>
-            <label for="interest-3" class="rhs-checkbox-switch">
-              <input type="checkbox" id="interest-3" name="interest-3" <?php echo $interests[2] ? "checked" : "" ?> class="rhs-checkbox-switch__input"><span class="rhs-checkbox-switch__placeholder"></span>Loonheffingen
-            </label>
-            <label for="interest-4" class="rhs-checkbox-switch">
-              <input type="checkbox" id="interest-4" name="interest-4" <?php echo $interests[3] ? "checked" : "" ?> class="rhs-checkbox-switch__input"><span class="rhs-checkbox-switch__placeholder"></span>Omzetbelasting
-            </label>
-            <label for="interest-5" class="rhs-checkbox-switch">
-              <input type="checkbox" id="interest-5" name="interest-5" <?php echo $interests[4] ? "checked" : "" ?> class="rhs-checkbox-switch__input"><span class="rhs-checkbox-switch__placeholder"></span>Vennootschapsbelasting
-            </label>
+            <?php foreach($topics as $topic): ?>
+              <label for="interest-<?php echo $topic['tag']; ?>" class="rhs-checkbox-switch">
+                <input type="checkbox" id="interest-<?php echo $topic['tag']; ?>" name="interest-<?php echo $topic['tag']; ?>" <?php echo in_array($topic['tag'], $interests) ? "checked" : ""; ?> class="rhs-checkbox-switch__input"><span class="rhs-checkbox-switch__placeholder"></span><?php echo $topic['title']; ?>
+              </label>
+            <?php endforeach; ?>
           </p>
         </div>
       </div>

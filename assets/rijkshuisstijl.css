@@ -4844,21 +4844,21 @@ label.__problem .rhs-form__input {
     margin-left: -2rem;
   }
 }
-.rhs-card-list__readmore {
+.rhs-card-list__read-more {
   position: relative;
   margin-top: 2.5rem;
 }
-.rhs-card-list__readmore .rhs-read-more__icon {
+.rhs-card-list__read-more .rhs-read-more__icon {
   transform: none;
   margin-left: -2.8rem;
 }
 @media (max-width: 767px) {
-  .rhs-card-list__readmore {
+  .rhs-card-list__read-more {
     text-align: right;
     padding-left: 0;
     padding-right: 2.8rem;
   }
-  .rhs-card-list__readmore .rhs-read-more__icon {
+  .rhs-card-list__read-more .rhs-read-more__icon {
     left: auto;
     right: 0;
   }

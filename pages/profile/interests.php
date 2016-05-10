@@ -13,5 +13,7 @@
   //elgg_set_context('profile_edit');
 
   $title = elgg_echo('profile:edit');
-  echo elgg_view_page($title, $body);
+  echo elgg_view_page($title, $body, 'default', array(
+    'body_class' => 'background-grey'
+  ));
 ?>

@@ -1,4 +1,13 @@
 <?php
+
+$FFD_TOPICS = array(
+	'inkomstenbelasting' => 'Inkomstenbelasting',
+	'loonheffingen' => 'Loonheffingen',
+	'omzetbelasting' => 'Omzetbelasting',
+	'toeslagen' => 'Toeslagen',
+	'vennootschapsbelasting' => 'Vennootschapsbelasting'
+);
+
 include_once(dirname(__FILE__) . "/lib/functions.php");
 include_once(dirname(__FILE__) . "/lib/hooks.php");
 
@@ -6,9 +15,9 @@ elgg_register_event_handler('init', 'system', 'rijkshuisstijl_init');
 
 function rijkshuisstijl_init() {
     elgg_register_plugin_hook_handler('action', 'plugins/settings/save', 'rijkshuisstijl_plugins_settings_save');
-    elgg_register_plugin_hook_handler("route", "questions", "rijkshuisstijl_route_questions_hook");
+    //elgg_register_plugin_hook_handler("route", "questions", "rijkshuisstijl_route_questions_hook");
 	elgg_register_plugin_hook_handler("index", "system", "rijkshuisstijl_custom_index", 40); // must be very early
-	elgg_register_plugin_hook_handler("prepare", "menu:site", "rijkshuisstijl_menu_handler");
+	elgg_register_plugin_hook_handler("register", "menu:site", "rijkshuisstijl_menu_handler");
 
 
     elgg_register_css('rijkshuisstijl', '/mod/rijkshuisstijl/assets/rijkshuisstijl.css');
@@ -22,6 +31,7 @@ function rijkshuisstijl_init() {
 
     elgg_register_page_handler("profile", "rijkshuisstijl_profile_page_handler");
     elgg_register_page_handler("forum", "rijkshuisstijl_forum_page_handler");
+    elgg_register_page_handler("news", "rijkshuisstijl_news_page_handler");
 
     $actions_base_profile = dirname(__FILE__) . "/actions/profile";
 	elgg_register_action("rijkshuisstijl/profile/setprofileparameter", "$actions_base_profile/setprofileparameter.php", "public");

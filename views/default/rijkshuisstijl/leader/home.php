@@ -8,7 +8,7 @@
             <input name="q" id="lead-search" placeholder="<?php echo elgg_echo("search"); ?>" autocomplete="off" data-autocomplete-input="" class="rhs-lead__search__input">
             <div class="rhs-autocomplete">
               <div class="rhs-autocomplete__results"></div>
-              <button type="submit" class="rhs-autocomplete__more"><?php echo elgg_echo("rijkshuisstijl:view_all_results"); ?></button>
+              <button type="submit" class="rhs-autocomplete__more"><?php echo elgg_echo("rijkshuisstijl:search:view_all_results"); ?></button>
             </div>
           </form>
         </div>

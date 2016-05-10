@@ -7,6 +7,7 @@ $english = array(
     'rijkshuisstijl:logout' => 'Logout',
     'rijkshuisstijl:close' => 'Close',
     'rijkshuisstijl:back' => 'Back',
+    'rijkshuisstijl:settings:topics' => 'Topics',
     'rijkshuisstijl:search:view_all_results' => 'View all results',
     'rijkshuisstijl:menu:home' => 'Home',
     'rijkshuisstijl:menu:forum' => 'Forum',
