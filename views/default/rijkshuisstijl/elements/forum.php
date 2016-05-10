@@ -20,7 +20,7 @@ $topics = unserialize(elgg_get_plugin_setting('topics', 'rijkshuisstijl'));
                   <table class="rhs-card-list__table">
                     <tbody>
                       <tr>
-                        <td class="rhs-card-list__date"><?php echo date("d M", $question->time_updated); ?></td>
+                        <td class="rhs-card-list__date"><?php echo strftime("%e %b", $question->time_created); ?></td>
                         <td class="rhs-card-list__text" style="word-wrap: break-word;"><?php echo $question->title; ?></td>
                         <td class="rhs-card-list__number"><span><?php echo $question->getAnswers(array('count' => true)); ?></span></td>
                       </tr>
