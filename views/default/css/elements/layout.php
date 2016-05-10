@@ -86,7 +86,7 @@
 .elgg-sidebar {
 	position: relative;
 	padding: 20px 10px;
-	float: right;
+	float: left;
 	width: 30rem;
 	margin: 0 0 0 10px;
 }

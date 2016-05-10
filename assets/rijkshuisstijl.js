@@ -156,59 +156,6 @@
 	        jQuery(this).parent().prev().text(jQuery(this).text());
 	    });
 	
-	    var navigationElements = jQuery('.rhs-main-navigation__link');
-	    navigationElements.each(function (){
-	        var childMenu = jQuery(this).next();
-	        if (!childMenu.hasClass('elgg-child-menu'))
-	            return;
-	
-	        jQuery(this).after('<div class="rhs-dropdown__wrapper"></div>');
-	
-	        var divElement = jQuery(this).next();
-	
-	        divElement.append('<div class="rhs-dropdown__mobile"><a href="#" class="rhs-dropdown__back">Terug</a><div class="rhs-dropdown__subject">' + jQuery(this).text() + '</div></div>');
-	
-	        var liElements = childMenu.children();
-	        if (liElements.size() <= 0)
-	            return;
-	
-	        jQuery(this).before('<div class="rhs-dropdown"></div>');
-	
-	        var containerDivElement = jQuery(this).prev();
-	        containerDivElement.append(jQuery(this));
-	        containerDivElement.append(divElement);
-	
-	        jQuery(this).removeClass('rhs-main-navigation');
-	        jQuery(this).addClass('rhs-main-navigation-dropdown');
-	
-	        liElements.each(function () {
-	            var aElement = liElements.children().first();
-	            aElement.addClass('rhs-dropdown__link');
-	            divElement.append(aElement);
-	        });
-	
-	        jQuery(this).click(function (event) {
-	            var parent = jQuery(this).parent();
-	            parent.siblings('.rhs-dropdown').removeClass('dropdown--open');
-	            parent.addClass('dropdown--open');
-	            event.preventDefault(); 
-	        });
-	
-	        childMenu.detach();
-	    });
-	
-	    jQuery('.rhs-dropdown__back').click(function () {
-	        jQuery(this).parent().parent().parent().removeClass('dropdown--open');
-	    });
-	
-	    jQuery('.rhs-mobile-navigation-bar__trigger').click(function() {
-	        jQuery('.rhs-mobile-navigation').css('transform', 'unset');
-	    });
-	
-	    jQuery('.rhs-mobile-navigation__close').click(function () {
-	       jQuery('.rhs-mobile-navigation').css('transform', ''); 
-	    });
-	
 	    var els = jQuery('.elgg-form-login fieldset div input');
 	    if (els.length > 0)
 	    {

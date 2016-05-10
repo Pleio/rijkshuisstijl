@@ -8,6 +8,7 @@ function rijkshuisstijl_init() {
     elgg_register_plugin_hook_handler('action', 'plugins/settings/save', 'rijkshuisstijl_plugins_settings_save');
     elgg_register_plugin_hook_handler("route", "questions", "rijkshuisstijl_route_questions_hook");
 	elgg_register_plugin_hook_handler("index", "system", "rijkshuisstijl_custom_index", 40); // must be very early
+	elgg_register_plugin_hook_handler("prepare", "menu:site", "rijkshuisstijl_menu_handler");
 
 
     elgg_register_css('rijkshuisstijl', '/mod/rijkshuisstijl/assets/rijkshuisstijl.css');
