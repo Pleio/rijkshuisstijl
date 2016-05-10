@@ -9,7 +9,7 @@ $topic = get_input('topic');
 $topics = unserialize(elgg_get_plugin_setting('topics', 'rijkshuisstijl'));
 
 if (!array_key_exists($topic, $topics)) {
-    register_error('Topic does not exists');
+    register_error(elgg_echo('rijkshuisstijl:topics:not_exists'));
     forward(REFERER);
 }
 

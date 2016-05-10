@@ -32,6 +32,7 @@ function rijkshuisstijl_init() {
     elgg_register_page_handler("profile", "rijkshuisstijl_profile_page_handler");
     elgg_register_page_handler("forum", "rijkshuisstijl_forum_page_handler");
     elgg_register_page_handler("news", "rijkshuisstijl_news_page_handler");
+    elgg_register_page_handler("videos", "rijkshuisstijl_videos_page_handler");
     elgg_register_page_handler("topics", "rijkshuisstijl_topics_page_handler");
     elgg_register_page_handler("pinboard", "rijkshuisstijl_pinboard_page_handler");
 
@@ -127,6 +128,16 @@ function rijkshuisstijl_forum_page_handler($page)
 function rijkshuisstijl_news_page_handler($page)
 {
 	require dirname(__FILE__) . "/pages/news.php";
+	return true;
+}
+
+function rijkshuisstijl_videos_page_handler($page)
+{
+	if ($page[0]) {
+		set_input("topic", $page[0]);
+	}
+
+	require dirname(__FILE__) . "/pages/videos.php";
 	return true;
 }
 

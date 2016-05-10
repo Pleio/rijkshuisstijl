@@ -10,6 +10,7 @@ $dutch = array(
     'rijkshuisstijl:pinboard' => 'Prikbord',
     'rijkshuisstijl:pinboard:welcome' => 'Welkom op het prikbord. Een informele plek om uw nieuws of ervaringen te delen, vakgenoten te vinden voor bv specifieke opdrachten, vacatures en gewaardeerde gebruikers, etc. Een prikbord voor niet-fiscale zaken dus.',
     'rijkshuisstijl:settings:topics' => 'Onderwerpen',
+    'rijkshuisstijl:topics:not_exists' => 'Thema bestaat niet',
     'rijkshuisstijl:search:view_all_results' => 'Bekijk alle resultaten',
     'rijkshuisstijl:menu:home' => 'Home',
     'rijkshuisstijl:menu:forum' => 'Forum',

@@ -65,7 +65,7 @@ function rijkshuisstijl_menu_handler($hook, $type, $items, $params) {
     $items[] = ElggMenuItem::factory(array(
         'name' => 'topics',
         'text' => elgg_echo('rijkshuisstijl:menu:topics'),
-        'href' => '#',
+        'href' => '/topics',
         'priority' => 104,
         'children' => $children
     ));
