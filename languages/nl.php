@@ -12,13 +12,13 @@ $dutch = array(
     'rijkshuisstijl:settings:topics' => 'Onderwerpen',
     'rijkshuisstijl:topics:not_exists' => 'Thema bestaat niet',
     'rijkshuisstijl:search:view_all_results' => 'Bekijk alle resultaten',
-    'rijkshuisstijl:menu:home' => 'Home',
-    'rijkshuisstijl:menu:forum' => 'Forum',
-    'rijkshuisstijl:menu:news' => 'Nieuws',
-    'rijkshuisstijl:menu:videos' => 'Videos',
-    'rijkshuisstijl:menu:topics' => 'Thema\'s',
-    'rijkshuisstijl:menu:pinboard' => 'Prikbord',
-    'rijkshuisstijl:menu:more' => 'Meer',
+    'rijkshuisstijl:home' => 'Home',
+    'rijkshuisstijl:forum' => 'Forum',
+    'rijkshuisstijl:news' => 'Nieuws',
+    'rijkshuisstijl:videos' => 'Videos',
+    'rijkshuisstijl:topics' => 'Thema\'s',
+    'rijkshuisstijl:pinboard' => 'Prikbord',
+    'rijkshuisstijl:error:xhr_only' => 'Hier kunnen alleen XHR requests gedaan worden.',
     'rijkshuisstijl:all' => 'Alles'
 );
 

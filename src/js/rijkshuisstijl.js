@@ -28,6 +28,9 @@ require("./default/tinymce.js");
 require("./default/video-block.js");
 require("./default/video-player.js");
 
+require("./rijkshuisstijl/index");
+
+
 var jQuery = require("jquery");
 jQuery(document).ready(function () {
     var radioElements = jQuery('.elgg-input-radio');

@@ -11,6 +11,10 @@ module.exports = {
     module: {
         loaders: [
             {
+                test: /\.jsx$/,
+                loader: 'jsx-loader?insertPragma=React.DOM&harmony'
+            },
+            {
                 test: /\.css$/,
                 loader: ExtractTextPlugin.extract("style-loader", "css-loader")
             },
@@ -27,5 +31,8 @@ module.exports = {
     devtool: "source-map",
     plugins: [
         new ExtractTextPlugin("rijkshuisstijl.css")
-    ]
+    ],
+    resolve: {
+        extensions: ['', '.js', '.jsx']
+    }
 }

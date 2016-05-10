@@ -12,13 +12,13 @@ $english = array(
     'rijkshuisstijl:topics:not_exists' => 'Topic does not exist',
     'rijkshuisstijl:settings:topics' => 'Topics',
     'rijkshuisstijl:search:view_all_results' => 'View all results',
-    'rijkshuisstijl:menu:home' => 'Home',
-    'rijkshuisstijl:menu:forum' => 'Forum',
-    'rijkshuisstijl:menu:news' => 'News',
-    'rijkshuisstijl:menu:videos' => 'Videos',
-    'rijkshuisstijl:menu:topics' => 'Topics',
-    'rijkshuisstijl:menu:pinboard' => 'Pinboard',
-    'rijkshuisstijl:menu:more' => 'More',
+    'rijkshuisstijl:home' => 'Home',
+    'rijkshuisstijl:forum' => 'Forum',
+    'rijkshuisstijl:news' => 'News',
+    'rijkshuisstijl:videos' => 'Videos',
+    'rijkshuisstijl:topics' => 'Topics',
+    'rijkshuisstijl:pinboard' => 'Pinboard',
+    'rijkshuisstijl:error:xhr_only' => 'Sorry, XHR requests only',
     'rijkshuisstijl:all' => 'All'
 );
 

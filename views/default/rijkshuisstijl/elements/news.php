@@ -2,7 +2,6 @@
 $full_view = isset($vars['full_view']) ? $vars['full_view'] : false;
 ?>
 
-
 <?php if (!$full_view): ?>
 <div class="rhs-row">
   <div class="rhs-col-md-12">

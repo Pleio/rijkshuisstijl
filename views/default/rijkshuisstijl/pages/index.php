@@ -2,7 +2,7 @@
 
 <div class="rhs-home__section">
     <div class="rhs-container">
-        <?php elgg_view('rijkshuisstijl/elements/news'); ?>
+        <?php echo elgg_view('rijkshuisstijl/elements/news'); ?>
     </div>
 </div>
 

@@ -18,11 +18,12 @@ $topic = array(
     'title' => $topics[$topic]
 );
 
+$title = elgg_echo("rijkshuisstijl:topics");
 $content = elgg_view("rijkshuisstijl/pages/topics", array(
     'topic' => $topic
 ));
 
-echo elgg_view_page("", $content, "default", array(
+echo elgg_view_page($title, $content, "default", array(
     'leader' => elgg_view('rijkshuisstijl/leader/topic', array(
         'topic' => $topic
     ))

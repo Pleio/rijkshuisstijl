@@ -24,9 +24,7 @@ echo "<p>";
     ));
 echo "</p>";
 
-
-
-echo "<p>";
+/*echo "<p>";
     echo "<label>".  elgg_echo("rijkshuisstijl:contact") . "</label>";
     echo "<table>";
     echo "<tr><td>" . elgg_echo("rijkshuisstijl:title") . "</td><td>" . elgg_echo("rijkshuisstijl:url") . "</td></tr>";
@@ -44,7 +42,7 @@ echo "<p>";
         echo "</td></tr>";
     endfor;
     echo "</table>";
-echo "</p>";
+echo "</p>";*/
 
 echo "<p>";
     echo "<label>".  elgg_echo("rijkshuisstijl:settings:topics") . "</label>";

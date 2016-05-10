@@ -29,28 +29,28 @@ function rijkshuisstijl_menu_handler($hook, $type, $items, $params) {
 
     $items[] = ElggMenuItem::factory(array(
         'name' => 'home',
-        'text' => elgg_echo('rijkshuisstijl:menu:home'),
+        'text' => elgg_echo('rijkshuisstijl:home'),
         'href' => '/',
         'priority' => 100
     ));
 
     $items[] = ElggMenuItem::factory(array(
         'name' => 'forum',
-        'text' => elgg_echo('rijkshuisstijl:menu:forum'),
+        'text' => elgg_echo('rijkshuisstijl:forum'),
         'href' => 'forum',
         'priority' => 101
     ));
 
     $items[] = ElggMenuItem::factory(array(
         'name' => 'news',
-        'text' => elgg_echo('rijkshuisstijl:menu:news'),
+        'text' => elgg_echo('rijkshuisstijl:news'),
         'href' => 'news',
         'priority' => 102
     ));
 
     $items[] = ElggMenuItem::factory(array(
         'name' => 'videos',
-        'text' => elgg_echo('rijkshuisstijl:menu:videos'),
+        'text' => elgg_echo('rijkshuisstijl:videos'),
         'href' => 'videos',
         'priority' => 103
     ));
@@ -64,7 +64,7 @@ function rijkshuisstijl_menu_handler($hook, $type, $items, $params) {
 
     $items[] = ElggMenuItem::factory(array(
         'name' => 'topics',
-        'text' => elgg_echo('rijkshuisstijl:menu:topics'),
+        'text' => elgg_echo('rijkshuisstijl:topics'),
         'href' => '/topics',
         'priority' => 104,
         'children' => $children
@@ -72,7 +72,7 @@ function rijkshuisstijl_menu_handler($hook, $type, $items, $params) {
 
     $items[] = ElggMenuItem::factory(array(
         'name' => 'pinboard',
-        'text' => elgg_echo('rijkshuisstijl:menu:pinboard'),
+        'text' => elgg_echo('rijkshuisstijl:pinboard'),
         'href' => '/pinboard',
         'priority' => 105
     ));

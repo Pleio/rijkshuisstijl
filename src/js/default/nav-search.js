@@ -32,15 +32,28 @@ var $ = require("jquery");
         $navSearchForm.submit();
     });
 
-    //$navSearchInput.on("keyup",function(){
-    //   var thisVal = $(this).val();
-    //    if(thisVal.length == 0){
-    //       $navSearchResults.removeClass(toggleClass);
-    //   } else {
-    //       $navSearchResults.addClass(toggleClass);
-    //        $("[data-nav-result-copy]").html(thisVal)
-    //   }
-    //});
+    function displaySearchResults(result) {
+        console.log(result);
+    }
+
+    function initiateSearch(q) {
+        elgg.action('rijkshuisstijl/search', {
+            data: {
+                q
+            },
+            success: displaySearchResults
+        });
+    }
+
+    var timeoutId;
+    $navSearchInput.on("keyup", function(e) {
+        var q = $(this).val();
+
+        clearTimeout(timeoutId);
+        timeoutId = setTimeout(function() {
+            initiateSearch(q);
+        }, 250);
+    });
 
     $(document).mouseup(function (e)
     {

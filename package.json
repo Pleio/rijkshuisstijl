@@ -15,5 +15,9 @@
     "style-loader": "^0.13.1",
     "webpack": "^1.12.15"
   },
-  "dependencies": {}
+  "dependencies": {
+    "jsx-loader": "^0.13.2",
+    "react": "^15.0.2",
+    "react-dom": "^15.0.2"
+  }
 }
