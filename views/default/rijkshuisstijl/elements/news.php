@@ -6,7 +6,7 @@ $full_view = isset($vars['full_view']) ? $vars['full_view'] : false;
 <?php if (!$full_view): ?>
 <div class="rhs-row">
   <div class="rhs-col-md-12">
-    <h2 class="rhs-home__subtitle">Nieuws</h2><a href="news.html" title="..." class="rhs-home__readmore">Alles</a>
+    <h2 class="rhs-home__subtitle">Nieuws</h2><a href="/news" title="..." class="rhs-home__readmore">Alles</a>
   </div>
 </div>
 <div class="rhs-row">

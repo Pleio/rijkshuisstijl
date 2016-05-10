@@ -8,7 +8,13 @@ function rijkshuisstijl_plugins_settings_save($hook, $type, $value, $params) {
     $params = get_input('params');
 
     $params['contact'] = serialize($params['contact']);
-    $params['topics'] = serialize($params['topics']);
+
+    $topics = array();
+    foreach ($params['topics'] as $topic) {
+        $topics[$topic['tag']] = $topic['title'];
+    }
+
+    $params['topics'] = serialize($topics);
 
     set_input('params', $params);
 }
@@ -38,28 +44,28 @@ function rijkshuisstijl_menu_handler($hook, $type, $items, $params) {
     $items[] = ElggMenuItem::factory(array(
         'name' => 'news',
         'text' => elgg_echo('rijkshuisstijl:menu:news'),
-        'href' => '/news',
+        'href' => 'news',
         'priority' => 102
     ));
 
     $items[] = ElggMenuItem::factory(array(
         'name' => 'videos',
         'text' => elgg_echo('rijkshuisstijl:menu:videos'),
-        'href' => '/videos',
+        'href' => 'videos',
         'priority' => 103
     ));
 
     $children = array();
     $topics = unserialize(elgg_get_plugin_setting('topics', 'rijkshuisstijl'));
 
-    foreach ($topics as $topic) {
-        $children[] = new ElggMenuItem($topic['title'], $topic['title'], '/themes/' . $topic['tag']);
+    foreach ($topics as $tag => $title) {
+        $children[] = new ElggMenuItem("topics-" . $tag, $title, '/topics/' . $tag);
     }
 
     $items[] = ElggMenuItem::factory(array(
-        'name' => 'themes',
-        'text' => elgg_echo('rijkshuisstijl:menu:themes'),
-        'href' => '/',
+        'name' => 'topics',
+        'text' => elgg_echo('rijkshuisstijl:menu:topics'),
+        'href' => '#',
         'priority' => 104,
         'children' => $children
     ));
@@ -67,7 +73,7 @@ function rijkshuisstijl_menu_handler($hook, $type, $items, $params) {
     $items[] = ElggMenuItem::factory(array(
         'name' => 'pinboard',
         'text' => elgg_echo('rijkshuisstijl:menu:pinboard'),
-        'href' => '/cafe',
+        'href' => '/pinboard',
         'priority' => 105
     ));
 

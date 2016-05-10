@@ -42,9 +42,9 @@
         <div class="rhs-col-md-1"></div>
         <div class="rhs-col-md-4">
           <p class="rhs-form__element rhs-form__element--small-padding">
-            <?php foreach($topics as $topic): ?>
-              <label for="interest-<?php echo $topic['tag']; ?>" class="rhs-checkbox-switch">
-                <input type="checkbox" id="interest-<?php echo $topic['tag']; ?>" name="interest-<?php echo $topic['tag']; ?>" <?php echo in_array($topic['tag'], $interests) ? "checked" : ""; ?> class="rhs-checkbox-switch__input"><span class="rhs-checkbox-switch__placeholder"></span><?php echo $topic['title']; ?>
+            <?php foreach($topics as $tag => $title): ?>
+              <label for="interest-<?php echo $tag; ?>" class="rhs-checkbox-switch">
+                <input type="checkbox" id="interest-<?php echo $tag; ?>" name="interest-<?php echo $tag; ?>" <?php echo in_array($tag, $interests) ? "checked" : ""; ?> class="rhs-checkbox-switch__input"><span class="rhs-checkbox-switch__placeholder"></span><?php echo $title; ?>
               </label>
             <?php endforeach; ?>
           </p>

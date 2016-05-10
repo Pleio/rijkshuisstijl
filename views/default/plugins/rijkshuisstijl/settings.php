@@ -8,6 +8,10 @@ if (!$plugin->logo) {
     $plugin->logo = "belastingdienst";
 }
 
+if (!$topics) {
+    $topics = array();
+}
+
 echo "<p>";
     echo "<label>" . elgg_echo("rijkshuisstijl:logo") . "</label>";
     echo elgg_view('input/radio', array(
@@ -46,19 +50,22 @@ echo "<p>";
     echo "<label>".  elgg_echo("rijkshuisstijl:settings:topics") . "</label>";
     echo "<table>";
     echo "<tr><td>" . elgg_echo("rijkshuisstijl:title") . "</td><td>" . elgg_echo("Tag") . "</td></tr>";
-    for ($i = 1; $i <= 5; $i++):
+
+    $i = 1;
+    foreach ($topics as $tag => $title) {
         echo "<tr><td>";
         echo elgg_view('input/text', array(
             'name' => "params[topics][{$i}][title]",
-            'value' => $topics[$i]['title']
+            'value' => $title
         ));
         echo "</td><td>";
         echo elgg_view('input/text', array(
             'name' => "params[topics][{$i}][tag]",
-            'value' => $topics[$i]['tag']
+            'value' => $tag
         ));
         echo "</td></tr>";
-    endfor;
+        $i++;
+    }
     echo "</table>";
 echo "</p>";
 

@@ -28,11 +28,15 @@ function rijkshuisstijl_init() {
     elgg_unextend_view('page/elements/head', 'subsite_manager/topbar_fix');
 
 	elgg_register_plugin_hook_handler("index", "system", "rijkshuisstijl_custom_index", 40); // must be very early
+
     elgg_register_page_handler("profile", "rijkshuisstijl_profile_page_handler");
     elgg_register_page_handler("forum", "rijkshuisstijl_forum_page_handler");
     elgg_register_page_handler("news", "rijkshuisstijl_news_page_handler");
+    elgg_register_page_handler("topics", "rijkshuisstijl_topics_page_handler");
+    elgg_register_page_handler("pinboard", "rijkshuisstijl_pinboard_page_handler");
 
     $actions_base_profile = dirname(__FILE__) . "/actions/profile";
+
 	elgg_register_action("rijkshuisstijl/profile/setprofileparameter", "$actions_base_profile/setprofileparameter.php", "public");
 	elgg_register_action("rijkshuisstijl/profile/changepassword", "$actions_base_profile/changepassword.php", "public");
 	elgg_register_action("rijkshuisstijl/profile/setprofilefield", "$actions_base_profile/setprofilefield.php", "public");
@@ -72,17 +76,17 @@ function rijkshuisstijl_profile_page_handler($page) {
 	else if ($action == "interests")
 	{
 		require dirname(__FILE__) . "/pages/profile/interests.php";
-		return true;	
+		return true;
 	}
 	else if ($action == "settings")
 	{
 		require dirname(__FILE__) . "/pages/profile/settings.php";
-		return true;	
+		return true;
 	}
 	else
 	{
 		require dirname(__FILE__) . "/pages/profile/index.php";
-		return true;	
+		return true;
 	}
 
 	// main profile page
@@ -126,6 +130,20 @@ function rijkshuisstijl_news_page_handler($page)
 	return true;
 }
 
+function rijkshuisstijl_topics_page_handler($page) {
+	if ($page[0]) {
+		set_input("topic", $page[0]);
+	}
+
+	require dirname(__FILE__) . "/pages/topics.php";
+	return true;
+}
+
+function rijkshuisstijl_pinboard_page_handler($page)
+{
+	require dirname(__FILE__) . "/pages/pinboard.php";
+	return true;
+}
 
 function rijkshuisstijl_route_questions_hook($hook_name, $entity_type, $return_value, $params) 
 {
