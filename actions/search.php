@@ -23,9 +23,15 @@ foreach ($results['hits'] as $hit) {
         continue;
     }
 
+    if (!in_array($hit->getSubtype(), array('answer', 'comment'))) {
+        $title = $hit->title;
+    } else {
+        $title = $hit->getContainerEntity()->title;
+    }
+
     $hits[$hit->getSubtype()][] = array(
         'guid' => $hit->guid,
-        'title' => $hit->title,
+        'title' => $title,
         'time_created' => date('c', $hit->time_created), // ISO-8601
         'url' => $hit->getURL()
     );

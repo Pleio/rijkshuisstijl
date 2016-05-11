@@ -35,6 +35,7 @@ function rijkshuisstijl_init() {
     elgg_register_page_handler("videos", "rijkshuisstijl_videos_page_handler");
     elgg_register_page_handler("topics", "rijkshuisstijl_topics_page_handler");
     elgg_register_page_handler("pinboard", "rijkshuisstijl_pinboard_page_handler");
+	elgg_register_page_handler("search", "rijkshuisstijl_search_page_handler");
 
 	elgg_register_action("rijkshuisstijl/profile/setprofileparameter", dirname(__FILE__) . "/actions/profile/setprofileparameter.php");
 	elgg_register_action("rijkshuisstijl/profile/changepassword", dirname(__FILE__) . "/actions/profile/changepassword.php");
@@ -148,6 +149,11 @@ function rijkshuisstijl_topics_page_handler($page) {
 
 function rijkshuisstijl_pinboard_page_handler($page) {
 	require dirname(__FILE__) . "/pages/pinboard.php";
+	return true;
+}
+
+function rijkshuisstijl_search_page_handler($page) {
+	require dirname(__FILE__) . "/pages/search.php";
 	return true;
 }
 
