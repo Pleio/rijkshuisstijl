@@ -8,6 +8,7 @@
 $full = elgg_extract("full_view", $vars, false);
 $question = elgg_extract("entity", $vars, false);
 $workflow = elgg_extract("workflow", $vars, false);
+$editable = $question->getStatus() == "open" && $question->canWriteToContainer(0, 'object', 'answer');
 
 $user = elgg_get_page_owner_entity();
 if (!$user) 
@@ -163,25 +164,36 @@ if (!$full)
 ?>
 
 <?php if ($full) : ?>
-<div class="rhs-card-user-content">
+<script>
+	gQuestion = <?php echo $question->getGUID(); ?>;
+</script>
+<div class="rhs-card-user-content" style="padding:0px;">
 	<div class="rhs-container">
 		<div class="rhs-row">
 			<div class="rhs-col-md-offset-1 rhs-col-md-10 rhs-col-lg-offset-2 rhs-col-lg-8">
 				<h1 class="rhs-card-user-content__title"><?php echo $question->title ?></h1>
-				<div class="rhs-card-user-content__meta"><a href="forum-item--edit-question.html" title="..." class="card-user-content__edit-btn"></a><a href="profile-public.html" title="..." class="rhs-card-user-content__profile"><img src="<?php echo $poster->getIconURL('small') ?>"></a>
+				<div class="rhs-card-user-content__meta"><?php if ($editable) : ?><a href="/questions/edit/<?php echo $question->getGUID() ?>" title="..." class="card-user-content__edit-btn"></a><?php endif ?><a href="profile-public.html" title="..." class="rhs-card-user-content__profile"><img src="<?php echo $poster->getIconURL('small') ?>"></a>
 					<div class="rhs-card-user-content__data"><a href="<?php echo $poster->getURL() ?>" title="Carsten Heuvels"><?php echo $poster->name ?></a> <span><?php echo $date ?></span></div>
-				</div><a href="forum-item--edit-question.html" title="..." class="rhs-card-user-content__content content-editble editable"><?php echo $question->description ?></a>
-				<div class="rhs-card-user-content__options"><a href="#" title="Geef antwoord" data-answer-edit-block-trigger class="rhs-button rhs-button--with-icon"><span class="rhs-icon-pencil"></span>Geef antwoord</a>
+				</div><!--<a href="forum-item--edit-question.html" title="..." class="rhs-card-user-content__content content-editble editable">--><span class="rhs-card-user-content__content"><?php echo $question->description ?></span><!--</a>-->
+				<div class="rhs-card-user-content__options">
+					<?php 
+						if ($editable) 
+						{
+							echo '<a href="#" title="Geef antwoord" data-answer-edit-block-trigger class="rhs-button rhs-button--with-icon" id="answerToggle"><span class="rhs-icon-pencil"></span>Geef antwoord</a>'; 
+						}
+					?>
 					<div class="rhs-card-user-content__mobile-top">
 						<div class="rhs-card-user-content__views">80</div><a href="#" title="Vraag volgen" class="rhs-card-user-content__follow">Vraag volgen</a>
 					</div>
-					<div class="rhs-edit-block">
+					<?php if ($editable) : ?>
+					<div class="rhs-edit-block" id="answerEditBlock">
 						<div class="rhs-edit-block__top"><img src="<?php echo $user->getIconURL('medium') ?>" class="rhs-edit-block__image"><a href="<?php echo $user->getURL() ?>" title="Bekijk profiel" class="rhs-edit-block__name"><?php echo $user->name ?></a></div>
-						<textarea id="js-initiateTinymce" placeholder="Uw antwoord" class="rhs-edit-block__content"></textarea>
+						<textarea id="answerText" placeholder="Uw antwoord" class="rhs-edit-block__content"></textarea>
 						<div class="rhs-edit-block__bottom rhs-form__actions">
-							<button class="rhs-button rhs-button--primary">Antwoord</button>
+							<a class="rhs-button rhs-button--primary" id="answerButton" href="#">Antwoord</a>
 						</div>
 					</div>
+					<?php endif ?>
 				</div>
 			</div>
 		</div>

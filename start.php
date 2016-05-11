@@ -151,15 +151,18 @@ function rijkshuisstijl_pinboard_page_handler($page) {
 	return true;
 }
 
-function rijkshuisstijl_route_questions_hook($hook_name, $entity_type, $return_value, $params) {
+function rijkshuisstijl_route_questions_hook($hook_name, $entity_type, $return_value, $params) 
+{
 	$page = elgg_extract("segments", $return_value);
-	switch ($page[0]) {
+	switch ($page[0]) 
+	{
 		case "view":
-			if (isset($page[1])) {
+			if (isset($page[1])) 
+			{
 				set_input("guid", $page[1]);
 			}
 
-			include(dirname(dirname(__FILE__)) . "/pages/questions/view.php");
+			include(dirname(__FILE__) . "/pages/questions/view.php");
 			return true;
 			break;
 	}

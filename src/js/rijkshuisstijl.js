@@ -199,4 +199,30 @@ jQuery(document).ready(function () {
           }
         });
     });
+
+    $('#answerButton').click(function (event) {
+        event.preventDefault();
+        
+        elgg.action('object/answer/add', {
+          data: {
+            description: $('#answerText').val(),
+            container_guid: gQuestion,
+            guid: ''
+          },
+          success: function (wrapper) {
+            location.reload();
+          }
+        });
+    });
+
+    $('#answerToggle').click(function (event){
+        event.preventDefault();
+
+        var blk = $('#answerEditBlock');
+        var display = blk.css('display');
+        if (display == 'none')
+            blk.css('display', 'block');
+        else
+            blk.css('display', 'none');
+    });
 });

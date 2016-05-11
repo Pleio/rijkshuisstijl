@@ -24,14 +24,14 @@ $friendly_time = elgg_view_friendly_time($answer->time_created);
 $subtitle = $owner_link . " " . $friendly_time;
 
 ?>
-<div class="rhs-card-user-content">
+<div class="rhs-card-user-content" style="padding: 1rem;">
 	<div class="rhs-container">
 		<div class="rhs-row">
 			<div class="rhs-col-md-offset-1 rhs-col-md-10 rhs-col-lg-offset-2 rhs-col-lg-8">
 				<div class="rhs-reaction">
-					<div class="rhs-reaction__top"><a href="forum-item--edit-answer.html" title="Wijzigen" class="rhs-reaction__edit-btn"></a><a href="<?php echo $owner->getURL() ?>" title="Bekijk profiel" class="rhs-reaction__profile"><img src="<?php echo $owner->getIconURL('medium') ?>"></a><a href="<?php echo $owner->getURL() ?>" title="Bekijk profiel" class="rhs-reaction__name"><?php echo $owner->name ?></a>
+					<div class="rhs-reaction__top"><a href="/answers/edit/<?php echo $answer->getGUID() ?>" title="Wijzigen" class="rhs-reaction__edit-btn"></a><a href="<?php echo $owner->getURL() ?>" title="Bekijk profiel" class="rhs-reaction__profile"><img src="<?php echo $owner->getIconURL('medium') ?>"></a><a href="<?php echo $owner->getURL() ?>" title="Bekijk profiel" class="rhs-reaction__name"><?php echo $owner->name ?></a>
 						<div class="rhs-reaction__time"><?php echo $friendly_time ?></div>
-					</div><a href="forum-item--edit-answer.html" title="" class="rhs-reaction__body rhs-reaction__editable"><?php echo $answer->description ?></a>
+					</div><!--<a href="forum-item--edit-answer.html" title="" class="rhs-reaction__body rhs-reaction__editable">--><span class="rhs-reaction__body"><?php echo $answer->description ?><span><!--</a>-->
 					<div class="rhs-reaction__bottom"><a href="#" title="Stem omhoog" class="rhs-reaction__upvote rhs-reaction__vote"> <span>10</span> nuttig</a><a href="#" title="Stem omlaag" class="rhs-reaction__downvote rhs-reaction__vote"> <span>3</span> minder nuttig</a></div>
 				</div>
 			</div>
