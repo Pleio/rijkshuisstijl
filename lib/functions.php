@@ -1,19 +1,22 @@
 <?php
-
 function rijkshuisstijl_asset($asset) {
     return '/mod/rijkshuisstijl/assets/' . $asset;
 }
 
-function rijkshuisstijl_get_latest_objects_by_tag($subtype = 'question', $tag = '') {
+function rijkshuisstijl_get_featured_groups() {
     return elgg_get_entities_from_metadata(array(
+        'types' => 'group',
+        'metadata_name' => 'featured_group',
+        'metadata_value' => 'yes',
+        'limit' => 10
+    ));
+}
+
+function rijkshuisstijl_get_latest_objects_from_group($subtype = 'question', ElggGroup $group) {
+    return elgg_get_entities(array(
         'type' => 'object',
-        'subtype' => 'question',
-        'metadata_name_value_pairs' => array(
-            array(
-                'name' => 'tags',
-                'value' => $tag
-            )
-        ),
+        'subtype' => $subtype,
+        'container_guid' => $group->guid,
         'order_by' => 'e.time_updated DESC',
         'limit' => 5
     ));

@@ -6,6 +6,11 @@
     forward();
   }
 
+  if (!$user->canEdit()) {
+    register_error(elgg_echo("profile:notfound"));
+    forward();
+  }
+
   $username = elgg_extract("username", $vars);
   $notifications = array(true, false);
 
@@ -22,10 +27,11 @@
       $notifications[$i] = $targetUser->notifications[$i] != "0";
   }
 
-  $editable = $targetUser->canEdit();
-
-  $topics = unserialize(elgg_get_plugin_setting('topics', 'rijkshuisstijl'));
-  $interests = unserialize($targetUser->interests);
+  $groups = rijkshuisstijl_get_featured_groups();
+  $interests = $user->getEntitiesFromRelationship(array(
+    'type' => 'group',
+    'relationship' => 'interests'
+  ));
 ?>
 
 <script type="text/javascript">
@@ -42,9 +48,9 @@
         <div class="rhs-col-md-1"></div>
         <div class="rhs-col-md-4">
           <p class="rhs-form__element rhs-form__element--small-padding">
-            <?php foreach($topics as $tag => $title): ?>
+            <?php foreach($groups as $group): ?>
               <label for="interest-<?php echo $tag; ?>" class="rhs-checkbox-switch">
-                <input type="checkbox" id="interest-<?php echo $tag; ?>" name="interest-<?php echo $tag; ?>" <?php echo in_array($tag, $interests) ? "checked" : ""; ?> class="rhs-checkbox-switch__input"><span class="rhs-checkbox-switch__placeholder"></span><?php echo $title; ?>
+                <input type="checkbox" id="interest-<?php echo $tag; ?>" name="interest-<?php echo $group->guid; ?>" <?php echo in_array($group, $interests) ? "checked" : ""; ?> class="rhs-checkbox-switch__input"><span class="rhs-checkbox-switch__placeholder"></span><?php echo $group->name; ?>
               </label>
             <?php endforeach; ?>
           </p>

@@ -44,42 +44,6 @@ echo "</p>";
     echo "</table>";
 echo "</p>";*/
 
-echo "<p>";
-    echo "<label>".  elgg_echo("rijkshuisstijl:settings:topics") . "</label>";
-    echo "<table>";
-    echo "<tr><td>" . elgg_echo("rijkshuisstijl:title") . "</td><td>" . elgg_echo("Tag") . "</td></tr>";
-
-    $i = 1;
-    foreach ($topics as $tag => $title) {
-        echo "<tr><td>";
-        echo elgg_view('input/text', array(
-            'name' => "params[topics][{$i}][title]",
-            'value' => $title
-        ));
-        echo "</td><td>";
-        echo elgg_view('input/text', array(
-            'name' => "params[topics][{$i}][tag]",
-            'value' => $tag
-        ));
-        echo "</td></tr>";
-        $i++;
-    }
-
-    echo "<tr><td>";
-    echo elgg_view('input/text', array(
-        'name' => "params[topics][{$i}][title]",
-        'value' => ""
-    ));
-    echo "</td><td>";
-    echo elgg_view('input/text', array(
-        'name' => "params[topics][{$i}][tag]",
-        'value' => ""
-    ));
-    echo "</td></tr>";
-
-    echo "</table>";
-echo "</p>";
-
 echo elgg_view("input/hidden", array(
     'name' => 'on_rijkshuisstijl_settings',
     'value' => 'true'

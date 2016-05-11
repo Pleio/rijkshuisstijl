@@ -15,7 +15,6 @@
 .elgg-image-block {
 	padding: 2rem 2rem;
 	margin: 2rem 0 0;
-	background-color: #f1f9fc;
 	box-sizing: border-box;
 }
 .elgg-image-block .elgg-image {

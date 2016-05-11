@@ -1,5 +1,5 @@
 <?php
-$topics = unserialize(elgg_get_plugin_setting('topics', 'rijkshuisstijl'));
+$groups = rijkshuisstijl_get_featured_groups();
 ?>
 
 <div class="rhs-home__section">
@@ -10,12 +10,12 @@ $topics = unserialize(elgg_get_plugin_setting('topics', 'rijkshuisstijl'));
       </div>
     </div>
     <div class="rhs-row">
-      <?php foreach ($topics as $tag => $title): ?>
+      <?php foreach ($groups as $group): ?>
         <div class="rhs-col-lg-6">
           <div data-accordion-item="" class="rhs-card-list">
-            <h3 data-accordion-trigger="" class="rhs-card-list__title"><?php echo $title; ?></h3>
+            <h3 data-accordion-trigger="" class="rhs-card-list__title"><?php echo $group->name; ?></h3>
             <div class="rhs-card-list__content">
-              <?php foreach (rijkshuisstijl_get_latest_objects_by_tag('question', $tag) as $question): ?>
+              <?php foreach (rijkshuisstijl_get_latest_objects_from_group('question', $group) as $question): ?>
                 <a href="<?php echo $question->getURL(); ?>" title="..." class="rhs-card-list__item">
                   <table class="rhs-card-list__table">
                     <tbody>

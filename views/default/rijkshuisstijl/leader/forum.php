@@ -1,4 +1,6 @@
-<?php $site = elgg_get_site_entity(); ?>
+<?php
+$site = elgg_get_site_entity();
+?>
 
 <div class="rhs-lead rhs-lead--forum">
   <div style="background-image: url('<?php echo rijkshuisstijl_asset("image/lead.jpg"); ?>')" class="rhs-lead__background"></div>
