@@ -15,4 +15,16 @@
         <type>plugin</type>
         <name>elasticsearch</name>
     </requires>
+    <requires>
+        <type>plugin</type>
+        <name>questions</name>
+    </requires>
+    <conflicts>
+        <type>plugin</type>
+        <name>pleio_template_selector</name>
+    </conflicts>
+    <conflicts>
+        <type>plugin</type>
+        <name>menu_builder</name>
+    </conflicts>
 </plugin_manifest>

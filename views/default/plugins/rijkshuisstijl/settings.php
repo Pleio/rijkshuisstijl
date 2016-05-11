@@ -64,6 +64,19 @@ echo "<p>";
         echo "</td></tr>";
         $i++;
     }
+
+    echo "<tr><td>";
+    echo elgg_view('input/text', array(
+        'name' => "params[topics][{$i}][title]",
+        'value' => ""
+    ));
+    echo "</td><td>";
+    echo elgg_view('input/text', array(
+        'name' => "params[topics][{$i}][tag]",
+        'value' => ""
+    ));
+    echo "</td></tr>";
+
     echo "</table>";
 echo "</p>";
 

@@ -1,9 +1,8 @@
 'use strict'
 
-var React = require('react');
-var ReactDOM = require('react-dom');
-
-var SearchResults = require('./SearchResults');
+import ReactDOM from 'react-dom'
+import React from 'react'
+import SearchResults from './SearchResults'
 
 ReactDOM.render(
   <SearchResults />,

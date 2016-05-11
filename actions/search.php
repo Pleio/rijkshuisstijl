@@ -12,17 +12,23 @@ $results = ESInterface::get()->search(
     $search_type
 );
 
-$hits = array();
+$hits = array(
+    'question' => array(),
+    'video' => array(),
+    'page' => array()
+);
+
 foreach ($results['hits'] as $hit) {
-    $hits[] = array(
+    if (!in_array($hit->getSubtype(), array('question', 'answer', 'video', 'page', 'page_top'))) {
+        continue;
+    }
+
+    $hits[$hit->getSubtype()][] = array(
         'guid' => $hit->guid,
-        'type' => $hit->getType(),
-        'subtype' => $hit->getSubtype(),
         'title' => $hit->title,
-        'time_created' => $hit->time_created,
+        'time_created' => date('c', $hit->time_created), // ISO-8601
         'url' => $hit->getURL()
     );
 }
-$results['hits'] = $hits;
 
-echo json_encode($results);
+echo json_encode($hits);

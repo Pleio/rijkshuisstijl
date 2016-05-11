@@ -12,7 +12,7 @@ module.exports = {
         loaders: [
             {
                 test: /\.jsx$/,
-                loader: 'jsx-loader?insertPragma=React.DOM&harmony'
+                loader: 'babel?presets[]=es2015,presets[]=stage-0,presets[]=react'
             },
             {
                 test: /\.css$/,
