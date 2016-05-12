@@ -39,7 +39,7 @@
       <div class="rhs-card-topic__description"><?php echo elgg_get_excerpt($question->description, 100) ?></div>
     </div>
     <div class="rhs-card-topic__aside">
-      <div class="rhs-card-topic__views"><span>24</span></div><a href="#" title="Vraag volgen" class="rhs-card-topic__follow">Vraag volgen</a><a href="<?php echo $question->getURL() ?>" title="Vraag antwoorden" class="rhs-card-topic__answers"><span><?php echo getNumAnswers($question) ?></span> antwoorden</a>
+      <div class="rhs-card-topic__views"><span><?php echo $question->countAnnotations('questionView') ?></span></div><a href="#" title="Vraag volgen" class="rhs-card-topic__follow">Vraag volgen</a><a href="<?php echo $question->getURL() ?>" title="Vraag antwoorden" class="rhs-card-topic__answers"><span><?php echo getNumAnswers($question) ?></span> antwoorden</a>
     </div>
   </div>
 </div>
