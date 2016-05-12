@@ -77,19 +77,8 @@ if (elgg_is_active_plugin("likes")) {
 $answers = elgg_list_entities($options);
 $count = elgg_get_entities($options);
 
-$answer_title = elgg_view_icon("comment-o", "mrs") . $count . " " . elgg_echo('answers');
-$content .= elgg_view_module('info', $answer_title, $answers, array("class" => "mtm ffd-answers"));
-
-// add answer form
-if (($question->getStatus() == "open") && $question->canWriteToContainer(0, 'object', 'answer')) {
-	
-	$add_form = elgg_view_form('object/answer/add', array(), array('container_guid' => $question->guid));
-	
-	$content .= elgg_view_module('info', elgg_echo('answers:addyours'), $add_form, array('id' => 'questions-answer-add'));
-} elseif ($question->getStatus() == "closed") {
-	// add an icon to show this question is closed
-	$title_icon = elgg_view_icon("lock-closed");
-}
+$answer_title = $content .= '<div class="rhs-card-user-content__amount"><span>' . $count . '</span> ' . ($count == 1 ? 'antwoord' : 'antwoorden') . '</div>' . $answers;
+//$content .= elgg_view_module('info', $answer_title, $answers, array("class" => "mtm ffd-answers"));
 
 // switch to go from frontend to backend
 if (questions_workflow_enabled() && questions_is_expert()) {

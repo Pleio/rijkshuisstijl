@@ -40,23 +40,25 @@
 
 <div class="rhs-container">
   <div class="rhs-profile-blocks">
-    <div class="rhs-profile-block">
-      <div class="rhs-row">
-        <div class="rhs-col-md-7">
-          <h2 class="rhs-profile-block__title">Hier kunt u uw interesses aangeven waardoor informatie voor u op maat wordt gefilterd in het forum en nieuws.</h2>
-        </div>
-        <div class="rhs-col-md-1"></div>
-        <div class="rhs-col-md-4">
-          <p class="rhs-form__element rhs-form__element--small-padding">
-            <?php foreach($groups as $group): ?>
-              <label for="interest-<?php echo $tag; ?>" class="rhs-checkbox-switch">
-                <input type="checkbox" id="interest-<?php echo $tag; ?>" name="interest-<?php echo $group->guid; ?>" <?php echo in_array($group, $interests) ? "checked" : ""; ?> class="rhs-checkbox-switch__input"><span class="rhs-checkbox-switch__placeholder"></span><?php echo $group->name; ?>
-              </label>
-            <?php endforeach; ?>
-          </p>
+    <?php if (count($groups) > 0): ?>
+      <div class="rhs-profile-block">
+        <div class="rhs-row">
+          <div class="rhs-col-md-7">
+            <h2 class="rhs-profile-block__title">Hier kunt u uw interesses aangeven waardoor informatie voor u op maat wordt gefilterd in het forum en nieuws.</h2>
+          </div>
+          <div class="rhs-col-md-1"></div>
+          <div class="rhs-col-md-4">
+            <p class="rhs-form__element rhs-form__element--small-padding">
+              <?php foreach($groups as $group): ?>
+                <label for="interest-<?php echo $tag; ?>" class="rhs-checkbox-switch">
+                  <input type="checkbox" id="interest-<?php echo $tag; ?>" name="interest-<?php echo $group->guid; ?>" <?php echo in_array($group, $interests) ? "checked" : ""; ?> class="rhs-checkbox-switch__input"><span class="rhs-checkbox-switch__placeholder"></span><?php echo $group->name; ?>
+                </label>
+              <?php endforeach; ?>
+            </p>
+          </div>
         </div>
       </div>
-    </div>
+    <?php endif; ?>
     <div class="rhs-profile-block">
       <div class="rhs-row">
         <div class="rhs-col-sm-12">

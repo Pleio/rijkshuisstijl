@@ -3515,7 +3515,7 @@ span.selecter-selected:after {
 }
 .rhs-page-wrapper {
   min-height: 100%;
-  margin-bottom: -26.8rem;
+  margin-bottom: -24.8rem;
 }
 .rhs-page-wrapper:after {
   height: 26.8rem;
@@ -5940,7 +5940,7 @@ label.__problem .rhs-form__input {
 .rhs-edit-block__image {
   width: 4rem;
   height: 4rem;
-  border-radius: 50%;
+  border-radius: 50% !important;
   position: absolute;
   left: 2rem;
   top: 50%;
@@ -8207,7 +8207,7 @@ label.__problem .rhs-form__input {
 .rhs-card-user-content__profile {
   width: 3rem;
   height: 3rem;
-  border-radius: 50%;
+  border-radius: 50% !important;
   display: inline-block;
   position: absolute;
   left: 0;
