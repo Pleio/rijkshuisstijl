@@ -28,13 +28,6 @@ if ($vars['topic']) {
     $options['container_guid'] = $vars['topic']->guid;
 }
 
-$featured_options = array(
-    0 => elgg_echo('rijkshuisstijl:all_themes')
-);
-
-foreach (rijkshuisstijl_get_featured_groups() as $group) {
-    $featured_options[$group->guid] = $group->name;
-}
 
 ?>
 
@@ -77,11 +70,7 @@ foreach (rijkshuisstijl_get_featured_groups() as $group) {
             ?>
         </div>
         <div class="rhs-col-md-4 rhs-col-lg-3">
-            <?php echo elgg_view('input/dropdown', array(
-                'name' => 'category',
-                'options_values' => $featured_options
-            ));
-            ?>
+            <?php echo elgg_view('rijkshuisstijl/input/topic'); ?>
         </div>
     </div>
 </div>

@@ -94,14 +94,17 @@ if ($full) {
       echo '<h1 class="rhs-news-item__title">' . $page->title . '</h1>';
       echo '<div class="rhs-news-item__meta">';
         echo '<div class="rhs-news-item__meta__date">' . date("d-m-Y", $page->time_created) . '</div>';
-        //echo '<div class="rhs-news-item__meta__source">Bron:<a href="#" title="Staatscourant">Financieel Dagblad</a></div>';
       echo '</div>';
       echo '<div class="rhs-news-item__content rhs-content-editable">';
       echo $page->description;
       echo '</div>';
       echo '<div class="rhs-news-item__actions">';
         echo '<div class="rhs-content-actions"><a href="javascript:window.print();" title="Afdrukken" class="rhs-button rhs-button--with-icon rhs-content-actions__print"><span class="rhs-icon-print"></span>Afdrukken</a>';
-          echo '<div class="rhs-content-actions__views"><span class="rhs-icon-eye rhs-content-actions__views__icon"></span>1260</div>';
+          if (elgg_is_active_plugin('entity_view_counter')) {
+            echo '<div class="rhs-content-actions__views"><span class="rhs-icon-eye rhs-content-actions__views__icon"></span>';
+            echo entity_view_counter_count_views($page);
+          }
+          echo '</div>';
         echo '</div>';
       echo '</div>';
 } else {

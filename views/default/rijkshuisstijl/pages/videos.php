@@ -2,15 +2,7 @@
   <div class="rhs-container">
     <div class="rhs-row">
       <div class="rhs-col-md-4 rhs-video-section__select">
-        <div class="selecter closed" tabindex="0"><select name="thema" id="thema" data-label="custom" class="selecter-default selecter-element" tabindex="-1">
-          <option value="" selected="selected">Mijn video's</option>
-          <option value="6">Alle video's</option>
-          <option value="5">Inkomstenbelasting</option>
-          <option value="4">Loonheffingen</option>
-          <option value="3">Omzetbelasting</option>
-          <option value="2">Toeslagen</option>
-          <option value="1">Vennootschapsbelasting</option>
-        </select><span class="selecter-selected">Mijn video's</span><div class="selecter-options" style="display: none;"><span class="selecter-item selected" data-value="">Mijn video's</span><span class="selecter-item" data-value="6">Alle video's</span><span class="selecter-item" data-value="5">Inkomstenbelasting</span><span class="selecter-item" data-value="4">Loonheffingen</span><span class="selecter-item" data-value="3">Omzetbelasting</span><span class="selecter-item" data-value="2">Toeslagen</span><span class="selecter-item" data-value="1">Vennootschapsbelasting</span></div></div>
+        <?php echo elgg_view('rijkshuisstijl/input/topic'); ?>
       </div>
     </div>
     <div class="rhs-row">
