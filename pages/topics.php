@@ -2,27 +2,24 @@
 $site = elgg_get_site_entity();
 elgg_set_page_owner_guid($site->guid);
 
-$topic = get_input('topic');
+$guid = get_input('guid');
 
-$topics = unserialize(elgg_get_plugin_setting('topics', 'rijkshuisstijl'));
+if ($guid) {
+    $group = get_entity($guid);
+}
 
-if (!array_key_exists($topic, $topics)) {
+if (!$group | !$group instanceof ElggGroup | !$group->featured_group == "yes") {
     register_error(elgg_echo('rijkshuisstijl:topics:not_exists'));
     forward(REFERER);
 }
 
-$topic = array(
-    'tag' => $topic,
-    'title' => $topics[$topic]
-);
-
 $title = elgg_echo("rijkshuisstijl:topics");
 $content = elgg_view("rijkshuisstijl/pages/topics", array(
-    'topic' => $topic
+    'topic' => $group
 ));
 
 echo elgg_view_page($title, $content, "default", array(
     'leader' => elgg_view('rijkshuisstijl/leader/topic', array(
-        'topic' => $topic
+        'topic' => $group
     ))
 ));

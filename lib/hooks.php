@@ -48,10 +48,10 @@ function rijkshuisstijl_menu_handler($hook, $type, $items, $params) {
     ));
 
     $children = array();
-    $topics = unserialize(elgg_get_plugin_setting('topics', 'rijkshuisstijl'));
+    $topics = rijkshuisstijl_get_featured_groups();
 
-    foreach ($topics as $tag => $title) {
-        $children[] = new ElggMenuItem("topics-" . $tag, $title, '/topics/' . $tag);
+    foreach ($topics as $topic) {
+        $children[] = new ElggMenuItem("topics-" . $topic->guid, $topic->name, '/topics/' . $topic->guid . '/' . elgg_get_friendly_title($topic->name));
     }
 
     $items[] = ElggMenuItem::factory(array(

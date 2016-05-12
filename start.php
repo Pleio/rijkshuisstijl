@@ -132,7 +132,7 @@ function rijkshuisstijl_news_page_handler($page) {
 
 function rijkshuisstijl_videos_page_handler($page) {
 	if ($page[0]) {
-		set_input("topic", $page[0]);
+		set_input("guid", $page[0]);
 	}
 
 	require dirname(__FILE__) . "/pages/videos.php";
@@ -141,7 +141,7 @@ function rijkshuisstijl_videos_page_handler($page) {
 
 function rijkshuisstijl_topics_page_handler($page) {
 	if ($page[0]) {
-		set_input("topic", $page[0]);
+		set_input("guid", $page[0]);
 	}
 
 	require dirname(__FILE__) . "/pages/topics.php";

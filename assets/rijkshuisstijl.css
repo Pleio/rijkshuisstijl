@@ -4809,8 +4809,7 @@ label.__problem .rhs-form__input {
 }
 .rhs-card-list__date {
   color: #01689b;
-  min-width: 5rem;
-  max-width: 6rem;
+  width: 6rem;
 }
 @media (max-width: 767px) {
   .rhs-card-list__date {
