@@ -37,20 +37,18 @@
 </div>
 
 <div class="rhs-container">
-  <div class="rhs-row">
-    <?php
-    echo elgg_view('elasticsearch/search/list', array(
-        'results' => $vars['results'],
-        'params' => array(
-            'limit' => $vars['limit'],
-            'offset' => $vars['offset'],
-            'query' => $vars['sanitized_query'],
-            'search_type' => $vars['search_type'],
-            'type' => $vars['type'],
-            'subtype' => $vars['subtype'],
-            'container_guid' => $vars['container_guid']
-        )
-    ));
-    ?>
-  </div>
+  <?php
+  echo elgg_view('elasticsearch/search/list', array(
+      'results' => $vars['results'],
+      'params' => array(
+          'limit' => $vars['limit'],
+          'offset' => $vars['offset'],
+          'query' => $vars['sanitized_query'],
+          'search_type' => $vars['search_type'],
+          'type' => $vars['type'],
+          'subtype' => $vars['subtype'],
+          'container_guid' => $vars['container_guid']
+      )
+  ));
+  ?>
 </div>
