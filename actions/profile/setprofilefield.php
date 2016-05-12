@@ -41,8 +41,6 @@
 	$targetUser->$name = $obj;
 	$targetUser->save();
 
-	die(var_dump($value));
-
 	echo json_encode([
     	'success' => true
 	]);

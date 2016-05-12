@@ -23,6 +23,17 @@ $owner_link = elgg_view("output/url", array("text" => $owner->name, "href" => $o
 $friendly_time = elgg_view_friendly_time($answer->time_created);
 $subtitle = $owner_link . " " . $friendly_time;
 
+$upvotes = 0;
+$upvotesSetting = $answer->getPrivateSetting('upvotes');
+
+if (is_string($upvotesSetting))
+	$upvotes = $upvotesSetting;
+
+$downvotes = 0;
+$downvotesSetting = $answer->getPrivateSetting('downvotes');
+if (is_string($downvotesSetting))
+	$downvotes = $downvotesSetting;
+
 ?>
 <div class="rhs-card-user-content" style="padding: 1rem;">
 	<div class="rhs-container">
@@ -32,7 +43,7 @@ $subtitle = $owner_link . " " . $friendly_time;
 					<div class="rhs-reaction__top"><a href="/answers/edit/<?php echo $answer->getGUID() ?>" title="Wijzigen" class="rhs-reaction__edit-btn"></a><a href="<?php echo $owner->getURL() ?>" title="Bekijk profiel" class="rhs-reaction__profile"><img src="<?php echo $owner->getIconURL('medium') ?>"></a><a href="<?php echo $owner->getURL() ?>" title="Bekijk profiel" class="rhs-reaction__name"><?php echo $owner->name ?></a>
 						<div class="rhs-reaction__time"><?php echo $friendly_time ?></div>
 					</div><!--<a href="forum-item--edit-answer.html" title="" class="rhs-reaction__body rhs-reaction__editable">--><span class="rhs-reaction__body"><?php echo $answer->description ?><span><!--</a>-->
-					<div class="rhs-reaction__bottom"><a href="#" title="Stem omhoog" class="rhs-reaction__upvote rhs-reaction__vote"> <span>10</span> nuttig</a><a href="#" title="Stem omlaag" class="rhs-reaction__downvote rhs-reaction__vote"> <span>3</span> minder nuttig</a></div>
+					<div class="rhs-reaction__bottom"><a href="#" title="Stem omhoog" class="rhs-reaction__upvote rhs-reaction__vote" id="voteUp" reaction-id="<?php echo $answer->getGUID() ?>"> <span><?php echo $upvotes ?></span> nuttig</a><a href="#" title="Stem omlaag" class="rhs-reaction__downvote rhs-reaction__vote" id="voteDown" reaction-id="<?php echo $answer->getGUID() ?>"><span><?php echo $downvotes ?></span> minder nuttig</a></div>
 				</div>
 			</div>
 		</div>

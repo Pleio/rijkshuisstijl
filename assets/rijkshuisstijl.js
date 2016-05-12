@@ -271,6 +271,66 @@
 	        else
 	            blk.css('display', 'none');
 	    });
+	
+	    $('.rhs-reaction__upvote').click(function (event){
+	        event.preventDefault();
+	
+	        var triggeringElement = $(this);
+	        
+	        elgg.action('rijkshuisstijl/questions/vote', {
+	          data: {
+	            guid: $(this).attr('reaction-id'),
+	            up: true,
+	          },
+	          success: function (wrapper) {
+	            if (wrapper.output) 
+	            {
+	              if (wrapper.output.success == false)
+	                alert('An error occurred setting the value.');
+	              else
+	              {
+	                var child = triggeringElement.children('span');
+	                var value = child.text();
+	                child.text(parseInt(value) + 1);
+	              }
+	            } 
+	            else 
+	            {
+	              // the system prevented the action from running
+	            }
+	          }
+	        });
+	    });
+	
+	    $('.rhs-reaction__downvote').click(function (event){
+	        event.preventDefault();
+	
+	        var triggeringElement = $(this);
+	        
+	        elgg.action('rijkshuisstijl/questions/vote', {
+	          data: {
+	            guid: $(this).attr('reaction-id'),
+	            up: false,
+	          },
+	          success: function (wrapper) {
+	            if (wrapper.output) 
+	            {
+	              if (wrapper.output.success == false)
+	                alert('An error occurred setting the value.');
+	              else
+	              {
+	                var child = triggeringElement.children('span');
+	                var value = child.text();
+	                child.text(parseInt(value) + 1);
+	              }
+	            } 
+	            else 
+	            {
+	              // the system prevented the action from running
+	            }
+	          }
+	        });
+	    });
 	});
 
 /***/ },

@@ -40,6 +40,7 @@ function rijkshuisstijl_init() {
 	elgg_register_action("rijkshuisstijl/profile/changepassword", dirname(__FILE__) . "/actions/profile/changepassword.php");
 	elgg_register_action("rijkshuisstijl/profile/setprofilefield", dirname(__FILE__) . "/actions/profile/setprofilefield.php");
 	elgg_register_action("rijkshuisstijl/search", dirname(__FILE__) . "/actions/search.php");
+	elgg_register_action("rijkshuisstijl/questions/vote", dirname(__FILE__) . "/actions/questions/vote.php");
 }
 
 /**

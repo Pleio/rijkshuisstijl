@@ -8,7 +8,7 @@
 $full = elgg_extract("full_view", $vars, false);
 $question = elgg_extract("entity", $vars, false);
 $workflow = elgg_extract("workflow", $vars, false);
-$editable = $question->getStatus() == "open" && $question->canWriteToContainer(0, 'object', 'answer');
+$editable = true;//$question->getStatus() == "open" && $question->canWriteToContainer(0, 'object', 'answer');
 
 $user = elgg_get_page_owner_entity();
 if (!$user) 
@@ -161,6 +161,16 @@ if (!$full)
 
 	require __DIR__ . '/../forum/categoryQuestionRow.php';
 }
+else
+{
+	if (!elgg_annotation_exists($question->guid, 'questionView')) 
+	{
+		if ($question->canAnnotate(0, 'questionView')) 
+		{
+			$annotation = create_annotation($question->guid, 'questionView', "questionView", "", $user->guid, $question->access_id);
+		}
+	}
+}
 ?>
 
 <?php if ($full) : ?>
@@ -172,7 +182,12 @@ if (!$full)
 		<div class="rhs-row">
 			<div class="rhs-col-md-offset-1 rhs-col-md-10 rhs-col-lg-offset-2 rhs-col-lg-8">
 				<h1 class="rhs-card-user-content__title"><?php echo $question->title ?></h1>
-				<div class="rhs-card-user-content__meta"><?php if ($editable) : ?><a href="/questions/edit/<?php echo $question->getGUID() ?>" title="..." class="card-user-content__edit-btn"></a><?php endif ?><a href="profile-public.html" title="..." class="rhs-card-user-content__profile"><img src="<?php echo $poster->getIconURL('small') ?>"></a>
+				<div class="rhs-card-user-content__meta">
+				<?php 
+					if ($editable)
+						echo '<a href="/questions/edit/' . $question->getGUID() . '" title="..." class="card-user-content__edit-btn"></a>';
+				?>
+				<a href="profile-public.html" title="..." class="rhs-card-user-content__profile"><img src="<?php echo $poster->getIconURL('small') ?>"></a>
 					<div class="rhs-card-user-content__data"><a href="<?php echo $poster->getURL() ?>" title="Carsten Heuvels"><?php echo $poster->name ?></a> <span><?php echo $date ?></span></div>
 				</div><!--<a href="forum-item--edit-question.html" title="..." class="rhs-card-user-content__content content-editble editable">--><span class="rhs-card-user-content__content"><?php echo $question->description ?></span><!--</a>-->
 				<div class="rhs-card-user-content__options">
@@ -183,7 +198,7 @@ if (!$full)
 						}
 					?>
 					<div class="rhs-card-user-content__mobile-top">
-						<div class="rhs-card-user-content__views">80</div><a href="#" title="Vraag volgen" class="rhs-card-user-content__follow">Vraag volgen</a>
+						<div class="rhs-card-user-content__views"><?php echo $question->countAnnotations('questionView') ?></div><a href="#" title="Vraag volgen" class="rhs-card-user-content__follow">Vraag volgen</a>
 					</div>
 					<?php if ($editable) : ?>
 					<div class="rhs-edit-block" id="answerEditBlock">
