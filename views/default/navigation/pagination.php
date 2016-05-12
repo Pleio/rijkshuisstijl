@@ -47,18 +47,21 @@ $total_pages = ceil($count / $limit);
 $current_page = ceil($offset / $limit) + 1;
 
 $pages = new stdClass();
+
 $pages->prev = array(
     'text' => '<span class="rhs-icon-angle-left rhs-pagination__icon"></span>',
     'href' => '',
     'is_trusted' => true,
     'class' => 'rhs-pagination__previous'
 );
+
 $pages->next = array(
     'text' => '<span class="rhs-icon-angle-right rhs-pagination__icon"></span>',
     'href' => '',
     'is_trusted' => true,
     'class' => 'rhs-pagination__next'
 );
+
 $pages->items = array();
 
 // Add pages before the current page
@@ -116,7 +119,7 @@ echo '<div class="rhs-section rhs-section--item rhs-section--float-right">';
         if ($pages->next['href']) {
             echo elgg_view('output/url', $pages->next);
         } else {
-            echo elgg_view('output/url', array_merge($pages->prev, array(
+            echo elgg_view('output/url', array_merge($pages->next, array(
                 'class' => 'rhs-pagination__next disabled'
             )));
         }
