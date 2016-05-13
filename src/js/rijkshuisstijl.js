@@ -246,6 +246,14 @@ jQuery(document).ready(function () {
                 var child = triggeringElement.children('span');
                 var value = child.text();
                 child.text(parseInt(value) + 1);
+
+                if (wrapper.output.switched)
+                {
+                  var sibbling = triggeringElement.next();
+                  var sibblingChild = sibbling.children('span');
+                  value = sibblingChild.text();
+                  sibblingChild.text(parseInt(value) - 1);
+                }
               }
             } 
             else 
@@ -276,6 +284,14 @@ jQuery(document).ready(function () {
                 var child = triggeringElement.children('span');
                 var value = child.text();
                 child.text(parseInt(value) + 1);
+
+                if (wrapper.output.switched)
+                {
+                  var sibbling = triggeringElement.prev();
+                  var sibblingChild = sibbling.children('span');
+                  value = sibblingChild.text();
+                  sibblingChild.text(parseInt(value) - 1);
+                }
               }
             } 
             else 

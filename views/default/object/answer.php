@@ -23,16 +23,8 @@ $owner_link = elgg_view("output/url", array("text" => $owner->name, "href" => $o
 $friendly_time = elgg_view_friendly_time($answer->time_created);
 $subtitle = $owner_link . " " . $friendly_time;
 
-$upvotes = 0;
-$upvotesSetting = $answer->getPrivateSetting('upvotes');
-
-if (is_string($upvotesSetting))
-	$upvotes = $upvotesSetting;
-
-$downvotes = 0;
-$downvotesSetting = $answer->getPrivateSetting('downvotes');
-if (is_string($downvotesSetting))
-	$downvotes = $downvotesSetting;
+$upvotes = $answer->countAnnotations('upvote');
+$downvotes = $answer->countAnnotations('downvote');
 
 ?>
 <div class="rhs-card-user-content" style="padding: 1rem;">

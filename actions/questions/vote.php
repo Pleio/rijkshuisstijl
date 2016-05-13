@@ -14,55 +14,95 @@
 
 	$entity_guid = get_input("guid");
 	$up = get_input("up") == "true";
+	$switched = false;
 
-	//check to see if the user has already liked the item
-	if (elgg_annotation_exists($entity_guid, 'vote')) {
-		system_message(elgg_echo("likes:alreadyliked"));
-		forward(REFERER);
-	}
-
-	// Let's see if we can get an entity with the specified GUID
-	$entity = get_entity($entity_guid);
-	if (!$entity) {
-		register_error(elgg_echo("likes:notfound"));
-		forward(REFERER);
-	}
-
-	// limit likes through a plugin hook (to prevent liking your own content for example)
-	if (!$entity->canAnnotate(0, 'vote')) {
-		// plugins should register the error message to explain why liking isn't allowed
-		forward(REFERER);
-	}
-
-	$annotation = create_annotation($entity->guid, 'vote', "vote", "", $user->guid, $entity->access_id);
-
-	// tell user annotation didn't work if that is the case
-	if (!$annotation) {
-		register_error(elgg_echo("likes:failure"));
-		forward(REFERER);
-	}
-
-	// notify if poster wasn't owner
-	if ($entity->owner_guid != $user->guid) {
-
-		likes_notify_user($entity->getOwnerEntity(), $user, $entity);
-	}
-
-	$settingName = $up ? 'upvotes' : 'downvotes';
-
-	$settingBefore = $entity->getPrivateSetting($settingName);
-	if (!is_string($settingBefore))
+	if ($up)
 	{
-		$entity->setPrivateSetting($settingName, 1);
+		if (elgg_annotation_exists($entity_guid, 'upvote')) 
+		{
+			system_message(elgg_echo("likes:alreadyliked"));
+			forward(REFERER);
+		}
+
+		if (elgg_annotation_exists($entity_guid, 'downvote')) 
+		{
+			$switched = true;
+
+			$annotations = elgg_get_annotations(array(
+				'annotation_names' => array('downvote'),
+				'guid' => $entity_guid,
+				'owner_guid' => $user->guid,
+				'access_id' => $entity->access_id
+			));
+
+			$annotations[0]->delete();
+		}
+
+		$entity = get_entity($entity_guid);
+		if (!$entity) 
+		{
+			register_error(elgg_echo("likes:notfound"));
+			forward(REFERER);
+		}
+
+		if (!$entity->canAnnotate(0, 'upvote')) 
+		{
+			forward(REFERER);
+		}
+
+		$annotation = create_annotation($entity->guid, 'upvote', "upvote", "", $user->guid, $entity->access_id);
+
+		if (!$annotation) 
+		{
+			register_error(elgg_echo("likes:failure"));
+			forward(REFERER);
+		}
 	}
 	else
 	{
-		$entity->setPrivateSetting($settingName, $settingBefore + 1);
+		if (elgg_annotation_exists($entity_guid, 'downvote')) 
+		{
+			system_message(elgg_echo("likes:alreadyliked"));
+			forward(REFERER);
+		}
+
+		if (elgg_annotation_exists($entity_guid, 'upvote')) 
+		{
+			$switched = true;
+
+			$annotations = elgg_get_annotations(array(
+				'annotation_names' => array('upvote'),
+				'guid' => $entity_guid,
+				'owner_guid' => $user->guid,
+				'access_id' => $entity->access_id
+			));
+
+			$annotations[0]->delete();
+		}
+
+		$entity = get_entity($entity_guid);
+		if (!$entity) 
+		{
+			register_error(elgg_echo("likes:notfound"));
+			forward(REFERER);
+		}
+
+		if (!$entity->canAnnotate(0, 'downvote')) 
+		{
+			forward(REFERER);
+		}
+
+		$annotation = create_annotation($entity->guid, 'downvote', "downvote", "", $user->guid, $entity->access_id);
+
+		if (!$annotation) 
+		{
+			register_error(elgg_echo("likes:failure"));
+			forward(REFERER);
+		}
 	}
 
 	echo json_encode([
     	'success' => true,
-    	'upvotes' => $entity->getPrivateSetting('upvotes'),
-    	'downvotes' => $entity->getPrivateSetting('downvotes'),
+    	'switched' => $switched
 	]);
 ?>
