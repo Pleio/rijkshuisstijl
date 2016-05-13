@@ -50,8 +50,8 @@
           <div class="rhs-col-md-4">
             <p class="rhs-form__element rhs-form__element--small-padding">
               <?php foreach($groups as $group): ?>
-                <label for="interest-<?php echo $tag; ?>" class="rhs-checkbox-switch">
-                  <input type="checkbox" id="interest-<?php echo $tag; ?>" name="interest-<?php echo $group->guid; ?>" <?php echo in_array($group, $interests) ? "checked" : ""; ?> class="rhs-checkbox-switch__input"><span class="rhs-checkbox-switch__placeholder"></span><?php echo $group->name; ?>
+                <label for="interest-<?php echo $group->guid; ?>" class="rhs-checkbox-switch">
+                  <input type="checkbox" id="interest-<?php echo $group->guid; ?>" name="interest-<?php echo $group->guid; ?>" <?php echo in_array($group, $interests) ? "checked" : ""; ?> class="rhs-checkbox-switch__input"><span class="rhs-checkbox-switch__placeholder"></span><?php echo $group->name; ?>
                 </label>
               <?php endforeach; ?>
             </p>
