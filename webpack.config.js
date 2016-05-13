@@ -1,11 +1,14 @@
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
-    entry: "./src/js/rijkshuisstijl.js",
+    entry: {
+        rijkshuisstijl: "./src/js/rijkshuisstijl.js",
+        splash: "./src/js/splash.js"
+    },
     output: {
         path: "./assets",
         publicPath: "/mod/rijkshuisstijl/assets/",
-        filename: "rijkshuisstijl.js",
+        filename: "[name].js",
         chunkFilename: "[id].js"
     },
     module: {
@@ -30,7 +33,7 @@ module.exports = {
     },
     devtool: "source-map",
     plugins: [
-        new ExtractTextPlugin("rijkshuisstijl.css")
+        new ExtractTextPlugin("[name].css")
     ],
     resolve: {
         extensions: ['', '.js', '.jsx']

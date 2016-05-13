@@ -40,15 +40,7 @@ $nav = "";
 if (is_array($items) && count($items) > 0) {
     $html .= '<div class="rhs-row">';
     foreach ($items as $item) {
-        if (elgg_instanceof($item)) {
-            $id = "elgg-{$item->getType()}-{$item->getGUID()}";
-        } else {
-            $id = "item-{$item->getType()}-{$item->id}";
-        }
-
-        $html .= '<div id="$id" class="rhs-col-md-12">';
         $html .= elgg_view_list_item($item, $vars);
-        $html .= '</div>';
     }
     $html .= '</div>';
 }

@@ -23,7 +23,7 @@ var $ = require("jquery");
     'use strict';
 
     var config = {
-        defaultSrc: '/asset/image/profile-picture--default.svg',
+        defaultSrc: '/mod/rijkshuisstijl/assets/image/profile-picture--default.svg',
         image: {
             height: 400,
             width: 400

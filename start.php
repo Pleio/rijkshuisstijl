@@ -13,15 +13,28 @@ function rijkshuisstijl_init() {
     elgg_register_plugin_hook_handler("route", "pages", "rijkshuisstijl_route_pages_hook", 100);
 
     elgg_register_css('rijkshuisstijl', '/mod/rijkshuisstijl/assets/rijkshuisstijl.css');
-    elgg_load_css('rijkshuisstijl');
+	elgg_register_js('rijkshuisstijl', '/mod/rijkshuisstijl/assets/rijkshuisstijl.js', "footer");
 
-    elgg_register_js('rijkshuisstijl', '/mod/rijkshuisstijl/assets/rijkshuisstijl.js', "footer");
-    elgg_load_js('rijkshuisstijl');
+    elgg_register_css('splash', '/mod/rijkshuisstijl/assets/splash.css');
+	elgg_register_js('splash', '/mod/rijkshuisstijl/assets/splash.js', "footer");
+
+    if (elgg_in_context("register") | elgg_in_context("login") | elgg_in_context("forgotpassword") | elgg_in_context("resetpassword")) {
+    	elgg_load_css('splash');
+    	elgg_load_js('splash');
+    } else {
+    	elgg_load_css('rijkshuisstijl');
+    	elgg_load_js('rijkshuisstijl');
+    }
 
     // revert hacks of older Elgg modules
     elgg_unextend_view('page/elements/head', 'subsite_manager/topbar_fix');
 
 	elgg_register_plugin_hook_handler("index", "system", "rijkshuisstijl_custom_index", 40); // must be very early
+
+	elgg_register_page_handler("login", "rijkshuisstijl_pages_login_handler");
+	elgg_register_page_handler("forgotpassword", "rijkshuisstijl_pages_forgotpassword_handler");
+	elgg_register_page_handler("register", "rijkshuisstijl_pages_register_handler");
+	elgg_register_page_handler("resetpassword", "rijkshuisstijl_pages_resetpassword_handler");
 
     elgg_register_page_handler("profile", "rijkshuisstijl_profile_page_handler");
     elgg_register_page_handler("forum", "rijkshuisstijl_forum_page_handler");
@@ -30,6 +43,12 @@ function rijkshuisstijl_init() {
     elgg_register_page_handler("topics", "rijkshuisstijl_topics_page_handler");
     elgg_register_page_handler("pinboard", "rijkshuisstijl_pinboard_page_handler");
 	elgg_register_page_handler("search", "rijkshuisstijl_search_page_handler");
+
+	elgg_unregister_action('user/requestnewpassword');
+	elgg_register_action("user/requestnewpassword", dirname(__FILE__) . "/actions/user/requestnewpassword.php", "public");
+
+	elgg_unregister_action('logout');
+	elgg_register_action("logout", dirname(__FILE__) . "/actions/logout.php");
 
 	elgg_register_action("rijkshuisstijl/profile/setprofileparameter", dirname(__FILE__) . "/actions/profile/setprofileparameter.php");
 	elgg_register_action("rijkshuisstijl/profile/changepassword", dirname(__FILE__) . "/actions/profile/changepassword.php");
@@ -154,6 +173,26 @@ function rijkshuisstijl_search_page_handler($page) {
 
 function rijkshuisstijl_pages_page_handler($page) {
 	require dirname(__FILE__) . "/pages/pages.php";
+	return true;
+}
+
+function rijkshuisstijl_pages_login_handler($page) {
+	require dirname(__FILE__) . "/pages/account/login.php";
+	return true;
+}
+
+function rijkshuisstijl_pages_forgotpassword_handler($page) {
+	require dirname(__FILE__) . "/pages/account/forgot_password.php";
+	return true;
+}
+
+function rijkshuisstijl_pages_register_handler($page) {
+	require dirname(__FILE__) . "/pages/account/register.php";
+	return true;
+}
+
+function rijkshuisstijl_pages_resetpassword_handler($page) {
+	require dirname(__FILE__) . "/pages/account/reset_password.php";
 	return true;
 }
 

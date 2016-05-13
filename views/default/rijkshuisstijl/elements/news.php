@@ -1,5 +1,5 @@
 <?php
-$full_view = isset($vars['full_view']) ? $vars['full_view'] : false;
+$full_view = elgg_extract('full_view', $vars, false);
 
 $featured = elgg_get_entities_from_metadata(array(
     'type' => 'object',
@@ -17,11 +17,12 @@ $options = array(
     'type' => 'object',
     'subtype' => array('page_top'),
     'full_view' => false,
+    'wrap_in_div' => $wrap_in_div,
     'pagination' => $full_view,
     'metadata_name_value_pairs' => array(
         'name' => 'tags',
         'value' => $vars['category']
-    )
+    ),
 );
 
 if ($vars['topic']) {
