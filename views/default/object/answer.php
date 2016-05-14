@@ -34,8 +34,8 @@ $downvotes = $answer->countAnnotations('downvote');
 				<div class="rhs-reaction">
 					<div class="rhs-reaction__top"><a href="/answers/edit/<?php echo $answer->getGUID() ?>" title="Wijzigen" class="rhs-reaction__edit-btn"></a><a href="<?php echo $owner->getURL() ?>" title="Bekijk profiel" class="rhs-reaction__profile"><img src="<?php echo $owner->getIconURL('medium') ?>"></a><a href="<?php echo $owner->getURL() ?>" title="Bekijk profiel" class="rhs-reaction__name"><?php echo $owner->name ?></a>
 						<div class="rhs-reaction__time"><?php echo $friendly_time ?></div>
-					</div><!--<a href="forum-item--edit-answer.html" title="" class="rhs-reaction__body rhs-reaction__editable">--><span class="rhs-reaction__body"><?php echo $answer->description ?><span><!--</a>-->
-					<div class="rhs-reaction__bottom"><a href="#" title="Stem omhoog" class="rhs-reaction__upvote rhs-reaction__vote" id="voteUp" reaction-id="<?php echo $answer->getGUID() ?>"> <span><?php echo $upvotes ?></span> nuttig</a><a href="#" title="Stem omlaag" class="rhs-reaction__downvote rhs-reaction__vote" id="voteDown" reaction-id="<?php echo $answer->getGUID() ?>"><span><?php echo $downvotes ?></span> minder nuttig</a></div>
+					</div><!--<a href="forum-item--edit-answer.html" title="" class="rhs-reaction__body rhs-reaction__editable">--><span class="rhs-reaction__body" style="white-space: pre-wrap"><?php echo $answer->description ?></span><span class="rhs-reaction__body"><!--</a>-->
+					<div class="rhs-reaction__bottom"><a href="#" title="Stem omhoog" class="rhs-reaction__upvote rhs-reaction__vote" id="voteUp" reaction-id="<?php echo $answer->getGUID() ?>"> <span><?php echo $upvotes ?></span> nuttig</a><a href="#" title="Stem omlaag" class="rhs-reaction__downvote rhs-reaction__vote" id="voteDown" reaction-id="<?php echo $answer->getGUID() ?>"><span><?php echo $downvotes ?></span> minder nuttig</a></div></span>
 				</div>
 			</div>
 		</div>
