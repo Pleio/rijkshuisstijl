@@ -86,7 +86,7 @@
         <div class="rhs-col-md-4 rhs-col-sm-6">
           <p class="rhs-form__element">
             <label class="rhs-form__label"><span class="rhs-form__label-text">Inkomstenbelasting</span>
-              <select name="thema" id="inkomstenbelasting" data-label="custom" class="selecter-default">
+              <select name="thema" id="inkomstenbelasting" data-label="custom" class="selecter-default elgg-input-dropdown">
                 <option value="" disabled>Geef uw voorkeur</option>
                 <option value="1">Geen</option>
                 <option value="2" selected="selected">Dagelijks</option>
@@ -98,7 +98,7 @@
           </p>
           <p class="rhs-form__element rhs-form__element--small-padding">
             <label class="rhs-form__label"><span class="rhs-form__label-text">Open Forum</span>
-              <select name="thema" id="open-forum" data-label="custom" class="selecter-default">
+              <select name="thema" id="open-forum" data-label="custom" class="selecter-default elgg-input-dropdown">
                 <option value="" disabled>Geef uw voorkeur</option>
                 <option value="1">Geen</option>
                 <option value="2" selected="selected">Dagelijks</option>
@@ -112,7 +112,7 @@
         <div class="rhs-col-md-4 rhs-col-sm-6">
           <p class="rhs-form__element">
             <label class="rhs-form__label"><span class="rhs-form__label-text">Loonheffingen</span>
-              <select name="thema" id="loonheffingen" data-label="custom" class="selecter-default">
+              <select name="thema" id="loonheffingen" data-label="custom" class="selecter-default elgg-input-dropdown">
                 <option value="" disabled>Geef uw voorkeur</option>
                 <option value="1">Geen</option>
                 <option value="2" selected="selected">Dagelijks</option>
@@ -124,7 +124,7 @@
           </p>
           <p class="rhs-form__element rhs-form__element--small-padding">
             <label class="rhs-form__label"><span class="rhs-form__label-text">Toeslagen</span>
-              <select name="thema" id="toeslagen" data-label="custom" class="selecter-default">
+              <select name="thema" id="toeslagen" data-label="custom" class="selecter-default elgg-input-dropdown">
                 <option value="" disabled>Geef uw voorkeur</option>
                 <option value="1">Geen</option>
                 <option value="2" selected="selected">Dagelijks</option>
@@ -140,7 +140,7 @@
             <div class="rhs-col-sm-6 rhs-col-md-12">
               <p class="rhs-form__element">
                 <label class="rhs-form__label"><span class="rhs-form__label-text">Omzetbelasting</span>
-                  <select name="thema" id="omzetbelasting" data-label="custom" class="selecter-default">
+                  <select name="thema" id="omzetbelasting" data-label="custom" class="selecter-default elgg-input-dropdown">
                     <option value="" disabled>Geef uw voorkeur</option>
                     <option value="1">Geen</option>
                     <option value="2" selected="selected">Dagelijks</option>
@@ -154,7 +154,7 @@
             <div class="rhs-col-sm-6 rhs-col-md-12">
               <p class="rhs-form__element rhs-form__element--small-padding">
                 <label class="rhs-form__label"><span class="rhs-form__label-text">Vennootschapsbelasting</span>
-                  <select name="thema" id="vennootschapsbelasting" data-label="custom" class="selecter-default">
+                  <select name="thema" id="vennootschapsbelasting" data-label="custom" class="selecter-default elgg-input-dropdown">
                     <option value="">Geef uw voorkeur</option>
                     <option value="1">Geen</option>
                     <option value="2">Dagelijks</option>

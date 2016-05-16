@@ -11,6 +11,7 @@ function rijkshuisstijl_init() {
 
     elgg_register_plugin_hook_handler("route", "questions", "rijkshuisstijl_route_questions_hook", 100);
     elgg_register_plugin_hook_handler("route", "pages", "rijkshuisstijl_route_pages_hook", 100);
+    elgg_register_plugin_hook_handler("route", "profile", "rijkshuisstijl_route_profile_hook", 100);
 
     elgg_register_css('rijkshuisstijl', '/mod/rijkshuisstijl/assets/rijkshuisstijl.css');
 	elgg_register_js('rijkshuisstijl', '/mod/rijkshuisstijl/assets/rijkshuisstijl.js', "footer");
@@ -36,7 +37,7 @@ function rijkshuisstijl_init() {
 	elgg_register_page_handler("register", "rijkshuisstijl_pages_register_handler");
 	elgg_register_page_handler("resetpassword", "rijkshuisstijl_pages_resetpassword_handler");
 
-    elgg_register_page_handler("profile", "rijkshuisstijl_profile_page_handler");
+    //elgg_register_page_handler("profile", "rijkshuisstijl_profile_page_handler");
     elgg_register_page_handler("forum", "rijkshuisstijl_forum_page_handler");
     elgg_register_page_handler("news", "rijkshuisstijl_news_page_handler");
     elgg_register_page_handler("videos", "rijkshuisstijl_videos_page_handler");
@@ -226,6 +227,43 @@ function rijkshuisstijl_route_pages_hook($hook_name, $entity_type, $return_value
 			}
 
 			include(dirname(__FILE__) . "/pages/pages/view.php");
+			return true;
+			break;
+	}
+}
+
+function rijkshuisstijl_route_profile_hook($hook_name, $entity_type, $return_value, $params) {
+	$page = elgg_extract("segments", $return_value);
+
+	if (isset($page[0])) {
+		$username = $page[0];
+		$user = get_user_by_username($username);
+		elgg_set_page_owner_guid($user->guid);
+	} elseif (elgg_is_logged_in()) {
+		forward(elgg_get_logged_in_user_entity()->getURL());
+	}
+
+	// short circuit if invalid or banned username
+	if (!$user || ($user->isBanned() && !elgg_is_admin_logged_in())) {
+		register_error(elgg_echo("profile:notfound"));
+		forward();
+	}
+
+	switch ($page[1]) {
+		case "edit":
+			include(dirname(__FILE__) . "/pages/profile/edit.php");
+			return true;
+			break;
+		case "interests":
+			include(dirname(__FILE__) . "/pages/profile/interests.php");
+			return true;
+			break;
+		case "settings":
+			include(dirname(__FILE__) . "/pages/profile/settings.php");
+			return true;
+			break;
+		default:
+			include(dirname(__FILE__) . "/pages/profile/index.php");
 			return true;
 			break;
 	}
