@@ -202,7 +202,7 @@ else
 						<div class="rhs-card-user-content__views"><?php echo $question->countAnnotations('questionView') ?></div><a href="#" title="Vraag volgen" class="rhs-card-user-content__follow">Vraag volgen</a>
 					</div>
 					<?php if ($editable) : ?>
-					<div class="rhs-edit-block" id="answerEditBlock">
+					<div class="rhs-edit-block" id="answerEditBlock" style="display: none">
 						<div class="rhs-edit-block__top"><img src="<?php echo $user->getIconURL('medium') ?>" class="rhs-edit-block__image"><a href="<?php echo $user->getURL() ?>" title="Bekijk profiel" class="rhs-edit-block__name"><?php echo $user->name ?></a></div>
 						<textarea id="answerText" placeholder="Uw antwoord" class="rhs-edit-block__content"></textarea>
 						<div class="rhs-edit-block__bottom rhs-form__actions">
