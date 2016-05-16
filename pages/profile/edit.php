@@ -11,8 +11,14 @@ if (!$user) {
 	forward();
 }
 
+$targetUser = get_user_by_username($username);
+if (!$targetUser) {
+  register_error(elgg_echo("profile:notfound"));
+  forward(); 
+}
+
 // check if logged in user can edit this profile
-if (!$user->canEdit()) {
+if (!$targetUser->canEdit()) {
 	register_error(elgg_echo("profile:noaccess"));
 	forward();
 }
@@ -21,7 +27,7 @@ elgg_set_context('profile_edit');
 
 $title = elgg_echo('profile:edit');
 
-$content = elgg_view_form('profile/edit', array(), array('entity' => $user));
+$content = elgg_view_form('profile/edit', array(), array('entity' => $targetUser));
 
 $params = array(
 	'content' => $content,

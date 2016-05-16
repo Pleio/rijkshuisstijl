@@ -7,8 +7,19 @@
     forward();
   }
 
-  $body = elgg_view('profile/header', array('name' => $user->name, 'username' => $user->username, 'selected' => 'Instellingen'));
-  $body = $body . elgg_view('profile/settings', array('username' => $user->username));
+  $targetUser = get_user_by_username($username);
+  if (!$targetUser) {
+    register_error(elgg_echo("profile:notfound"));
+    forward(); 
+  }
+
+  if (!$targetUser->canEdit()) {
+    register_error(elgg_echo("profile:noaccess"));
+    forward();
+  }
+
+  $body = elgg_view('profile/header', array('name' => $targetUser->name, 'username' => $targetUser->username, 'selected' => 'Instellingen'));
+  $body = $body . elgg_view('profile/settings', array('username' => $targetUser->username));
 
   //elgg_set_context('profile_edit');
 

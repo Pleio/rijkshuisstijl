@@ -7,7 +7,13 @@
     forward();
   }
 
-  $result = profile_manager_get_categorized_fields($user, true);
+  $targetUser = get_user_by_username($username);
+  if (!$targetUser) {
+    register_error(elgg_echo("profile:notfound"));
+    forward(); 
+  }
+
+  $result = profile_manager_get_categorized_fields($targetUser, true);
   $fields = $result['fields'];
   $cats = $result['categories'];
 
@@ -19,7 +25,7 @@
         $metadata_name = $field->metadata_name;
 
         $metadata = elgg_get_metadata(array(
-          'guid' => $user->guid,
+          'guid' => $targetUser->guid,
           'metadata_name' => $metadata_name,
           'limit' => false
         ));
@@ -28,7 +34,7 @@
         {
           $metadata = $metadata[0];
           
-          $value = $user->$metadata_name;
+          $value = $targetUser->$metadata_name;
         } 
         else 
           $value = '';
@@ -37,8 +43,8 @@
     }
   }
 
-  $body = elgg_view('profile/header', array('name' => $user->name, 'username' => $user->username, 'selected' => 'Profiel'));
-  $body = $body . elgg_view('profile/index', array('fields' => $outputFields, 'username' => $user->username));
+  $body = elgg_view('profile/header', array('name' => $targetUser->name, 'username' => $targetUser->username, 'selected' => 'Profiel'));
+  $body = $body . elgg_view('profile/index', array('fields' => $outputFields, 'username' => $targetUser->username));
 
   //elgg_set_context('profile_edit');
 

@@ -5716,6 +5716,9 @@ label.__problem .rhs-form__input {
   text-decoration: none;
   color: #01689b;
   top: 0.5rem;
+  /*@media (min-width: @screen-lg) {
+    display: none;
+  }*/
 }
 .forum-answer__edit-btn:before {
   content: "\E904";
@@ -5726,11 +5729,6 @@ label.__problem .rhs-form__input {
   .forum-answer__edit-btn {
     right: 2rem;
     top: 0;
-  }
-}
-@media (min-width: 1024px) {
-  .forum-answer__edit-btn {
-    display: none;
   }
 }
 .rhs-content-actions__print {
@@ -7074,13 +7072,13 @@ label.__problem .rhs-form__input {
   line-height: 2.2rem;
   color: #01689b;
 }
-@media (min-width: 1024px) {
-  .rhs-reaction__time {
+/*@media (min-width: 1024px) {
+  .@{namespace}-reaction__time {
     display: inline-block;
     float: right;
     line-height: 2.4rem;
   }
-}
+}*/
 @media (min-width: 768px) {
   .rhs-reaction__bottom {
     padding-left: 6rem;
@@ -7228,11 +7226,11 @@ label.__problem .rhs-form__input {
     top: 0;
   }
 }
-@media (min-width: 1024px) {
-  .rhs-reaction__edit-btn {
+/*@media (min-width: 1024px) {
+  .@{namespace}-reaction__edit-btn {
     display: none;
   }
-}
+}*/
 .rhs-modal {
   opacity: 0;
   position: fixed;
@@ -8403,6 +8401,9 @@ label.__problem .rhs-form__input {
   text-decoration: none;
   color: #01689b;
   top: 0.5rem;
+  /*@media (min-width: @screen-lg) {
+    display: none;
+  }*/
 }
 .card-user-content__edit-btn:before {
   content: "\E904";
@@ -8413,11 +8414,6 @@ label.__problem .rhs-form__input {
   .card-user-content__edit-btn {
     right: 2rem;
     top: 0;
-  }
-}
-@media (min-width: 1024px) {
-  .card-user-content__edit-btn {
-    display: none;
   }
 }
 .rhs-video-section {

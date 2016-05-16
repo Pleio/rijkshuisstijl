@@ -188,8 +188,8 @@ else
 					if ($editable)
 						echo '<a href="/questions/edit/' . $question->getGUID() . '" title="..." class="card-user-content__edit-btn"></a>';
 				?>
-				<a href="profile-public.html" title="..." class="rhs-card-user-content__profile"><img src="<?php echo $poster->getIconURL('small') ?>"></a>
-					<div class="rhs-card-user-content__data"><a href="<?php echo $poster->getURL() ?>" title="Carsten Heuvels"><?php echo $poster->name ?></a> <span><?php echo $date ?></span></div>
+				<a href="<?php echo $poster->getURL() ?>" title="..." class="rhs-card-user-content__profile"><img src="<?php echo $poster->getIconURL('small') ?>"></a>
+					<div class="rhs-card-user-content__data"><a href="<?php echo $poster->getURL() ?>" title="<?php echo $poster->name ?>"><?php echo $poster->name ?></a> <span><?php echo $date ?></span></div>
 				</div><!--<a href="forum-item--edit-question.html" title="..." class="rhs-card-user-content__content content-editble editable">--><span class="rhs-card-user-content__content" style="white-space: pre-wrap"><?php echo $question->description ?></span><!--</a>-->
 				<div class="rhs-card-user-content__options">
 					<?php 

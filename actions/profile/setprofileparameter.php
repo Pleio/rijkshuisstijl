@@ -41,7 +41,7 @@
 	    	$fieldNames = $fieldNames . ' ' . $field->metadata_name;
 	    	if ($field->metadata_name == $name)
 	    	{
-	    		create_metadata($user->guid, $name, $value);
+	    		create_metadata($targetUser->guid, $name, $value);
 	    		$success = true;
 	    		break;
 	    	}
