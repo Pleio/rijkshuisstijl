@@ -31,7 +31,7 @@ $site = elgg_get_site_entity();
               </form>
             </div>
           </div>
-              <div class="rhs-col-md-4 rhs-col-lg-3"><span class="rhs-forum-action__separate-text">of</span><a href="/questions/add/<?php echo $group->guid ?>" data-modal-id="#modal-item" class="js-toggleModal rhs-button rhs-button--primary rhs-button--inline rhs-forum-action__button">+ Een vraag stellen</a>
+              <div class="rhs-col-md-4 rhs-col-lg-3"><span class="rhs-forum-action__separate-text">of</span><a href="/questions/add/<?php echo $group->guid ?>" class="rhs-button rhs-button--primary rhs-button--inline rhs-forum-action__button">+ Een vraag stellen</a>
               </div>
         </div>
       </div>

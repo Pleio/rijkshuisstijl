@@ -3,7 +3,7 @@
 
 	$questions = elgg_extract("questions", $vars);
 	$page = elgg_extract("page", $vars);
-	$maxPage = elgg_extract("page", $vars);
+	$maxPage = elgg_extract("maxPage", $vars);
 
 	function getNumAnswers($question)
 	{
@@ -23,10 +23,10 @@
 <div class="rhs-container">
   <h1 class="rhs-forum__title">Populair</h1>
   <div class="rhs-row">
-    <div class="rhs-col-md-4 rhs-col-lg-3 rhs-col-lg-offset-3 rhs-pull-right"><a href="#" data-modal-id="#modal-item" class="js-toggleModal rhs-button rhs-button--primary rhs-button--inline rhs-forum-section__button">+ Een vraag stellen</a></div>
+    <div class="rhs-col-md-4 rhs-col-lg-3 rhs-col-lg-offset-3 rhs-pull-right"><a href="/questions/add/<?php echo $group->guid ?>" class="rhs-button rhs-button--primary rhs-button--inline rhs-forum-section__button">+ Een vraag stellen</a></div>
     <div class="rhs-col-md-4 rhs-col-lg-3">
       <div class="rhs-forum__filter">
-        <select name="filter" id="filter" data-label="Filter" class="selecter-default">
+        <select name="filter" id="filter" data-label="Filter" class="elgg-input-dropdown selecter-default">
           <option value="1" selected>Alles</option>
           <option value="2">Meest bekeken</option>
           <option value="3">Mijn Vragen</option>
@@ -35,7 +35,7 @@
     </div>
     <div class="rhs-col-md-4 rhs-col-lg-3">
       <div class="rhs-forum__filter">
-        <select name="thema" id="thema" data-label="Alle thema's" class="selecter-default">
+        <select name="thema" id="thema" data-label="Alle thema's" class="elgg-input-dropdown selecter-default">
           <option value="" selected>Alle thema's</option>
           <option value="5">Inkomstenbelasting</option>
           <option value="4">Loonheffingen</option>
@@ -54,16 +54,17 @@
 	  <?php 
 	  	foreach ($questions as $question)
 	  	{
-	  		require "categoryQuestionRow.php";
+	  		echo elgg_view("forum/categoryQuestionRow", array('question' => $question));
 	  	}
 	  ?>
   </div>
   <?php if ($maxPage > 1) : ?>
   <div class="forum__pagination">
-    <div class="rhs-pagination"><a href="#" title="Volgende pagina" class="rhs-pagination__previous disabled"><span class="rhs-icon-angle-left rhs-pagination__icon"></span></a>
+    <div class="rhs-pagination"><a href="/forum/category/<?php echo $page - 1 ?>" title="Vorige pagina" class="rhs-pagination__previous <?php echo $page <= 0 ? 'disabled' : '' ?>"><span class="rhs-icon-angle-left rhs-pagination__icon"></span></a>
       <form action="#" class="rhs-pagination__form">
         <input name="page-number" id="page-number" value="<?php echo $page ?>" class="rhs-pagination__input"><span class="rhs-pagination__maximum">van <?php echo $maxPage ?></span>
-      </form><a href="#" title="Volgende pagina" class="rhs-pagination__next"><span class="rhs-icon-angle-right rhs-pagination__icon"></span></a>
+      </form>
+      <a href="/forum/category/<?php echo $page + 1 ?>" title="Volgende pagina" class="rhs-pagination__next <?php echo $page >= $maxPage ? 'disabled' : '' ?>"><span class="rhs-icon-angle-right rhs-pagination__icon"></span></a>
     </div>
   </div>
   <?php endif ?>

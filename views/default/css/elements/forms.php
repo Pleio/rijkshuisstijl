@@ -27,6 +27,7 @@
 }
 
 .elgg-input-text {
+  background: #FFF;
 	border: 0.1rem solid #CCCCCC;
 	padding: 1.1rem 1rem 1.1rem 1.25rem;
 	transition: all 0.2s ease;
@@ -519,6 +520,7 @@ input[type="radio"] {
 
 .elgg-input-plaintext {
 	width: 100%;
+    background: #FFF;
   	font-size: 1.8rem;
   	line-height: 2.2rem;
   	border: 0.1rem solid #CCCCCC;
@@ -630,6 +632,7 @@ input[type="radio"] {
 .elgg-input-tags {
   	font-size: 1.8rem;
   	line-height: 2.2rem;
+    background: #FFF;
   	border: 0.1rem solid #CCCCCC;
   	padding: 1.1rem 1rem 1.1rem 1.25rem;
     -webkit-transition: all 0.2s ease;

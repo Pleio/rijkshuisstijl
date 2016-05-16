@@ -40,6 +40,7 @@ if (elgg_instanceof($container, "group") && (elgg_get_page_owner_guid() != $cont
 }
 
 $tags = elgg_view("output/tags", array("tags" => $question->tags));
+
 $categories = elgg_view("output/categories", $vars);
 
 $date = elgg_view_friendly_time($question->time_created);
@@ -159,7 +160,7 @@ if (!$full)
 
 	echo elgg_view_image_block($poster_icon, $list_body, array("image_alt" => $image_alt, "class" => "ffd-question-list-item"));*/
 
-	require __DIR__ . '/../forum/categoryQuestionRow.php';
+	echo elgg_view('forum/categoryQuestionRow', array('question' => $question));
 }
 else
 {

@@ -1,6 +1,5 @@
 <?php
-	if (!isset($question))
-		return;
+	$question = elgg_extract("question", $vars);
 
 	if (!function_exists("getNumAnswers"))
   	{

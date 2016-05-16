@@ -14,10 +14,10 @@
 						<?php 
 							foreach ($questions as $question)
 							{
-								require "forumQuestionRow.php";
+								echo elgg_view("forum/forumQuestionRow", array('question' => $question));
 							}
 						?>
-						<a href="/questions/all" title="Bekijk alles" class="rhs-read-more rhs-card-list__read-more"><span class="rhs-icon-arrow-right-circle rhs-read-more__icon"></span>Alles</a>
+						<a href="/forum/category/1" title="Bekijk alles" class="rhs-read-more rhs-card-list__read-more"><span class="rhs-icon-arrow-right-circle rhs-read-more__icon"></span>Alles</a>
 					</div>
 				</div>
 			</div>
@@ -35,7 +35,7 @@
 						<?php 
 							foreach ($questions as $question)
 							{
-								require "forumQuestionRow.php";
+								echo elgg_view("forum/forumQuestionRow", array('question' => $question));
 							}
 						?>
 					</div>

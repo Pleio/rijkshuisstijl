@@ -1,6 +1,5 @@
 <?php
-  if (!isset($question))
-    return;
+  $question = elgg_extract("question", $vars);
 
   $poster = $question->getOwnerEntity();
   $posterName = "Unknown";

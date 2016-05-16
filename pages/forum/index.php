@@ -15,7 +15,8 @@ if (get_input('group_guid')) {
 
 $options = array(
     'type' => 'object',
-    'subtype' => 'question'
+    'subtype' => 'question',
+    'limit' => 5
 );
 
 $questions = elgg_get_entities($options, 'elgg_get_entities_from_private_settings');

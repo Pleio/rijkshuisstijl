@@ -26,7 +26,7 @@ elgg_set_page_owner_guid($question->getContainerGUID());
 $page_owner = $question->getContainerEntity();
 
 // set breadcrumb
-elgg_push_breadcrumb(elgg_echo('questions'), "questions/all");
+elgg_push_breadcrumb(elgg_echo('questions'), "/forum");
 
 if ($workflow == true) {
   elgg_push_breadcrumb(elgg_echo("questions:workflow"), "questions/workflow");
