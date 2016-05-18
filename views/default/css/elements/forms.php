@@ -431,12 +431,6 @@
 .chosen .elgg-input-radio-placeholder:after {
   background-color: #154273;
 }
-.elgg-input-radio {
-  opacity: 0;
-  position: absolute;
-  top: 0;
-  left: 0;
-}
 
 input[type="checkbox"],
 input[type="radio"] {
@@ -510,12 +504,6 @@ input[type="radio"] {
   .elgg-input-checkbox-placeholder:after {
     top: 55%;
   }
-}
-.elgg-input-checkbox {
-  opacity: 0;
-  position: absolute;
-  top: 0;
-  left: 0;
 }
 
 .elgg-input-plaintext {
@@ -1060,11 +1048,6 @@ span.elgg-input-selecter-selected:after {
 
 .elgg-input-dropdown {
 	width: 100%;
-	height: 100%;
-	position: absolute;
-	left: 0;
-	opacity: 0;
-	z-index: -1;
 }
 
 .elgg-input-access {

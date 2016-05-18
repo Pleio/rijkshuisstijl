@@ -8921,6 +8921,14 @@ label.__problem .rhs-form__input {
   padding-right: 2rem;
   max-width: 102.4rem;
 }
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+#profile_manager_register_left {
+  width: auto;
+}
 .mce-title {
   font-family: "ROsanswebtext_bold", sans-serif !important;
   font-size: 2.8rem !important;

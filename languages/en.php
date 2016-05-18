@@ -29,7 +29,15 @@ $english = array(
     'rijkshuisstijl:topics' => 'Topics',
     'rijkshuisstijl:pinboard' => 'Pinboard',
     'rijkshuisstijl:error:xhr_only' => 'Sorry, XHR requests only',
-    'rijkshuisstijl:all' => 'All'
+    'rijkshuisstijl:all' => 'All',
+    'rijkshuisstijl:register:name' => 'First and last name',
+    'rijkshuisstijl:register:name:error' => 'Fill in your first and last name',
+    'rijkshuisstijl:register:email:error' => 'Fill in a valid e-mail',
+    'rijkshuisstijl:register:username:error' => 'Fill in a valid username',
+    'rijkshuisstijl:register:password:placeholder' => 'Minimal %s characters',
+    'rijkshuisstijl:register:password:error' => 'Fill in a valid password',
+    'rijkshuisstijl:register:password:enter_again' => 'Please enter your password again',
+    'rijkshuisstijl:register:password_again:error' => 'The password is not the same as above'
 );
 
 add_translation('en', $english);

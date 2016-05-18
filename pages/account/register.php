@@ -26,7 +26,7 @@ if (elgg_is_logged_in()) {
     forward();
 }
 
-$title = elgg_echo("register");
+
 
 $content = elgg_view_title($title);
 
@@ -37,18 +37,19 @@ if (elgg_get_config('https_login')) {
 }
 $form_params = array(
     'action' => $register_url,
-    'class' => 'elgg-form-account',
+    'class' => 'elgg-form-register rhs-splash js-validateForm',
 );
 
 $body_params = array(
     'friend_guid' => $friend_guid,
     'invitecode' => $invitecode
 );
-$content .= elgg_view_form('register', $form_params, $body_params);
 
-$content .= elgg_view('help/register');
+$content = elgg_view_form('register', $form_params, $body_params, array(
+    'class' => 'rhs-splash js-validateForm'
+));
 
-$body = elgg_view_layout('one_column', array('content' => $content));
-echo elgg_view_page($title, $body, "empty", array(
+$title = elgg_echo("register");
+echo elgg_view_page($title, $content, "empty", array(
     'header' => elgg_view("rijkshuisstijl/elements/header")
 ));

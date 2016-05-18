@@ -29,7 +29,15 @@ $dutch = array(
     'rijkshuisstijl:topics' => 'Thema\'s',
     'rijkshuisstijl:pinboard' => 'Prikbord',
     'rijkshuisstijl:error:xhr_only' => 'Hier kunnen alleen XHR requests gedaan worden.',
-    'rijkshuisstijl:all' => 'Alles'
+    'rijkshuisstijl:all' => 'Alles',
+    'rijkshuisstijl:register:name' => 'Voor- en achternaam',
+    'rijkshuisstijl:register:name:error' => 'Vul uw gehele voor- en achternaam in',
+    'rijkshuisstijl:register:email:error' => 'Vul een geldig e-mailadres in',
+    'rijkshuisstijl:register:username:error' => 'Vul een geldige gebruikersnaam in',
+    'rijkshuisstijl:register:password:placeholder' => 'Minimaal %s karakters',
+    'rijkshuisstijl:register:password:error' => 'Vul een geldig wachtwoord in',
+    'rijkshuisstijl:register:password:enter_again' => 'Vul je wachtwoord nogmaals in',
+    'rijkshuisstijl:register:password_again:error' => 'Wachtwoord verificatie komt niet overeen met je wachtwoord'
 );
 
 add_translation('nl', $dutch);

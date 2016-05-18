@@ -112,6 +112,7 @@ if ($full) {
         echo '<span class="rhs-news-list__item__date">' . date("d-m-Y", $page->time_created) . '</span>';
         echo '<span class="rhs-news-list__item__title">' . $page->title . '</span>';
         echo '<span class="rhs-news-list__item__category">';
+        if (is_array($page->tags)) {
             if (in_array('juris', $page->tags)) {
                 echo '<span class="rhs-icon-jurisprudentie rhs-news-list__item__category__icon"></span>';
             } elseif (in_array('geselecteerd', $page->tags)) {
@@ -119,6 +120,7 @@ if ($full) {
             }
 
             echo $page->getContainerEntity()->name;
+        }
         echo '</span>';
     echo '</a>';
 }
