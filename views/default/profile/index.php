@@ -16,7 +16,7 @@
   }
 
   $editable = $targetUser->canEdit();
-
+  $editable = true;
   /*$answer_options = array(
     "type" => "object",
     "subtype" => $answer_subtype,
@@ -72,7 +72,23 @@
   <div class="rhs-profile-blocks">
     <div class="rhs-profile-block">
       <div class="rhs-row">
-        <div class="rhs-col-lg-2 rhs-col-sm-3"><a data-modal-id="#modal-profile-photo" class="rhs-profile-image rhs-profile-image--url js-toggleModal"><img src="<?php echo $targetUser->getIconURL('large') ?>" alt="<?php echo $targetUser->name ?>" title="<?php echo $targetUser->name ?>" class="rhs-profile-image__img"></a></div>
+        <div class="rhs-col-lg-2 rhs-col-sm-3">
+          <?php 
+            if ($editable)
+              echo '<a data-modal-id="#modal-item" class="rhs-profile-image rhs-profile-image--url js-toggleModal">';
+            else
+              echo '<div class="rhs-profile-image">'
+          ?>          
+          
+          <img src="<?php echo $targetUser->getIconURL('large') ?>" alt="<?php echo $targetUser->name ?>" title="<?php echo $targetUser->name ?>" class="rhs-profile-image__img">
+
+          <?php
+            if ($editable)
+              echo '</a>';
+            else
+              echo '</div>';
+          ?>
+        </div>
         <div class="rhs-col-lg-1 rhs-col-sm-1"></div>
         <div class="rhs-col-lg-6 rhs-col-sm-8">
           <div class="js-editableFields"><?php if ($editable) : ?><a class="js-editableFieldsToggle">Bewerk velden</a><?php endif; ?>
@@ -160,6 +176,22 @@
             <?php endif ?>
           </div>
         </div>
+      </div>
+    </div>
+  </div>
+  <div id="modal-item" tabindex="0" class="rhs-modal">
+    <div data-modal-id="#modal-item" class="rhs-modal__background js-toggleModal"></div>
+    <div class="rhs-modal__box"> 
+      <button data-modal-id="#modal-item" class="rhs-modal__close js-toggleModal">Sluit modal</button>
+      <h2 class="rhs-modal__title">Upload een avatar</h2>
+      <div class="rhs-modal__content">
+        <?php 
+          echo elgg_view('core/avatar/upload', array('entity' => $targetUser));
+
+          // only offer the crop view if an avatar has been uploaded
+          /*if (isset($targetUser->icontime))
+            echo elgg_view('core/avatar/crop', array('entity' => $targetUser));*/
+        ?>
       </div>
     </div>
   </div>
