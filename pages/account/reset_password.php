@@ -25,12 +25,13 @@ $params = array(
     'guid' => $user_guid,
     'code' => $code,
 );
-$form = elgg_view_form('user/passwordreset', array('class' => 'elgg-form-account'), $params);
+
+$form = elgg_view_form('user/passwordreset', array(
+    'class' => 'rhs-splash rhs-splash--no-title'
+), $params);
 
 $title = elgg_echo('resetpassword');
-$content = elgg_view_title(elgg_echo('resetpassword')) . $form;
-
 $body = elgg_view_layout('one_column', array('content' => $content));
-echo elgg_view_page($title, $body, "empty", array(
+echo elgg_view_page($title, $form, "empty", array(
     'header' => elgg_view("rijkshuisstijl/elements/header")
 ));

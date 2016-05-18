@@ -48,6 +48,9 @@ function rijkshuisstijl_init() {
 	elgg_unregister_action('user/requestnewpassword');
 	elgg_register_action("user/requestnewpassword", dirname(__FILE__) . "/actions/user/requestnewpassword.php", "public");
 
+	elgg_unregister_action('user/passwordreset');
+	elgg_register_action("user/passwordreset", dirname(__FILE__) . "/actions/user/passwordreset.php", "public");
+
 	elgg_unregister_action('logout');
 	elgg_register_action("logout", dirname(__FILE__) . "/actions/logout.php");
 
