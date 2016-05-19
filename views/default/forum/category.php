@@ -1,9 +1,10 @@
 <?php
-	$group = elgg_get_page_owner_entity();
+	//$group = elgg_get_page_owner_entity();
 
 	$questions = elgg_extract("questions", $vars);
 	$page = elgg_extract("page", $vars);
 	$maxPage = elgg_extract("maxPage", $vars);
+  $group = elgg_extract("group", $vars);
 
 	function getNumAnswers($question)
 	{
@@ -35,13 +36,13 @@
     </div>
     <div class="rhs-col-md-4 rhs-col-lg-3">
       <div class="rhs-forum__filter">
-        <select name="thema" id="thema" data-label="Alle thema's" class="elgg-input-dropdown selecter-default">
-          <option value="" selected>Alle thema's</option>
-          <option value="5">Inkomstenbelasting</option>
-          <option value="4">Loonheffingen</option>
-          <option value="3">Omzetbelasting</option>
-          <option value="2">Toeslagen</option>
-          <option value="1">Vennootschapsbelasting</option>
+        <select name="thema" id="thema" data-label="Alle thema's" class="elgg-input-dropdown selecter-default" onchange="window.location.replace('/forum/category/' + this.value)">
+          <option value="0" <?php echo $group && $group->guid == 0 ? 'selected' : '' ?>>Alle thema's</option>
+          <?php 
+            $groups = rijkshuisstijl_get_featured_groups(); 
+            foreach ($groups as $groupEntity)
+              echo '<option value="' . $groupEntity->guid . '"' . ($group && $group->guid == $groupEntity->guid ? 'selected' : '') . '>' . $groupEntity->name . '</option>';
+          ?>
         </select>
       </div>
     </div>
@@ -54,7 +55,7 @@
 	  <?php 
 	  	foreach ($questions as $question)
 	  	{
-	  		echo elgg_view("forum/categoryQuestionRow", array('question' => $question));
+	  		echo elgg_view("forum/categoryQuestionRow", array('question' => $question, 'group' => $group));
 	  	}
 	  ?>
   </div>
