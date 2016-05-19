@@ -39,6 +39,7 @@ $english = array(
     'rijkshuisstijl:register:password:enter_again' => 'Please enter your password again',
     'rijkshuisstijl:register:password_again:error' => 'The password is not the same as above',
     'rijkshuisstijl:videos:all_chapters' => 'All chapters',
+    'rijkshuisstijl:enable_plugin' => 'Please enable plugin %s',
     'rijkshuisstijl:videos:play' => 'Play video',
     'rijkshuisstijl:videos:close' => 'Close overview'
 );

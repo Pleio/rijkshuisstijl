@@ -133,7 +133,6 @@ function rijkshuisstijl_forum_page_handler($page) {
 			$page = $page[1];
 		else
 			$page = 1;
-		
 		require dirname(__FILE__) . "/pages/forum/category.php";
 		return true;
 	}
@@ -148,15 +147,6 @@ function rijkshuisstijl_forum_page_handler($page) {
 
 function rijkshuisstijl_news_page_handler($page) {
 	require dirname(__FILE__) . "/pages/news.php";
-	return true;
-}
-
-function rijkshuisstijl_videos_page_handler($page) {
-	if ($page[0]) {
-		set_input("guid", $page[0]);
-	}
-
-	require dirname(__FILE__) . "/pages/videos.php";
 	return true;
 }
 

@@ -17,7 +17,11 @@ $videos = elgg_get_entities(array(
 
       <div class="rhs-row">
         <div class="rhs-col-md-12">
-          <?php echo elgg_view_entity($videos); ?>
+          <?php if (elgg_is_active_plugin('videos')): ?>
+            <?php echo elgg_view_entity($videos); ?>
+          <?php else: ?>
+            <?php echo elgg_echo("rijkshuisstijl:enable_plugin", array("videos")); ?>
+          <?php endif; ?>
         </div>
       </div>
     </div>
