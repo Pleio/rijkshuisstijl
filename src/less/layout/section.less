@@ -1,0 +1,220 @@
+.@{namespace}-sections {
+
+}
+
+.@{namespace}-sections--top-padding {
+  padding-top: 2rem;
+}
+
+.@{namespace}-sections--large-top-padding {
+  padding-top: 2rem;
+
+  @media (min-width: @screen-md) {
+    padding-top: 4rem;
+  }
+}
+
+//
+// Overridden section styles
+
+
+.@{namespace}-section {
+  padding: 0 0 1.8rem;
+  background-color: #fff;
+  transition: @trans-all;
+
+  @media (min-width: @screen-md) {
+    padding: 2rem 0 4rem 0;
+  }
+}
+
+.@{namespace}-section--background-lightblue,
+.@{namespace}-section--background-grey {
+    padding-top: 0rem;
+
+    @media (min-width: @screen-md) {
+      padding-top: 2rem;
+    }
+  }
+
+.@{namespace}-section--with-row {
+  padding-bottom: 2rem;
+}
+
+.@{namespace}-section--item {
+  padding: 0 0 2rem 0;
+}
+
+.@{namespace}-section--item-even {
+  padding: 1.8rem 0 2rem 0;
+}
+
+.@{namespace}-section--no-subtitle {
+  padding-top:2rem;
+
+  @media (min-width: @screen-md) {
+    padding-top: 4rem;
+  }
+}
+
+.@{namespace}-section--padding-top {
+  padding-top: 2rem;
+
+  @media (min-width: @screen-lg) {
+    padding-top: 4rem;
+  }
+}
+
+/*
+.@{namespace}-section--background-image {
+  height: auto;
+  position: relative;
+  background-color: @color-white;
+  padding: 4rem 0 3rem;
+  padding: 4rem 0 3rem;
+}
+*/
+
+//
+// Overridden section styles
+
+.@{namespace}-section--no-padding {
+  padding: 0;
+}
+
+.@{namespace}-section {
+
+  .@{namespace}-sections &:last-child {
+    padding-bottom: 7.2rem;
+  }
+}
+
+//
+// Section styling
+
+.@{namespace}-section--align-right {
+    text-align: right;
+}
+
+.@{namespace}-section--float-right {
+    float: right;
+}
+
+.@{namespace}-section--background-white {
+    background-color: @color-white;
+}
+
+.@{namespace}-section--background-grey {
+    background-color: @color-grey--20;
+}
+
+.@{namespace}-section--background-lightblue {
+    background-color: @belastingdienst--8;
+}
+
+.@{namespace}-section--background-transparent {
+    background-color: transparent;
+}
+
+//
+// Title
+//
+
+.@{namespace}-section__title {
+  display: inline-block;
+  margin: 0 0 1.1rem;
+  color: @color-quaternary;
+  font-size: @font-size--title-normal;
+  line-height: @line-height--title-normal;
+  text-indent: -0.2rem;
+
+  @media (min-width: @screen-md) {
+    margin: 1.3rem 0 1.1rem 0;
+    font-size: @font-size--title-main;
+    line-height: @line-height--title-main;
+  }
+
+  @media (min-width: @screen-lg) {
+    margin-bottom: 3rem;
+  }
+}
+
+//
+// Subtitle
+//
+
+.@{namespace}-section__subtitle {
+  display: inline-block;
+  margin: 1.5rem 0 1.3rem 0;
+  color: @color-septenary;
+  font-size: @font-size--title-small;
+  line-height: @line-height--title-small;
+  text-indent: -0.1rem;
+
+  @media (min-width: @screen-md) {
+    margin: 1.6rem 0 2.3rem 0;
+    font-size: @font-size--title-normal;
+    line-height: @line-height--title-small;
+  }
+}
+
+.@{namespace}-section__subtitle--light {
+  font-family: @font;
+}
+
+//
+// Read more link
+//
+
+.@{namespace}-section__read-more {
+  float: right;
+  margin: 2.1rem 0 0 0;
+  color: @color-grey--60;
+  text-decoration: none;
+  position: relative;
+  padding-right: 1.2rem;
+  font-size: @font-size--medium;
+  line-height: @line-height--medium;
+  transition: @trans-color;
+
+  &:after {
+    content: @icon-angle-right;
+    font-family: @font--icons;
+    position: absolute;
+    right: 0.1rem;
+    margin-top: 0.1rem;
+    font-size: 0.9rem;
+    top: 50%;
+    transform: translate(0, -49%);
+  }
+
+  &:hover {
+    color: @color-quaternary;
+  }
+
+  @media (min-width: @screen-md) {
+    margin: 2.4rem 0 0 0;
+    font-size: @font-size--base;
+    line-height: @line-height--base;
+
+    &:after {
+      margin-top: 0;
+      font-size: 1rem;
+      right: 0;
+    }
+  }
+}
+
+//
+// Section inner (for padding)
+//
+
+.section__inner {
+  padding: 2.5rem 3rem;
+}
+
+.section__inner--background-white {
+  padding: 3rem 3rem 2rem 3rem;
+  background-color: @color-white;
+  box-shadow: @box-shadow-big;
+}

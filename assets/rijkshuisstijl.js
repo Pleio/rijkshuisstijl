@@ -79,7 +79,7 @@
 	
 	var jQuery = __webpack_require__(123);
 	jQuery(document).ready(function () {
-	    var radioElements = jQuery('.elgg-input-radio');
+	    /*var radioElements = jQuery('.elgg-input-radio');
 	    radioElements.parent().attr('class', 'elgg-input-radio-label');
 	    radioElements.after('<span class="elgg-input-radio-placeholder"></span>');
 	    jQuery('.elgg-input-radio-placeholder').click(function () {
@@ -156,7 +156,7 @@
 	    jQuery(document).on('click','.elgg-input-selecter-item', function() {
 	        jQuery(this).parent().prev().prev().val(jQuery(this).attr('data-value'));
 	        jQuery(this).parent().prev().text(jQuery(this).text());
-	    });
+	    });*/
 	
 	    var els = jQuery('.elgg-form-login fieldset div input');
 	    if (els.length > 0)
@@ -13438,7 +13438,6 @@
 	(function () {
 	    'use strict';
 	
-	
 	    /*!
 	     * video-block
 	     */
@@ -13450,8 +13449,8 @@
 	        var $this = $(this);
 	        var $parent = $this.parents('[data-video-block]');
 	
-	        $("body").toggleClass("video-block--is-open");
-	        $parent.toggleClass("video-block--open");
+	        $("body").toggleClass("rhs-video-block--is-open");
+	        $parent.toggleClass("rhs-video-block--open");
 	    });
 	
 	
@@ -13478,6 +13477,8 @@
 	        var $this = $(this);
 	        var videoType = $this.data('video-type');
 	        var videoId = $this.data('video-id');
+	
+	        $this.addClass('visited');
 	
 	        // Create the video iFrame
 	        var $videoFrame = createVideoFrame(videoType, videoId);
@@ -13708,6 +13709,9 @@
 	var queueIndex = -1;
 	
 	function cleanUpNextTick() {
+	    if (!draining || !currentQueue) {
+	        return;
+	    }
 	    draining = false;
 	    if (currentQueue.length) {
 	        queue = currentQueue.concat(queue);
@@ -16222,8 +16226,8 @@
 /* 170 */
 /***/ function(module, exports) {
 
-	/* eslint-disable no-unused-vars */
 	'use strict';
+	/* eslint-disable no-unused-vars */
 	var hasOwnProperty = Object.prototype.hasOwnProperty;
 	var propIsEnumerable = Object.prototype.propertyIsEnumerable;
 	
@@ -16235,7 +16239,51 @@
 		return Object(val);
 	}
 	
-	module.exports = Object.assign || function (target, source) {
+	function shouldUseNative() {
+		try {
+			if (!Object.assign) {
+				return false;
+			}
+	
+			// Detect buggy property enumeration order in older V8 versions.
+	
+			// https://bugs.chromium.org/p/v8/issues/detail?id=4118
+			var test1 = new String('abc');  // eslint-disable-line
+			test1[5] = 'de';
+			if (Object.getOwnPropertyNames(test1)[0] === '5') {
+				return false;
+			}
+	
+			// https://bugs.chromium.org/p/v8/issues/detail?id=3056
+			var test2 = {};
+			for (var i = 0; i < 10; i++) {
+				test2['_' + String.fromCharCode(i)] = i;
+			}
+			var order2 = Object.getOwnPropertyNames(test2).map(function (n) {
+				return test2[n];
+			});
+			if (order2.join('') !== '0123456789') {
+				return false;
+			}
+	
+			// https://bugs.chromium.org/p/v8/issues/detail?id=3056
+			var test3 = {};
+			'abcdefghijklmnopqrst'.split('').forEach(function (letter) {
+				test3[letter] = letter;
+			});
+			if (Object.keys(Object.assign({}, test3)).join('') !==
+					'abcdefghijklmnopqrst') {
+				return false;
+			}
+	
+			return true;
+		} catch (e) {
+			// We don't expect any of the above to throw, but better to be safe.
+			return false;
+		}
+	}
+	
+	module.exports = shouldUseNative() ? Object.assign : function (target, source) {
 		var from;
 		var to = toObject(target);
 		var symbols;

@@ -40,7 +40,7 @@ function rijkshuisstijl_init() {
     //elgg_register_page_handler("profile", "rijkshuisstijl_profile_page_handler");
     elgg_register_page_handler("forum", "rijkshuisstijl_forum_page_handler");
     elgg_register_page_handler("news", "rijkshuisstijl_news_page_handler");
-    elgg_register_page_handler("videos", "rijkshuisstijl_videos_page_handler");
+    //elgg_register_page_handler("videos", "rijkshuisstijl_videos_page_handler");
     elgg_register_page_handler("topics", "rijkshuisstijl_topics_page_handler");
     elgg_register_page_handler("pinboard", "rijkshuisstijl_pinboard_page_handler");
 	elgg_register_page_handler("search", "rijkshuisstijl_search_page_handler");

@@ -27,6 +27,7 @@
 }
 
 .elgg-input-text {
+  width: 100%;
   background: #FFF;
 	border: 0.1rem solid #CCCCCC;
 	padding: 1.1rem 1rem 1.1rem 1.25rem;
@@ -42,6 +43,7 @@
 }
 
 .elgg-input-password {
+  width: 100%;
 	border: 0.1rem solid #CCCCCC;
 	padding: 1.1rem 1rem 1.1rem 1.25rem;
 	transition: all 0.2s ease;
@@ -618,6 +620,7 @@ input[type="radio"] {
 }
 
 .elgg-input-tags {
+    width: 100%;
   	font-size: 1.8rem;
   	line-height: 2.2rem;
     background: #FFF;
@@ -1048,13 +1051,4 @@ span.elgg-input-selecter-selected:after {
 
 .elgg-input-dropdown {
 	width: 100%;
-}
-
-.elgg-input-access {
-	width: 100%;
-	height: 100%;
-	position: absolute;
-	left: 0;
-	opacity: 0;
-	z-index: -1;
 }

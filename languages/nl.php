@@ -37,7 +37,10 @@ $dutch = array(
     'rijkshuisstijl:register:password:placeholder' => 'Minimaal %s karakters',
     'rijkshuisstijl:register:password:error' => 'Vul een geldig wachtwoord in',
     'rijkshuisstijl:register:password:enter_again' => 'Vul je wachtwoord nogmaals in',
-    'rijkshuisstijl:register:password_again:error' => 'Wachtwoord verificatie komt niet overeen met je wachtwoord'
+    'rijkshuisstijl:register:password_again:error' => 'Wachtwoord verificatie komt niet overeen met je wachtwoord',
+    'rijkshuisstijl:videos:all_chapters' => 'Alle hoofdstukken',
+    'rijkshuisstijl:videos:play' => 'Speel video',
+    'rijkshuisstijl:videos:close' => 'Sluit overzicht'
 );
 
 add_translation('nl', $dutch);

@@ -13239,7 +13239,6 @@
 	(function () {
 	    'use strict';
 	
-	
 	    /*!
 	     * video-block
 	     */
@@ -13251,8 +13250,8 @@
 	        var $this = $(this);
 	        var $parent = $this.parents('[data-video-block]');
 	
-	        $("body").toggleClass("video-block--is-open");
-	        $parent.toggleClass("video-block--open");
+	        $("body").toggleClass("rhs-video-block--is-open");
+	        $parent.toggleClass("rhs-video-block--open");
 	    });
 	
 	
@@ -13280,6 +13279,8 @@
 	        var $this = $(this);
 	        var videoType = $this.data('video-type');
 	        var videoId = $this.data('video-id');
+	
+	        $this.addClass('visited');
 	
 	        // Create the video iFrame
 	        var $videoFrame = createVideoFrame(videoType, videoId);

@@ -37,7 +37,10 @@ $english = array(
     'rijkshuisstijl:register:password:placeholder' => 'Minimum of %s characters',
     'rijkshuisstijl:register:password:error' => 'Fill in a valid password',
     'rijkshuisstijl:register:password:enter_again' => 'Please enter your password again',
-    'rijkshuisstijl:register:password_again:error' => 'The password is not the same as above'
+    'rijkshuisstijl:register:password_again:error' => 'The password is not the same as above',
+    'rijkshuisstijl:videos:all_chapters' => 'All chapters',
+    'rijkshuisstijl:videos:play' => 'Play video',
+    'rijkshuisstijl:videos:close' => 'Close overview'
 );
 
 add_translation('en', $english);

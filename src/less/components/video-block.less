@@ -1,26 +1,25 @@
 .@{namespace}-video-block {
   display: block;
-  margin-top: 2rem;
   box-shadow: @box-shadow-big;
   .clearfix();
 
   .@{namespace}-theme__section &, .@{namespace}-home__section & {
     margin-top: 0;
-    margin-bottom: 2rem;
   }
 }
 
 .@{namespace}-video-block__left {
-  padding: 2rem 2rem;
+  padding: 2.4rem 3rem 7rem 3rem;
   position: relative;
-  min-height: 21.2rem;
+  min-height: 20rem;
+  background-color: @color-white;
 
   @media (min-width: @screen-md) {
     width: 42.8%;
     float: left;
     display: inline-block;
     min-height: 36.6rem;
-    padding: 2.5rem;
+    padding: 2rem 2.5rem 2.5rem 2.5rem;
     background-color: @color-white;
     transition: background-color 0.2s ease;
     .@{namespace}-video-block--open & {
@@ -30,7 +29,7 @@
 
   @media (min-width: @screen-lg) {
     width: 34%;
-    padding: 3rem;
+    padding: 2.4rem 3rem 3rem 3rem;
   }
 }
 
@@ -119,8 +118,8 @@
 }
 
 .@{namespace}-video-block__title {
-  font-size: 2rem;
-  line-height: 2.6rem;
+  font-size: 2.4rem;
+  line-height: 3rem;
   color: @color-septenary;
   margin: 0;
   font-family: @font--bold;
@@ -139,7 +138,7 @@
 
 .@{namespace}-video-block__readmore {
   position: absolute;
-  bottom: 2rem;
+  bottom: 3rem;
   transition: color 0.2s ease, visibility 0.2s ease, opacity 0.2s ease;
   .@{namespace}-read-more__icon {
     transform: none;
@@ -151,7 +150,9 @@
     visibility: hidden;
   }
   @media (min-width: @screen-md) {
-    bottom: 3rem;
+    bottom: 2.7rem;
+    margin-top:0;
+    position: absolute;
   }
 }
 
@@ -210,9 +211,8 @@
   right: 0;
   bottom: 0;
   background-color: @color-white;
-  z-index: 1;
+  z-index: @lift-20;
   padding: 2rem 2rem 11rem;
-  overflow: scroll;
   transition: visibility 0.2s ease, opacity 0.2s ease;
 
   @media (min-width: @screen-md) {

@@ -16,6 +16,8 @@ var $ = require("jquery");
         var videoType = $this.data('video-type');
         var videoId = $this.data('video-id');
 
+        $this.addClass('visited');
+
         // Create the video iFrame
         var $videoFrame = createVideoFrame(videoType, videoId);
 

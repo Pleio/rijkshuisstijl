@@ -3,7 +3,6 @@ var $ = require("jquery");
 (function () {
     'use strict';
 
-
     /*!
      * video-block
      */
@@ -15,8 +14,8 @@ var $ = require("jquery");
         var $this = $(this);
         var $parent = $this.parents('[data-video-block]');
 
-        $("body").toggleClass("video-block--is-open");
-        $parent.toggleClass("video-block--open");
+        $("body").toggleClass("rhs-video-block--is-open");
+        $parent.toggleClass("rhs-video-block--open");
     });
 
 

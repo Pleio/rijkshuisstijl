@@ -33,7 +33,7 @@ require("./rijkshuisstijl/index");
 
 var jQuery = require("jquery");
 jQuery(document).ready(function () {
-    var radioElements = jQuery('.elgg-input-radio');
+    /*var radioElements = jQuery('.elgg-input-radio');
     radioElements.parent().attr('class', 'elgg-input-radio-label');
     radioElements.after('<span class="elgg-input-radio-placeholder"></span>');
     jQuery('.elgg-input-radio-placeholder').click(function () {
@@ -110,7 +110,7 @@ jQuery(document).ready(function () {
     jQuery(document).on('click','.elgg-input-selecter-item', function() {
         jQuery(this).parent().prev().prev().val(jQuery(this).attr('data-value'));
         jQuery(this).parent().prev().text(jQuery(this).text());
-    });
+    });*/
 
     var els = jQuery('.elgg-form-login fieldset div input');
     if (els.length > 0)
