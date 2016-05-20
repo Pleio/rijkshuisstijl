@@ -1,0 +1,61 @@
+.@{namespace}-card-links {
+  background-color: @color-white;
+  border-radius: @border-radius-base;
+  position: relative;
+  overflow: hidden;
+  display: block;
+  box-shadow: @box-shadow-big;
+  text-decoration: none;
+  color: @color-black;
+  margin: 0 0 2rem 0;
+  min-height:3rem;
+  height:auto;
+  @media (min-width: @screen-md){
+    min-height: 28rem;
+  }
+}
+
+.@{namespace}-card-links__list {
+  padding: 2.5rem 3rem;
+}
+
+.@{namespace}-card-links__title {
+  font-size:2.4rem;
+  line-height: 3rem;
+  margin:0 0 2rem 0;
+  @media (max-width: @screen-sm-max){
+    margin-bottom:1.5rem;
+  }
+}
+
+
+.@{namespace}-card-links__item {
+  display: block;
+  text-decoration:none;
+  color: @color-black;
+  padding:0 2.5rem 1.5rem 0;
+  position: relative;
+  transition: @trans-color;
+  &:after {
+    font-family: @font--icons;
+    content:@icon-angle-right;
+    position: absolute;
+    right:0.4rem;
+    top:0;
+    transition: right 0.2s;
+    font-size: 1rem;
+  }
+  &:hover {
+    color:@color-quaternary;
+    &:after {
+      right:0;
+    }
+  }
+  &:last-child {
+    padding-bottom:0;
+  }
+  @media (max-width: @screen-sm-max){
+    font-size:1.6rem;
+    padding-bottom:1rem;
+  }
+}

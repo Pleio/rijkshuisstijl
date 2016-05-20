@@ -1,7 +1,7 @@
 .@{namespace}-card-list {
   border-bottom: 1px solid @color-grey--60;
   position: relative;
-  &:after {
+  h3:after {
     content: @icon-angle-down;
     font-family: @font--icons;
     position: absolute;
@@ -9,24 +9,29 @@
     top: 1rem;
     color: @color-quaternary;
     font-size: 1.4rem;
+    transform: scaleY(1);
+    transition: @trans-all;
   }
   &.open {
-    &:after {
+    h3:after {
       transform: scaleY(-1);
     }
   }
 
   @media (min-width: @screen-md) {
-    padding: 3rem;
+    padding: 2.7rem 3rem 3rem 3rem;
     box-shadow: @box-shadow-big;
     border: none;
-    margin-bottom: 2rem;
-    &:after {
+    background-color: #fff;
+    h3:after {
       display: none;
     }
   }
+}
+
+.@{namespace}-card-list--margin-bottom {
   @media (min-width: @screen-md) {
-    background-color: #fff;
+    margin-bottom: 2rem;
   }
 }
 
@@ -105,14 +110,14 @@
 
 .@{namespace}-card-list__number {
   color: @color-grey--50;
-  padding-left: 1rem;
+  padding-left: 2rem;
   position: relative;
-  min-width: 4.6rem;
-  text-align: right;
+  width: 3.8rem;
+  text-align: left;
   span {
     &:before {
-      content: @icon-chatbox;
       font-family: @font--icons;
+      content: @icon-chatbox;
       position: absolute;
       margin-left: -2rem;
     }
@@ -139,14 +144,5 @@
   .@{namespace}-read-more__icon {
     transform: none;
     margin-left: -2.8rem;
-  }
-  @media (max-width: @screen-sm-max) {
-    text-align: right;
-    padding-left: 0;
-    padding-right: 2.8rem;
-    .@{namespace}-read-more__icon {
-      left: auto;
-      right: 0;
-    }
   }
 }

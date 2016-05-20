@@ -5,6 +5,7 @@ require("../less/all.less");
 require("./plugins/jquery.dotdotdot-1.7.4.js");
 
 require("./default/accordion.js");
+require("./default/filter-select.js");
 require("./default/app.js");
 require("./default/autocomplete.js");
 require("./default/checkbox-switch.js");

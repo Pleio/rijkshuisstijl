@@ -2,7 +2,7 @@
   .appearance(none);
   position: relative;
   border: none;
-  border-radius: @border-radius-button !important;
+  border-radius: @border-radius-button;
   background-color: @color-grey--60;
   height: 4rem;
   padding: 0.8rem 2rem;
@@ -13,7 +13,7 @@
   text-decoration: none;
   display: inline-block;
   color: @color-white;
-  cursor: pointer; 
+  cursor: pointer;
 
   &:hover,
   &:focus {
@@ -28,7 +28,7 @@
 
 .@{namespace}-button--inline {
   height: 4.6rem;
-  padding: 1.1rem 2rem;
+  padding: 1.2rem 2rem;
 }
 
 .@{namespace}-button--full-width {
@@ -113,7 +113,7 @@
     display:none;
   }
 
-  @media( max-width: @screen-sm ) { 
+  @media( max-width: @screen-sm ) {
     width: 4rem;
     border-radius: 99rem;
     text-indent: 4rem;

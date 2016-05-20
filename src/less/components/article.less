@@ -1,5 +1,5 @@
 .@{namespace}-article {
-  box-shadow: @box-shadow;
+  box-shadow: @box-shadow-big;
   background-color: @color-white;
   overflow: hidden;
   position: relative;
@@ -23,7 +23,7 @@
 }
 
 .@{namespace}-article__content {
-  padding: 3rem;
+  padding: 2.4rem 3rem 3rem 3rem;
   position: relative;
   background-color: @color-white;
 
@@ -50,6 +50,11 @@
   @media(min-width: @screen-md) {
     font-size: @font-size--title-normal;
     line-height: @line-height--title-normal;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
   }
 }
 
@@ -79,7 +84,7 @@
 .@{namespace}-article__read-more {
   @media(min-width: @screen-md) {
     position: absolute;
-    bottom: 3rem;
+    bottom: 2.6rem;
     left: 3rem;
   }
 }

@@ -1,0 +1,57 @@
+.@{namespace}-section-banner {
+    position: relative;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: #444;
+
+    &:before {
+        content: "";
+        position: absolute;
+        z-index: 0;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        display: block;
+        background: rgba(21, 66, 115, 0.25);
+        background: linear-gradient(to right, rgba(21, 66, 115, 0.62) 0%, rgba(5, 17, 29, 0) 85%, rgba(0, 0, 0, 0) 100%);
+    }
+}
+
+.@{namespace}-section-banner__inner {
+    position: relative; // above the default background-image
+    padding: 2.4rem 2.5rem 10rem 2.5rem;
+    min-height: 20rem;
+
+    @media (min-width: @screen-sm) {
+        padding-top: 3.4rem;
+    }
+}
+
+.@{namespace}-section-banner__title {
+    color: @color-white;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
+    font-size: @font-size--title-small;
+    line-height: @line-height--title-small;
+    margin: 0 0 0.9rem 0;
+
+    @media (min-width: @screen-sm){
+      font-size: @font-size--title-main;
+      line-height: @line-height--title-main;
+    }
+}
+
+.@{namespace}-section-banner__description { // <div /> 
+    font-size: @font-size--title-small;
+    line-height: @line-height--title-small;
+    max-width: 42rem;
+    color: @color-white;
+    text-shadow: @text-shadow;
+}
+
+.@{namespace}-section-banner__read-more { // <p />
+    position: absolute;
+    bottom: 2.8rem;
+    margin-bottom: 0;
+}

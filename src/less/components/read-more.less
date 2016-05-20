@@ -4,13 +4,18 @@
   display: block;
   line-height: @line-height--medium;
   font-family: @font--bold;
-  padding-left:2.8rem;
+  padding-left: 2.8rem;
   position: relative;
-  font-size:1.4rem;
-  @media (min-width: @screen-sm){
-    font-size: @font-size--medium;
-  }
+  font-size: @font-size--small;
 
+  @media (min-width: @screen-sm){
+    font-size: @font-size--base;
+  }
+}
+
+.@{namespace}-read-more--white {
+  color: @color-white;
+  text-shadow: @text-shadow;
 }
 
 .@{namespace}-read-more__icon {
@@ -24,16 +29,28 @@
   top: 0;
   margin-left: -3rem;
   transition: color 0.2s, background-color 0.2s;
-  font-size:2rem;
+  font-size: @font-size--large;
+
+  .@{namespace}-section--background-image & {
+    color: @color-white;
+  }
 
   &:before {
     position: absolute;
-    top:51%;
-    left:50%;
-    transform:translate(-50%,-50%);
+    top: 51%;
+    left: 50%;
+    transform: translate(-50%,-50%);
   }
 
   .@{namespace}-read-more:hover & {
     color: @color-tertiary;
   }
+
+  .@{namespace}-read-more--white:hover & {
+    color: @color-white;
+  }
+}
+
+.@{namespace}-read-more--white__icon {
+  color: @color-white;
 }

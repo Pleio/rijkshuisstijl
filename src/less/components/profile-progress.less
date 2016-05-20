@@ -4,15 +4,15 @@
   max-width: 30rem;
 
   @media( min-width: @screen-lg-min ) {
-    padding: 0 0 0 0;
+    padding: 0.3rem 0 0 0;
   }
 }
 
 .@{namespace}-profile-progress__bar {
   position: relative;
   overflow: hidden;
-  margin: 0 0 0.5rem 0;
-  border-radius: 99rem !important;
+  margin: 0 0 0.2rem 0;
+  border-radius: 99rem;
   height: 3.9rem;
   line-height: 3.3rem;
   background: #e6e6e6;
@@ -34,14 +34,14 @@
 
 .@{namespace}-profile-progress__bar--level-2 {
   &:before {
-    width: inherit;
+    width: 72%;
     background: @color-green;
   }
 }
 
 .@{namespace}-profile-progress__bar--level-3 {
   &:before {
-    width: 82%;
+    width: 86%;
     background-color: @color-quaternary;
   }
 }
@@ -84,10 +84,8 @@
     top: 0.25rem;
     margin: 0;
     padding: 0;
-    width: 12%;
+    width: 15%;
     font-family: @font--bold;
     text-align: right;
   }
 }
-
-

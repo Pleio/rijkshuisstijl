@@ -31,42 +31,22 @@
   }
 
   &:after {
-    content: '';
+    content: @icon-checkmark;
     position: absolute;
-    top: 0.45rem;
-    left: 0.45rem;
-    width: 0.8rem;
-    height: 0.3rem;
-    background-color: @color-white;
-    transform: rotate(-45deg);
+    top:50%;
+    left:60%;
+    transform: translate(-50%, -50%);
+    font-size:1.2rem;
+    color: transparent;
     transition: @trans-all;
+    font-family: @font--icons;
 
     :hover > & {
-      background-color: @color-grey--50;
+      color: @color-grey--50;
     }
 
     .chosen > & {
-      background-color: @color-septenary;
-    }
-  }
-
-  &:before {
-    content: '';
-    position: absolute;
-    top: 0.65rem;
-    left: 0.1rem;
-    width: 0.66rem;
-    height: 0.3rem;
-    background-color: @color-white;
-    transform: rotate(45deg);
-    transition: @trans-all;
-
-    :hover > & {
-      background-color: @color-grey--50;
-    }
-
-    .chosen > & {
-      background-color: @color-septenary;
+      color: @color-septenary;
     }
   }
 }

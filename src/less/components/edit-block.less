@@ -1,20 +1,33 @@
 .@{namespace}-edit-block {
-  margin-top: 3rem;
-  position: relative;
-  &:before {
-    content: "";
-    width: 2rem;
-    height: 2rem;
-    border: 0.1rem solid @color-grey--60;
-    display: block;
-    position: absolute;
-    transform: rotate(-45deg);
-    background-color: @color-white;
-    top: -1rem;
-    left: 4rem;
-    border-bottom: none;
-    border-left: none;
-    z-index: 1;
+
+  @media (min-width: @screen-md) {
+    &:before {
+      content: "";
+      width: 2rem;
+      height: 2rem;
+      border: 0.1rem solid @color-grey--60;
+      display: block;
+      position: absolute;
+      transform: rotate(-45deg);
+      background-color: @color-white;
+      top: 1.5rem;
+      left: 5rem;
+      border-bottom: none;
+      border-left: none;
+      z-index: 1;
+    }
+  }
+
+  @media(max-width: @screen-sm-max) {
+    .mce-tinymce {
+      border-left:0 !important; border-right:0 !important; border-bottom:0 !important;
+    }
+  }
+
+  &.@{namespace}-edit-block--no-tip {
+    &:before {
+      display: none;
+    }
   }
   &.@{namespace}-edit-block--question {
     margin-top: 2rem;
@@ -23,12 +36,52 @@
       padding-top:0.6rem !important;
     }
   }
-  &.@{namespace}-edit-block--edit-answer {
-    &:before {
-      display: none;
+}
+
+.@{namespace}-edit-block__title {
+  font-size: 2.8rem;
+  line-height: 3.4rem;
+  padding: 1.4rem 2rem 0 2rem;
+  margin: 0;
+  color: @color-quaternary;
+
+  @media( min-width: @screen-md ) {
+    display:none;
+  }
+}
+
+.@{namespace}-edit-block__wrapper {
+  position:absolute;
+  top:-9999px;
+  opacity:0;
+  transition: opacity @swift-ease-in-duration ease-in;
+
+  .@{namespace}-edit-block {
+    position:relative;
+    top:0;
+
+    @media(min-width: @screen-md) {
+      padding: 2.5rem 0 0 0;
+      position:relative;
     }
   }
 }
+
+.@{namespace}-edit-block__wrapper--open {
+  position: fixed;
+  top:0; right:0; bottom:0; left:0;
+  z-index: @lift-60;
+  opacity:1;
+  background:#fff;
+
+  @media(min-width: @screen-md) {
+    position:relative;
+  }
+}
+
+.@{namespace}-edit-block {
+}
+
 
 .@{namespace}-edit-block__content {
   background-color: @color-white;
@@ -40,7 +93,7 @@
   display: block;
   resize: none;
   min-height: 22rem;
-  border: 0.1rem solid @color-grey--60;
+  border: 0.1rem solid @color-grey--50;
   @media (min-width: @screen-md) {
     font-size: 1.8rem;
     line-height: 2.6rem;
@@ -49,16 +102,19 @@
 
 .@{namespace}-edit-block__top {
   padding: 2.25rem 2rem 2.25rem 7.5rem;
-  border: 0.1rem solid @color-grey--60;
   border-bottom: none;
   position: relative;
   .rhs-edit-block--question & {
     border:none;
     padding:0;
   }
+  @media (min-width: @screen-md) {
+    border: 0.1rem solid @color-grey--50;
+    border-bottom:0;
+  }
 }
 .@{namespace}-edit-block__controls {
-  border: 0.1rem solid @color-grey--60;
+  border: 0.1rem solid @color-grey--50;
   border-bottom: none;
   height:4.1rem;
   padding:0 1.5rem;
@@ -67,7 +123,7 @@
 .@{namespace}-edit-block__control {
   width:3rem;
   height:4rem;
-  color: @color-grey--60;
+  color: @color-grey--50;
   display: inline-block;
   text-decoration: none;
   position: relative;
@@ -99,39 +155,17 @@
 .@{namespace}-edit-block__name {
   font-family: @font--bold;
   line-height: 2.2rem;
-  border-bottom: 1px dotted @color-quaternary;
-  text-decoration: none;
-  color: @color-quaternary;
-  transition: @trans-color, border 0.2s ease;
-  &:hover {
-    border-bottom: 1px dotted @color-quaternary;
-  }
+  color: @color-septenary;
 }
 
 .@{namespace}-edit-block__image {
   width: 4rem;
   height: 4rem;
-  border-radius: 50% !important;
+  border-radius: 50%;
   position: absolute;
   left: 2rem;
   top: 50%;
   transform: translate(0, -50%);
-}
-
-.@{namespace}-edit-block__submit {
-  background-color: @color-septenary;
-  margin-left:1rem;
-  &:hover {
-    background-color: @color-quaternary;
-  }
-}
-
-.@{namespace}-edit-block__cancel {
-  margin-left:1.5rem;
-
-  @media (max-width: @screen-sm-max){
-    display: none;
-  }
 }
 
 .@{namespace}-edit-block__bottom {
@@ -139,15 +173,36 @@
   bottom:2rem;
   right: 2rem;
   left: 2rem;
-  text-align: right;
 }
 
-.@{namespace}-edit-block__remove {
-  color: @color-grey--80;
-  &:hover {
-    color: @color-septenary;
+.@{namespace}-edit-block__close {
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 5rem;
+  height: 5rem;
+  font-size: @font-size--small;
+  text-indent: -9999px;
+  color: @color-grey--60;
+  text-decoration: none;
+  transition: @trans-color;
+
+  @media( min-width: @screen-md ) {
+    display: none;
   }
-  @media (max-width: @screen-sm-max){
-    font-size: 1.4rem;
+
+  &:hover {
+    color: @color-quaternary;
+  }
+
+  &:before {
+    content: @icon-cross;
+    display: block;
+    position: absolute;
+    top: 1.5rem;
+    right: 2rem;
+    font-family: @font--icons;
+    text-indent: 0;
   }
 }

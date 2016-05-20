@@ -3,7 +3,7 @@
   cursor: pointer;
 
   &:after {
-    opacity:0;
+    opacity:1;
     content: @icon-pencil;
     position: absolute;
     top: -3rem;
@@ -16,11 +16,13 @@
     transition: @trans-all;
   }
 
-  &:hover {
+  @media (min-width: @screen-lg) {
+
     &:after {
-        opacity: 1;
+        opacity: 0;
     }
   }
+
 }
 
 .@{namespace}-editable-text--editing {
@@ -33,10 +35,6 @@
 
 .@{namespace}-editable-text__content {
 
-  &:hover {
-    color: @color-septenary;
-    text-decoration: underline;
-  }
 
   .@{namespace}-editable-text--editing > & {
     display: none;
@@ -46,9 +44,11 @@
 .@{namespace}-editable-text__editor {
   position: absolute;
   top: -9999px;
+  margin: 0 0 2rem 0;
   right: 0;
   left: 0;
   max-width: 1000px;
+
   .@{namespace}-editable-text--editing > & {
     position: static;
   }

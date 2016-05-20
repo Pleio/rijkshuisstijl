@@ -3,7 +3,7 @@
   background-color: @color-main-navigation;
 
   @media (min-width: @screen-lg) {
-    z-index: @lift-20;
+    z-index: @lift-30;
   }
 }
 
@@ -73,6 +73,11 @@
       line-height: 3.7rem;
     }
   }
+  @media (max-width: @screen-xs-max) {
+    &.@{namespace}-main-navigation__link--search {
+      line-height: 3.8rem;
+    }
+  }
 }
 
 .@{namespace}-main-navigation__link--search {
@@ -83,6 +88,10 @@
     float: right;
     width: auto;
     padding: 0.2rem 1rem 0;
+  }
+  &.active {
+    background-color: @color-main-navigation-active;
+    color: @color-black;
   }
 }
 

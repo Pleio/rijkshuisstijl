@@ -1,4 +1,5 @@
-.@{namespace}-forum-answer {
+.@{namespace}-reaction {
+  position: relative; // position .vote-up-down next to reaction
   background-color: @color-secondary--40;
   padding: 3rem 2rem;
   margin: 2rem -2rem 0;
@@ -13,12 +14,12 @@
   }
 }
 
-.@{namespace}-forum-answer--myanswer {
+.@{namespace}-reaction--myanswer {
   position: relative;
   border: 0.2rem solid @color-septenary;
 }
 
-.@{namespace}-forum-answer__top {
+.@{namespace}-reaction__top {
   padding-left: 5rem;
   position: relative;
   margin-bottom: 1rem;
@@ -27,7 +28,7 @@
   }
 }
 
-.@{namespace}-forum-answer__body {
+.@{namespace}-reaction__body {
   display: block;
   text-decoration: none;
   color: @color-black;
@@ -36,7 +37,7 @@
   }
 }
 
-.@{namespace}-forum-answer__profile {
+.@{namespace}-reaction__profile {
   width: 4rem;
   height: 4rem;
   position: absolute;
@@ -74,7 +75,7 @@
   }
 }
 
-.@{namespace}-forum-answer__name {
+.@{namespace}-reaction__name {
   font-size: 1.6rem;
   line-height: 2.2rem;
   text-decoration: none;
@@ -91,7 +92,7 @@
   }
 }
 
-.@{namespace}-forum-answer__time {
+.@{namespace}-reaction__time {
   display: block;
   font-size: 1.6rem;
   line-height: 2.2rem;
@@ -103,60 +104,18 @@
   }
 }
 
-.@{namespace}-forum-answer__bottom {
+.@{namespace}-reaction__bottom {
   @media (min-width: @screen-md) {
     padding-left: 6rem;
   }
 }
 
-.@{namespace}-forum-answer__upvote, .@{namespace}-forum-answer__downvote {
-  color: @color-primary;
-  font-size: 1.6rem;
-  line-height: 2.2rem;
-  position: relative;
-  padding-left: 1.6rem;
-  text-decoration: none;
-  transition: @trans-color;
-  &:before {
-    font-family: @font--icons;
-    content: @icon-angle-up;
-    position: absolute;
-    left: 0;
-    font-size: 1.3rem;
-  }
-  &:hover {
-    color: @color-septenary;
-  }
-  span {
-    margin-right: 0.3rem;
-  }
-}
-
-.@{namespace}-forum-answer__downvote {
-  margin-left: 2rem;
-  &:before {
-    content: @icon-angle-down;
-  }
-  @media (min-width: @screen-md) {
-    display: inline-block;
-    margin-left: 2rem;
-    margin-top: 0;
-  }
-}
-
-.@{namespace}-forum-answer__vote {
-  &.active {
-    color: @color-septenary;
-    font-family: @font--bold;
-  }
-}
-
-.@{namespace}-forum-answer__description {
+.@{namespace}-reaction__description {
   margin-left: 1.5rem;
   color: @color-primary;
 }
 
-.@{namespace}-forum-answer__edit {
+.@{namespace}-reaction__edit {
   color: @color-quaternary;
   position: relative;
   padding-left: 2rem;
@@ -176,7 +135,7 @@
   }
 }
 
-.@{namespace}-forum-answer__remove {
+.@{namespace}-reaction__remove {
   color: @color-quaternary;
   position: relative;
   padding-left: 2rem;
@@ -195,48 +154,46 @@
   }
 }
 
-.rsh-forum-answer__editable {
-  @media (min-width: @screen-lg) {
-    padding-bottom: 2rem;
-    cursor: pointer;
-    > * {
-      display: inline !important;
-      border-bottom: 0.1rem dotted transparent;
+.@{namespace}-reaction__editable {
+  padding-bottom: 2rem;
+  cursor: pointer;
+  > * {
+    display: inline !important;
+    border-bottom: 0.1rem dotted transparent;
+    &:after {
+      content: "";
+      display: block;
+      height: 2rem;
+    }
+    &:last-child {
       &:after {
-        content: "";
-        display: block;
-        height: 2rem;
-      }
-      &:last-child {
-        &:after {
-          display: inline-block;
-          content: @icon-pencil;
-          font-size: 1.3rem;
-          font-family: @font--icons;
-          opacity: 0;
-          visibility: hidden;
-          position: absolute;
-          margin-left: 0.5rem;
-        }
+        display: inline-block;
+        content: @icon-pencil;
+        font-size: 1.3rem;
+        font-family: @font--icons;
+        opacity: 0;
+        visibility: hidden;
+        position: absolute;
+        margin-left: 0.5rem;
       }
     }
+  }
 
-    &:hover {
-      > * {
-        color: @color-septenary;
-        border-bottom: 0.1rem dotted @color-quaternary;
-        &:last-child {
-          &:after {
-            visibility: visible;
-            opacity: 1;
-          }
+  &:hover {
+    > * {
+      color: @color-septenary;
+      border-bottom: 0.1rem dotted @color-quaternary;
+      &:last-child {
+        &:after {
+          visibility: visible;
+          opacity: 1;
         }
       }
     }
   }
 }
 
-.forum-answer__edit-btn {
+.@{namespace}-reaction__edit-btn {
   display: block;
   position: absolute;
   right: 2rem;
@@ -250,11 +207,19 @@
     color: @color-septenary;
   }
   @media (min-width: @screen-md){
-    right: 2rem;
+    right: 0;
     top:0;
   }
 
-  /*@media (min-width: @screen-lg) {
+  @media (min-width: @screen-lg) {
     display: none;
-  }*/
+  }
+}
+
+.@{namespace}-reaction__vote-up-down {
+  @media (min-width: @screen-md){
+    position:absolute;
+    top: 0.75rem;
+    left: -4.5rem;
+  }
 }

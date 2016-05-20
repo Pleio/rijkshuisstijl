@@ -70,8 +70,7 @@
 
 .@{namespace}-bulletin-block__date {
   color: @color-septenary;
-  min-width:5rem;
-  max-width:6rem;
+  width: 5rem;
   @media (max-width: @screen-sm-max){
     display: block;
   }
@@ -81,8 +80,8 @@
   color: @color-grey--50;
   padding-left:2rem;
   position: relative;
-  min-width:4.6rem;
-  text-align: right;
+  min-width: 3.8rem;
+  width: 3.8rem;
   span {
     &:before {
       content:@icon-chatbox;
@@ -113,14 +112,5 @@
   .@{namespace}-read-more__icon {
     transform: none;
     margin-left:-2.8rem;
-  }
-  @media (max-width: @screen-sm-max){
-    text-align: right;
-    padding-left:0;
-    padding-right:2.8rem;
-    .@{namespace}-read-more__icon {
-      left:auto;
-      right:0;
-    }
   }
 }

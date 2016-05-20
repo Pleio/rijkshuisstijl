@@ -2,7 +2,7 @@
   display: none;
   background-color: @color-grey--20;
   position: relative;
-  z-index: 21;
+  z-index: @lift-40;
   @media (min-width: @screen-lg){
     display: block;
   }
@@ -28,20 +28,23 @@
 }
 
 .@{namespace}-top-navigation__link--left {
+  padding: 0 1.5rem 0 0;
+
   &:after {
     content: @icon-angle-down;
     font-family: @font--icons;
     position: absolute;
     font-size:0.9rem;
-    padding-left:0.5rem;
-    margin-top:0.1rem;
-    transition: transform 0.2s ease, margin-top 0.2s ease;
+    top: 0.8rem;
+    right: 0;
+    line-height: 1.5rem;
+    transform: scaleY(1);
+    transition: transform 0.1s ease, top 0.1s ease;
   }
 
-  .@{namespace}-dropdown:hover & {
+  &:hover {
     &:after {
       transform: scaleY(-1);
-      margin-top: -0.2rem;
     }
   }
 }

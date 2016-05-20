@@ -1,0 +1,39 @@
+.@{namespace}-page-layout {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.@{namespace}-page-layout__header {
+    position:relative;
+    flex-shrink: 0;
+}
+
+.@{namespace}-page-layout__main {
+    flex: 1 0 auto;
+}
+
+.@{namespace}-page-layout__footer {
+    flex-shrink: 0;
+    position: relative;
+
+    &:before {
+        content: "";
+        position: absolute;
+        display: block;
+        width: 3.6rem;
+        height: 1.8rem;
+        margin: 0 auto;
+        top: -1.8rem;
+        left: 0;
+        right: 0;
+        background: @color-tertiary;
+        z-index: @lift-10;
+
+        @media( min-width: @screen-md ) {
+            width: 4.4rem;
+            height: 2.2rem;
+            top: -2.2rem;
+        } 
+    }
+}

@@ -1,43 +1,4 @@
-.@{namespace}-forum-section {
-  padding: 0.5rem 0 2rem;
-  background-color: #fff;
-  &.@{namespace}-forum-section--grey {
-    padding: 1rem 0 1.5rem;
-    background-color: @color-grey--20;
 
-    @media (min-width: @screen-md) {
-      padding: 2rem 0 1.5rem;
-      background-color: @color-grey--20;
-    }
-  }
-  .profiled & {
-    &.@{namespace}-forum-section--grey {
-      background-color: @color-grey--20;
-    }
-  }
-  &.@{namespace}-forum-section--bulletin {
-    padding:0 0 2rem;
-    @media (min-width: @screen-md) {
-      padding: 2rem 0 1.3rem;
-    }
-  }
-  &.@{namespace}-last-section {
-    padding-bottom: 7.2rem !important;
-  }
-  @media (min-width: @screen-md) {
-    padding: 3.5rem 0 2rem;
-    &.@{namespace}-last-section {
-      padding-top: 1.4rem;
-      padding-bottom: 7.2rem !important;
-    }
-  }
-}
-
-.@{namespace}-forum-section--bulletin {
-  @media (max-width: @screen-sm-max){
-    padding-top:0;
-  }
-}
 
 .@{namespace}-forum__filter {
   margin-bottom: 1rem;
@@ -50,7 +11,7 @@
   font-size: 2.8rem;
   line-height: 3.4rem;
   color: @color-quaternary;
-  margin: 2rem 0 1rem;
+  margin: 1.7rem 0 1rem;
   font-family: @font--bold;
   @media (min-width: @screen-md) {
     margin-bottom: 2rem;
@@ -60,20 +21,6 @@
     .@{namespace}-forum-section--bulletin & {
       display: none;
     }
-  }
-}
-
-.@{namespace}-forum-section__title {
-  display: inline-block;
-  margin: 1.7rem 0 1.1rem 0;
-  color: @color-septenary;
-  font-size: @font-size--title-small;
-  line-height: @line-height--title-small;
-
-  @media (min-width: @screen-md) {
-    font-size: @font-size--title-normal;
-    line-height: @line-height--title-normal;
-    margin: 2rem 0 1.2rem 0;
   }
 }
 
@@ -88,10 +35,19 @@
   }
 }
 
-.@{namespace}-forum-section__button {
+.@{namespace}-bulletin-action {
+  padding: 0 0 1.1rem 0;
+
+  @media (min-width: @screen-md) {
+    padding: 2rem 0;
+  }
+}
+
+.@{namespace}-bulletin-action__add-button {
   width: 100%;
   text-align: center;
   overflow: hidden;
+  display: block;
   @media (max-width: @screen-sm-max) {
     width: 2.6rem;
     height: 2.6rem;
@@ -102,7 +58,7 @@
     position: absolute;
     top: 0;
     right: 0;
-    margin-top: -4rem;
+    margin-top: -4.2rem;
     transform: translate(-50%, 0);
     span {
       display: none;

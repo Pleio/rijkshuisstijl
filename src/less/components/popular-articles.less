@@ -15,21 +15,27 @@
   }
 }
 
-.popular-article {
+.@{namespace}-popular-article {
   position: relative;
-  margin-bottom: 2rem;
-  padding-left: 5.5rem;
+  margin-bottom: 1rem;
+  padding-left: 4.8rem;
   display: block;
+  text-decoration: none;
 
   &:last-child {
     margin-bottom: 0;
   }
+
+  @media(min-width: @screen-md) {
+  margin-bottom: 1.8rem;
+    padding-left: 6.2rem;
+  }
 }
 
-.popular-article__number {
+.@{namespace}-popular-article__number {
   position: absolute;
   left: 0;
-  top: 0;
+  top: 0.2rem;
   border-radius: 50%;
   background-color: @color-white;
   width: 3.4rem;
@@ -39,6 +45,7 @@
   color: @color-septenary;
   font-size: 1.44rem;
   font-family: @font--bold;
+  transition: @trans-all;
 
   @media(min-width: @screen-md) {
     width: 4.2rem;
@@ -46,9 +53,13 @@
     font-size: @font-size--base;
     line-height: 4.2rem;
   }
+  .@{namespace}-popular-article:hover & {
+    background-color: @color-septenary;
+    color: @color-white;
+  }
 }
 
-.popular-article__date {
+.@{namespace}-popular-article__date {
   color: @color-quaternary;
   font-size: @font-size--medium;
   line-height: @line-height--medium;
@@ -59,7 +70,7 @@
   }
 }
 
-.popular-article__title {
+.@{namespace}-popular-article__title {
   margin: 0;
   font-size: @font-size--medium;
   line-height: @line-height--medium;

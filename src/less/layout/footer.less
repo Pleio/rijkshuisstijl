@@ -4,18 +4,7 @@
   border-top: 3px solid @color-tertiary;
   background-color: @color-grey--40;
   .clearfix();
-
-  &:before {
-    content: '';
-    width: 4.4rem;
-    margin-left: -2.2rem;
-    height: 2.2rem;
-    left: 50%;
-    background: @color-tertiary;
-    position: absolute;
-    bottom: 100%;
-  }
-
+  
   @media(min-width: @screen-md) {
     padding: 4rem 0;
   }
@@ -61,12 +50,12 @@
   text-decoration: none;
   color: @color-black;
   display: block;
-  
+
   @media (max-width: @screen-sm-max){
     font-size:1.6rem;
     line-height: 3rem;
   }
-  
+
   &:hover {
     text-decoration: underline;
   }

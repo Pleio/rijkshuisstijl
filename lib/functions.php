@@ -22,4 +22,25 @@ function rijkshuisstijl_get_latest_objects_from_group($subtype = 'question', Elg
     ));
 }
 
+function rijkshuisstijl_get_news_leader() {
+    $leader = elgg_get_entities_from_metadata(array(
+        'type' => 'object',
+        'subtype' => 'news',
+        'metadata_name_value_pairs' => array(
+            array(
+                'name' => 'headertime',
+                'operand' => '!=',
+                'value' => 'null'
+            )
+        ),
+        'limit' => 1
+    ));
+
+    if (count($leader) == 1) {
+        return $leader[0];
+    } else {
+        return null;
+    }
+}
+
 ?>

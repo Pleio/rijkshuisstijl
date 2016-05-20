@@ -83,40 +83,44 @@
   line-height: @line-height--medium;
 }
 
+.input() {
+    font-size: 1.8rem;
+    line-height: 2.2rem;
+    border: 0.1rem solid @color-grey--50;
+    padding: 1.1rem 1rem 1.1rem 1.25rem;
+    transition: @trans-all;
+
+    &::placeholder {
+      font-size: 1.8rem;
+      line-height: 2.4rem;
+      color: @color-grey--60;
+    }
+
+    label.__problem & {
+      border-color: @color-error;
+    }
+
+    &.@{namespace}-form__input--euro {
+      padding-left: 3rem;
+    }
+
+    &:hover {
+      border-color: @color-quaternary;
+    }
+
+    &:focus,
+    &:active {
+      border-color: @color-quaternary;
+    }
+
+    &.error {
+      border: 0.1rem solid @color-error;
+    }
+}
+
 .@{namespace}-form__input {
   width: 100%;
-  font-size: 1.8rem;
-  line-height: 2.2rem;
-  border: 0.1rem solid @color-grey--50;
-  padding: 1.1rem 1rem 1.1rem 1.25rem;
-  transition: @trans-all;
-
-  &::placeholder {
-    font-size: 1.8rem;
-    line-height: 2.4rem;
-    color: @color-grey--60;
-  }
-
-  label.__problem & {
-    border-color: @color-error;
-  }
-
-  &.@{namespace}-form__input--euro {
-    padding-left: 3rem;
-  }
-
-  &:hover {
-    border-color: @color-quaternary;
-  }
-
-  &:focus,
-  &:active {
-    border-color: @color-quaternary;
-  }
-
-  &.error {
-    border: 0.1rem solid @color-error;
-  }
+  .input();
 }
 
 .@{namespace}-form__input--fit {
@@ -141,7 +145,7 @@
   text-align: right;
 
   a, button {
-    margin-left: 1.5rem;
+    margin-left: 1rem;
   }
 }
 
@@ -183,6 +187,20 @@
   padding: 1rem 1.5rem 0.5rem 1.5rem;
   font-size: @font-size--medium;
   background: @color-secondary--40;
+}
+
+////
+//// FORM - TinyMCE
+////
+
+.@{namespace}-form__tinymce-field {
+
+}
+
+.@{namespace}-form__tinymce-field--no-bottom-padding {
+  > #mceu_6 {
+    padding-bottom: 0;
+  }
 }
 
 ////
