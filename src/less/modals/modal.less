@@ -22,12 +22,16 @@
   left:0;
   right:0;
   bottom:0;
-  visibility: hidden;
-  opacity:0;
   background-color: rgba(0,0,0,0.15);
   opacity:1;
   visibility: visible;
   transition: @swift-ease-out;
+  @media (min-width: @screen-md) and (min-height: 600px) {
+    bottom: -5rem;
+  }
+  @media (min-width: @screen-md) and (min-height: 760px) {
+    bottom: 0;
+  }
 }
 
 .@{namespace}-modal__box {
@@ -37,7 +41,7 @@
   right: 0;
   left: 0;
   bottom: 0;
-  overflow: auto;
+  overflow: scroll;
   box-shadow: @box-shadow-very-big;
   background: #fff;
 
@@ -49,13 +53,21 @@
     bottom: 0;
     right: 0;
     margin: 0 auto;
-    overflow: auto;
+    overflow: scroll;
   }
 
-  @media (min-width: @screen-md) and (min-height: 650px) {
-    top: 20vh;
+  @media (min-width: @screen-md) and (min-height: 600px) {
+    top: 5%;
+    bottom: auto;
+    max-height: 100vh;
+    overflow: visible;
+  }
+
+  @media (min-width: @screen-md) and (min-height: 750px) {
+    top: 15%;
     bottom: auto;
     max-height: 80vh;
+    overflow: visible;
   }
 }
 

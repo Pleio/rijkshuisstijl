@@ -1,3 +1,12 @@
+.@{namespace}-news-list {
+  margin: -1rem 0 0 0;
+  font-size: @font-size--medium;
+
+  @media(min-width: @screen-md) {
+    font-size: @font-size--base;
+  }
+}
+
 .@{namespace}-news-list__item {
   position: relative;
   display: block;
@@ -18,6 +27,10 @@
     &:last-child {
       border-bottom:none;
     }
+  }
+
+  .@{namespace}-news-list &:last-child {
+    border-bottom:0;
   }
 }
 
@@ -74,7 +87,7 @@
 .@{namespace}-news-list__item__category {
   color: @color-grey--60;
   display: block;
-  
+
   @media(min-width: @screen-md) {
     margin-left: 3px;
     display: inline-block;

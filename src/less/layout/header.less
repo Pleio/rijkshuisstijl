@@ -1,8 +1,12 @@
 .@{namespace}-header {
   position: relative;
   width: 100%;
-  height: 8.8rem;
+  height: 7.4rem;
   background-color: @color-white;
+
+  @media(min-width: @screen-md) {
+    height: 8.8rem;
+  }
 
   .@{namespace}-container {
     position: relative;
@@ -17,6 +21,10 @@
   margin-left: -2.2rem;
 
   img {
-    height: 7.7rem;
+    height: 6.3rem;
+
+    @media(min-width: @screen-md) {
+      height: 7.7rem;
+    }
   }
 }

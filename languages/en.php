@@ -12,6 +12,7 @@ $english = array(
     'rijkshuisstijl:back_to_login' => 'Back to login',
     'rijkshuisstijl:jurisprudence' => 'Jurisprudence',
     'rijkshuisstijl:featured' => 'Featured',
+    'rijkshuisstijl:more' => 'Read more',
     'rijkshuisstijl:welcome_to' => 'Welcome to',
     'rijkshuisstijl:all_categories' => 'All categories',
     'rijkshuisstijl:topics:all' => 'All themes',

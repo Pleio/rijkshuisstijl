@@ -1,0 +1,57 @@
+.@{namespace}-vote-up-down {
+  width: 2.5rem;
+  margin: -2rem 0;
+  text-align: center;
+  color: @color-septenary;
+}
+
+.@{namespace}-vote-up-down__score {
+  display: block;
+  margin: 0 -1.75rem;
+  padding: 0.6rem 0;
+  width: 6rem;
+  font-size: @font-size--title-small;
+  text-align: center;
+}
+
+.@{namespace}-vote-up-down__control {
+  display: block;
+  position: relative;
+  height: 3rem;
+  width: 100%;
+  background: transparent;
+  border: 0;
+  overflow: hidden;
+  text-indent:-9999px;
+
+  &:before {
+    content: '';
+    position: absolute;
+    display: block;
+    overflow: hidden;
+    bottom: 0;
+    left: 0;
+    width: 0; 
+    height: 0; 
+    border-left: 1.25rem solid transparent;
+    border-right: 1.25rem solid transparent;
+    border-bottom: 1.25rem solid @color-primary;
+    transition: @trans-all;
+  }
+
+  &.__down:before {
+    top:0;
+    border-top: 1.25rem solid @color-primary;
+    border-bottom: 0;
+  }
+
+  &:hover:before {
+    border-top-color: @color-septenary;
+    border-bottom-color: @color-septenary;
+  }
+
+  &.__voted:before {
+    border-top-color: @color-septenary;
+    border-bottom-color: @color-septenary;
+  }
+}

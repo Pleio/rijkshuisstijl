@@ -12,6 +12,7 @@ $dutch = array(
     'rijkshuisstijl:back_to_login' => 'Terug naar login',
     'rijkshuisstijl:jurisprudence' => 'Jurisprudentie',
     'rijkshuisstijl:featured' => 'Geselecteerd',
+    'rijkshuisstijl:more' => 'Lees meer',
     'rijkshuisstijl:welcome_to' => 'Welkom op',
     'rijkshuisstijl:all_categories' => 'Alle categoriën',
     'rijkshuisstijl:topics:all' => 'Alle thema\'s',

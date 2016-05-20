@@ -1,6 +1,7 @@
 .selecter {
   max-width: 100% !important;
   margin: 0 !important;
+  text-align: left;
 
   .@{namespace}-news & {
     margin-bottom: 1rem !important;
@@ -13,9 +14,9 @@
 
 span.selecter-selected {
   box-shadow: none !important;
-  padding: 0.6rem 3rem 0.6rem 2rem !important;
+  padding: 0.6rem 3rem 0.4rem 2rem !important;
   font-size: @font-size--medium !important;
-  line-height: 3.2rem;
+  line-height: 3.4rem;
   border-radius: 0 !important;
   min-height: 4.6rem;
   transition: @trans-all;
@@ -45,7 +46,7 @@ span.selecter-selected {
   .selecter.open & {
     border-radius: 0;
     box-shadow: none !important;
-    border: none;
+    border:1px solid transparent;
   }
   @media (min-width: @screen-md){
     font-size: @font-size--base !important;
@@ -56,7 +57,7 @@ span.selecter-selected {
   border-radius: 0 !important;
   max-height: none !important;
   box-shadow: @box-shadow !important;
-  padding: 0.6rem 0 !important;
+  padding: 0.7rem 0 !important;
   border: 1px solid @color-white !important;
   top: 0 !important;
   z-index: @lift-60 !important;
@@ -71,6 +72,11 @@ span.selecter-selected {
     color: @color-grey--60;
     font-size: 1rem;
     line-height: 1;
+  }
+  @media (min-width: @screen-md){
+    .rhs-modal__content & {
+      margin-bottom:2rem;
+    }
   }
 }
 

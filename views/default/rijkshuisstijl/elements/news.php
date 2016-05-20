@@ -1,93 +1,57 @@
 <?php
-$full_view = elgg_extract('full_view', $vars, false);
-
-$featured = elgg_get_entities_from_metadata(array(
-    'type' => 'object',
-    'subtype' => 'page_top',
-    'metadata_name_value_pairs' => array(
-        array(
-            'name' => 'geselecteerd',
-            'value' => 'true'
-        )
-    ),
-    'limit' => 1
-));
-
-$options = array(
-    'type' => 'object',
-    'subtype' => array('page_top'),
-    'full_view' => false,
-    'wrap_in_div' => $wrap_in_div,
-    'pagination' => $full_view,
-    'metadata_name_value_pairs' => array(
-        'name' => 'tags',
-        'value' => $vars['category']
-    ),
-);
-
-if ($vars['topic']) {
-    $options['container_guid'] = $vars['topic']->guid;
-}
-
-
+$show_title = $vars['show_title'];
+$leader = rijkshuisstijl_get_news_leader();
 ?>
 
-<?php if (!$full_view): ?>
-    <div class="rhs-row">
-      <div class="rhs-col-md-12">
-        <h2 class="rhs-home__subtitle">Nieuws</h2><a href="/news" title="..." class="rhs-home__readmore">Alles</a>
-      </div>
-    </div>
-    <div class="rhs-row">
-      <div class="rhs-col-md-12">
-<?php endif ?>
-
-<?php if (count($featured) > 0): ?>
-<div class="rhs-news__featured-article">
-  <div class="rhs-article rhs-article--content-right">
-    <div style="background-image: url('<?php echo rijkshuisstijl_asset("image/woman.jpg"); ?>');" class="rhs-article__image"></div>
-    <div class="rhs-article__content">
-      <h2 class="rhs-article__title">Busciis a in non eium xplabo ratectatae</h2><span class="rhs-article__category">Toeslagen</span>
-      <p class="rhs-article__text" style="word-wrap: break-word;">Nuscianditate secatin ulliti audanih illendisciis explabo ratectatae. Is rendi lorem ipsum. Nuscianditate secatin ulliti audanih illendisciis explabo ratectatae. Is rendi lorem ipsum</p>
-      <div class="rhs-article__read-more"><a href="#" title="Titel hier.." class="rhs-read-more"><span class="rhs-icon-arrow-right-circle rhs-read-more__icon"></span>Lees meer</a></div>
-    </div>
-  </div>
-</div>
-<?php endif ?>
-
-<?php if ($full_view): ?>
-<div class="rhs-news__filter">
-    <div class="rhs-row">
-        <div class="rhs-col-md-4 rhs-col-lg-3">
-            <?php echo elgg_view('input/dropdown', array(
-                'name' => 'category',
-                'options_values' => array(
-                    'all' => elgg_echo('rijkshuisstijl:all_categories'),
-                    'news' => elgg_echo('rijkshuisstijl:news'),
-                    'jurisprudence' => elgg_echo('rijkshuisstijl:jurisprudence'),
-                    'featured' => elgg_echo('rijkshuisstijl:featured')
-                )
-            ));
-            ?>
-        </div>
-        <div class="rhs-col-md-4 rhs-col-lg-3">
-            <?php echo elgg_view('rijkshuisstijl/input/topic'); ?>
-        </div>
-    </div>
-</div>
-<?php endif ?>
-
-<?php if (!$full_view): ?>
-  <div class="rhs-news-list-wrapper">
+<?php if ($show_title): ?>
+  <h2 class="rhs-section__subtitle">Nieuws</h2>
+  <a href="/news" title="<?php echo elgg_echo('rijkshuisstijl:more'); ?>" class="rhs-section__read-more">Alles</a>
 <?php endif; ?>
 
-<?php echo elgg_list_entities_from_metadata($options); ?>
+<div class="rhs-row">
+  <div class="rhs-col-md-12">
+    <?php if ($leader) {
+      echo elgg_view('rijkshuisstijl/elements/news/leader', array(
+        'leader' => $leader
+      ));
+    } ?>
 
-<?php if (!$full_view): ?>
-  </div>
-<?php endif ?>
+    <?php if (!$show_title): ?>
+      <div class="rhs-section rhs-section--item">
+        <div class="rhs-news__filter">
+          <div class="rhs-row">
+            <p class="rhs-col-md-4 rhs-col-lg-3">
+              <select name="category" id="category" class="selecter-default" tabindex="-1">
+                <option value="all" selected="">Alle categoriën</option>
+                <option value="nieuws">Nieuws</option>
+                <option value="jurisprudentie">Jurisprudentie</option>
+                <option value="uitgelicht">Uitgelicht</option>
+              </select>
+            </p>
+            <p class="rhs-col-md-4 rhs-col-lg-3">
+              <select name="theme" id="thema" class="selecter-default" tabindex="-1">
+                <option value="all" selected="selected">Alle thema’s</option>
+                <option value="inkomstenbelasting">Inkomstenbelasting</option>
+                <option value="loonheffing">Loonheffing</option>
+                <option value="omzetbelasting">Omzetbelasting</option>
+                <option value="toeslagen">Toeslagen</option>
+                <option value="vennootschapsbelasting">Vennootschapsbelasting</option>
+              </select>
+            </p>
+          </div>
+        </div>
+      </div>
+    <?php endif; ?>
 
-<?php if (!$full_view): ?>
+    <div class="section__inner section__inner--background-white hidden-xs hidden-sm">
+      <div class="rhs-news-list">
+        <?php echo elgg_list_entities(array(
+          'type' => 'object',
+          'subtype' => 'news',
+          'full_view' => false,
+          'pagination' => !$show_title
+        )); ?>
+      </div>
+    </div>
   </div>
 </div>
-<?php endif ?>

@@ -1,10 +1,16 @@
 .@{namespace}-breadcrumbs {
-  font-size:1.6rem;
-  line-height: 2.2rem;
+  font-size: @font-size--medium;
+  line-height: @line-height--medium;
+
+  @media( min-width: @screen-md ) {
+    font-size: @font-size--base;
+    line-height: @line-height--base;
+  }
+
   a {
     text-decoration: none;
     color: @color-grey--60;
-    margin-left: 2.5rem;
+    margin-left: 2rem;
     position: relative;
     transition: @trans-color;
     &:before {
@@ -13,7 +19,8 @@
       color: @color-grey--60 !important;
       position: absolute;
       transform: translate(-50%, 5%);
-      margin-left: -1.4rem;
+      margin-top: -0.1rem;
+      margin-left: -1.1rem;
       font-size: 1rem;
       pointer-events: none;
     }

@@ -51,41 +51,46 @@ $lang = get_current_language();
 
 <body class="<?php echo isset($vars['body_class']) ? $vars['body_class'] : ""; ?>">
 <!-- Header set -->
-<div class="rhs-page-wrapper">
-	<div class="print-header"><img src="<?php echo rijkshuisstijl_asset("image/logo-print.png"); ?>"></div>
-	<?php if (elgg_is_logged_in()){ ?>
-		<div class="rhs-top-navigation">
+<div class="rhs-page-layout">
+	<div class="rhs-page-layout__header">
+		<div class="rhs-print-header"><img src="<?php echo rijkshuisstijl_asset("image/logo-print.png"); ?>"></div>
+		<?php if (elgg_is_logged_in()){ ?>
+			<div class="rhs-top-navigation">
+				<div class="rhs-container">
+					<?php echo $topbar; ?>
+				</div>
+			</div>
+		<?php } ?>
+
+		<div class="rhs-header">
 			<div class="rhs-container">
-				<?php echo $topbar; ?>
+				<?php echo $header; ?>
 			</div>
 		</div>
-	<?php } ?>
 
-	<div class="rhs-header">
-		<div class="rhs-container">
-			<?php echo $header; ?>
+		<div class="rhs-main-navigation-wrapper">
+			<?php echo $main_navigation; ?>
+		</div>
+
+	    <div class="elgg-page-messages">
+			<?php echo $messages; ?>
 		</div>
 	</div>
+	<div class="rhs-page-layout__main">
+		<?php if ($vars['leader']): ?>
+			<?php echo $leader; ?>
+		<?php endif ?>
 
-	<div class="rhs-main-navigation-wrapper">
-		<?php echo $main_navigation; ?>
+		<?php echo $body; ?>
 	</div>
 
-    <div class="elgg-page-messages">
-		<?php echo $messages; ?>
-	</div>
-
-	<?php if ($vars['leader']): ?>
-		<?php echo $leader; ?>
-	<?php endif ?>
-
-	<?php echo $body; ?>
-</div>
-
-<!-- Footer -->
-<div class="rhs-footer">
-	<div class="rhs-container">
-		<?php echo $footer; ?>
+	<!-- Footer -->
+	<div class="rhs-page-layout__footer">
+		<div class="rhs-footer">
+			<div class="rhs-container">
+				<?php echo $footer; ?>
+			</div>
+		</div>
 	</div>
 </div>
 

@@ -38,11 +38,9 @@ $html = "";
 $nav = "";
 
 if (is_array($items) && count($items) > 0) {
-    $html .= '<div class="rhs-row">';
     foreach ($items as $item) {
         $html .= elgg_view_list_item($item, $vars);
     }
-    $html .= '</div>';
 }
 
 if ($pagination && $count) {

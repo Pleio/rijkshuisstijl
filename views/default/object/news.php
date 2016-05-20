@@ -11,7 +11,7 @@
  */
 
 
-$full = elgg_extract('full_view', $vars, FALSE);
+$full = elgg_extract('full_view', $vars, false);
 $entity = elgg_extract('entity', $vars, FALSE);
 $revision = elgg_extract('revision', $vars, FALSE);
 
@@ -24,7 +24,6 @@ if ($entity->write_access_id == ACCESS_PUBLIC) {
     // this works because this metadata is public
     $entity->write_access_id = ACCESS_LOGGED_IN;
 }
-
 
 if ($revision) {
     $annotation = $revision;

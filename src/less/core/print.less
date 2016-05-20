@@ -1,4 +1,4 @@
-.print-header {
+.@{namespace}-print-header {
   display: none;
 }
 
@@ -25,7 +25,11 @@
   html, body {
     width: 210mm;
     height: auto;
-    background-color: white;
+    background-color: white !important;
+  }
+
+  .@{namespace}-section {
+    background-color: white !important;
   }
 
   body {
@@ -47,16 +51,29 @@
   }
 
   /*!
+   * Forms
+   */
+
+  .selecter,
+  .@{namespace}-button {
+    display: none !important;
+  }
+
+  .@{namespace}-video-block {
+    margin:0 -20mm;
+  }
+
+  /*!
    *  Print header
    */
-  .print-header {
+  .@{namespace}-print-header {
     display: block;
-    height: 78mm;
+    height: 45mm;
 
     img {
       position: relative;
       left: 73.5mm;
-      width: 40.758mm;
+      width: 70.758mm;
       height: auto;
     }
   }
@@ -66,20 +83,14 @@
    */
 
   .@{namespace}-header,
+  .@{namespace}-top-navigation,
   .@{namespace}-lead,
   .@{namespace}-footer,
   .@{namespace}-top-navigation,
   .@{namespace}-main-navigation,
-  .featured-pages,
-  .content-page__share,
-  .main-articles,
-  .check-filter,
-  .results-content__controls {
-    display: none;
-  }
-
-  .content-page {
-    padding: 0 !important;
+  .@{namespace}-news-item__lead,
+  .@{namespace}-page-wrapper:after {
+    display: none !important;
   }
 
   .@{namespace}-container {
