@@ -2765,7 +2765,7 @@ th {
 @media (min-width: 680px) {
   .rhs-header {
     height: 40rem;
-    background-image: url(/asset/image/lead.jpg);
+    background-image: url(/mod/rijkshuisstijl/assets/image/lead.jpg);
     background-size: cover;
     background-position: center;
   }

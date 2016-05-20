@@ -1,18 +1,20 @@
 <?php
-  $groups = rijkshuisstijl_get_featured_groups();
+$groups = rijkshuisstijl_get_featured_groups();
+$user = elgg_get_logged_in_user_entity();
 
-  $user = elgg_get_logged_in_user_entity();
-  if ($user)
-    $interests = rijkshuisstijl_get_interests($user);
+if ($user) {
+  $interests = rijkshuisstijl_get_interests($user);
+}
+
 ?>
 
 <h2 class="rhs-section__subtitle">Forum</h2>
 <a href="/forum" title="<?php echo elgg_echo("rijkshuisstijl:more"); ?>" class="rhs-section__read-more"><?php echo elgg_echo("rijkshuisstijl:all"); ?></a>
 <div class="rhs-row">
   <?php foreach ($groups as $group): ?>
-    <?php         
-      if ($user && !in_array($group->guid, $interests))
-        continue; 
+    <?php
+      if (count($interests) > 0 && $user && !in_array($group->guid, $interests))
+        continue;
     ?>
     <div class="rhs-col-lg-6">
       <div data-accordion-item="" class="rhs-card-list rhs-card-list--margin-bottom">

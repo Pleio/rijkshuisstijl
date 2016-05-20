@@ -1,25 +1,27 @@
 <?php
-  $user = elgg_get_logged_in_user_entity();
-  if (!$user) 
-  {
-    register_error(elgg_echo("profile:notfound"));
-    forward();
-  }
-  
-  $username = elgg_extract("username", $vars);
-  $targetUser = get_user_by_username($username);
-  if (!$targetUser) 
-  {
-    register_error(elgg_echo("profile:notfound"));
-    forward();
-  }
 
-  $editable = $targetUser->canEdit();
-  if (!$editable) 
-  {
-    register_error(elgg_echo("profile:noaccess"));
-    forward();
-  }
+
+$user = elgg_get_logged_in_user_entity();
+if (!$user) 
+{
+  register_error(elgg_echo("profile:notfound"));
+  forward();
+}
+
+$username = elgg_extract("username", $vars);
+$targetUser = get_user_by_username($username);
+if (!$targetUser) 
+{
+  register_error(elgg_echo("profile:notfound"));
+  forward();
+}
+
+$editable = $targetUser->canEdit();
+if (!$editable) 
+{
+  register_error(elgg_echo("profile:noaccess"));
+  forward();
+}
 ?>
 
 <script type="text/javascript">
@@ -35,17 +37,17 @@
             <h2 class="rhs-profile-block__title">Account wachtwoord</h2>
             <p class="rhs-form__element">
               <label class="rhs-form__label"><span class="rhs-form__label-text">Huidig wachtwoord</span>
-                <input id="password" type="password" placeholder="Minimaal 6 karakters" required data-validation=".{6,}" data-validationMessage="Vul uw wachtwoord in" value="12345" class="rhs-form__input js-validateInput">
+                <input id="password" type="password" placeholder="<?php echo elgg_echo("rijkshuisstijl:register:password:placeholder", array($CONFIG->min_password_length)); ?>" required data-validation=".{<?php echo $CONFIG->min_password_length; ?>,}" data-validationMessage="Vul uw wachtwoord in" value="" class="rhs-form__input js-validateInput">
               </label>
             </p>
             <p class="rhs-form__element">
               <label class="rhs-form__label"><span class="rhs-form__label-text">Je nieuwe wachtwoord</span>
-                <input id="new_password" type="password" placeholder="Minimaal 8 karakters" required data-validation=".{8,}" data-validationMessage="Uw wachtwoord moet minimaal 8 karakters bevatten" value="12345678" class="rhs-form__input js-validateInput">
+                <input id="new_password" type="password" placeholder="<?php echo elgg_echo("rijkshuisstijl:register:password:placeholder", array($CONFIG->min_password_length)); ?>" required data-validation=".{<?php echo $CONFIG->min_password_length; ?>,}" data-validationMessage="Uw wachtwoord moet minimaal 8 karakters bevatten" value="" class="rhs-form__input js-validateInput">
               </label>
             </p>
             <p class="rhs-form__element">
               <label class="rhs-form__label"><span class="rhs-form__label-text">Wachtwoord verificatie</span>
-                <input type="password" placeholder="Vul je wachtwoord nogmaals in" required data-validation="duplicateOf=new_password" data-validationMessage="Wachtwoord ter verificatie komt niet overeen met uw wachtwoord" id="newPasswordValidation" value="12345678" class="rhs-form__input js-validateInput">
+                <input type="password" placeholder="<?php echo elgg_echo("rijkshuisstijl:register:password:enter_again"); ?>" required data-validation="duplicateOf=new_password" data-validationMessage="Wachtwoord ter verificatie komt niet overeen met uw wachtwoord" id="newPasswordValidation" value="" class="rhs-form__input js-validateInput">
               </label>
             </p>
             <p class="rhs-form__element rhs-form__element--small-padding">

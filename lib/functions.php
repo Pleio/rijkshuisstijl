@@ -23,13 +23,17 @@ function rijkshuisstijl_get_latest_objects_from_group($subtype = 'question', Elg
 }
 
 
-function rijkshuisstijl_get_interests($user)
-{
+function rijkshuisstijl_get_interests($user) {
     $interests = $user->interests;
-    if (!is_array($interests))
-        $interests = array($interests);
+    if ($interests) {
+        if (is_array($interests)) {
+            return $interests;
+        } else {
+            return array($interests);
+        }
+    }
 
-    return $interests;
+    return array();
 }
 
 function rijkshuisstijl_get_num_answers($question)

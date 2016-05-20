@@ -101,10 +101,9 @@
 	position: relative;
 	min-height: 360px;
 }
-.elgg-main > .elgg-head {
-	padding-bottom: 3px;
-	border-bottom: 1px solid #CCCCCC;
-	margin-bottom: 10px;
+
+.elgg-head > .elgg-menu {
+	padding-bottom: 2rem;
 }
 
 /***** PAGE FOOTER ******/

@@ -31,6 +31,7 @@ $english = array(
     'rijkshuisstijl:pinboard' => 'Pinboard',
     'rijkshuisstijl:error:xhr_only' => 'Sorry, XHR requests only',
     'rijkshuisstijl:all' => 'All',
+    'rijkshuisstijl:go_to_profile' => 'Go to profile page',
     'rijkshuisstijl:register:name' => 'First and last name',
     'rijkshuisstijl:register:name:error' => 'Fill in your first and last name',
     'rijkshuisstijl:register:email:error' => 'Fill in a valid e-mail',

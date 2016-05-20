@@ -31,6 +31,7 @@ $dutch = array(
     'rijkshuisstijl:pinboard' => 'Prikbord',
     'rijkshuisstijl:error:xhr_only' => 'Hier kunnen alleen XHR requests gedaan worden.',
     'rijkshuisstijl:all' => 'Alles',
+    'rijkshuisstijl:go_to_profile' => 'Ga naar profielpagina',
     'rijkshuisstijl:register:name' => 'Voor- en achternaam',
     'rijkshuisstijl:register:name:error' => 'Vul uw gehele voor- en achternaam in',
     'rijkshuisstijl:register:email:error' => 'Vul een geldig e-mailadres in',

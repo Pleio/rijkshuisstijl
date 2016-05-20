@@ -102,26 +102,24 @@ if ($current_page < $total_pages) {
     $pages->items = array_merge($pages->items, range($current_page + 1, $last_page));
 }
 
-echo '<div class="rhs-section rhs-section--item rhs-section--float-right">';
-    echo '<div class="rhs-pagination">';
-        if ($pages->prev['href']) {
-            echo elgg_view('output/url', $pages->prev);
-        } else {
-            echo elgg_view('output/url', array_merge($pages->prev, array(
-                'class' => 'rhs-pagination__previous disabled'
-            )));
-        }
+echo '<div class="rhs-pagination">';
+    if ($pages->prev['href']) {
+        echo elgg_view('output/url', $pages->prev);
+    } else {
+        echo elgg_view('output/url', array_merge($pages->prev, array(
+            'class' => 'rhs-pagination__previous disabled'
+        )));
+    }
 
-        echo '<form action="#" class="rhs-pagination__form">';
-            echo '<input name="page-number" id="page-number" value="' . $current_page . '" class="rhs-pagination__input"><span class="rhs-pagination__maximum">van ' . $total_pages . '</span>';
-        echo '</form>';
+    echo '<form action="#" class="rhs-pagination__form">';
+        echo '<input name="page-number" id="page-number" value="' . $current_page . '" class="rhs-pagination__input"><span class="rhs-pagination__maximum">van ' . $total_pages . '</span>';
+    echo '</form>';
 
-        if ($pages->next['href']) {
-            echo elgg_view('output/url', $pages->next);
-        } else {
-            echo elgg_view('output/url', array_merge($pages->next, array(
-                'class' => 'rhs-pagination__next disabled'
-            )));
-        }
-    echo '</div>';
+    if ($pages->next['href']) {
+        echo elgg_view('output/url', $pages->next);
+    } else {
+        echo elgg_view('output/url', array_merge($pages->next, array(
+            'class' => 'rhs-pagination__next disabled'
+        )));
+    }
 echo '</div>';

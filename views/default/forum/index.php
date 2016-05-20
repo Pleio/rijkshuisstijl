@@ -6,51 +6,35 @@
 	$questions = elgg_extract("questions", $vars);
 ?>
 
-<div class="rhs-forum-section">
-	<div class="rhs-container">
-		<div class="rhs-row">
-			<div class="rhs-col-md-6">
-				<div data-accordion-item class="rhs-card-list">
-					<h3 data-accordion-trigger class="rhs-card-list__title">Recente vragen</h3>
-					<div class="rhs-card-list__content">
-						<?php 
-							foreach ($questions as $question)
-								echo elgg_view("forum/forumQuestionRow", array('question' => $question));
-						?>
-						<a href="/forum/category/" title="Bekijk alles" class="rhs-read-more rhs-card-list__read-more"><span class="rhs-icon-arrow-right-circle rhs-read-more__icon"></span>Alles</a>
-					</div>
-				</div>
+<div class="rhs-sections">
+	<div class="rhs-section rhs-section--item-even rhs-section--padding-top">
+		<div class="rhs-container">
+			<div class="rhs-row">
+				<?php foreach (rijkshuisstijl_get_featured_groups() as $group): ?>
+			        <?php
+			          if ($user && !in_array($group->guid, $interests))
+			            continue;
+			        ?>
+			        <div class="rhs-col-md-6">
+			          <div data-accordion-item="" class="rhs-card-list rhs-card-list--margin-bottom">
+			            <h3 data-accordion-trigger="" class="rhs-card-list__title"><?php echo $group->name; ?></h3>
+			            <div class="rhs-card-list__content">
+			              <?php
+			                foreach (rijkshuisstijl_get_latest_objects_from_group('question', $group) as $question)
+			                  echo elgg_view("forum/forumQuestionRow", array('question' => $question));
+			              ?>
+			              <a href="/forum/category/<?php echo $group->guid ?>" title="Bekijk alles" class="rhs-read-more rhs-card-list__read-more">
+			                <span class="rhs-icon-arrow-right-circle rhs-read-more__icon"></span>Alles
+			              </a>
+			            </div>
+			          </div>
+			        </div>
+		      	<?php endforeach; ?>
 			</div>
 		</div>
 	</div>
 </div>
-<div class="rhs-forum-section rhs-forum-section--grey rhs-last-section">
-	<div class="rhs-container">
-		<h2 class="rhs-forum-section__title">Thema's</h2>
-		<div class="rhs-row">
-			<?php foreach (rijkshuisstijl_get_featured_groups() as $group): ?>
-		        <?php         
-		          if ($user && !in_array($group->guid, $interests))
-		            continue; 
-		        ?>				
-		        <div class="rhs-col-md-6">
-		          <div data-accordion-item="" class="rhs-card-list">
-		            <h3 data-accordion-trigger="" class="rhs-card-list__title"><?php echo $group->name; ?></h3>
-		            <div class="rhs-card-list__content">
-		              <?php 
-		                foreach (rijkshuisstijl_get_latest_objects_from_group('question', $group) as $question)
-		                  echo elgg_view("forum/forumQuestionRow", array('question' => $question));
-		              ?>
-		              <a href="/forum/category/<?php echo $group->guid ?>" title="Bekijk alles" class="rhs-read-more rhs-card-list__read-more">
-		                <span class="rhs-icon-arrow-right-circle rhs-read-more__icon"></span>Alles
-		              </a>
-		            </div>
-		          </div>
-		        </div>
-	      	<?php endforeach; ?>
-		</div>
-	</div>
-</div>
+
 <div id="modal-item" tabindex="0" class="rhs-modal">
 	<div data-modal-id="#modal-item" class="rhs-modal__background js-toggleModal"></div>
 	<div class="rhs-modal__box"> 
