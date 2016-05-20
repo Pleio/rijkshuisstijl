@@ -19,6 +19,18 @@
         <type>plugin</type>
         <name>questions</name>
     </requires>
+    <requires>
+        <type>plugin</type>
+        <name>videos</name>
+    </requires>
+    <requires>
+        <type>plugin</type>
+        <name>pinboard</name>
+    </requires>
+    <requires>
+        <type>plugin</type>
+        <name>news</name>
+    </requires>
     <conflicts>
         <type>plugin</type>
         <name>pleio_template_selector</name>

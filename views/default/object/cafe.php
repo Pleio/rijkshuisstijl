@@ -1,32 +1,44 @@
 <?php
-$entity = $vars['entity'];
-$full_view = $vars['full_view'];
+$entity = elgg_extract('entity', $vars);
+$full_view = elgg_extract('full_view', $vars, false);
+
 $poster = $entity->getOwnerEntity();
-
 $title = elgg_echo("pinboard:purpose:" . $entity->purpose) . " " . $entity->title;
+$count = $entity->countComments();
 ?>
-
 
 <?php if ($full_view): ?>
   <h1 class="rhs-card-user-content__title">
     <?php echo $title; ?>
   </h1>
   <div class="rhs-card-user-content__meta">
-    <a href="profile-public.html" title="..." class="rhs-card-user-content__profile">
-      <img src="asset/image/profile-picture.png">
+    <a href="<?php echo $poster->getURL(); ?>" title="<?php echo $poster->name; ?>" class="rhs-card-user-content__profile">
+      <img src="<?php echo $poster->getIconURL('small') ?>">
     </a>
     <div class="rhs-card-user-content__data">
-      <a href="profile-public.html" title="Carsten Heuvels">Carsten Heuvels</a> <span>5 min geleden</span>
+      <a href="<?php echo $poster->getURL(); ?>" title="<?php echo $poster->name; ?>"><?php echo $poster->name; ?></a>
+      <span><?php echo elgg_view_friendly_time($entity->time_created); ?></span>
     </div>
   </div>
   <div class="rhs-card-user-content__content">
     <?php echo $entity->description; ?>
   </div>
   <div class="rhs-card-user-content__options">
-    <button title="Geef antwoord" data-forum-answer-toggle="" class="rhs-button rhs-button--with-icon"><span class="rhs-icon-pencil"></span>Geef antwoord</button>
+    <button title="Geef antwoord" data-forum-answer-toggle="" class="rhs-button rhs-button--with-icon">
+      <span class="rhs-icon-pencil"></span><?php echo elgg_echo("rijkshuisstijl:answer"); ?>
+    </button>
     <div class="rhs-card-user-content__mobile-top">
-      <div class="rhs-card-user-content__views">80</div>
-      <a href="#" title="Vraag volgen" class="rhs-card-user-content__follow">Vraag volgen</a>
+      <div class="rhs-card-user-content__views">
+        <?php echo entity_view_counter_count_views($entity); ?>
+      </div>
+      <?php if (elgg_is_active_plugin('content_subscriptions')): ?>
+        <?php
+        echo elgg_view('rijkshuisstijl/elements/content_subscription', array(
+          'entity' => $entity,
+          'class' => 'rhs-card-user-content__follow'
+        ));
+        ?>
+      <?php endif; ?>
     </div>
   </div>
 <?php else: ?>
@@ -56,26 +68,17 @@ $title = elgg_echo("pinboard:purpose:" . $entity->purpose) . " " . $entity->titl
         <?php endif; ?>
 
         <?php if (elgg_is_active_plugin('content_subscriptions')): ?>
-          <?php if (content_subscriptions_check_subscription($entity->guid)): ?>
-            <?php echo elgg_view('output/url', array(
-              'href' => '/action/content_subscriptions/subscribe?entity_guid=' . $entity->guid,
-              'text' => elgg_echo("content_subscriptions:unsubscribe"),
-              'title' => elgg_echo("content_subscriptions:unsubscribe"),
-              'is_action' => true,
-              'class' => 'rhs-card-topic__follow'
-            )); ?>
-          <?php else: ?>
-            <?php echo elgg_view('output/url', array(
-              'href' => '/action/content_subscriptions/subscribe?entity_guid=' . $entity->guid,
-              'text' => elgg_echo("content_subscriptions:subscribe"),
-              'title' =>elgg_echo("content_subscriptions:subscribe"),
-              'is_action' => true,
-              'class' => 'rhs-card-topic__follow'
-            )); ?>
-          <?php endif; ?>
+          <?php
+          echo elgg_view('rijkshuisstijl/elements/content_subscription', array(
+            'entity' => $entity,
+            'class' => 'rhs-card-topic__follow'
+          ));
+          ?>
         <?php endif; ?>
 
-        <a href="<?php echo $entity->getURL(); ?>" title="Vraag antwoorden" class="rhs-card-topic__answers"><span><?php echo $entity->countComments(); ?></span> antwoorden</a>
+        <a href="<?php echo $entity->getURL(); ?>" title="Vraag antwoorden" class="rhs-card-topic__answers">
+          <span><?php echo $count; ?></span> <?php echo ($count == 1) ? elgg_echo("rijkshuisstijl:count:answer") : elgg_echo("rijkshuisstijl:count:answers"); ?>
+        </a>
       </div>
     </div>
   </div>

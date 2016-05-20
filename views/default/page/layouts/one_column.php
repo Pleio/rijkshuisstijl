@@ -9,32 +9,31 @@
  * @uses $vars['class']   Additional class to apply to layout
  */
 
-$class = 'elgg-layout elgg-layout-one-column clearfix';
 if (isset($vars['class'])) {
-    $class = "$class {$vars['class']}";
+    $class = $vars['class'];
+} else {
+    $class = "rhs-sections rhs-sections--top-padding";
 }
 
 // navigation defaults to breadcrumbs
 $nav = elgg_extract('nav', $vars, elgg_view('navigation/breadcrumbs'));
-
 ?>
-<div class="rhs-page-layout__main">
-    <div class="rhs-sections rhs-sections--top-padding">
-        <div class="rhs-container">
-        <?php
-            echo $nav;
 
-            if (isset($vars['title'])) {
-                echo elgg_view_title($vars['title']);
-            }
+<div class="<?php echo $class; ?>">
+    <div class="rhs-container">
+    <?php
+        echo $nav;
 
-            echo $vars['content'];
+        if (isset($vars['title'])) {
+            echo elgg_view_title($vars['title']);
+        }
 
-            // @deprecated 1.8
-            if (isset($vars['area1'])) {
-                echo $vars['area1'];
-            }
-        ?>
-        </div>
+        echo $vars['content'];
+
+        // @deprecated 1.8
+        if (isset($vars['area1'])) {
+            echo $vars['area1'];
+        }
+    ?>
     </div>
 </div>

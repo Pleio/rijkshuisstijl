@@ -10,6 +10,8 @@ $CONFIG->search_subtypes = array(
 	'question',
 	'answer',
 	'videos',
+	'cafe',
+	'comment',
 	'news'
 );
 
@@ -211,6 +213,13 @@ function rijkshuisstijl_route_news_hook($hook_name, $entity_type, $return_value,
 function rijkshuisstijl_route_pinboard_hook($hook_name, $entity_type, $return_value, $params) {
 	$page = elgg_extract("segments", $return_value);
 	switch ($page[0]) {
+		case "detail":
+			if (isset($page[1])) {
+				set_input("guid", $page[1]);
+			}
+			include(dirname(__FILE__) . "/pages/pinboard/detail.php");
+			return true;
+			break;
 		case null:
 			include(dirname(__FILE__) . "/pages/pinboard/all.php");
 			return true;
