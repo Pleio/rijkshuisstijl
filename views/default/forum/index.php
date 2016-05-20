@@ -1,5 +1,7 @@
 <?php
 	$group = elgg_get_page_owner_entity();
+	$user = elgg_get_logged_in_user_entity();
+	$interests = rijkshuisstijl_get_interests($user);
 
 	$questions = elgg_extract("questions", $vars);
 ?>
@@ -27,6 +29,10 @@
 		<h2 class="rhs-forum-section__title">Thema's</h2>
 		<div class="rhs-row">
 			<?php foreach (rijkshuisstijl_get_featured_groups() as $group): ?>
+		        <?php         
+		          if ($user && !in_array($group->guid, $interests))
+		            continue; 
+		        ?>				
 		        <div class="rhs-col-md-6">
 		          <div data-accordion-item="" class="rhs-card-list">
 		            <h3 data-accordion-trigger="" class="rhs-card-list__title"><?php echo $group->name; ?></h3>

@@ -1,5 +1,5 @@
 <?php
-  $user = elgg_get_page_owner_entity();
+  $user = elgg_get_logged_in_user_entity();
   if (!$user)
   {
     register_error(elgg_echo("profile:notfound"));
@@ -28,10 +28,13 @@
   }
 
   $groups = rijkshuisstijl_get_featured_groups();
+  $interests = rijkshuisstijl_get_interests($targetUser);
+
+  /* will recode to use entitiesfromrelationship later
   $interests = $user->getEntitiesFromRelationship(array(
     'type' => 'group',
     'relationship' => 'interests'
-  ));
+  ));*/
 ?>
 
 <script type="text/javascript">
@@ -51,7 +54,7 @@
             <p class="rhs-form__element rhs-form__element--small-padding">
               <?php foreach($groups as $group): ?>
                 <label for="interest-<?php echo $group->guid; ?>" class="rhs-checkbox-switch">
-                  <input type="checkbox" id="interest-<?php echo $group->guid; ?>" name="interest-<?php echo $group->guid; ?>" <?php echo in_array($group, $interests) ? "checked" : ""; ?> class="rhs-checkbox-switch__input"><span class="rhs-checkbox-switch__placeholder"></span><?php echo $group->name; ?>
+                  <input type="checkbox" id="interest-<?php echo $group->guid; ?>" interest-id="<?php echo $group->guid ?>" name="interests" <?php echo in_array($group->guid, $interests) ? "checked" : ""; ?> class="rhs-checkbox-switch__input"><span class="rhs-checkbox-switch__placeholder"></span><?php echo $group->name; ?>
                 </label>
               <?php endforeach; ?>
             </p>

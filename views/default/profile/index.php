@@ -1,5 +1,5 @@
 <?php
-  $user = elgg_get_page_owner_entity();
+  $user = elgg_get_logged_in_user_entity();
   if (!$user) 
   {
     register_error(elgg_echo("profile:notfound"));

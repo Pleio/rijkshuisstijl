@@ -186,14 +186,23 @@
 	        });
 	    });
 	
-	    $('#interest-1, #interest-2, #interest-3, #interest-4, #interest-5').click(function ()
+	    var interestFields = $("input[name='interests']");
+	    interestFields.click(function ()
 	    {
 	        setTimeout(function () {
+	        var interests = [ ];
+	
+	        interestFields.each(function (index) {
+	            interestField = $(this);
+	            if (interestField.is(":checked"))
+	              interests.push(interestField.attr('interest-id'));
+	        });
+	
 	        elgg.action('rijkshuisstijl/profile/setprofilefield', {
 	          data: {
 	            username: gUsername,
 	            name: 'interests',
-	            value: '[ ' + $('#interest-1').parent().hasClass('chosen') + ', ' + $('#interest-2').parent().hasClass('chosen') + ', ' + $('#interest-3').parent().hasClass('chosen') + ', ' + $('#interest-4').parent().hasClass('chosen') + ', ' + $('#interest-5').parent().hasClass('chosen') + ' ]'
+	            value: JSON.stringify(interests)
 	          },
 	          success: function (wrapper) {
 	            if (wrapper.output) {

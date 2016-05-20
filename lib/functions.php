@@ -22,4 +22,26 @@ function rijkshuisstijl_get_latest_objects_from_group($subtype = 'question', Elg
     ));
 }
 
+function rijkshuisstijl_get_interests($user)
+{
+    $interests = $user->interests;
+    if (!is_array($interests))
+        $interests = array($interests);
+
+    return $interests;
+}
+
+function rijkshuisstijl_get_num_answers($question)
+{
+  $answerOptions = array(
+    "type" => "object",
+    "subtype" => "answer",
+    "container_guid" => $question->getGUID(),
+    "count" => true
+  );
+
+  $numAnswers = elgg_get_entities($answerOptions);
+  return $numAnswers;
+}
+
 ?>

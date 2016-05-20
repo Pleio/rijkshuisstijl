@@ -38,6 +38,16 @@
 	}
 
 	$obj = json_decode($value, true);
+
+	if ($name == 'interests')
+	{
+		if (is_null($obj))
+		{
+			$obj = $value;
+			$obj = array(intval($obj[0]));
+		}
+	}
+
 	$targetUser->$name = $obj;
 	$targetUser->save();
 
