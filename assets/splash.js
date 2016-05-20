@@ -46,14 +46,13 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	// require CSS entry file
-	__webpack_require__(420);
+	__webpack_require__(421);
 	
 	// require non-NPM libraries
-	__webpack_require__(121);
-	
 	__webpack_require__(122);
-	__webpack_require__(124);
-	__webpack_require__(126);
+	
+	__webpack_require__(123);
+	__webpack_require__(125);
 	__webpack_require__(127);
 	__webpack_require__(128);
 	__webpack_require__(129);
@@ -74,8 +73,9 @@
 	__webpack_require__(144);
 	__webpack_require__(145);
 	__webpack_require__(146);
+	__webpack_require__(147);
 	
-	var jQuery = __webpack_require__(123);
+	var jQuery = __webpack_require__(124);
 	jQuery(document).ready(function () {
 	    var els = jQuery('.elgg-form-login fieldset div input');
 	    if (els.length > 0)
@@ -252,7 +252,7 @@
 
 /***/ },
 
-/***/ 121:
+/***/ 122:
 /***/ function(module, exports) {
 
 	/*
@@ -943,10 +943,10 @@
 
 /***/ },
 
-/***/ 122:
+/***/ 123:
 /***/ function(module, exports, __webpack_require__) {
 
-	var $ = __webpack_require__(123);
+	var $ = __webpack_require__(124);
 	
 	(function () {
 	    'use strict';
@@ -974,7 +974,7 @@
 
 /***/ },
 
-/***/ 123:
+/***/ 124:
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -10823,10 +10823,10 @@
 
 /***/ },
 
-/***/ 124:
+/***/ 125:
 /***/ function(module, exports, __webpack_require__) {
 
-	var $ = __webpack_require__(123);
+	var $ = __webpack_require__(124);
 	
 	(function () {
 	    'use strict';
@@ -10933,7 +10933,7 @@
 	
 	
 	    //fast-click for devices to remove 300ms delay
-	    var FastClick = __webpack_require__(125);
+	    var FastClick = __webpack_require__(126);
 	    FastClick.attach(document.body);
 	
 	
@@ -10945,7 +10945,7 @@
 
 /***/ },
 
-/***/ 125:
+/***/ 126:
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_RESULT__;;(function () {
@@ -11793,10 +11793,10 @@
 
 /***/ },
 
-/***/ 126:
+/***/ 127:
 /***/ function(module, exports, __webpack_require__) {
 
-	var $ = __webpack_require__(123);
+	var $ = __webpack_require__(124);
 	
 	(function () {
 	    'use strict';
@@ -11928,14 +11928,14 @@
 
 /***/ },
 
-/***/ 127:
+/***/ 128:
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
 	 * Checkbox-switch input
 	 */
 	
-	var $ = __webpack_require__(123);
+	var $ = __webpack_require__(124);
 	
 	 $(document).ready(function () {
 	    'use strict';
@@ -11978,14 +11978,14 @@
 
 /***/ },
 
-/***/ 128:
+/***/ 129:
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
 	 * Checkbox input
 	 */
 	
-	var $ = __webpack_require__(123);
+	var $ = __webpack_require__(124);
 	
 	 $(document).ready(function () {
 	    'use strict';
@@ -12028,7 +12028,7 @@
 
 /***/ },
 
-/***/ 129:
+/***/ 130:
 /***/ function(module, exports) {
 
 	(function () {
@@ -12079,10 +12079,10 @@
 
 /***/ },
 
-/***/ 130:
+/***/ 131:
 /***/ function(module, exports, __webpack_require__) {
 
-	var $ = __webpack_require__(123);
+	var $ = __webpack_require__(124);
 	
 	(function () {
 	    'use strict';
@@ -12123,7 +12123,7 @@
 
 /***/ },
 
-/***/ 131:
+/***/ 132:
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
@@ -12149,7 +12149,7 @@
 	//      - required
 	//
 	
-	var $ = __webpack_require__(123);
+	var $ = __webpack_require__(124);
 	
 	$(document).ready(function () {
 	    'use strict';
@@ -12279,10 +12279,10 @@
 
 /***/ },
 
-/***/ 132:
+/***/ 133:
 /***/ function(module, exports, __webpack_require__) {
 
-	var $ = __webpack_require__(123);
+	var $ = __webpack_require__(124);
 	
 	$(document).ready(function () {
 	    'use strict';
@@ -12304,10 +12304,10 @@
 
 /***/ },
 
-/***/ 133:
+/***/ 134:
 /***/ function(module, exports, __webpack_require__) {
 
-	var $ = __webpack_require__(123);
+	var $ = __webpack_require__(124);
 	
 	(function () {
 	    'use strict';
@@ -12626,10 +12626,10 @@
 
 /***/ },
 
-/***/ 134:
+/***/ 135:
 /***/ function(module, exports, __webpack_require__) {
 
-	var $ = __webpack_require__(123);
+	var $ = __webpack_require__(124);
 	
 	(function () {
 	    'use strict';
@@ -12648,10 +12648,10 @@
 
 /***/ },
 
-/***/ 135:
+/***/ 136:
 /***/ function(module, exports, __webpack_require__) {
 
-	var $ = __webpack_require__(123);
+	var $ = __webpack_require__(124);
 	
 	(function () {
 	    'use strict';
@@ -12677,10 +12677,10 @@
 
 /***/ },
 
-/***/ 136:
+/***/ 137:
 /***/ function(module, exports, __webpack_require__) {
 
-	var $ = __webpack_require__(123);
+	var $ = __webpack_require__(124);
 	
 	(function () {
 	    'use strict';
@@ -12706,10 +12706,10 @@
 
 /***/ },
 
-/***/ 137:
+/***/ 138:
 /***/ function(module, exports, __webpack_require__) {
 
-	var $ = __webpack_require__(123);
+	var $ = __webpack_require__(124);
 	
 	(function () {
 	    'use strict';
@@ -12768,10 +12768,10 @@
 
 /***/ },
 
-/***/ 138:
+/***/ 139:
 /***/ function(module, exports, __webpack_require__) {
 
-	var $ = __webpack_require__(123);
+	var $ = __webpack_require__(124);
 	
 	(function () {
 	    'use strict';
@@ -12825,10 +12825,10 @@
 
 /***/ },
 
-/***/ 139:
+/***/ 140:
 /***/ function(module, exports, __webpack_require__) {
 
-	var $ = __webpack_require__(123);
+	var $ = __webpack_require__(124);
 	
 	////////
 	////////  P R O F I L E  P H O T O  U P L O A D
@@ -12991,10 +12991,10 @@
 
 /***/ },
 
-/***/ 140:
+/***/ 141:
 /***/ function(module, exports, __webpack_require__) {
 
-	var $ = __webpack_require__(123);
+	var $ = __webpack_require__(124);
 	
 	(function () {
 	    'use strict';
@@ -13023,10 +13023,10 @@
 
 /***/ },
 
-/***/ 141:
+/***/ 142:
 /***/ function(module, exports, __webpack_require__) {
 
-	var $ = __webpack_require__(123);
+	var $ = __webpack_require__(124);
 	
 	/*
 	 * Radio buttons
@@ -13062,7 +13062,7 @@
 
 /***/ },
 
-/***/ 142:
+/***/ 143:
 /***/ function(module, exports) {
 
 	
@@ -13090,10 +13090,10 @@
 
 /***/ },
 
-/***/ 143:
+/***/ 144:
 /***/ function(module, exports, __webpack_require__) {
 
-	var $ = __webpack_require__(123);
+	var $ = __webpack_require__(124);
 	
 	(function () {
 	    'use strict';
@@ -13113,10 +13113,10 @@
 
 /***/ },
 
-/***/ 144:
+/***/ 145:
 /***/ function(module, exports, __webpack_require__) {
 
-	var $ = __webpack_require__(123);
+	var $ = __webpack_require__(124);
 	
 	(function () {
 	    'use strict';
@@ -13231,10 +13231,10 @@
 
 /***/ },
 
-/***/ 145:
+/***/ 146:
 /***/ function(module, exports, __webpack_require__) {
 
-	var $ = __webpack_require__(123);
+	var $ = __webpack_require__(124);
 	
 	(function () {
 	    'use strict';
@@ -13259,10 +13259,10 @@
 
 /***/ },
 
-/***/ 146:
+/***/ 147:
 /***/ function(module, exports, __webpack_require__) {
 
-	var $ = __webpack_require__(123);
+	var $ = __webpack_require__(124);
 	
 	(function () {
 	    'use strict';
@@ -13359,7 +13359,7 @@
 
 /***/ },
 
-/***/ 420:
+/***/ 421:
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin

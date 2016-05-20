@@ -137,9 +137,15 @@ function rijkshuisstijl_forum_page_handler($page) {
 	if ($action == "category")
 	{
 		if (isset($page[1]))
-			$page = $page[1];
+			$category = $page[1];
+		else
+			$category = '';
+
+		if (isset($page[2]))
+			$page = $page[2];
 		else
 			$page = 1;
+
 		require dirname(__FILE__) . "/pages/forum/category.php";
 		return true;
 	}
