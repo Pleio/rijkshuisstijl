@@ -51,7 +51,7 @@ if (isset($vars['class'])) {
     $params['class'] = $vars['class'];
 }
 
-if (elgg_in_context("questions") || elgg_in_context("activity") || elgg_in_context("pages") || elgg_in_context("videos")) {
+if (elgg_in_context("questions") || elgg_in_context("activity") || elgg_in_context("videos") || elgg_in_context("news")) {
     echo elgg_view_layout('one_column', $params);
 } else {
     echo elgg_view_layout('one_sidebar', $params);

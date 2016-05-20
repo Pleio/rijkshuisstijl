@@ -7,16 +7,9 @@ if (!elgg_is_xhr()) {
 $q = get_input('q');
 $search_type = 'default';
 
-$subtypes = array(
-    'question',
-    'answer',
-    'video',
-    'page_top'
-);
-
 $return = array();
 
-foreach ($subtypes as $subtype) {
+foreach ($CONFIG->search_subtypes as $subtype) {
     $results = ESInterface::get()->search(
         $q,
         $search_type,

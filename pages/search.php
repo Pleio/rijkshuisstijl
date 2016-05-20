@@ -17,14 +17,15 @@ $order = 'desc';
 $container_guid = get_input('container_guid', ELGG_ENTITIES_ANY_VALUE);
 $profile_fields = get_input('elasticsearch_profile_fields');
 
-$subtypes = array('question', 'answer', 'page_top');
+global $CONFIG;
+$subtypes = $CONFIG->search_subtypes;
 
 if (!$entity_type) {
     $entity_type = 'object';
 }
 
 if (!$entity_subtype) {
-    $entity_subtype = 'question';
+    $entity_subtype = $subtypes[0];
 }
 
 $total_results = ESInterface::get()->search(

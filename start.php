@@ -5,6 +5,14 @@ include_once(dirname(__FILE__) . "/lib/hooks.php");
 
 elgg_register_event_handler('init', 'system', 'rijkshuisstijl_init');
 
+// Limit search results to these subtypes
+$CONFIG->search_subtypes = array(
+	'question',
+	'answer',
+	'videos',
+	'news'
+);
+
 function rijkshuisstijl_init() {
     elgg_register_plugin_hook_handler('action', 'plugins/settings/save', 'rijkshuisstijl_plugins_settings_save');
 	elgg_register_plugin_hook_handler("register", "menu:site", "rijkshuisstijl_menu_handler");
@@ -39,7 +47,6 @@ function rijkshuisstijl_init() {
 
     //elgg_register_page_handler("profile", "rijkshuisstijl_profile_page_handler");
     elgg_register_page_handler("forum", "rijkshuisstijl_forum_page_handler");
-    elgg_register_page_handler("news", "rijkshuisstijl_news_page_handler");
     elgg_register_page_handler("topics", "rijkshuisstijl_topics_page_handler");
     elgg_register_page_handler("pinboard", "rijkshuisstijl_pinboard_page_handler");
 	elgg_register_page_handler("search", "rijkshuisstijl_search_page_handler");
@@ -142,11 +149,6 @@ function rijkshuisstijl_forum_page_handler($page) {
 		return true;
 	}
 
-	return true;
-}
-
-function rijkshuisstijl_news_page_handler($page) {
-	require dirname(__FILE__) . "/pages/news.php";
 	return true;
 }
 
