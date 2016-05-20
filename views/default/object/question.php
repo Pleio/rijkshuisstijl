@@ -85,92 +85,11 @@ if (!elgg_in_context("widgets")) {
 
 if (!$full)
 {
-	// brief view
-	/*$title_text = "";
-
-	if ($workflow) {
-		if ($latestAnswer = $question->getLatestIntAnswer()) {
-			$poster = $latestAnswer->getOwnerEntity();
-			$answer_time = elgg_view_friendly_time($latestAnswer->time_created);
-			$answer_link = elgg_view("output/url", array("href" => $poster->getURL(), "text" => $poster->name));
-			$answer_text = elgg_echo("questions:answered", array($answer_link, $answer_time));
-		} else {
-			$answer_text = null;
-		}
-	} else {
-		if ($question->getCorrectAnswer()) {
-			$title_text = elgg_view_icon("checkmark", "mrs question-listing-checkmark");
-			$answer_time = elgg_view_friendly_time($question->getCorrectAnswer()->time_created);
-			$answer_link = elgg_view("output/url", array("href" => $poster->getURL(), "text" => $poster->name));		
-			$answer_text = elgg_echo("questions:answered:correct", array($answer_link, $answer_time));			
-		} elseif ($latestAnswer = $question->getLatestAnswer()) {
-			$poster = $latestAnswer->getOwnerEntity();
-			$answer_time = elgg_view_friendly_time($latestAnswer->time_created);
-			$answer_link = elgg_view("output/url", array("href" => $poster->getURL(), "text" => $poster->name));
-			$answer_text = elgg_echo("questions:answered", array($answer_link, $answer_time));			
-		} else {
-			$answer_text = null;
-		}
-	}
-
-	$title_text .= elgg_get_excerpt($question->title, 100);
-
-	if ($workflow) {
-		$title = elgg_view('questions/workflow/status', array('question'=>$question));
-	}
-
-	$title .= elgg_view("output/url", array(
-		"text" => $title_text,
-		"href" => $url,
-		"is_trusted" => true
-	));	
-
-	$subtitle = "$poster_text $date $categories";
-	
-	$content = elgg_get_excerpt($question->description);
-
-	$params = array(
-		"entity" => $question,
-		"title" => $title,
-		"subtitle" => $subtitle . "<br />" . $answer_text,
-		"tags" => $tags,
-		"content" => $content
-	);
-
-	if ($workflow) {
-		$params['metadata'] = elgg_view("questions/workflow/overview", array('question'=>$question));
-	}
-
-	$list_body = elgg_view("object/elements/summary", $params);
-	
-	if (!$workflow) {
-		$list_body .= elgg_view_menu("ffd_questions_body", array(
-			"sort_by" => "priority",
-			"entity" => $question,
-			"class" => "elgg-menu-hz float-alt"
-		));
-	
-		$image_alt = elgg_view_menu("ffd_questions_alt", array(
-			"sort_by" => "priority",
-			"entity" => $question
-		));		
-	} else {
-		$image_alt = null;
-	}
-
-	echo elgg_view_image_block($poster_icon, $list_body, array("image_alt" => $image_alt, "class" => "ffd-question-list-item"));*/
-
 	echo elgg_view('forum/categoryQuestionRow', array('question' => $question));
 }
 else
 {
-	if (!elgg_annotation_exists($question->guid, 'questionView')) 
-	{
-		if ($question->canAnnotate(0, 'questionView')) 
-		{
-			$annotation = create_annotation($question->guid, 'questionView', "questionView", "", $user->guid, $question->access_id);
-		}
-	}
+	entity_view_counter_add_view($question);
 }
 ?>
 
@@ -199,7 +118,17 @@ else
 						}
 					?>
 					<div class="rhs-card-user-content__mobile-top">
-						<div class="rhs-card-user-content__views"><?php echo $question->countAnnotations('questionView') ?></div><a href="#" title="Vraag volgen" class="rhs-card-user-content__follow">Vraag volgen</a>
+						<div class="rhs-card-user-content__views">
+							<?php echo entity_view_counter_count_views($question) ?>
+						</div>
+						<?php if (elgg_is_active_plugin('content_subscriptions')): ?>
+				        <?php
+				        echo elgg_view('rijkshuisstijl/elements/content_subscription', array(
+				          'entity' => $question,
+				          'class' => 'rhs-card-user-content__follow'
+				        ));
+				        ?>
+				      	<?php endif; ?>
 					</div>
 					<?php if ($editable) : ?>
 					<div class="rhs-edit-block" id="answerEditBlock" style="display: none">

@@ -34,7 +34,20 @@
       <div class="rhs-card-topic__description"><?php echo elgg_get_excerpt($question->description, 100) ?></div>
     </div>
     <div class="rhs-card-topic__aside">
-      <div class="rhs-card-topic__views"><span><?php echo $question->countAnnotations('questionView') ?></span></div><a href="#" title="Vraag volgen" class="rhs-card-topic__follow">Vraag volgen</a><a href="<?php echo $question->getURL() ?>" title="Vraag antwoorden" class="rhs-card-topic__answers"><span><?php echo rijkshuisstijl_get_num_answers($question) ?></span> antwoorden</a>
+      <div class="rhs-card-topic__views">
+        <span>
+          <?php echo entity_view_counter_count_views($question) ?>
+        </span>
+      </div>
+      <?php if (elgg_is_active_plugin('content_subscriptions')): ?>
+          <?php
+          echo elgg_view('rijkshuisstijl/elements/content_subscription', array(
+            'entity' => $question,
+            'class' => 'rhs-card-topic__follow'
+          ));
+          ?>
+      <?php endif; ?>
+      <a href="<?php echo $question->getURL() ?>" title="Vraag antwoorden" class="rhs-card-topic__answers"><span><?php echo rijkshuisstijl_get_num_answers($question) ?></span> antwoorden</a>
     </div>
   </div>
 </div>
