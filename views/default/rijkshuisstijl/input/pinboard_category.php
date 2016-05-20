@@ -2,9 +2,9 @@
 
 $category_options = array(
     'all' => elgg_echo('rijkshuisstijl:all'),
-    'search' => elgg_echo('theme_ffd:cafe:purpose:search'),
-    'share' => elgg_echo('theme_ffd:cafe:purpose:share'),
-    'experience' => elgg_echo('theme_ffd:cafe:purpose:experience')
+    'search' => elgg_echo('pinboard:purpose:search'),
+    'share' => elgg_echo('pinboard:purpose:share'),
+    'experience' => elgg_echo('pinboard:purpose:experience')
 );
 
 $options = array(
