@@ -32,5 +32,6 @@ $body = elgg_view('pinboard/pages/all', array(
 ));
 
 echo elgg_view_page(elgg_echo('pinboard'), $body, 'default', array(
-    'leader' => elgg_view('rijkshuisstijl/leader/pinboard')
+    'leader' => elgg_view('rijkshuisstijl/leader/pinboard'),
+    'body_class' => 'bulletin background-grey'
 ));
