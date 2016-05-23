@@ -43,7 +43,7 @@ $leader = rijkshuisstijl_get_news_leader();
       </div>
     <?php endif; ?>
 
-    <div class="section__inner section__inner--background-white hidden-xs hidden-sm">
+    <div class="section__inner section__inner--background-white">
       <div class="rhs-news-list">
         <?php echo elgg_list_entities(array(
           'type' => 'object',
