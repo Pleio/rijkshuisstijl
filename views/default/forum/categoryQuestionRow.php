@@ -47,7 +47,7 @@
           ));
           ?>
       <?php endif; ?>
-      <a href="<?php echo $question->getURL() ?>" title="Vraag antwoorden" class="rhs-card-topic__answers"><span><?php echo rijkshuisstijl_get_num_answers($question) ?></span> antwoorden</a>
+      <a href="<?php echo $question->getURL() ?>" title="Vraag antwoorden" class="rhs-card-topic__answers"><span><?php echo $question->countAnswers(); ?></span> antwoorden</a>
     </div>
   </div>
 </div>

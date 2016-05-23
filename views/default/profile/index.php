@@ -9,22 +9,13 @@
   $fields = elgg_extract("fields", $vars);
   $username = elgg_extract("username", $vars);
   $targetUser = get_user_by_username($username);
-  if (!$targetUser) 
-  {
+
+  if (!$targetUser) {
     register_error(elgg_echo("profile:notfound"));
     forward();
   }
 
   $editable = $targetUser->canEdit();
-  $editable = true;
-  /*$answer_options = array(
-    "type" => "object",
-    "subtype" => $answer_subtype,
-    "container_guid" => $question->getGUID(),
-    "count" => true
-  );
-
-  $num_answers = elgg_get_entities($answer_options);*/
 ?>
 
 <script type="text/javascript">
@@ -107,37 +98,18 @@
           </div>
           <div class="rhs-col-lg-3 rhs-col-xs-12 rhs-col-xs-8 rhs-col-sm-offset-4 rhs-col-lg-offset-0">
             <div class="rhs-profile-progress">
-              <p class="rhs-profile-progress__bar rhs-profile-progress__bar--level-2" style="width: <?php echo profile_manager_profile_completeness($targetUser )["percentage_completeness"] ?>%;"><span class="rhs-profile-progress__bar-text">Redelijk profiel</span></p>
+              <p class="rhs-profile-progress__bar rhs-profile-progress__bar--level-<?php echo $vars['completeness']; ?>">
+                <span class="rhs-profile-progress__bar-text"><?php echo elgg_echo("rijkshuisstjil:completeness:" . $vars['completeness']); ?></span>
+              </p>
               <dl class="rhs-profile-progress__statistics">
-                <?php
-                  $answersGiven = elgg_get_entities(array(
-                    "type" => "object",
-                    "subtype" => "answer",
-                    "owner_guid" => $targetUser->guid
-                  ));
-
-                  $totalUpVotes = 0;
-                  $totalDownVotes = 0;
-
-                  foreach ($answersGiven as $answer)
-                  {
-                    $totalUpVotes += $answer->countAnnotations('upvote');
-                    $totalDownVotes += $answer->countAnnotations('downvote');
-                  }
-                ?>
                 <dt>Vragen gesteld</dt>
-                <dd><?php echo (int)elgg_get_entities(array(
-                  "type" => "object",
-                  "subtype" => "question",
-                  "owner_guid" => $targetUser->guid,
-                  "count" => true
-                )) ?></dd>
+                <dd><?php echo $vars['number_questions']; ?></dd>
                 <dt>Antwoorden gegeven</dt>
-                <dd><?php echo count($answersGiven) ?></dd>
+                <dd><?php echo $vars['number_answers']; ?></dd>
                 <dt>Stem omhoogs</dt>
-                <dd><?php echo $totalUpVotes ?></dd>
+                <dd><?php echo $vars['number_upvotes']; ?></dd>
                 <dt>Stem omlaags</dt>
-                <dd><?php echo $totalDownVotes ?></dd>
+                <dd><?php echo $vars['number_downvotes']; ?></dd>
               </dl>
             </div>
           </div>
