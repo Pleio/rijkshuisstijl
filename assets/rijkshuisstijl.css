@@ -4495,7 +4495,8 @@ label.__problem .rhs-form__input {
   text-align: right;
 }
 .rhs-form__actions a,
-.rhs-form__actions button {
+.rhs-form__actions button,
+.rhs-form__actions input {
   margin-left: 1rem;
 }
 .rhs-form__actions--small-button-margin a,
@@ -8566,6 +8567,15 @@ fieldset {
 }
 #profile_manager_register_left {
   width: auto;
+}
+.rhs-edit-block__bottom {
+  position: relative;
+  bottom: auto;
+  right: auto;
+  left: auto;
+}
+.rhs-edit-block__wrapper .elgg-menu {
+  display: none;
 }
 
 /*# sourceMappingURL=rijkshuisstijl.css.map*/

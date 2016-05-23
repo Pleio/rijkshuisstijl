@@ -15,6 +15,7 @@ require("./default/dropdown.js");
 require("./default/editable-field.js");
 require("./default/editable-text.js");
 require("./default/form.js");
+require("./default/forum-answer-block.js");
 require("./default/forum-answer-vote.js");
 require("./default/mobile-menu.js");
 require("./default/mobile-nav-sub-menu.js");
