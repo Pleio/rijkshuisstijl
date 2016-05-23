@@ -3,7 +3,7 @@ $entity = elgg_extract('entity', $vars);
 $full_view = elgg_extract('full_view', $vars, false);
 
 $poster = $entity->getOwnerEntity();
-$count = $entity->countComments();
+$count = $entity->countAnswers();
 
 if ($entity->canEdit()) {
   $onclick = "onclick=\"location.href = '/questions/edit/" . $entity->guid . "'\"";

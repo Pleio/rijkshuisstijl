@@ -27,23 +27,17 @@ $entity = $vars['entity'];
             </div>
         <?php endif; ?>
 
-        <?php $options = array(
+        <div class="rhs-card-user-content__amount">
+            <span><?php echo $entity->countAnswers(); ?></span> <?php echo ($count==1) ? elgg_echo("rijkshuisstijl:count:answer") : elgg_echo("rijkshuisstijl:count:answers"); ?>
+        </div>
+
+        <?php echo elgg_list_entities(array(
             'type' => 'object',
             'subtype' => 'answer',
             'container_guid' => $entity->guid,
             'order_by' => 'time_created DESC',
             'limit' => false,
             'pagination' => false
-        );
-
-        $count = elgg_get_entities(array_merge($options, array(
-            'count' => true
-        )));
-        ?>
-
-        <div class="rhs-card-user-content__amount">
-            <span><?php echo $count; ?></span> <?php echo ($count==1) ? elgg_echo("rijkshuisstijl:count:answer") : elgg_echo("rijkshuisstijl:count:answers"); ?>
-        </div>
-        <?php echo elgg_list_entities($options); ?>
+        )); ?>
     </div>
 </div>

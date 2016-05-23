@@ -36,19 +36,6 @@ function rijkshuisstijl_get_interests($user) {
     return array();
 }
 
-function rijkshuisstijl_get_num_answers($question)
-{
-  $answerOptions = array(
-    "type" => "object",
-    "subtype" => "answer",
-    "container_guid" => $question->getGUID(),
-    "count" => true
-  );
-
-  $numAnswers = elgg_get_entities($answerOptions);
-  return $numAnswers;
-}
-
 function rijkshuisstijl_get_votes(ElggObject $entity) {
     $result = elgg_get_annotations(array(
         'guid' => $entity->guid,
