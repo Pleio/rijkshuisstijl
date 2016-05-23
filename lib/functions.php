@@ -49,8 +49,7 @@ function rijkshuisstijl_get_num_answers($question)
   return $numAnswers;
 }
 
-function rijkshuisstijl_get_news_leader() 
-{
+function rijkshuisstijl_get_news_leader() {
     $leader = elgg_get_entities_from_metadata(array(
         'type' => 'object',
         'subtype' => 'news',
@@ -66,9 +65,9 @@ function rijkshuisstijl_get_news_leader()
 
     if (count($leader) == 1) {
         return $leader[0];
-    } else {
-        return null;
     }
+
+    return null;
 }
 
 ?>
