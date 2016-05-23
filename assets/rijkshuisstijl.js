@@ -257,33 +257,7 @@
 	        });
 	    });
 	
-	    $('#answerButton').click(function (event) {
-	        event.preventDefault();
-	        
-	        elgg.action('object/answer/add', {
-	          data: {
-	            description: $('#answerText').val(),
-	            container_guid: gQuestion,
-	            guid: ''
-	          },
-	          success: function (wrapper) {
-	            location.reload();
-	          }
-	        });
-	    });
-	
-	    $('#answerToggle').click(function (event){
-	        event.preventDefault();
-	
-	        var blk = $('#answerEditBlock');
-	        var display = blk.css('display');
-	        if (display == 'none')
-	            blk.css('display', 'block');
-	        else
-	            blk.css('display', 'none');
-	    });
-	
-	    $('.rhs-reaction__upvote').click(function (event){
+	    /*$('.rhs-reaction__upvote').click(function (event){
 	        event.preventDefault();
 	
 	        var triggeringElement = $(this);
@@ -357,7 +331,7 @@
 	            }
 	          }
 	        });
-	    });
+	    });*/
 	});
 
 /***/ },
@@ -12921,16 +12895,34 @@
 	(function () {
 	    'use strict';
 	
-	    $(".forum-answer__vote").on('click', function(e){
-	        e.preventDefault();
+	    var submitVote = function(guid, type, updateElement) {
+	        elgg.action('rijkshuisstijl/vote', {
+	          data: {
+	            guid: guid,
+	            type: type
+	          },
+	          success: function (response) {
+	            if (response.status == 0) {
+	                if (type == "upvote") {
+	                    var newValue = parseInt(updateElement.text()) + 1;
+	                } else if (type == "downvote") {
+	                    var newValue = parseInt(updateElement.text()) - 1;
+	                }
 	
-	        if($(this).hasClass("active")){
-	            $(this).removeClass("active");
-	        } else {
-	            $(this).siblings(".forum-answer__vote").removeClass("active");
-	            $(this).addClass("active");
-	        }
+	                updateElement.text(newValue);
+	            }
+	          }
+	        });
+	    };
+	
+	    $("[data-vote-up]").on('click', function(e) {
+	        submitVote($(this).data('guid'), "upvote", $(this).parent().children("span"));
 	    });
+	
+	    $("[data-vote-down]").on('click', function(e) {
+	        submitVote($(this).data('guid'), "downvote", $(this).parent().children("span"));
+	    })
+	
 	})();
 
 /***/ },
