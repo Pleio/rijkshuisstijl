@@ -37,8 +37,6 @@ if (elgg_instanceof($page_owner, 'group')) {
   elgg_push_breadcrumb($page_owner->name, $url);
 }
 
-elgg_push_breadcrumb($entity->title);
-
 $body = elgg_view_layout('one_column', array(
     'class' => 'rhs-card-user-content',
     'content' => elgg_view('questions/pages/detail', array(
