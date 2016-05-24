@@ -29,7 +29,7 @@ if ($user) {
             foreach (rijkshuisstijl_get_latest_objects_from_group('question', $group) as $question)
               echo elgg_view("rijkshuisstijl/elements/forum_question_row", array('question' => $question));
           ?>
-          <a href="/forum/category/<?php echo $group->guid ?>" title="Bekijk alles" class="rhs-read-more rhs-card-list__read-more">
+          <a href="/forum/all?topic=<?php echo $group->guid ?>" title="Bekijk alles" class="rhs-read-more rhs-card-list__read-more">
             <span class="rhs-icon-arrow-right-circle rhs-read-more__icon"></span>Alles
           </a>
         </div>

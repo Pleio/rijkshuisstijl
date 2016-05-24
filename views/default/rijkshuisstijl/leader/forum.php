@@ -1,6 +1,6 @@
 <?php
 $site = elgg_get_site_entity();
-$users_online = count(find_active_users()); echo $users_oline
+$users_online = count(find_active_users());
 ?>
 
 <div class="rhs-lead rhs-lead--forum">

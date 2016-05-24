@@ -133,8 +133,8 @@ function rijkshuisstijl_profile_page_handler($page) {
  */
 function rijkshuisstijl_forum_page_handler($page) {
 	switch ($page[0]) {
-		case "category":
-			require dirname(__FILE__) . "/pages/forum/category.php";
+		case "all":
+			require dirname(__FILE__) . "/pages/forum/all.php";
 			return true;
 		default:
 			require dirname(__FILE__) . "/pages/forum/index.php";

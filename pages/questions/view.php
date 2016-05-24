@@ -33,7 +33,7 @@ if ($workflow == true) {
 }
 
 if (elgg_instanceof($page_owner, 'group')) {
-  $url = "forum/category/$page_owner->guid/";
+  $url = "forum/all?topic=$page_owner->guid";
   elgg_push_breadcrumb($page_owner->name, $url);
 }
 
