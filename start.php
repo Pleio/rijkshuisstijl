@@ -132,33 +132,14 @@ function rijkshuisstijl_profile_page_handler($page) {
  * @return bool
  */
 function rijkshuisstijl_forum_page_handler($page) {
-	$action = NULL;
-	if (isset($page[0])) {
-		$action = $page[0];
+	switch ($page[0]) {
+		case "category":
+			require dirname(__FILE__) . "/pages/forum/category.php";
+			return true;
+		default:
+			require dirname(__FILE__) . "/pages/forum/index.php";
+			return true;
 	}
-
-	if ($action == "category")
-	{
-		if (isset($page[1]))
-			$category = $page[1];
-		else
-			$category = '';
-
-		if (isset($page[2]))
-			$page = $page[2];
-		else
-			$page = 1;
-
-		require dirname(__FILE__) . "/pages/forum/category.php";
-		return true;
-	}
-	else
-	{
-		require dirname(__FILE__) . "/pages/forum/index.php";
-		return true;
-	}
-
-	return true;
 }
 
 function rijkshuisstijl_topics_page_handler($page) {
