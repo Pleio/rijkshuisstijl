@@ -122,7 +122,6 @@ jQuery(document).ready(function () {
     jQuery('#passwordChangeForm').submit(function (event) {
         event.preventDefault();
         
-        gUsername
         elgg.action('rijkshuisstijl/profile/changepassword', {
             data: {
               username: gUsername,
@@ -131,12 +130,7 @@ jQuery(document).ready(function () {
               newPasswordValidation: jQuery('#newPasswordValidation').val()
             },
             success: function (wrapper) {
-              if (wrapper.output) {
-                if (wrapper.output.success == false)
-                  alert('An error occurred setting the value.');
-              } else {
-                // the system prevented the action from running
-              }
+              location.reload();
             }
         });
     });
@@ -160,34 +154,39 @@ jQuery(document).ready(function () {
             value: JSON.stringify(interests)
           },
           success: function (wrapper) {
-            if (wrapper.output) {
-              if (wrapper.output.success == false)
-                alert('An error occurred setting the value.');
-            } else {
-              // the system prevented the action from running
-            }
+
           }
         })}, 100);
     });
 
-    $('#option-1, #option-2').click(function ()
+    $('#option-1').click(function ()
     {
-        setTimeout(function () {
-        elgg.action('rijkshuisstijl/profile/setprofilefield', {
+      setTimeout(function () {
+        elgg.action('/action/notificationsettings/save', {
           data: {
-            username: gUsername,
-            name: 'notifications',
-            value: '[ ' + $('#option-1').parent().hasClass('chosen') + ', ' + $('#option-2').parent().hasClass('chosen') + ' ]'
+            guid: gUserGuid,
+            emailpersonal: $('#option-1').parent().hasClass('chosen') ? "1" : "0"
           },
           success: function (wrapper) {
-            if (wrapper.output) {
-              if (wrapper.output.success == false)
-                alert('An error occurred setting the value.');
-            } else {
-              // the system prevented the action from running
-            }
+
           }
-        })}, 100);
+        })
+      }, 100);
+    });
+
+    $('#option-2').click(function ()
+    {
+      setTimeout(function () {
+        elgg.action('/action/newsletter/subscribe', {
+          data: {
+            user_guid: gUserGuid,
+            guid: gElggSiteGuid
+          },
+          success: function (wrapper) {
+
+          }
+        })
+      }, 100);
     });
 
     $('#emailChangeForm').submit(function (event) {
@@ -200,12 +199,7 @@ jQuery(document).ready(function () {
             value: '"' + $('#emailAddress').val() + '"'
           },
           success: function (wrapper) {
-            if (wrapper.output) {
-              if (wrapper.output.success == false)
-                alert('An error occurred setting the value.');
-            } else {
-              // the system prevented the action from running
-            }
+
           }
         });
     });
@@ -310,5 +304,47 @@ jQuery(document).ready(function () {
             }
           }
         });
+    });
+
+    $('#taalinstellingen').change(function () {
+      
+      elgg.action('rijkshuisstijl/profile/setprofilefield', {
+        data: {
+          username: gUsername,
+          name: 'language',
+          value: '"' + $(this).val() + '"'
+        },
+        success: function (wrapper) {
+          location.reload();
+        }
+      });
+    });
+
+    $('select[name="groupNotifications"]').change(function () {
+      var groupGuid = $(this).attr('group-id');
+      var value = $(this).val();
+
+      setTimeout(function () {
+        elgg.action('/action/digest/update/usersettings', {
+          data: {
+            user_guid: gUserGuid,
+            "digest": {
+              [groupGuid]: value
+            }
+          },
+          success: function (wrapper) {
+            
+          }
+        });
+      }, 100);
+
+      elgg.action('/action/notificationsettings/groupsave', {
+        data: {
+          guid: gUserGuid
+        },
+        success: function (wrapper) {
+
+        }
+      });
     });
 });

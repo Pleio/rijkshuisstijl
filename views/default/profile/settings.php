@@ -89,9 +89,11 @@ if (!$editable)
               <p class="rhs-form__element rhs-form__element--small-padding">
                 <label class="rhs-form__label">
                   <select name="taal" id="taalinstellingen" data-label="custom" class="selecter-default">
-                    <option value="1" selected="selected">Nederlands</option>
-                    <option value="2">Engels</option>
-                    <option value="3">Frans</option>
+                    <?php
+                      $validLanguages = array("nl" => "Nederlands", "en" => "English", "fr" => "Francais");
+                      foreach ($validLanguages as $validLanguage => $languageDescription)
+                        echo '<option value="' . $validLanguage . '" ' . ($validLanguage == $targetUser->language ? 'selected' : '') . '>' . $languageDescription . '</option>';
+                    ?>
                   </select>
                 </label>
               </p>

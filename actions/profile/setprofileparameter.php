@@ -51,7 +51,14 @@
 	    	break;
 	}
 
-	echo json_encode([
-    	'success' => $success
-	]);
+	if ($success)
+	{
+		system_message(sprintf(elgg_echo('rijkshuisstijl:profile:field:success'), $name));
+		forward();
+	}
+	else
+	{
+		register_error(sprintf(elgg_echo('rijkshuisstijl:profile:field:invalid'), $name));
+	  	forward();	
+	}
 ?>

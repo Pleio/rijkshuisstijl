@@ -39,6 +39,8 @@
 
 <script type="text/javascript">
   var gUsername = '<?php echo $username ?>';
+  var gUserGuid = '<?php echo $targetUser->guid ?>';
+  var gElggSiteGuid = '<?php echo elgg_get_site_entity()->getGUID(); ?>';
 </script>
 
 <div class="rhs-container">
@@ -72,12 +74,15 @@
             <h2 class="rhs-profile-block__title">Notificaties </h2>
             <p class="rhs-form__element rhs-form__element--no-padding">
               <label for="option-1" class="rhs-checkbox rhs-checkbox--theme">
-                <input type="checkbox" id="option-1" name="options-1" <?php echo $notifications[0] ? "checked" : "" ?> class="rhs-checkbox__input js-validateCheckbox"><span class="rhs-checkbox__placeholder"></span>Ontvang een melding als iemand op jou reageert
+                <?php 
+                  $notificationSettings = get_user_notification_settings($targetUser->guid);
+                ?>
+                <input type="checkbox" id="option-1" name="options-1" <?php echo $notificationSettings->email == 1 ? "checked" : "" ?> class="rhs-checkbox__input js-validateCheckbox"><span class="rhs-checkbox__placeholder"></span>Ontvang een melding als iemand op jou reageert
               </label>
             </p>
             <p class="rhs-form__element rhs-form__element--no-padding">
               <label for="option-2" class="rhs-checkbox rhs-checkbox--theme">
-                <input type="checkbox" id="option-2" name="options-2" <?php echo $notifications[1] ? "checked" : "" ?> class="rhs-checkbox__input"><span class="rhs-checkbox__placeholder"></span>Ik wil de site nieuwsbrief ontvangen
+                <input type="checkbox" id="option-2" name="options-2" <?php echo newsletter_check_user_subscription($targetUser, elgg_get_site_entity()) ? "checked" : "" ?> class="rhs-checkbox__input"><span class="rhs-checkbox__placeholder"></span>Ik wil de site nieuwsbrief ontvangen
               </label>
             </p>
           </div>
@@ -93,90 +98,43 @@
           </div>
         </div>
         <div class="rhs-row">
-          <div class="rhs-col-md-4 rhs-col-sm-6">
-            <p class="rhs-form__element">
-              <label class="rhs-form__label"><span class="rhs-form__label-text">Inkomstenbelasting</span>
-                <select name="thema" id="inkomstenbelasting" data-label="custom" class="selecter-default elgg-input-dropdown">
-                  <option value="" disabled>Geef uw voorkeur</option>
-                  <option value="1">Geen</option>
-                  <option value="2" selected="selected">Dagelijks</option>
-                  <option value="3">Wekelijks</option>
-                  <option value="4">Tweewekelijks</option>
-                  <option value="4">Maandelijks</option>
-                </select>
-              </label>
-            </p>
-            <p class="rhs-form__element rhs-form__element--small-padding">
-              <label class="rhs-form__label"><span class="rhs-form__label-text">Open Forum</span>
-                <select name="thema" id="open-forum" data-label="custom" class="selecter-default elgg-input-dropdown">
-                  <option value="" disabled>Geef uw voorkeur</option>
-                  <option value="1">Geen</option>
-                  <option value="2" selected="selected">Dagelijks</option>
-                  <option value="3">Wekelijks</option>
-                  <option value="4">Tweewekelijks</option>
-                  <option value="4">Maandelijks</option>
-                </select>
-              </label>
-            </p>
-          </div>
-          <div class="rhs-col-md-4 rhs-col-sm-6">
-            <p class="rhs-form__element">
-              <label class="rhs-form__label"><span class="rhs-form__label-text">Loonheffingen</span>
-                <select name="thema" id="loonheffingen" data-label="custom" class="selecter-default elgg-input-dropdown">
-                  <option value="" disabled>Geef uw voorkeur</option>
-                  <option value="1">Geen</option>
-                  <option value="2" selected="selected">Dagelijks</option>
-                  <option value="3">Wekelijks</option>
-                  <option value="4">Tweewekelijks</option>
-                  <option value="4">Maandelijks</option>
-                </select>
-              </label>
-            </p>
-            <p class="rhs-form__element rhs-form__element--small-padding">
-              <label class="rhs-form__label"><span class="rhs-form__label-text">Toeslagen</span>
-                <select name="thema" id="toeslagen" data-label="custom" class="selecter-default elgg-input-dropdown">
-                  <option value="" disabled>Geef uw voorkeur</option>
-                  <option value="1">Geen</option>
-                  <option value="2" selected="selected">Dagelijks</option>
-                  <option value="3">Wekelijks</option>
-                  <option value="4">Tweewekelijks</option>
-                  <option value="4">Maandelijks</option>
-                </select>
-              </label>
-            </p>
-          </div>
-          <div class="rhs-col-md-4">
-            <div class="rhs-row">
-              <div class="rhs-col-sm-6 rhs-col-md-12">
-                <p class="rhs-form__element">
-                  <label class="rhs-form__label"><span class="rhs-form__label-text">Omzetbelasting</span>
-                    <select name="thema" id="omzetbelasting" data-label="custom" class="selecter-default elgg-input-dropdown">
-                      <option value="" disabled>Geef uw voorkeur</option>
-                      <option value="1">Geen</option>
-                      <option value="2" selected="selected">Dagelijks</option>
-                      <option value="3">Wekelijks</option>
-                      <option value="4">Tweewekelijks</option>
-                      <option value="4">Maandelijks</option>
-                    </select>
-                  </label>
-                </p>
-              </div>
-              <div class="rhs-col-sm-6 rhs-col-md-12">
-                <p class="rhs-form__element rhs-form__element--small-padding">
-                  <label class="rhs-form__label"><span class="rhs-form__label-text">Vennootschapsbelasting</span>
-                    <select name="thema" id="vennootschapsbelasting" data-label="custom" class="selecter-default elgg-input-dropdown">
-                      <option value="">Geef uw voorkeur</option>
-                      <option value="1">Geen</option>
-                      <option value="2">Dagelijks</option>
-                      <option value="3">Wekelijks</option>
-                      <option value="4">Tweewekelijks</option>
-                      <option value="4">Maandelijks</option>
-                    </select>
-                  </label>
-                </p>
-              </div>
+          <?php
+            $groups = rijkshuisstijl_get_featured_groups();
+            $groupCountPerColumn = ceil(count($groups) / 3);
+            $groupIndex = 0;
+
+            for ($i = 0; $i < 3; $i++) :
+              if ($groupIndex >= count($groups))
+                break;
+          ?>
+            <div class="rhs-col-md-4 rhs-col-sm-6">
+              <?php
+                for ($j = 0; $j < $groupCountPerColumn; $j++) :
+                  if ($groupIndex >= count($groups))
+                    break;
+
+                  $group = $groups[$groupIndex++];
+                  $interval = $targetUser->getPrivateSetting("digest_" . $group->guid);
+              ?>
+                  <p class="rhs-form__element">
+                    <label class="rhs-form__label"><span class="rhs-form__label-text"><?php echo $group->name ?></span>
+                      <select name="groupNotifications" group-id="<?php echo $group->guid ?>" data-label="custom" class="selecter-default elgg-input-dropdown">
+                        <option value="" disabled>Geef uw voorkeur</option>
+                        <option value="none" <?php echo $interval == 'none' ? 'selected' : '' ?>>Geen</option>
+                        <option value="daily" <?php echo $interval == 'daily' ? 'selected' : '' ?>>Dagelijks</option>
+                        <option value="weekly" <?php echo $interval == 'weekly' ? 'selected' : '' ?>>Wekelijks</option>
+                        <option value="fortnightly" <?php echo $interval == 'fortnightly' ? 'selected' : '' ?>>Tweewekelijks</option>
+                        <option value="monthly" <?php echo $interval == 'monthly' ? 'selected' : '' ?>>Maandelijks</option>
+                      </select>
+                    </label>
+                  </p>
+              <?php
+                endfor;
+              ?>
             </div>
-          </div>
+          <?php
+            endfor;
+          ?>
         </div>
       </div>
     </div>

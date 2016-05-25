@@ -43,10 +43,21 @@ $english = array(
     'rijkshuisstijl:register:password:error' => 'Fill in a valid password',
     'rijkshuisstijl:register:password:enter_again' => 'Please enter your password again',
     'rijkshuisstijl:register:password_again:error' => 'The password is not the same as above',
+    'rijkshuisstijl:password:change:sameasold' => 'The new password cannot be the same as the current password',
     'rijkshuisstijl:videos:all_chapters' => 'All chapters',
     'rijkshuisstijl:enable_plugin' => 'Please enable plugin %s',
     'rijkshuisstijl:videos:play' => 'Play video',
-    'rijkshuisstijl:videos:close' => 'Close overview'
+    'rijkshuisstijl:videos:close' => 'Close overview',
+    'rijkshuisstijl:profile:field:invalid' => "Field '%s' is not a valid field.",
+    'rijkshuisstijl:profile:field:success' => "Field '%s' has successfully been changed.",
+    'rijkshuisstijl:profile' => 'Profile',
+    'rijkshuisstijl:profile:questionsasked' => 'Questions asked',
+    'rijkshuisstijl:profile:answersgiven' => 'Answers given',
+    'rijkshuisstijl:profile:upvotes' => 'Up votes',
+    'rijkshuisstijl:profile:downvotes' => 'Down votes',
+    'rijkshuisstijl:profile:worklocation' => 'Work location',
+    'rijkshuisstijl:profile:interests' => 'Interests',
+    'rijkshuisstijl:profile:settings' => 'Settings',
 );
 
 add_translation('en', $english);

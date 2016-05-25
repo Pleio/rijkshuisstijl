@@ -30,10 +30,11 @@
 	$name = get_input("name");
 	$value = get_input("value");
 
-	$validFields = array('aboutme', 'interests', 'notifications', 'email');
+	$validFields = array('aboutme', 'interests', 'notifications', 'email', 'language');
+
 	if (!in_array($name, $validFields))
 	{
-	    register_error('Invalid field!');
+	    register_error(sprintf(elgg_echo('rijkshuisstijl:profile:field:invalid'), $name));
 	    forward();
 	}
 
@@ -47,11 +48,15 @@
 			$obj = array(intval($obj[0]));
 		}
 	}
+	else if ($name == 'language')
+	{
+		if ($val != "nl" && $val != "en" && $val != "fr")
+			$val = "nl";
+	}
 
 	$targetUser->$name = $obj;
 	$targetUser->save();
 
-	echo json_encode([
-    	'success' => true
-	]);
+	system_message(sprintf(elgg_echo('rijkshuisstijl:profile:field:success'), $name));
+	forward();
 ?>

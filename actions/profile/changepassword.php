@@ -33,23 +33,34 @@
 
 	$categories = profile_manager_get_categorized_fields($targetUser, true);
 
-	$success = false;
-
-	$passHash = generate_user_password($targetUser, $currentPassword);
-	
-	if ($currentPassword != $newPassword && $newPassword == $newPasswordValidation && validate_password($newPassword) && $targetUser->password == $passHash)
+	if ($currentPassword == $newPassword)
 	{
-		$ia = elgg_set_ignore_access();
-
-		$targetUser->salt = generate_random_cleartext_password();
-		$hash = generate_user_password($targetUser, $newPassword);
-		$targetUser->password = $hash;
-		$success = (bool)$targetUser->save();
-
-		elgg_set_ignore_access($ia);
+		register_error(elgg_echo('rijkshuisstijl:password:change:sameasold'));
+	  	forward();
 	}
 
-	echo json_encode([
-    	'success' => $success
-	]);
+	if ($newPassword != $newPasswordValidation)
+	{
+		register_error(elgg_echo('user:password:fail:notsame'));
+	  	forward();
+	}
+
+	if (!validate_password($newPassword))
+	{
+		register_error(elgg_echo('registration:passwordnotvalid'));
+	  	forward();	
+	}
+
+	$result = elgg_authenticate($targetUser->username, $currentPassword);
+	if ($result !== true) 
+	{
+		register_error(elgg_echo('user:password:fail:incorrect_current_password'));
+		forward();
+	}
+
+	$targetUser->setPassword($newPassword);
+	$targetUser->save();
+	
+	system_message(elgg_echo('user:password:success'));
+	forward();
 ?>

@@ -43,10 +43,13 @@ $dutch = array(
     'rijkshuisstijl:register:password:error' => 'Vul een geldig wachtwoord in',
     'rijkshuisstijl:register:password:enter_again' => 'Vul je wachtwoord nogmaals in',
     'rijkshuisstijl:register:password_again:error' => 'Wachtwoord verificatie komt niet overeen met je wachtwoord',
+    'rijkshuisstijl:password:change:sameasold' => 'Het nieuwe wachtwoord kan niet hetzelfde zijn als het oude wachtwoord',
     'rijkshuisstijl:enable_plugin' => 'Activeer plugin %s om deze module te bekijken',
     'rijkshuisstijl:videos:all_chapters' => 'Alle hoofdstukken',
     'rijkshuisstijl:videos:play' => 'Speel video',
-    'rijkshuisstijl:videos:close' => 'Sluit overzicht'
+    'rijkshuisstijl:videos:close' => 'Sluit overzicht',
+    'rijkshuisstijl:profile:field:invalid' => "Het veld '%s' is geen geldig veld.",
+    'rijkshuisstijl:profile:field:success' => "Het veld '%s' is succesvol veranderd.",
 );
 
 add_translation('nl', $dutch);

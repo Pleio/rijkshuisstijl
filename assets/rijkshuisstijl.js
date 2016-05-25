@@ -168,7 +168,6 @@
 	    jQuery('#passwordChangeForm').submit(function (event) {
 	        event.preventDefault();
 	        
-	        gUsername
 	        elgg.action('rijkshuisstijl/profile/changepassword', {
 	            data: {
 	              username: gUsername,
@@ -177,12 +176,7 @@
 	              newPasswordValidation: jQuery('#newPasswordValidation').val()
 	            },
 	            success: function (wrapper) {
-	              if (wrapper.output) {
-	                if (wrapper.output.success == false)
-	                  alert('An error occurred setting the value.');
-	              } else {
-	                // the system prevented the action from running
-	              }
+	              location.reload();
 	            }
 	        });
 	    });
@@ -206,34 +200,39 @@
 	            value: JSON.stringify(interests)
 	          },
 	          success: function (wrapper) {
-	            if (wrapper.output) {
-	              if (wrapper.output.success == false)
-	                alert('An error occurred setting the value.');
-	            } else {
-	              // the system prevented the action from running
-	            }
+	
 	          }
 	        })}, 100);
 	    });
 	
-	    $('#option-1, #option-2').click(function ()
+	    $('#option-1').click(function ()
 	    {
-	        setTimeout(function () {
-	        elgg.action('rijkshuisstijl/profile/setprofilefield', {
+	      setTimeout(function () {
+	        elgg.action('/action/notificationsettings/save', {
 	          data: {
-	            username: gUsername,
-	            name: 'notifications',
-	            value: '[ ' + $('#option-1').parent().hasClass('chosen') + ', ' + $('#option-2').parent().hasClass('chosen') + ' ]'
+	            guid: gUserGuid,
+	            emailpersonal: $('#option-1').parent().hasClass('chosen') ? "1" : "0"
 	          },
 	          success: function (wrapper) {
-	            if (wrapper.output) {
-	              if (wrapper.output.success == false)
-	                alert('An error occurred setting the value.');
-	            } else {
-	              // the system prevented the action from running
-	            }
+	
 	          }
-	        })}, 100);
+	        })
+	      }, 100);
+	    });
+	
+	    $('#option-2').click(function ()
+	    {
+	      setTimeout(function () {
+	        elgg.action('/action/newsletter/subscribe', {
+	          data: {
+	            user_guid: gUserGuid,
+	            guid: gElggSiteGuid
+	          },
+	          success: function (wrapper) {
+	
+	          }
+	        })
+	      }, 100);
 	    });
 	
 	    $('#emailChangeForm').submit(function (event) {
@@ -246,12 +245,7 @@
 	            value: '"' + $('#emailAddress').val() + '"'
 	          },
 	          success: function (wrapper) {
-	            if (wrapper.output) {
-	              if (wrapper.output.success == false)
-	                alert('An error occurred setting the value.');
-	            } else {
-	              // the system prevented the action from running
-	            }
+	
 	          }
 	        });
 	    });
@@ -356,6 +350,48 @@
 	            }
 	          }
 	        });
+	    });
+	
+	    $('#taalinstellingen').change(function () {
+	      
+	      elgg.action('rijkshuisstijl/profile/setprofilefield', {
+	        data: {
+	          username: gUsername,
+	          name: 'language',
+	          value: '"' + $(this).val() + '"'
+	        },
+	        success: function (wrapper) {
+	          location.reload();
+	        }
+	      });
+	    });
+	
+	    $('select[name="groupNotifications"]').change(function () {
+	      var groupGuid = $(this).attr('group-id');
+	      var value = $(this).val();
+	
+	      setTimeout(function () {
+	        elgg.action('/action/digest/update/usersettings', {
+	          data: {
+	            user_guid: gUserGuid,
+	            "digest": {
+	              [groupGuid]: value
+	            }
+	          },
+	          success: function (wrapper) {
+	            
+	          }
+	        });
+	      }, 100);
+	
+	      elgg.action('/action/notificationsettings/groupsave', {
+	        data: {
+	          guid: gUserGuid
+	        },
+	        success: function (wrapper) {
+	
+	        }
+	      });
 	    });
 	});
 
@@ -13733,9 +13769,6 @@
 	var queueIndex = -1;
 	
 	function cleanUpNextTick() {
-	    if (!draining || !currentQueue) {
-	        return;
-	    }
 	    draining = false;
 	    if (currentQueue.length) {
 	        queue = currentQueue.concat(queue);
@@ -16250,8 +16283,8 @@
 /* 170 */
 /***/ function(module, exports) {
 
-	'use strict';
 	/* eslint-disable no-unused-vars */
+	'use strict';
 	var hasOwnProperty = Object.prototype.hasOwnProperty;
 	var propIsEnumerable = Object.prototype.propertyIsEnumerable;
 	
@@ -16263,51 +16296,7 @@
 		return Object(val);
 	}
 	
-	function shouldUseNative() {
-		try {
-			if (!Object.assign) {
-				return false;
-			}
-	
-			// Detect buggy property enumeration order in older V8 versions.
-	
-			// https://bugs.chromium.org/p/v8/issues/detail?id=4118
-			var test1 = new String('abc');  // eslint-disable-line
-			test1[5] = 'de';
-			if (Object.getOwnPropertyNames(test1)[0] === '5') {
-				return false;
-			}
-	
-			// https://bugs.chromium.org/p/v8/issues/detail?id=3056
-			var test2 = {};
-			for (var i = 0; i < 10; i++) {
-				test2['_' + String.fromCharCode(i)] = i;
-			}
-			var order2 = Object.getOwnPropertyNames(test2).map(function (n) {
-				return test2[n];
-			});
-			if (order2.join('') !== '0123456789') {
-				return false;
-			}
-	
-			// https://bugs.chromium.org/p/v8/issues/detail?id=3056
-			var test3 = {};
-			'abcdefghijklmnopqrst'.split('').forEach(function (letter) {
-				test3[letter] = letter;
-			});
-			if (Object.keys(Object.assign({}, test3)).join('') !==
-					'abcdefghijklmnopqrst') {
-				return false;
-			}
-	
-			return true;
-		} catch (e) {
-			// We don't expect any of the above to throw, but better to be safe.
-			return false;
-		}
-	}
-	
-	module.exports = shouldUseNative() ? Object.assign : function (target, source) {
+	module.exports = Object.assign || function (target, source) {
 		var from;
 		var to = toObject(target);
 		var symbols;
