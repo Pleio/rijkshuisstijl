@@ -36,21 +36,22 @@ function rijkshuisstijl_get_interests($user) {
     return array();
 }
 
-function rijkshuisstijl_get_num_answers($question)
-{
-  $answerOptions = array(
-    "type" => "object",
-    "subtype" => "answer",
-    "container_guid" => $question->getGUID(),
-    "count" => true
-  );
+function rijkshuisstijl_get_votes(ElggObject $entity) {
+    $result = elgg_get_annotations(array(
+        'guid' => $entity->guid,
+        'annotation_name' => 'vote',
+        'annotation_calculation' => 'sum',
+        'limit' => false
+    ));
 
-  $numAnswers = elgg_get_entities($answerOptions);
-  return $numAnswers;
+    if ($result) {
+        return (int) $result;
+    }
+
+    return 0;
 }
 
-function rijkshuisstijl_get_news_leader() 
-{
+function rijkshuisstijl_get_news_leader() {
     $leader = elgg_get_entities_from_metadata(array(
         'type' => 'object',
         'subtype' => 'news',
@@ -66,9 +67,9 @@ function rijkshuisstijl_get_news_leader()
 
     if (count($leader) == 1) {
         return $leader[0];
-    } else {
-        return null;
     }
+
+    return null;
 }
 
 ?>

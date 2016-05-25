@@ -5,6 +5,12 @@ $full_view = elgg_extract('full_view', $vars, false);
 $poster = $entity->getOwnerEntity();
 $title = elgg_echo("pinboard:purpose:" . $entity->purpose) . " " . $entity->title;
 $count = $entity->countComments();
+
+if ($entity->canEdit()) {
+  $onclick = "onclick=\"location.href = '/pinboard/edit/" . $entity->guid . "'\"";
+} else {
+  $onclick = '';
+}
 ?>
 
 <?php if ($full_view): ?>
@@ -20,11 +26,11 @@ $count = $entity->countComments();
       <span><?php echo elgg_view_friendly_time($entity->time_created); ?></span>
     </div>
   </div>
-  <div class="rhs-card-user-content__content">
+  <div class="rhs-card-user-content__content <?php echo ($entity->canEdit()) ? "editable": "" ?>" <?php echo $onclick; ?>>
     <?php echo $entity->description; ?>
   </div>
   <div class="rhs-card-user-content__options">
-    <button title="Geef antwoord" data-forum-answer-toggle="" class="rhs-button rhs-button--with-icon">
+    <button title="Geef antwoord" data-forum-answer-toggle class="rhs-button rhs-button--with-icon">
       <span class="rhs-icon-pencil"></span><?php echo elgg_echo("rijkshuisstijl:answer"); ?>
     </button>
     <div class="rhs-card-user-content__mobile-top">

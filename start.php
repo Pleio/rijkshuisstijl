@@ -25,7 +25,7 @@ function rijkshuisstijl_init() {
     elgg_register_plugin_hook_handler("route", "pages", "rijkshuisstijl_route_pages_hook", 100);
     elgg_register_plugin_hook_handler("route", "profile", "rijkshuisstijl_route_profile_hook", 100);
 
-    elgg_register_css('rijkshuisstijl', '/mod/rijkshuisstijl/assets/rijkshuisstijl.css');
+    elgg_register_css('rijkshuisstijl', '/mod/rijkshuisstijl/assets/rijkshuisstijl.css', 500);
 	elgg_register_js('rijkshuisstijl', '/mod/rijkshuisstijl/assets/rijkshuisstijl.js', "footer");
 
     elgg_register_css('splash', '/mod/rijkshuisstijl/assets/splash.css');
@@ -67,7 +67,7 @@ function rijkshuisstijl_init() {
 	elgg_register_action("rijkshuisstijl/profile/changepassword", dirname(__FILE__) . "/actions/profile/changepassword.php");
 	elgg_register_action("rijkshuisstijl/profile/setprofilefield", dirname(__FILE__) . "/actions/profile/setprofilefield.php");
 	elgg_register_action("rijkshuisstijl/search", dirname(__FILE__) . "/actions/search.php");
-	elgg_register_action("rijkshuisstijl/questions/vote", dirname(__FILE__) . "/actions/questions/vote.php");
+	elgg_register_action("rijkshuisstijl/vote", dirname(__FILE__) . "/actions/vote.php");
 }
 
 /**
@@ -132,33 +132,14 @@ function rijkshuisstijl_profile_page_handler($page) {
  * @return bool
  */
 function rijkshuisstijl_forum_page_handler($page) {
-	$action = NULL;
-	if (isset($page[0])) {
-		$action = $page[0];
+	switch ($page[0]) {
+		case "all":
+			require dirname(__FILE__) . "/pages/forum/all.php";
+			return true;
+		default:
+			require dirname(__FILE__) . "/pages/forum/index.php";
+			return true;
 	}
-
-	if ($action == "category")
-	{
-		if (isset($page[1]))
-			$category = $page[1];
-		else
-			$category = '';
-
-		if (isset($page[2]))
-			$page = $page[2];
-		else
-			$page = 1;
-
-		require dirname(__FILE__) . "/pages/forum/category.php";
-		return true;
-	}
-	else
-	{
-		require dirname(__FILE__) . "/pages/forum/index.php";
-		return true;
-	}
-
-	return true;
 }
 
 function rijkshuisstijl_topics_page_handler($page) {

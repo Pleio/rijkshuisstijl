@@ -15,6 +15,7 @@ require("./default/dropdown.js");
 require("./default/editable-field.js");
 require("./default/editable-text.js");
 require("./default/form.js");
+require("./default/forum-answer-block.js");
 require("./default/forum-answer-vote.js");
 require("./default/mobile-menu.js");
 require("./default/mobile-nav-sub-menu.js");
@@ -204,33 +205,7 @@ jQuery(document).ready(function () {
         });
     });
 
-    $('#answerButton').click(function (event) {
-        event.preventDefault();
-        
-        elgg.action('object/answer/add', {
-          data: {
-            description: $('#answerText').val(),
-            container_guid: gQuestion,
-            guid: ''
-          },
-          success: function (wrapper) {
-            location.reload();
-          }
-        });
-    });
-
-    $('#answerToggle').click(function (event){
-        event.preventDefault();
-
-        var blk = $('#answerEditBlock');
-        var display = blk.css('display');
-        if (display == 'none')
-            blk.css('display', 'block');
-        else
-            blk.css('display', 'none');
-    });
-
-    $('.rhs-reaction__upvote').click(function (event){
+    /*$('.rhs-reaction__upvote').click(function (event){
         event.preventDefault();
 
         var triggeringElement = $(this);
@@ -304,7 +279,7 @@ jQuery(document).ready(function () {
             }
           }
         });
-    });
+    });*/
 
     $('#taalinstellingen').change(function () {
       

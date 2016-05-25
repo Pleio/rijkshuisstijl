@@ -6,24 +6,24 @@
  */
 
 $guid = (int) get_input('guid');
-$question = get_entity($guid);
+$entity = get_entity($guid);
 
 // make sure we have access
-if (empty($question)) {
+if (empty($entity)) {
   register_error(elgg_echo('noaccess'));
   $_SESSION['last_forward_from'] = current_page_url();
   forward('');
 }
 
 // make sure we have a question
-if (empty($question) || !elgg_instanceof($question, "object", "question")) {
+if (empty($entity) || !elgg_instanceof($entity, "object", "question")) {
 	register_error(elgg_echo("ClassException:ClassnameNotClass", array($guid, elgg_echo("item:object:question"))));
 	forward(REFERER);
 }
 
 // set page owner
-elgg_set_page_owner_guid($question->getContainerGUID());
-$page_owner = $question->getContainerEntity();
+elgg_set_page_owner_guid($entity->getContainerGUID());
+$page_owner = $entity->getContainerEntity();
 
 // set breadcrumb
 elgg_push_breadcrumb(elgg_echo('questions'), "/forum");
@@ -33,56 +33,15 @@ if ($workflow == true) {
 }
 
 if (elgg_instanceof($page_owner, 'group')) {
-  $url = "forum/category/$page_owner->guid/";
+  $url = "forum/all?topic=$page_owner->guid";
   elgg_push_breadcrumb($page_owner->name, $url);
 }
 
-elgg_push_breadcrumb($question->title);
-
-// build page elements
-$title_icon = "";
-
-$content = elgg_view_entity($question, array('full_view' => true));
-
-// add the rest of the answers
-$options = array(
-	'type' => 'object',
-	'subtype' => 'answer',
-	'container_guid' => $question->guid,
-	'count' => true,
-	'limit' => false,
-	'order_by' => 'e.time_created',
-	'pagination' => false
-);
-
-if (elgg_is_active_plugin("likes")) {
-	// order answers based on likes
-	$dbprefix = elgg_get_config("dbprefix");
-	$likes_id = add_metastring("likes");
-	
-	$options["selects"] = array(
-		"(SELECT count(a.name_id) AS likes_count
-		FROM " . $dbprefix . "annotations a
-		WHERE a.entity_guid = e.guid
-		AND a.name_id = " . $likes_id . ") AS likes_count");
-}
-
-$answers = elgg_list_entities($options);
-$count = elgg_get_entities($options);
-
-$answer_title = $content .= '<div class="rhs-card-user-content__amount"><span>' . $count . '</span> ' . ($count == 1 ? 'antwoord' : 'antwoorden') . '</div>' . $answers;
-//$content .= elgg_view_module('info', $answer_title, $answers, array("class" => "mtm ffd-answers"));
-
-// switch to go from frontend to backend
-if (questions_workflow_enabled() && questions_is_expert()) {
-  $overview = elgg_view('questions/overview', array('question'=>$question));
-} else {
-  $overview = "";
-}
-
-$body = elgg_view_layout('content', array(
-	'content' => $overview . $content,
-	'filter' => '',
+$body = elgg_view_layout('one_column', array(
+    'class' => 'rhs-card-user-content',
+    'content' => elgg_view('questions/pages/detail', array(
+        'entity' => $entity
+    ))
 ));
 
 echo elgg_view_page($title, $body);

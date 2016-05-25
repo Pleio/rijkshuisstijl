@@ -3,10 +3,11 @@ $entity = $vars['entity'];
 $poster = $entity->getOwnerEntity();
 
 if ($entity->canEdit()) {
-  $onclick = "onclick=\"location.href = '/answers/edit/" . $entity->guid . "'\"";
+  $onclick = "onclick=\"location.href = '/comment/edit/" . $entity->guid . "'\"";
 } else {
   $onclick = '';
 }
+
 ?>
 
 <div class="rhs-reaction">
@@ -28,13 +29,13 @@ if ($entity->canEdit()) {
       <div class="rhs-reaction__vote-up-down">
         <p class="rhs-vote-up-down">
           <button data-vote-up title="<?php echo elgg_echo("rijkshuisstijl:vote:up"); ?>" class="rhs-vote-up-down__control __up" data-guid="<?php echo $entity->guid ?>">
-          	<?php echo elgg_echo("rijkshuisstijl:vote:up"); ?>
+            <?php echo elgg_echo("rijkshuisstijl:vote:up"); ?>
           </button>
           <span class="rhs-vote-up-down__score">
             <?php echo rijkshuisstijl_get_votes($entity); ?>
           </span>
           <button data-vote-down title="<?php echo elgg_echo("rijkshuisstijl:vote:down"); ?>" class="rhs-vote-up-down__control __down" data-guid="<?php echo $entity->guid ?>">
-          	<?php echo elgg_echo("rijkshuisstijl:vote:down"); ?>
+            <?php echo elgg_echo("rijkshuisstijl:vote:down"); ?>
           </button>
         </p>
       </div>
