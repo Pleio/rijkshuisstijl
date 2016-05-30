@@ -34,10 +34,9 @@ if (is_array($breadcrumbs) && count($breadcrumbs) > 0) {
                 'text' => $breadcrumb['title'],
                 'is_trusted' => true,
             ));
-        } else {
-            $crumb = $breadcrumb['title'];
+
+            echo $crumb;
         }
-        echo $crumb;
     }
 }
 

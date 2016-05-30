@@ -38,11 +38,6 @@ if (isset($vars['base_url']) && $vars['base_url']) {
 $num_pages = elgg_extract('num_pages', $vars, 10);
 $delta = ceil($num_pages / 2);
 
-if ($count <= $limit && $offset == 0) {
-    // no need for pagination
-    return true;
-}
-
 $total_pages = ceil($count / $limit);
 $current_page = ceil($offset / $limit) + 1;
 

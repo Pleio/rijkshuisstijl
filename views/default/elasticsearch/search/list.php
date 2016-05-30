@@ -26,11 +26,6 @@
         <div id="<?php echo $id; ?>" class="rhs-col-md-12">
 
         <?php
-        $url_options = array(
-            "class" => "float-alt elgg-quiet",
-            "href" => "search?q=" . $vars['params']['query'] . "&entity_subtype=" . $subtype . "&entity_type=" . $entity->type . "&search_type=entities",
-        );
-
         if ($entity->type == "object") {
             $subtype = get_subtype_from_id($entity->subtype);
             $url_options["text"] = elgg_echo("item:" . $entity->type . ":" . $subtype);
@@ -43,8 +38,6 @@
         if ($vars['params']['container_guid']) {
             $url_options["href"] .= "&container_guid=" . $vars['params']['container_guid'];
         }
-
-        echo elgg_view("output/url", $url_options);
 
         $view = elasticsearch_get_view($entity);
         echo elgg_view($view, array(

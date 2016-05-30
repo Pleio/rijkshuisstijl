@@ -5713,6 +5713,7 @@ label.__problem .rhs-pagination__input {
   text-indent: 0;
 }
 .rhs-video-block {
+  margin-top: 2rem;
   display: block;
   box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.25);
 }

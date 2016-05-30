@@ -6,6 +6,7 @@
  */
 
 $question = elgg_extract("entity", $vars);
+
 $editing = true;
 $container_options = false;
 $show_access_options = true;
@@ -13,7 +14,6 @@ $access_setting = false;
 
 if (!$question) {
 	$editing = false;
-	
 	$question = new ElggQuestion();
 	$question->container_guid = elgg_get_page_owner_guid();
 	$question->access_id = ACCESS_DEFAULT;
@@ -21,32 +21,12 @@ if (!$question) {
 
 $container = $question->getContainerEntity();
 
-$title = array(
-	"name" => "title",
-	"id" => "question_title",
-	"value" => elgg_get_sticky_value("question", "title", $question->title),
-	"style" => "width: 100%"
-);
-
-$description = array(
-	"name" => "description",
-	"id" => "question_description",
-	"value" => elgg_get_sticky_value("question", "description", $question->description),
-);
-
-$tags = array(
-	"name" => "tags",
-	"id" => "question_tags",
-	"value" => elgg_get_sticky_value("question", "tags", $question->tags),
-	"style" => "width: 100%"
-);
-
 if (elgg_instanceof($container, "user")) {
 	$access_setting = questions_get_personal_access_level();
 	if ($access_setting !== false) {
 		$show_access_options = false;
 	}
-} elseif (elgg_instanceof($container, "group")) {
+} else {
 	$access_setting = questions_get_group_access_level($container);
 	if ($access_setting !== false) {
 		$show_access_options = false;
@@ -63,29 +43,54 @@ $access_id = array(
 elgg_clear_sticky_form("question");
 ?>
 
-<div>
-	<label for="question_title"><?php echo elgg_echo("questions:edit:question:title"); ?></label>
+<div class="rhs-form__element">
+	<label class="rhs-form__label">
+		<span class="rhs-form__label-text rhs-form__label-text--hidden">
+			<?php echo elgg_echo("questions:edit:question:title"); ?>
+		</span>
+		<?php echo elgg_view("input/text", array(
+			"name" => "title",
+			"id" => "js-itemTitle",
+			"autofocus" => "",
+			"data-only-validate-on-submit" => "",
+			"data-validation" => ".{10,}",
+			"data-validationmessage" => elgg_echo("rijkshuisstijl:title:too_short"),
+			"class" => "rhs-form__input js-validateInput",
+			"value" => elgg_get_sticky_value("question", "title", $question->title),
+			"placeholder" => elgg_echo("questions:edit:question:title")
+		)); ?>
+	</label>
 </div>
-<div>
-	<?php echo elgg_view("input/text", $title); ?>
+
+<div class="rhs-form__element">
+	<?php echo elgg_view("input/longtext", array(
+		"name" => "description",
+		"id" => "question_description",
+		"data-only-validate-on-submit" => "",
+		"data-validation" => ".{10,}",
+		"data-validationmessage" => elgg_echo("rijkshuisstijl:description:too_short"),
+		"class" => "rhs-form__input js-validateInput",
+		"placeholder" => elgg_echo("questions:edit:question:description"),
+		"value" => elgg_get_sticky_value("question", "description", $question->description)
+	)); ?>
 </div>
-<div>
-	<label for="question_tags"><?php echo elgg_echo("tags"); ?></label>
-</div>
-<div>
-	<?php echo elgg_view("input/tags", $tags); ?>
-</div>
-<div>
-	<label for="question_description"><?php echo elgg_echo("questions:edit:question:description"); ?></label>
-</div>
-<div>
-	<?php echo elgg_view("input/longtext", $description); ?>
+
+<div class="rhs-form__element">
+	<?php echo elgg_view("input/tags", array(
+		"name" => "tags",
+		"id" => "question_tags",
+		"placeholder" => elgg_echo("tags"),
+		"value" => elgg_get_sticky_value("question", "tags", $question->tags),
+		"class" => "rhs-form__input"
+	)); ?>
 </div>
 
 <?php
 // categories support
 if (elgg_view_exists("input/categories")) {
-	echo elgg_view("input/categories", $vars);
+	echo elgg_view("input/categories", array_merge(array(
+		'class' => 'rhs-form__input'
+	), $vars));
 }
 
 // access options
@@ -150,10 +155,7 @@ if (!$editing || (questions_experts_enabled() && questions_is_expert())) {
 
 	$select .= "</select>";
 
-	echo "<div>";
-	echo "<label for='questions-container-guid'>" . elgg_echo("questions:edit:question:container") . "</label><br />";
 	echo $select;
-	echo "</div>";
 } else {
 	echo elgg_view("input/hidden", array("name" => "container_guid", "value" => $question->container_guid));
 }

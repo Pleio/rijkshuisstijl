@@ -29,7 +29,7 @@ function rijkshuisstijl_menu_handler($hook, $type, $items, $params) {
     $items[] = ElggMenuItem::factory(array(
         'name' => 'forum',
         'text' => elgg_echo('rijkshuisstijl:forum'),
-        'href' => 'forum',
+        'href' => 'questions',
         'priority' => 101
     ));
 

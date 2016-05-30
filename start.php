@@ -49,8 +49,6 @@ function rijkshuisstijl_init() {
 	elgg_register_page_handler("register", "rijkshuisstijl_pages_register_handler");
 	elgg_register_page_handler("resetpassword", "rijkshuisstijl_pages_resetpassword_handler");
 
-    //elgg_register_page_handler("profile", "rijkshuisstijl_profile_page_handler");
-    elgg_register_page_handler("forum", "rijkshuisstijl_forum_page_handler");
     elgg_register_page_handler("topics", "rijkshuisstijl_topics_page_handler");
 	elgg_register_page_handler("search", "rijkshuisstijl_search_page_handler");
 
@@ -125,23 +123,6 @@ function rijkshuisstijl_profile_page_handler($page) {
 	return true;
 }
 
-/**
- * Forum page handler
- *
- * @param array $page Array of URL segments passed by the page handling mechanism
- * @return bool
- */
-function rijkshuisstijl_forum_page_handler($page) {
-	switch ($page[0]) {
-		case "all":
-			require dirname(__FILE__) . "/pages/forum/all.php";
-			return true;
-		default:
-			require dirname(__FILE__) . "/pages/forum/index.php";
-			return true;
-	}
-}
-
 function rijkshuisstijl_topics_page_handler($page) {
 	if ($page[0]) {
 		set_input("guid", $page[0]);
@@ -210,15 +191,26 @@ function rijkshuisstijl_route_pinboard_hook($hook_name, $entity_type, $return_va
 
 function rijkshuisstijl_route_questions_hook($hook_name, $entity_type, $return_value, $params) {
 	$page = elgg_extract("segments", $return_value);
-	switch ($page[0]) 
-	{
+	switch ($page[0]) {
+		case "group":
+		case "all":
+			if (isset($page[1]) && !get_input("topic")) {
+				set_input("topic", $page[1]);
+			}
+
+			include(dirname(__FILE__) . "/pages/questions/all.php");
+			return true;
+			break;
 		case "view":
-			if (isset($page[1])) 
-			{
+			if (isset($page[1])) {
 				set_input("guid", $page[1]);
 			}
 
 			include(dirname(__FILE__) . "/pages/questions/view.php");
+			return true;
+			break;
+		case "":
+			include(dirname(__FILE__) . "/pages/questions/index.php");
 			return true;
 			break;
 	}

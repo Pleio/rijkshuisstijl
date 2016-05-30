@@ -26,14 +26,14 @@ elgg_set_page_owner_guid($entity->getContainerGUID());
 $page_owner = $entity->getContainerEntity();
 
 // set breadcrumb
-elgg_push_breadcrumb(elgg_echo('questions'), "/forum");
+elgg_push_breadcrumb(elgg_echo('questions'), "/questions");
 
 if ($workflow == true) {
   elgg_push_breadcrumb(elgg_echo("questions:workflow"), "questions/workflow");
 }
 
 if (elgg_instanceof($page_owner, 'group')) {
-  $url = "forum/all?topic=$page_owner->guid";
+  $url = "questions/all?topic=$page_owner->guid";
   elgg_push_breadcrumb($page_owner->name, $url);
 }
 

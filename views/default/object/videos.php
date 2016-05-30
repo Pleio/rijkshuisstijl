@@ -6,7 +6,8 @@ $container = $entity->getContainerEntity();
 $first = $entity->getFirstVideo();
 
 ?>
-<div class="rhs-section rhs-section--item">
+<div class="rhs-row">
+  <div class="rhs-col-sm12">
     <div data-video-block="" class="rhs-video-block">
         <div class="rhs-video-block__right">
           <div style="background-image:url('<?php echo $first->thumb; ?>');" class="rhs-video-block__background"><a href="#" title="<?php echo elgg_echo("rijkshuisstijl:videos:play"); ?>" data-video-block-trigger="" data-video-type="<?php echo $first->source; ?>" data-video-id="<?php echo $first->id; ?>" class="rhs-video-block__play"><span class="rhs-icon rhs-icon-play"></span></a></div>
