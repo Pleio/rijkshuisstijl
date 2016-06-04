@@ -101,15 +101,15 @@
               <p class="rhs-profile-progress__bar rhs-profile-progress__bar--level-<?php echo $vars['completeness']; ?>">
                 <span class="rhs-profile-progress__bar-text"><?php echo elgg_echo("rijkshuisstjil:completeness:" . $vars['completeness']); ?></span>
               </p>
-              <dl class="rhs-profile-progress__statistics">
-                <dt>Vragen gesteld</dt>
-                <dd><?php echo $vars['number_questions']; ?></dd>
-                <dt>Antwoorden gegeven</dt>
-                <dd><?php echo $vars['number_answers']; ?></dd>
-                <dt>Stem omhoogs</dt>
-                <dd><?php echo $vars['number_upvotes']; ?></dd>
-                <dt>Stem omlaags</dt>
-                <dd><?php echo $vars['number_downvotes']; ?></dd>
+                <dl class="rhs-profile-progress__statistics">
+                  <dt><?php echo elgg_echo('rijkshuisstijl:profile:questionsasked') ?></dt>
+                  <dd><?php echo $vars['number_questions']; ?></dd>
+                  <dt><?php echo elgg_echo('rijkshuisstijl:profile:answersgiven') ?></dt>
+                  <dd><?php echo $vars['number_answers']; ?></dd>
+                  <dt><?php echo elgg_echo('rijkshuisstijl:profile:upvotes') ?></dt>
+                  <dd><?php echo $vars['number_upvotes']; ?></dd>
+                  <dt><?php echo elgg_echo('rijkshuisstijl:profile:downvotes') ?></dt>
+                  <dd><?php echo $vars['number_downvotes']; ?></dd>
               </dl>
             </div>
           </div>
@@ -124,7 +124,7 @@
           <div class="rhs-col-sm-8 rhs-col-lg-6">
             <div class="js-editableFields"><?php if ($editable) : ?><a class="js-editableFieldsToggle">Bewerk velden</a><?php endif; ?>
               <dl class="rhs-profile-information">
-                <dt>Werklocatie</dt>
+                <dt><?php echo elgg_echo('rijkshuisstijl:profile:worklocation') ?></dt>
                 <?php foreach ($fields as $field) : ?>
                   <?php 
                     if ($field["category"] == 'profielLocatie' && $field["name"] != 'overmij') :
@@ -134,7 +134,7 @@
               <?php endforeach ?>
               </dl>
             </div>
-            <div class="rhs-profile-about"><strong>Over mij</strong>
+            <div class="rhs-profile-about"><strong><?php echo elgg_echo('rijkshuisstijl:profile:aboutme') ?></strong>
               <?php if ($editable) : ?>
                 <div data-editable-text class="rhs-editable-text">
                   <div class="rhs-editable-text__content"><?php echo isset($targetUser->aboutme) ? $targetUser->aboutme : "Leeg" ?></div>
