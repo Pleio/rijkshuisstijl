@@ -67,7 +67,6 @@ $english = array(
     'rijkshuisstijl:videos:close' => 'Close overview',
     'rijkshuisstijl:profile:field:invalid' => "Field '%s' is not a valid field.",
     'rijkshuisstijl:profile:field:success' => "Field '%s' has successfully been changed.",
-
     'rijkshuisstijl:profile' => 'Profile',
     'rijkshuisstijl:profile:questionsasked' => 'Questions asked',
     'rijkshuisstijl:profile:answersgiven' => 'Answers given',
@@ -75,17 +74,14 @@ $english = array(
     'rijkshuisstijl:profile:downvotes' => 'Down votes',
     'rijkshuisstijl:profile:worklocation' => 'Work location',
     'rijkshuisstijl:profile:aboutme' => 'About me',
-
     'rijkshuisstijl:profile:header:profile' => "Profile",
     'rijkshuisstijl:profile:header:interests' => "Interests",
     'rijkshuisstijl:profile:header:settings' => "Settings",
-
     'rijkshuisstijl:profile:interests:interestsdescription' => 'Here you can specify your interests so that information is customly filtered for you in the forum and news.',
     'rijkshuisstijl:profile:interests:notifications' => 'Notifications',
     'rijkshuisstijl:profile:interests:receivenotification' => 'Receive a notification when somebody responds to you',
     'rijkshuisstijl:profile:interests:receivenewsletter' => 'I want to receive the site newsletter',
     'rijkshuisstijl:profile:interests:emailsummary' => 'Your e-mail summary settings',
-
     'rijkshuisstijl:profile:settings:accountpassword' => 'Account password',
     'rijkshuisstijl:profile:settings:currentpassword' => 'Current password',
     'rijkshuisstijl:profile:settings:yournewpassword' => 'Your new password',
@@ -99,6 +95,16 @@ $english = array(
     'rijkshuisstijl:profile:settings:urpasswordminimal' => 'Your password should contain a minimum of 8 characters',
     'rijkshuisstijl:profile:settings:passwordsdonotmatch' => 'The verification password does not match with your password',
     'rijkshuisstijl:profile:settings:fillinvalidemail' => 'Fill in a valid email address',
+    'rijkshuisstijl:forum:postamessage' => 'Post a message',
+    'rijkshuisstijl:forum:closemodal' => 'Close modal',
+    'rijkshuisstijl:forum:showall' => 'Show all',
+    'rijkshuisstijl:forum:search' => 'Search',
+    'rijkshuisstijl:cafe:askedby' => 'Asked by',
+    'rijkshuisstijl:footer:contact' => 'Contact',
+    'rijkshuisstijl:footer:phone' => 'Phone',
+    'rijkshuisstijl:footer:visit' => 'Visit',
+    'rijkshuisstijl:footer:mail' => 'Mail',
+    'rijkshuisstijl:footer:followus' => 'Follow us',
 );
 
 add_translation('en', $english);

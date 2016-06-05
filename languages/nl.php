@@ -67,7 +67,6 @@ $dutch = array(
     'rijkshuisstijl:videos:close' => 'Sluit overzicht',
     'rijkshuisstijl:profile:field:invalid' => "Het veld '%s' is geen geldig veld.",
     'rijkshuisstijl:profile:field:success' => "Het veld '%s' is succesvol veranderd.",
-
     'rijkshuisstijl:profile' => 'Profile',
     'rijkshuisstijl:profile:questionsasked' => 'Vragen gesteld',
     'rijkshuisstijl:profile:answersgiven' => 'Antwoorden gegeven',
@@ -75,17 +74,14 @@ $dutch = array(
     'rijkshuisstijl:profile:downvotes' => 'Stem omlaags',
     'rijkshuisstijl:profile:worklocation' => 'Werklocatie',
     'rijkshuisstijl:profile:aboutme' => 'Over mij',
-
     'rijkshuisstijl:profile:header:profile' => "Profiel",
     'rijkshuisstijl:profile:header:interests' => "Interesses",
     'rijkshuisstijl:profile:header:settings' => "Instellingen",
-
     'rijkshuisstijl:profile:interests:interestsdescription' => 'Hier kunt u uw interesses aangeven waardoor informatie voor u op maat wordt gefilterd in het forum en nieuws.',
     'rijkshuisstijl:profile:interests:notifications' => 'Notificaties',
         'rijkshuisstijl:profile:interests:receivenotification' => 'Ontvang een melding als iemand op jou reageert',
     'rijkshuisstijl:profile:interests:receivenewsletter' => 'Ik wil de site nieuwsbrief ontvangen ',
     'rijkshuisstijl:profile:interests:emailsummary' => 'Je e-mailoverzicht instellen',
-
     'rijkshuisstijl:profile:settings:accountpassword' => 'Account wachtwoord',
     'rijkshuisstijl:profile:settings:currentpassword' => 'Huidig wachtwoord',
     'rijkshuisstijl:profile:settings:yournewpassword' => 'Je nieuwe wachtwoord',
@@ -96,9 +92,19 @@ $dutch = array(
     'rijkshuisstijl:profile:settings:languagesettings' => 'Taalinstellingen',
     'rijkshuisstijl:profile:settings:deleteaccount' => 'Account verwijderen',
     'rijkshuisstijl:profile:settings:fillinpassword' => 'Vul uw wachtwoord in',
-    'rijkshuisstijl:profile:settings:urpasswordminimal8' => 'Uw wachtwoord moet minimaal 8 karakters bevatten',
+    'rijkshuisstijl:profile:settings:urpasswordminimal' => 'Uw wachtwoord moet minimaal 8 karakters bevatten',
     'rijkshuisstijl:profile:settings:passwordsdonotmatch' => 'Wachtwoord ter verificatie komt niet overeen met uw wachtwoord',
     'rijkshuisstijl:profile:settings:fillinvalidemail' => 'Vul een geldig e-mailadres in',
+    'rijkshuisstijl:forum:postamessage' => 'Plaats eens bericht',
+    'rijkshuisstijl:forum:closemodal' => 'Sluit modal',
+    'rijkshuisstijl:forum:showall' => 'Alles',
+    'rijkshuisstijl:forum:search' => 'Zoeken',
+    'rijkshuisstijl:cafe:askedby' => 'Gesteld door',
+    'rijkshuisstijl:footer:contact' => 'Contact',
+    'rijkshuisstijl:footer:phone' => 'Bellen',
+    'rijkshuisstijl:footer:visit' => 'Bezoeken',
+    'rijkshuisstijl:footer:mail' => 'Per brief',
+    'rijkshuisstijl:footer:followus' => 'Volg ons op',
 );
 
 add_translation('nl', $dutch);

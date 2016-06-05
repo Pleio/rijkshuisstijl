@@ -32,7 +32,7 @@ $users_online = count(find_active_users());
               <form action="/search" data-autocomplete="" class="rhs-forum-action__search">
                 <label for="lead-search" class="rhs-forum-action__search__label"><span class="rhs-icon-circle-arrow"></span><span class="rhs-icon-search"></span></label>
                 <button type="submit" class="rhs-autocomplete__submit-button"><span class="rhs-icon-search"></span></button>
-                <input name="q" id="lead-search" placeholder="Zoeken" autocomplete="off" data-autocomplete-input="" class="rhs-forum-action__search__input">
+                <input name="q" id="lead-search" placeholder="<?php echo elgg_echo('rijkshuisstijl:forum:search') ?>" autocomplete="off" data-autocomplete-input="" class="rhs-forum-action__search__input">
                 <div class="rhs-autocomplete">
                   <div class="rhs-autocomplete__results"></div>
                   <button type="submit" class="rhs-autocomplete__more"><?php echo elgg_echo("rijkshuisstijl:search:view_all_results"); ?></button>
