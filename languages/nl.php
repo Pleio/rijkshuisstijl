@@ -105,6 +105,7 @@ $dutch = array(
     'rijkshuisstijl:footer:visit' => 'Bezoeken',
     'rijkshuisstijl:footer:mail' => 'Per brief',
     'rijkshuisstijl:footer:followus' => 'Volg ons op',
+    'rijkshuisstijl:of' => 'van',
 );
 
 add_translation('nl', $dutch);

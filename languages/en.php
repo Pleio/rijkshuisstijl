@@ -105,6 +105,7 @@ $english = array(
     'rijkshuisstijl:footer:visit' => 'Visit',
     'rijkshuisstijl:footer:mail' => 'Mail',
     'rijkshuisstijl:footer:followus' => 'Follow us',
+    'rijkshuisstijl:of' => 'of',
 );
 
 add_translation('en', $english);
