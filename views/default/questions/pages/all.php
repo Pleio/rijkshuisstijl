@@ -1,5 +1,5 @@
 <div class="rhs-sections">
-  <div class="rhs-section rhs-section--no-padding">
+  <div class="rhs-section rhs-section--background-white rhs-section--no-padding">
     <div class="rhs-bulletin-action">
       <div class="rhs-container">
         <div class="rhs-row">

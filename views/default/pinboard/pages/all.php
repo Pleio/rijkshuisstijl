@@ -1,5 +1,5 @@
 <div class="rhs-sections">
-    <div class="rhs-section rhs-section--no-padding">
+    <div class="rhs-section rhs-section--background-white rhs-section--no-padding">
         <div class="rhs-container">
             <div class="rhs-bulletin-action">
                 <h2 class="rhs-forum__title hidden-md hidden-lg hidden-xl"><?php echo elgg_echo('pinboard'); ?></h2>

@@ -8,7 +8,7 @@ if (get_input('group_guid')) {
 }
 
 $title = elgg_echo('rijkshuisstijl:forum');
-$body = elgg_view('forum/pages/index');
+$body = elgg_view('questions/pages/index');
 
 echo elgg_view_page($title, $body, 'default', array(
   'leader' => elgg_view('rijkshuisstijl/leader/forum')

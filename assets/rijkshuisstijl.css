@@ -3576,7 +3576,6 @@ th {
 }
 .rhs-section {
   padding: 0 0 1.8rem;
-  background-color: #fff;
   transition: all 0.2s ease;
 }
 @media (min-width: 768px) {

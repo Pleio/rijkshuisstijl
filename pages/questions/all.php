@@ -48,7 +48,7 @@ switch ($category) {
     break;
 }
 
-$body = elgg_view('forum/pages/all', array(
+$body = elgg_view('questions/pages/all', array(
   'entities' => elgg_list_entities($options, $getter)
 ));
 
