@@ -6744,6 +6744,97 @@ label.__problem .rhs-pagination__input {
   bottom: 2.8rem;
   margin-bottom: 0;
 }
+.selector {
+  position: relative;
+  width: 100%;
+  user-select: none;
+}
+.selector.___is-open .selector__select:after {
+  color: #B4B4B4;
+  transform: scaleY(-1);
+  z-index: 2;
+}
+.selector.___is-open .selector__options {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(0, 0);
+}
+.selector select {
+  position: absolute;
+  width: 100%;
+  opacity: 0;
+  z-index: -1;
+}
+.selector.___is-mobile select {
+  z-index: 1;
+  height: 5rem;
+  line-height: 3.2rem;
+}
+.selector.___is-mobile select option {
+  font-size: 2rem;
+  height: 5rem;
+}
+.selector__select {
+  padding: 0 2rem;
+  background-color: #fff;
+  color: #535353;
+  line-height: 4.6rem;
+  border: 1px solid #CCCCCC;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.selector__select:hover,
+.selector__select.___has-focus {
+  color: #009ee3;
+  border-color: #009ee3;
+}
+.selector__select:after {
+  position: absolute;
+  right: 2rem;
+  font-family: "pleio";
+  content: "\E903";
+  /* icon height */
+  font-size: 1rem;
+  color: #000;
+  pointer-events: none;
+  transition: all 0.2s ease;
+}
+.selector__options {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: 0;
+  padding: 0.7rem 0;
+  background-color: #fff;
+  border: 1px solid transparent;
+  list-style: none;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  opacity: 0;
+  transform: translate(0, -0.5rem);
+  visibility: hidden;
+  transition: all 0.2s ease;
+}
+.selector__option {
+  padding: 0 2rem;
+  line-height: 3.2rem;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+.selector__option.___is-selected {
+  color: #009ee3;
+  cursor: default;
+}
+.selector__option.___is-disabled {
+  color: #B4B4B4;
+}
+.selector__option.___is-disabled:hover {
+  color: #B4B4B4;
+}
+.selector__option:hover {
+  color: #009ee3;
+}
 .rhs-modal {
   opacity: 0;
   position: fixed;

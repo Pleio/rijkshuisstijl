@@ -25,6 +25,7 @@ require("./default/profile-upload.js");
 require("./default/question-modal.js");
 require("./default/radio.js");
 require("./default/scroll-to.js");
+require("./default/selector.js");
 require("./default/share-button.js");
 require("./default/video-block.js");
 require("./default/video-player.js");
