@@ -35,8 +35,4 @@
         <type>plugin</type>
         <name>pleio_template_selector</name>
     </conflicts>
-    <conflicts>
-        <type>plugin</type>
-        <name>menu_builder</name>
-    </conflicts>
 </plugin_manifest>

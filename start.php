@@ -17,7 +17,6 @@ $CONFIG->search_subtypes = array(
 
 function rijkshuisstijl_init() {
     elgg_register_plugin_hook_handler('action', 'plugins/settings/save', 'rijkshuisstijl_plugins_settings_save');
-	elgg_register_plugin_hook_handler("register", "menu:site", "rijkshuisstijl_menu_handler");
 
 	elgg_register_plugin_hook_handler("route", "news", "rijkshuisstijl_route_news_hook", 100);
     elgg_register_plugin_hook_handler("route", "pinboard", "rijkshuisstijl_route_pinboard_hook", 100);
