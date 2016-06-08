@@ -15,7 +15,7 @@ if (!$group | !$group instanceof ElggGroup | !$group->featured_group == "yes") {
 
 $title = elgg_echo("rijkshuisstijl:topics");
 $content = elgg_view("rijkshuisstijl/pages/topics", array(
-    'topic' => $group
+    'group' => $group
 ));
 
 echo elgg_view_page($title, $content, "default", array(

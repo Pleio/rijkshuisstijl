@@ -30,6 +30,8 @@
   $groups = rijkshuisstijl_get_featured_groups();
   $interests = rijkshuisstijl_get_interests($targetUser);
 
+  $notificationSettings = get_user_notification_settings($targetUser->guid);
+
   /* will recode to use entitiesfromrelationship later
   $interests = $user->getEntitiesFromRelationship(array(
     'type' => 'group',
@@ -74,16 +76,33 @@
             <h2 class="rhs-profile-block__title">Notificaties </h2>
             <p class="rhs-form__element rhs-form__element--no-padding">
               <label for="option-1" class="rhs-checkbox rhs-checkbox--theme">
-                <?php 
-                  $notificationSettings = get_user_notification_settings($targetUser->guid);
+                <?php
+                $options = array(
+                  "id" => "option-1",
+                  "name" => "option-1",
+                  //"class" => "rhs-checkbox__input js-validateCheckbox"
+                );
+
+                if ($notificationSettings->email == 1) {
+                  $options['checked'] = 'checked';
+                }
+
+                echo elgg_view("input/checkbox", $options);
                 ?>
-                <input type="checkbox" id="option-1" name="options-1" <?php echo $notificationSettings->email == 1 ? "checked" : "" ?> class="rhs-checkbox__input js-validateCheckbox"><span class="rhs-checkbox__placeholder"></span>Ontvang een melding als iemand op jou reageert
+                Ontvang een melding als iemand op jou reageert
               </label>
             </p>
+
             <p class="rhs-form__element rhs-form__element--no-padding">
               <label for="option-2" class="rhs-checkbox rhs-checkbox--theme">
-                <input type="checkbox" id="option-2" name="options-2" <?php echo newsletter_check_user_subscription($targetUser, elgg_get_site_entity()) ? "checked" : "" ?> class="rhs-checkbox__input"><span class="rhs-checkbox__placeholder"></span>Ik wil de site nieuwsbrief ontvangen
-              </label>
+                <?php echo elgg_view("input/checkbox", array(
+                  "id" => "option-2",
+                  "name" => "option-$opt",
+                  "checked" => newsletter_check_user_subscription($targetUser, elgg_get_site_entity()) ? "checked" : "",
+                  //"class" => "rhs-checkbox__input js-validateCheckbox"
+                )); ?>
+                Ik wil de site nieuwsbrief ontvangen
+                </label>
             </p>
           </div>
         </div>

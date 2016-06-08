@@ -22,6 +22,16 @@ function rijkshuisstijl_get_latest_objects_from_group($subtype = 'question', Elg
     ));
 }
 
+function rijkshuisstijl_get_popular_objects_from_group($subtype = 'question', ElggGroup $group) {
+    return elgg_get_entities_from_private_settings(array(
+        'type' => 'object',
+        'subtype' => $subtype,
+        'container_guid' => $group->guid,
+        'private_setting_name' => 'view_counter',
+        'order_by' => 'cast(ps.value as unsigned) DESC',
+        'limit' => 5
+    ));
+}
 
 function rijkshuisstijl_get_interests($user) {
     $interests = $user->interests;

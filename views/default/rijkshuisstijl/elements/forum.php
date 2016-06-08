@@ -11,7 +11,7 @@ if ($user) {
 
 <?php if ($display_title): ?>
   <h2 class="rhs-section__subtitle">Forum</h2>
-  <a href="/questions/all" title="<?php echo elgg_echo("rijkshuisstijl:more"); ?>" class="rhs-section__read-more">  <?php echo elgg_echo("rijkshuisstijl:all"); ?>
+  <a href="/questions/all" title="<?php echo elgg_echo("rijkshuisstijl:more"); ?>" class="rhs-section__read-more"><?php echo elgg_echo("rijkshuisstijl:all"); ?>
   </a>
 <?php endif; ?>
 
