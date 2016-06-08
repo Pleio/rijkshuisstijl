@@ -56,7 +56,7 @@ if ($entity->canEdit()) {
           <?php echo $title; ?>
         </a>
         <div class="rhs-card-topic__info"
-          <span class="rhs-hidden-mobile">Gesteld door:</span>
+          <span class="rhs-hidden-mobile"><?php echo elgg_echo('rijkshuisstijl:cafe:askedby') ?>:</span>
             <a href="<?php echo $poster->getURL(); ?>" title="Ga naar profielpagina">
               <?php echo $poster->name; ?>
             </a>

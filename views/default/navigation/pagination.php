@@ -107,7 +107,7 @@ echo '<div class="rhs-pagination">';
     }
 
     echo '<form action="#" class="rhs-pagination__form">';
-        echo '<input name="page-number" id="page-number" value="' . $current_page . '" class="rhs-pagination__input"><span class="rhs-pagination__maximum">van ' . $total_pages . '</span>';
+        echo '<input name="page-number" id="page-number" value="' . $current_page . '" class="rhs-pagination__input"><span class="rhs-pagination__maximum">' . elgg_echo('rijkshuisstijl:of') . ' ' . $total_pages . '</span>';
     echo '</form>';
 
     if ($pages->next['href']) {

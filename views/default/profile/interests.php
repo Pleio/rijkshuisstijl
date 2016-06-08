@@ -52,7 +52,7 @@
         <div class="rhs-profile-block">
           <div class="rhs-row">
             <div class="rhs-col-md-7">
-              <h2 class="rhs-profile-block__title">Hier kunt u uw interesses aangeven waardoor informatie voor u op maat wordt gefilterd in het forum en nieuws.</h2>
+              <h2 class="rhs-profile-block__title"><?php echo elgg_echo('rijkshuisstijl:profile:interests:interestsdescription') ?></h2>
             </div>
             <div class="rhs-col-md-1"></div>
             <div class="rhs-col-md-4">
@@ -73,7 +73,7 @@
       <div class="rhs-profile-block">
         <div class="rhs-row">
           <div class="rhs-col-sm-12">
-            <h2 class="rhs-profile-block__title">Notificaties </h2>
+            <h2 class="rhs-profile-block__title"><?php echo elgg_echo('rijkshuisstijl:profile:interests:notifications') ?></h2>
             <p class="rhs-form__element rhs-form__element--no-padding">
               <label for="option-1" class="rhs-checkbox rhs-checkbox--theme">
                 <?php
@@ -89,7 +89,7 @@
 
                 echo elgg_view("input/checkbox", $options);
                 ?>
-                Ontvang een melding als iemand op jou reageert
+                <?php echo elgg_echo('rijkshuisstijl:profile:interests:receivenotification') ?>
               </label>
             </p>
 
@@ -101,7 +101,7 @@
                   "checked" => newsletter_check_user_subscription($targetUser, elgg_get_site_entity()) ? "checked" : "",
                   //"class" => "rhs-checkbox__input js-validateCheckbox"
                 )); ?>
-                Ik wil de site nieuwsbrief ontvangen
+                <?php echo elgg_echo('rijkshuisstijl:profile:interests:receivenewsletter'); ?>
                 </label>
             </p>
           </div>
@@ -113,7 +113,7 @@
       <div class="rhs-profile-block rhs-profile-block--small-bottom-padding">
         <div class="rhs-row">
           <div class="rhs-col-sm-12">
-            <h2 class="rhs-profile-block__title">Je e-mailoverzicht instellen </h2>
+            <h2 class="rhs-profile-block__title"><?php echo elgg_echo('rijkshuisstijl:profile:interests:emailsummary') ?></h2>
           </div>
         </div>
         <div class="rhs-row">
