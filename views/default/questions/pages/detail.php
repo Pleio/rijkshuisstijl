@@ -1,5 +1,6 @@
 <?php
 $entity = $vars['entity'];
+$workflow = $vars['workflow'];
 ?>
 
 <div class="rhs-row">
@@ -15,7 +16,7 @@ $entity = $vars['entity'];
             'full_view' => true
         )); ?>
 
-        <?php if (elgg_is_logged_in()): ?>
+        <?php if (!$workflow && elgg_is_logged_in()): ?>
             <div data-forum-answer-block="" class="rhs-edit-block__wrapper" style="">
                 <?php echo elgg_view_form("answers/save", array(
                     'name' => 'question_answer',

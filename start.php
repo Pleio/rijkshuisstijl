@@ -200,6 +200,9 @@ function rijkshuisstijl_route_questions_hook($hook_name, $entity_type, $return_v
 			include(dirname(__FILE__) . "/pages/questions/all.php");
 			return true;
 			break;
+		case "workflow":
+			$workflow = true;
+			break;
 		case "view":
 			if (isset($page[1])) {
 				set_input("guid", $page[1]);

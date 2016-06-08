@@ -3776,5 +3776,11 @@ fieldset {
   margin-right: 3px;
   vertical-align: baseline;
 }
+div.elgg-module.collapsable .elgg-body {
+  display: none;
+}
+div.elgg-module.collapsed .elgg-body {
+  display: block;
+}
 
 /*# sourceMappingURL=splash.css.map*/

@@ -40,7 +40,8 @@ if (elgg_instanceof($page_owner, 'group')) {
 $body = elgg_view_layout('one_column', array(
     'class' => 'rhs-card-user-content',
     'content' => elgg_view('questions/pages/detail', array(
-        'entity' => $entity
+        'entity' => $entity,
+        'workflow' => $workflow
     ))
 ));
 

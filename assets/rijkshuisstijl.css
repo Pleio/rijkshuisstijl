@@ -3138,7 +3138,7 @@ th {
   flex-shrink: 0;
 }
 .rhs-page-layout__main {
-  padding: 0 0 7rem 0;
+  padding: 0;
   -webkit-box-flex: 1;
   -webkit-flex: 1 0 auto;
   -ms-flex: 1 0 auto;
@@ -8588,6 +8588,12 @@ fieldset {
   margin-left: 3px;
   margin-right: 3px;
   vertical-align: baseline;
+}
+div.elgg-module.collapsable .elgg-body {
+  display: none;
+}
+div.elgg-module.collapsed .elgg-body {
+  display: block;
 }
 
 /*# sourceMappingURL=rijkshuisstijl.css.map*/

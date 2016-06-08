@@ -13,7 +13,7 @@ if (!$group | !$group instanceof ElggGroup | !$group->featured_group == "yes") {
     forward(REFERER);
 }
 
-$title = elgg_echo("rijkshuisstijl:topics");
+$title = $group->name;
 $content = elgg_view("rijkshuisstijl/pages/topics", array(
     'group' => $group
 ));

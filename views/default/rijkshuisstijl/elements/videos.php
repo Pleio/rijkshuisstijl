@@ -1,29 +1,30 @@
 <?php
-$videos = elgg_get_entities(array(
+$group = elgg_extract('group', $vars);
+
+$options = array(
   'type' => 'object',
-  'subtype' => 'videos'
-));
+  'subtype' => 'videos',
+  'pagination' => false,
+  'full_view' => false
+);
+
+if ($group) {
+  $options['container_guid'] = $group->guid;
+}
+
 ?>
 
-<?php if (count($videos) > 0): ?>
-  <?php $videos = $videos[0]; ?>
-  <div class="rhs-home__section">
+<div class="rhs-sections">
+  <div class="rhs-section">
     <div class="rhs-container">
-      <div class="rhs-row">
-        <div class="rhs-col-md-12">
-          <h2 class="rhs-home__subtitle"><?php echo elgg_echo('rijkshuisstijl:videos'); ?></h2><a href="/videos" title="..." class="rhs-home__readmore"><?php echo elgg_echo('rijkshuisstijl:all'); ?></a>
-        </div>
-      </div>
+      <h2 class="rhs-section__subtitle"><?php echo elgg_echo('rijkshuisstijl:videos'); ?></h2>
+      <a href="/videos" title="<?php echo elgg_echo('rijkshuisstijl:more'); ?>" class="rhs-section__read-more"><?php echo elgg_echo('rijkshuisstijl:all') ?></a>
 
       <div class="rhs-row">
         <div class="rhs-col-md-12">
-          <?php if (elgg_is_active_plugin('videos')): ?>
-            <?php echo elgg_view_entity($videos); ?>
-          <?php else: ?>
-            <?php echo elgg_echo("rijkshuisstijl:enable_plugin", array("videos")); ?>
-          <?php endif; ?>
+          <?php echo elgg_list_entities($options); ?>
         </div>
       </div>
     </div>
   </div>
-<?php endif; ?>
+</div>
