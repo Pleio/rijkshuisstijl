@@ -46,7 +46,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	// require CSS entry file
-	__webpack_require__(421);
+	__webpack_require__(420);
 	
 	// require non-NPM libraries
 	__webpack_require__(120);
@@ -71,9 +71,9 @@
 	__webpack_require__(142);
 	__webpack_require__(143);
 	__webpack_require__(144);
+	__webpack_require__(422);
 	__webpack_require__(145);
 	__webpack_require__(146);
-	__webpack_require__(147);
 	
 	var jQuery = __webpack_require__(122);
 	jQuery(document).ready(function () {
@@ -13139,6 +13139,141 @@
 	(function () {
 	    'use strict';
 	
+	    /*!
+	     * video-block
+	     */
+	
+	    var $videoblock = $('[data-video-block-trigger]');
+	
+	    $videoblock.on('click', function(e) {
+	        e.preventDefault();
+	        var $this = $(this);
+	        var $parent = $this.parents('[data-video-block]');
+	
+	        $("body").toggleClass("rhs-video-block--is-open");
+	        $parent.toggleClass("rhs-video-block--open");
+	    });
+	
+	
+	})();
+
+/***/ },
+
+/***/ 146:
+/***/ function(module, exports, __webpack_require__) {
+
+	var $ = __webpack_require__(122);
+	
+	(function () {
+	    'use strict';
+	
+	    var $body = $('body');
+	    var $videoLink = $("[data-video-type]");
+	    var autoplay = getUrlVar()['autoplay'];
+	    var modalIsOpen = false;
+	
+	    $videoLink.on('click', function (e) {
+	
+	        e.preventDefault();
+	
+	        var $this = $(this);
+	        var videoType = $this.data('video-type');
+	        var videoId = $this.data('video-id');
+	
+	        $this.addClass('visited');
+	
+	        // Create the video iFrame
+	        var $videoFrame = createVideoFrame(videoType, videoId);
+	
+	        // Create the vido modal and show it
+	        if(!modalIsOpen) {
+	            showVideoModal($videoFrame);
+	            modalIsOpen = true;
+	        }
+	    });
+	
+	    $body.on('click', '.rhs-video-modal__close, .rhs-video-modal__overlay', function () {
+	        removeVideoModal();
+	        modalIsOpen = false;
+	    });
+	
+	
+	    /*
+	     * Helper functions
+	     */
+	    function createVideoFrame(videoType, videoId) {
+	        switch (videoType) {
+	            case 'vimeo':
+	                return '<iframe src="https://player.vimeo.com/video/' + videoId + '?title=0&byline=0&portrait=0&autoplay=1" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen />';
+	
+	                break;
+	
+	            case 'youtube':
+	                return '<iframe src="http://www.youtube.com/embed/' + videoId + '?autoplay=1&modestbranding=1&rel=0&showinfo=0" frameborder="0" />';
+	
+	                break;
+	
+	            default:
+	                return '<iframe src="https://player.vimeo.com/video/' + videoId + '?title=0&byline=0&portrait=0&autoplay=1" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen />';
+	
+	                break;
+	        }
+	    }
+	
+	    function showVideoModal($videoFrame) {
+	        var $videoModal =  "<div class='rhs-video-modal'>";
+	                $videoModal += "<div class='rhs-video-modal__box'>";
+	                    $videoModal += "<span class='rhs-video-modal__close'></span>";
+	                    $videoModal += $videoFrame;
+	                $videoModal += "</div>";
+	                $videoModal += "<div class='rhs-video-modal__overlay'></div>";
+	            $videoModal += "</div>";
+	
+	        $($videoModal).appendTo('body').fadeIn();
+	    }
+	
+	    function removeVideoModal() {
+	        $('.rhs-video-modal').fadeOut().promise().done(function () {
+	            $(this).remove();
+	        });
+	    }
+	
+	    function getUrlVar() {
+	        var variables = {};
+	        var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi,
+	            function(m,key,value) {
+	                variables[key] = value;
+	            });
+	        return variables;
+	    }
+	
+	    /*
+	     * Autoplay
+	     * - At the bottom due to race condition
+	     */
+	    if(autoplay) {
+	        $videoLink.click();
+	    }
+	
+	})();
+
+/***/ },
+
+/***/ 420:
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+
+/***/ },
+
+/***/ 422:
+/***/ function(module, exports, __webpack_require__) {
+
+	var $ = __webpack_require__(122);
+	
+	(function () {
+	    'use strict';
+	
 	    var $body = $('body');
 	
 	    var calculateHeight = function() {
@@ -13246,141 +13381,6 @@
 	
 	})();
 
-
-/***/ },
-
-/***/ 146:
-/***/ function(module, exports, __webpack_require__) {
-
-	var $ = __webpack_require__(122);
-	
-	(function () {
-	    'use strict';
-	
-	    /*!
-	     * video-block
-	     */
-	
-	    var $videoblock = $('[data-video-block-trigger]');
-	
-	    $videoblock.on('click', function(e) {
-	        e.preventDefault();
-	        var $this = $(this);
-	        var $parent = $this.parents('[data-video-block]');
-	
-	        $("body").toggleClass("rhs-video-block--is-open");
-	        $parent.toggleClass("rhs-video-block--open");
-	    });
-	
-	
-	})();
-
-/***/ },
-
-/***/ 147:
-/***/ function(module, exports, __webpack_require__) {
-
-	var $ = __webpack_require__(122);
-	
-	(function () {
-	    'use strict';
-	
-	    var $body = $('body');
-	    var $videoLink = $("[data-video-type]");
-	    var autoplay = getUrlVar()['autoplay'];
-	    var modalIsOpen = false;
-	
-	    $videoLink.on('click', function (e) {
-	
-	        e.preventDefault();
-	
-	        var $this = $(this);
-	        var videoType = $this.data('video-type');
-	        var videoId = $this.data('video-id');
-	
-	        $this.addClass('visited');
-	
-	        // Create the video iFrame
-	        var $videoFrame = createVideoFrame(videoType, videoId);
-	
-	        // Create the vido modal and show it
-	        if(!modalIsOpen) {
-	            showVideoModal($videoFrame);
-	            modalIsOpen = true;
-	        }
-	    });
-	
-	    $body.on('click', '.rhs-video-modal__close, .rhs-video-modal__overlay', function () {
-	        removeVideoModal();
-	        modalIsOpen = false;
-	    });
-	
-	
-	    /*
-	     * Helper functions
-	     */
-	    function createVideoFrame(videoType, videoId) {
-	        switch (videoType) {
-	            case 'vimeo':
-	                return '<iframe src="https://player.vimeo.com/video/' + videoId + '?title=0&byline=0&portrait=0&autoplay=1" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen />';
-	
-	                break;
-	
-	            case 'youtube':
-	                return '<iframe src="http://www.youtube.com/embed/' + videoId + '?autoplay=1&modestbranding=1&rel=0&showinfo=0" frameborder="0" />';
-	
-	                break;
-	
-	            default:
-	                return '<iframe src="https://player.vimeo.com/video/' + videoId + '?title=0&byline=0&portrait=0&autoplay=1" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen />';
-	
-	                break;
-	        }
-	    }
-	
-	    function showVideoModal($videoFrame) {
-	        var $videoModal =  "<div class='rhs-video-modal'>";
-	                $videoModal += "<div class='rhs-video-modal__box'>";
-	                    $videoModal += "<span class='rhs-video-modal__close'></span>";
-	                    $videoModal += $videoFrame;
-	                $videoModal += "</div>";
-	                $videoModal += "<div class='rhs-video-modal__overlay'></div>";
-	            $videoModal += "</div>";
-	
-	        $($videoModal).appendTo('body').fadeIn();
-	    }
-	
-	    function removeVideoModal() {
-	        $('.rhs-video-modal').fadeOut().promise().done(function () {
-	            $(this).remove();
-	        });
-	    }
-	
-	    function getUrlVar() {
-	        var variables = {};
-	        var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi,
-	            function(m,key,value) {
-	                variables[key] = value;
-	            });
-	        return variables;
-	    }
-	
-	    /*
-	     * Autoplay
-	     * - At the bottom due to race condition
-	     */
-	    if(autoplay) {
-	        $videoLink.click();
-	    }
-	
-	})();
-
-/***/ },
-
-/***/ 421:
-/***/ function(module, exports) {
-
-	// removed by extract-text-webpack-plugin
 
 /***/ }
 

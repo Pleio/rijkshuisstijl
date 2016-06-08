@@ -34,27 +34,25 @@
         </div>
       </div>
     </div>
-    <div class="rhs-content-header__menu rhs-card-topic__menu--profile">
-      <a href="/profile/<?php echo $username; ?>/" title="Profiel" class="rhs-content-header__link <?php echo $selected == "Profiel" ? "active" : ""; ?>">
-        <?php echo elgg_echo('rijkshuisstijl:profile:header:profile') ?>
-      </a>
-      <?php if ($editable) : ?>
-        <a href="/profile/<?php echo $username; ?>/interests" title="..." class="rhs-content-header__link <?php echo $selected == "Interesses" ? "active" : ""; ?>">
-          <?php echo elgg_echo('rijkshuisstijl:profile:header:interests') ?>
+    <?php if ($editable) : ?>
+      <div class="rhs-content-header__menu rhs-card-topic__menu--profile">
+        <a href="/profile/<?php echo $username; ?>/" title="Profiel" class="rhs-content-header__link <?php echo $selected == "Profiel" ? "active" : ""; ?>">
+          <?php echo elgg_echo('rijkshuisstijl:profile:header:profile') ?>
         </a>
-      <?php endif ?>
-      <?php if ($editable) : ?>
-        <a href="/profile/<?php echo $username; ?>/settings" title="..." class="rhs-content-header__link <?php echo $selected == "Instellingen" ? "active" : ""; ?>">
-          <?php echo elgg_echo('rijkshuisstijl:profile:header:settings') ?>
-        </a>
-      <?php endif ?>
-    <div class="rhs-content-header__dropdown">
-      <div class="selecter  closed" tabindex="0"><select tabindex="-1" name="category" id="selecter-menu" class="selecter-menu selecter-element">
-        <option value="/profile/<?php echo $username; ?>/" selected="selected"><?php elgg_echo('rijkshuisstijl:profile:header:profile') ?></option>
-        <?php if ($editable) : ?><option value="/profile/<?php echo $username; ?>/interests"><?php elgg_echo('rijkshuisstijl:profile:header:interests') ?></option><?php endif ?>
-        <?php if ($editable) : ?><option value="/profile/<?php echo $username; ?>/settings"><?php elgg_echo('rijkshuisstijl:profile:header:settings') ?></option><?php endif ?>
-      </select></div>
+          <a href="/profile/<?php echo $username; ?>/interests" title="..." class="rhs-content-header__link <?php echo $selected == "Interesses" ? "active" : ""; ?>">
+            <?php echo elgg_echo('rijkshuisstijl:profile:header:interests') ?>
+          </a>
+          <a href="/profile/<?php echo $username; ?>/settings" title="..." class="rhs-content-header__link <?php echo $selected == "Instellingen" ? "active" : ""; ?>">
+            <?php echo elgg_echo('rijkshuisstijl:profile:header:settings') ?>
+          </a>
+      <div class="rhs-content-header__dropdown">
+        <div class="selecter  closed" tabindex="0"><select tabindex="-1" name="category" id="selecter-menu" class="selecter-menu selecter-element">
+          <option value="/profile/<?php echo $username; ?>/" selected="selected"><?php elgg_echo('rijkshuisstijl:profile:header:profile') ?></option>
+          <?php if ($editable) : ?><option value="/profile/<?php echo $username; ?>/interests"><?php elgg_echo('rijkshuisstijl:profile:header:interests') ?></option><?php endif ?>
+          <?php if ($editable) : ?><option value="/profile/<?php echo $username; ?>/settings"><?php elgg_echo('rijkshuisstijl:profile:header:settings') ?></option><?php endif ?>
+        </select></div>
+        </div>
       </div>
-    </div>
+    <?php endif ?>
   </div>
 </div>

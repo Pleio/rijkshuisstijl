@@ -3512,12 +3512,11 @@ th {
   border-bottom: 1px dotted #009ee3;
 }
 .rhs-content-editable strong,
-#content-editable strong,
-.rhs-content-editable em,
-#content-editable em {
+#content-editable strong {
   font-family: "ROsanswebtext_bold", sans-serif;
   font-weight: 400;
 }
+
 .rhs-content-editable img,
 #content-editable img {
   width: 100%;

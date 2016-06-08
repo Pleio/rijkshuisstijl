@@ -11,9 +11,6 @@
  * @see elgg_push_breadcrumb
  */
 
-echo "<div class=\"rhs-col-md-offset-1 rhs-col-md-10 rhs-col-lg-offset-2 rhs-col-lg-8\">";
-echo "<div class=\"rhs-breadcrumbs\">";
-
 if (isset($vars['breadcrumbs'])) {
     $breadcrumbs = $vars['breadcrumbs'];
 } else {
@@ -27,6 +24,9 @@ if ($additional_class) {
 }
 
 if (is_array($breadcrumbs) && count($breadcrumbs) > 0) {
+    echo "<div class=\"rhs-col-md-offset-1 rhs-col-md-10 rhs-col-lg-offset-2 rhs-col-lg-8\">";
+    echo "<div class=\"rhs-breadcrumbs\">";
+
     foreach ($breadcrumbs as $breadcrumb) {
         if (!empty($breadcrumb['link'])) {
             $crumb = elgg_view('output/url', array(
@@ -38,7 +38,7 @@ if (is_array($breadcrumbs) && count($breadcrumbs) > 0) {
             echo $crumb;
         }
     }
-}
 
-echo "</div>";
-echo "</div>";
+    echo "</div>";
+    echo "</div>";
+}
