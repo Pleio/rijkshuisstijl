@@ -3771,5 +3771,10 @@ fieldset {
 .question-workflow-overview-full .overview-state {
   padding-top: 15px;
 }
+.menu-builder-edit-menu-item {
+  margin-left: 3px;
+  margin-right: 3px;
+  vertical-align: baseline;
+}
 
 /*# sourceMappingURL=splash.css.map*/

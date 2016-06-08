@@ -3512,11 +3512,12 @@ th {
   border-bottom: 1px dotted #009ee3;
 }
 .rhs-content-editable strong,
-#content-editable strong {
+#content-editable strong,
+.rhs-content-editable em,
+#content-editable em {
   font-family: "ROsanswebtext_bold", sans-serif;
   font-weight: 400;
 }
-
 .rhs-content-editable img,
 #content-editable img {
   width: 100%;
@@ -8584,6 +8585,11 @@ fieldset {
 .question-workflow-overview-full .overview-element,
 .question-workflow-overview-full .overview-state {
   padding-top: 15px;
+}
+.menu-builder-edit-menu-item {
+  margin-left: 3px;
+  margin-right: 3px;
+  vertical-align: baseline;
 }
 
 /*# sourceMappingURL=rijkshuisstijl.css.map*/

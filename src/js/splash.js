@@ -24,7 +24,6 @@ require("./default/question-modal.js");
 require("./default/radio.js");
 require("./default/scroll-to.js");
 require("./default/share-button.js");
-require("./default/tinymce.js");
 require("./default/video-block.js");
 require("./default/video-player.js");
 
