@@ -5,24 +5,28 @@ $topic = get_input('topic');
 $category = get_input('category');
 $user = elgg_get_logged_in_user_entity();
 
-if ($topic) {
-  $group = get_entity($topic);
-  if (!$group instanceof ElggGroup) {
-    forward(REFERER);
-  }
-}
-
-$options = array(
-  'type' => 'object',
-  'subtype' => 'question',
-  'full_view' => false
-);
-
 $options = array(
     'type' => 'object',
     'subtype' => 'question',
     'full_view' => false
 );
+
+$topic = get_input('topic');
+if (!$topic) {
+    $topic = "mine";
+}
+
+if ($topic == "mine") {
+    $interests = rijkshuisstijl_get_interests($user);
+    if ($interests) {
+        $options['container_guids'] = $interests;
+    }
+} else {
+    $topic = (int) $topic;
+    if ($topic) {
+        $options['container_guid'] = $topic;
+    }
+}
 
 $content = elgg_list_entities($options, 'elgg_get_entities_from_private_settings');
 
