@@ -16,10 +16,19 @@ $options = array(
     'full_view' => false
 );
 
-$topic = (int) get_input('topic', null);
+$topic = (int) get_input('topic', 'mine');
 if ($topic) {
-    $options['container_guid'] = $topic;
+    if ($topic == "mine") {
+        $interests = rijkshuisstijl_get_interests(elgg_get_logged_in_user_entity());
+        if ($interests) {
+            $options['container_guid'] = $interests;
+        }
+    } else {
+        $options['container_guid'] = $topic;
+    }
 }
+
+var_dump($interests);
 
 $category = get_input('category', null);
 if ($category) {

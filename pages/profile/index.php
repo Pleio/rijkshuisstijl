@@ -14,14 +14,10 @@
   }
 
   $result = profile_manager_get_categorized_fields($targetUser, true);
-  $fields = $result['fields'];
-  $cats = $result['categories'];
 
   $outputFields = array();
-  foreach ($cats as $cat_guid => $cat) 
-  {
-    foreach ($fields[$cat_guid] as $field) 
-    {
+  foreach($result['fields'] as $fields) {
+    foreach ($fields as $field) {
         $metadata_name = $field->metadata_name;
 
         $metadata = elgg_get_metadata(array(
@@ -39,7 +35,7 @@
         else 
           $value = '';
 
-        $outputFields[] = array('name' => $field->metadata_name, 'value' => $value, 'type' => $field->metadata_type, 'label' => $field->metadata_label, 'category' => $cat->metadata_name);
+        $outputFields[] = array('name' => $field->metadata_name, 'value' => $value, 'type' => $field->metadata_type, 'label' => $field->metadata_label, 'category' => $fields->category);
     }
   }
 

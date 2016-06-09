@@ -37,7 +37,7 @@
           elgg.action('rijkshuisstijl/profile/setprofilefield', {
           data: {
             username: '<?php echo $username ?>',
-            name: 'aboutme',
+            name: 'description',
             value: '"' + $('textarea').val().replace("\"","\\\"") + '"'
           },
           success: function (wrapper) {
@@ -86,12 +86,9 @@
             <div class="js-editableFields"><?php if ($editable) : ?><a class="js-editableFieldsToggle">Bewerk velden</a><?php endif; ?>
               <dl class="rhs-profile-information">
                 <?php foreach ($fields as $field) : ?>
-                  <?php 
-                    if ($field["category"] == 'profiel') :
-                  ?>
+                    <?php if ($field['name'] == "Plaats"): continue; endif ?>
                     <dt><?php echo $field["label"] ?></dt>
                     <dd data-type="<?php echo $field["type"] ?>" data-name="<?php echo $field["name"] ?>" data-value="<?php echo $field["value"] ?>" data-placeholder="<?php echo $field["label"] ?>" <?php echo $editable ? 'class="js-editableField"' : ''?>><?php echo $field["value"] ?></dd>
-                  <?php endif ?>
               <?php endforeach ?>
               </dl>
             </div>
@@ -127,7 +124,7 @@
                 <dt><?php echo elgg_echo('rijkshuisstijl:profile:worklocation') ?></dt>
                 <?php foreach ($fields as $field) : ?>
                   <?php 
-                    if ($field["category"] == 'profielLocatie' && $field["name"] != 'overmij') :
+                    if ($field["name"] == 'Plaats') :
                   ?>
                     <dd data-name="<?php echo $field["name"] ?>" data-value="<?php echo $field["value"] ?>" <?php echo $editable ? 'class="js-editableField"' : ''?>><?php echo $field["value"] ?></dd>
                   <?php endif ?>
@@ -137,10 +134,10 @@
             <div class="rhs-profile-about"><strong><?php echo elgg_echo('rijkshuisstijl:profile:aboutme') ?></strong>
               <?php if ($editable) : ?>
                 <div data-editable-text class="rhs-editable-text">
-                  <div class="rhs-editable-text__content"><?php echo isset($targetUser->aboutme) ? $targetUser->aboutme : "Leeg" ?></div>
+                  <div class="rhs-editable-text__content"><?php echo ($targetUser->description) ? $targetUser->description : "Leeg" ?></div>
                   <form class="rhs-editable-text__editor">
                     <div>
-                      <textarea class="elgg-input-plaintext" id="js-initiateTinymce"><?php echo isset($targetUser->aboutme) ? $targetUser->aboutme : "" ?></textarea>
+                      <textarea class="elgg-input-plaintext" id="js-initiateTinymce"><?php echo isset($targetUser->description) ? $targetUser->description : "" ?></textarea>
                     </div>
                     <div class="rhs-form__actions rhs-form__under-tinymce" style="position: initial;"><a href="#" class="rhs-button rhs-button--grey" onclick="onEditableTextComplete(event, false)">Annuleer</a>
                       <button class="rhs-button rhs-button--primary" onclick="onEditableTextComplete(event, true)">Opslaan</button>
@@ -148,7 +145,7 @@
                   </form>
                 </div>
               <?php else : ?>
-                <p><?php echo isset($targetUser->aboutme) ? $targetUser->aboutme : "" ?></p>
+                <p><?php echo isset($targetUser->description) ? $targetUser->description : "" ?></p>
               <?php endif ?>
             </div>
           </div>
