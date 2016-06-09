@@ -12,6 +12,13 @@
 		forward();
 	}
 
+	$site = elgg_get_site_entity();
+	if (method_exists($site, 'getACL')) {
+		$acl = $site->getACL();
+	} else {
+		$acl = ACCESS_LOGGED_IN;
+	}
+
 	$username = get_input("username");
 	$targetUser = get_user_by_username($username);
 	if (!$targetUser) 
@@ -41,7 +48,7 @@
 	    	$fieldNames = $fieldNames . ' ' . $field->metadata_name;
 	    	if ($field->metadata_name == $name)
 	    	{
-	    		create_metadata($targetUser->guid, $name, $value);
+	    		create_metadata($targetUser->guid, $name, $value, '', 0, $acl);
 	    		$success = true;
 	    		break;
 	    	}

@@ -95,9 +95,11 @@
           </div>
           <div class="rhs-col-lg-3 rhs-col-xs-12 rhs-col-xs-8 rhs-col-sm-offset-4 rhs-col-lg-offset-0">
             <div class="rhs-profile-progress">
-              <p class="rhs-profile-progress__bar rhs-profile-progress__bar--level-<?php echo $vars['completeness']; ?>">
-                <span class="rhs-profile-progress__bar-text"><?php echo elgg_echo("rijkshuisstjil:completeness:" . $vars['completeness']); ?></span>
-              </p>
+              <?php if ($targetUser->canEdit()): ?>
+                <p class="rhs-profile-progress__bar rhs-profile-progress__bar--level-<?php echo $vars['completeness']; ?>">
+                  <span class="rhs-profile-progress__bar-text"><?php echo elgg_echo("rijkshuisstjil:completeness:" . $vars['completeness']); ?></span>
+                </p>
+              <?php endif; ?>
                 <dl class="rhs-profile-progress__statistics">
                   <dt><?php echo elgg_echo('rijkshuisstijl:profile:questionsasked') ?></dt>
                   <dd><?php echo $vars['number_questions']; ?></dd>
