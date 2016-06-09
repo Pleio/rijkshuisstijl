@@ -2,6 +2,7 @@
 
 $category = get_input('category', null);
 $site = elgg_get_site_entity();
+$user = elgg_get_logged_in_user_entity();
 
 elgg_push_context('news');
 elgg_set_page_owner_guid($site->guid);
@@ -16,19 +17,22 @@ $options = array(
     'full_view' => false
 );
 
-$topic = (int) get_input('topic', 'mine');
-if ($topic) {
-    if ($topic == "mine") {
-        $interests = rijkshuisstijl_get_interests(elgg_get_logged_in_user_entity());
-        if ($interests) {
-            $options['container_guid'] = $interests;
-        }
-    } else {
+$topic = get_input('topic');
+if (!$topic) {
+    $topic = "mine";
+}
+
+if ($topic == "mine") {
+    $interests = rijkshuisstijl_get_interests($user);
+    if ($interests) {
+        $options['container_guids'] = $interests;
+    }
+} else {
+    $topic = (int) $topic;
+    if ($topic) {
         $options['container_guid'] = $topic;
     }
 }
-
-var_dump($interests);
 
 $category = get_input('category', null);
 if ($category) {
