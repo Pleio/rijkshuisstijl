@@ -83,7 +83,7 @@
                   //"class" => "rhs-checkbox__input js-validateCheckbox"
                 );
 
-                if ($notificationSettings->email == 1) {
+                if (isset($notificationSettings->email) && $notificationSettings->email == 1) {
                   $options['checked'] = 'checked';
                 }
 
@@ -95,12 +95,19 @@
 
             <p class="rhs-form__element rhs-form__element--no-padding">
               <label for="option-2" class="rhs-checkbox rhs-checkbox--theme">
-                <?php echo elgg_view("input/checkbox", array(
+                <?php $options = array(
                   "id" => "option-2",
-                  "name" => "option-$opt",
-                  "checked" => newsletter_check_user_subscription($targetUser, elgg_get_site_entity()) ? "checked" : "",
+                  "name" => "option-$opt"
                   //"class" => "rhs-checkbox__input js-validateCheckbox"
-                )); ?>
+                );
+          
+                if (newsletter_check_user_subscription($targetUser, elgg_get_site_entity()))
+                {
+                  $options['checked'] = 'checked';
+                }
+
+                ?>
+                <?php echo elgg_view("input/checkbox", $options) ?>
                 <?php echo elgg_echo('rijkshuisstijl:profile:interests:receivenewsletter'); ?>
                 </label>
             </p>

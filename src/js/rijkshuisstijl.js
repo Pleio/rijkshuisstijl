@@ -84,10 +84,12 @@ jQuery(document).ready(function () {
     $('#option-1').click(function ()
     {
       setTimeout(function () {
+        var newValue = $('#option-1').is(':checked') ? 1 : 0;
+
         elgg.action('/action/notificationsettings/save', {
           data: {
             guid: gUserGuid,
-            emailpersonal: $('#option-1').parent().hasClass('chosen') ? "1" : "0"
+            emailpersonal: newValue
           },
           success: function (wrapper) {
 
@@ -99,10 +101,15 @@ jQuery(document).ready(function () {
     $('#option-2').click(function ()
     {
       setTimeout(function () {
-        elgg.action('/action/newsletter/subscribe', {
+        var newValue = $('#option-2').is(':checked') ? 1 : 0;
+
+        elgg.action('/action/newsletter/subscriptions', {
           data: {
+            block_all: 0,
             user_guid: gUserGuid,
-            guid: gElggSiteGuid
+            "subscriptions" : {
+              [gElggSiteGuid]: newValue
+            }
           },
           success: function (wrapper) {
 
@@ -114,17 +121,34 @@ jQuery(document).ready(function () {
     $('#emailChangeForm').submit(function (event) {
         event.preventDefault();
         
-        elgg.action('rijkshuisstijl/profile/setprofilefield', {
+        elgg.action('/action/usersettings/save', {
           data: {
-            username: gUsername,
-            name: 'email',
-            value: '"' + $('#emailAddress').val() + '"'
+            guid: gUserGuid,
+            name: gName,
+            language: gLanguage,
+            email: $('#emailAddress').val()
           },
           success: function (wrapper) {
 
           }
         });
     });
+
+    /*$('#emailChangeForm').submit(function (event) {
+        event.preventDefault();
+        
+        elgg.action('/action/usersettings/save', {
+          data: {
+            guid: gUserGuid,
+            name: gName,
+            language: gLanguage,
+            email: $('#emailAddress').val()
+          },
+          success: function (wrapper) {
+
+          }
+        });
+    });*/
 
     $('#taalinstellingen').change(function () {
       

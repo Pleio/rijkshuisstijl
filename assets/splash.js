@@ -46,14 +46,13 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	// require CSS entry file
-	__webpack_require__(420);
+	__webpack_require__(422);
 	
 	// require non-NPM libraries
-	__webpack_require__(120);
-	
 	__webpack_require__(121);
-	__webpack_require__(124);
-	__webpack_require__(126);
+	
+	__webpack_require__(122);
+	__webpack_require__(125);
 	__webpack_require__(127);
 	__webpack_require__(128);
 	__webpack_require__(129);
@@ -61,7 +60,7 @@
 	__webpack_require__(131);
 	__webpack_require__(132);
 	__webpack_require__(133);
-	__webpack_require__(135);
+	__webpack_require__(134);
 	__webpack_require__(136);
 	__webpack_require__(137);
 	__webpack_require__(138);
@@ -70,12 +69,13 @@
 	__webpack_require__(141);
 	__webpack_require__(142);
 	__webpack_require__(143);
-	__webpack_require__(422);
 	__webpack_require__(144);
 	__webpack_require__(145);
 	__webpack_require__(146);
+	__webpack_require__(147);
+	__webpack_require__(148);
 	
-	var jQuery = __webpack_require__(122);
+	var jQuery = __webpack_require__(123);
 	jQuery(document).ready(function () {
 	    var els = jQuery('.elgg-form-login fieldset div input');
 	    if (els.length > 0)
@@ -252,7 +252,7 @@
 
 /***/ },
 
-/***/ 120:
+/***/ 121:
 /***/ function(module, exports) {
 
 	/*
@@ -943,10 +943,10 @@
 
 /***/ },
 
-/***/ 121:
+/***/ 122:
 /***/ function(module, exports, __webpack_require__) {
 
-	var $ = __webpack_require__(122);
+	var $ = __webpack_require__(123);
 	
 	(function () {
 	    'use strict';
@@ -974,11 +974,11 @@
 
 /***/ },
 
-/***/ 122:
+/***/ 123:
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
-	 * jQuery JavaScript Library v2.2.3
+	 * jQuery JavaScript Library v2.2.4
 	 * http://jquery.com/
 	 *
 	 * Includes Sizzle.js
@@ -988,7 +988,7 @@
 	 * Released under the MIT license
 	 * http://jquery.org/license
 	 *
-	 * Date: 2016-04-05T19:26Z
+	 * Date: 2016-05-20T17:23Z
 	 */
 	
 	(function( global, factory ) {
@@ -1044,7 +1044,7 @@
 	
 	
 	var
-		version = "2.2.3",
+		version = "2.2.4",
 	
 		// Define a local copy of jQuery
 		jQuery = function( selector, context ) {
@@ -5985,13 +5985,14 @@
 		isDefaultPrevented: returnFalse,
 		isPropagationStopped: returnFalse,
 		isImmediatePropagationStopped: returnFalse,
+		isSimulated: false,
 	
 		preventDefault: function() {
 			var e = this.originalEvent;
 	
 			this.isDefaultPrevented = returnTrue;
 	
-			if ( e ) {
+			if ( e && !this.isSimulated ) {
 				e.preventDefault();
 			}
 		},
@@ -6000,7 +6001,7 @@
 	
 			this.isPropagationStopped = returnTrue;
 	
-			if ( e ) {
+			if ( e && !this.isSimulated ) {
 				e.stopPropagation();
 			}
 		},
@@ -6009,7 +6010,7 @@
 	
 			this.isImmediatePropagationStopped = returnTrue;
 	
-			if ( e ) {
+			if ( e && !this.isSimulated ) {
 				e.stopImmediatePropagation();
 			}
 	
@@ -6939,19 +6940,6 @@
 			val = name === "width" ? elem.offsetWidth : elem.offsetHeight,
 			styles = getStyles( elem ),
 			isBorderBox = jQuery.css( elem, "boxSizing", false, styles ) === "border-box";
-	
-		// Support: IE11 only
-		// In IE 11 fullscreen elements inside of an iframe have
-		// 100x too small dimensions (gh-1764).
-		if ( document.msFullscreenElement && window.top !== window ) {
-	
-			// Support: IE11 only
-			// Running getBoundingClientRect on a disconnected node
-			// in IE throws an error.
-			if ( elem.getClientRects().length ) {
-				val = Math.round( elem.getBoundingClientRect()[ name ] * 100 );
-			}
-		}
 	
 		// Some non-html elements return undefined for offsetWidth, so check for null/undefined
 		// svg - https://bugzilla.mozilla.org/show_bug.cgi?id=649285
@@ -8843,6 +8831,7 @@
 		},
 	
 		// Piggyback on a donor event to simulate a different one
+		// Used only for `focus(in | out)` events
 		simulate: function( type, elem, event ) {
 			var e = jQuery.extend(
 				new jQuery.Event(),
@@ -8850,27 +8839,10 @@
 				{
 					type: type,
 					isSimulated: true
-	
-					// Previously, `originalEvent: {}` was set here, so stopPropagation call
-					// would not be triggered on donor event, since in our own
-					// jQuery.event.stopPropagation function we had a check for existence of
-					// originalEvent.stopPropagation method, so, consequently it would be a noop.
-					//
-					// But now, this "simulate" function is used only for events
-					// for which stopPropagation() is noop, so there is no need for that anymore.
-					//
-					// For the 1.x branch though, guard for "click" and "submit"
-					// events is still used, but was moved to jQuery.event.stopPropagation function
-					// because `originalEvent` should point to the original event for the constancy
-					// with other events and for more focused logic
 				}
 			);
 	
 			jQuery.event.trigger( e, null, elem );
-	
-			if ( e.isDefaultPrevented() ) {
-				event.preventDefault();
-			}
 		}
 	
 	} );
@@ -10823,10 +10795,10 @@
 
 /***/ },
 
-/***/ 124:
+/***/ 125:
 /***/ function(module, exports, __webpack_require__) {
 
-	var $ = __webpack_require__(122);
+	var $ = __webpack_require__(123);
 	
 	(function () {
 	    'use strict';
@@ -10933,7 +10905,7 @@
 	
 	
 	    //fast-click for devices to remove 300ms delay
-	    var FastClick = __webpack_require__(125);
+	    var FastClick = __webpack_require__(126);
 	    FastClick.attach(document.body);
 	
 	
@@ -10945,7 +10917,7 @@
 
 /***/ },
 
-/***/ 125:
+/***/ 126:
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_RESULT__;;(function () {
@@ -11793,10 +11765,10 @@
 
 /***/ },
 
-/***/ 126:
+/***/ 127:
 /***/ function(module, exports, __webpack_require__) {
 
-	var $ = __webpack_require__(122);
+	var $ = __webpack_require__(123);
 	
 	(function () {
 	    'use strict';
@@ -11928,14 +11900,14 @@
 
 /***/ },
 
-/***/ 127:
+/***/ 128:
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
 	 * Checkbox-switch input
 	 */
 	
-	var $ = __webpack_require__(122);
+	var $ = __webpack_require__(123);
 	
 	 $(document).ready(function () {
 	    'use strict';
@@ -11978,14 +11950,14 @@
 
 /***/ },
 
-/***/ 128:
+/***/ 129:
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
 	 * Checkbox input
 	 */
 	
-	var $ = __webpack_require__(122);
+	var $ = __webpack_require__(123);
 	
 	 $(document).ready(function () {
 	    'use strict';
@@ -12028,7 +12000,7 @@
 
 /***/ },
 
-/***/ 129:
+/***/ 130:
 /***/ function(module, exports) {
 
 	(function () {
@@ -12079,10 +12051,10 @@
 
 /***/ },
 
-/***/ 130:
+/***/ 131:
 /***/ function(module, exports, __webpack_require__) {
 
-	var $ = __webpack_require__(122);
+	var $ = __webpack_require__(123);
 	
 	(function () {
 	    'use strict';
@@ -12123,7 +12095,7 @@
 
 /***/ },
 
-/***/ 131:
+/***/ 132:
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
@@ -12149,7 +12121,7 @@
 	//      - required
 	//
 	
-	var $ = __webpack_require__(122);
+	var $ = __webpack_require__(123);
 	
 	$(document).ready(function () {
 	    'use strict';
@@ -12279,10 +12251,10 @@
 
 /***/ },
 
-/***/ 132:
+/***/ 133:
 /***/ function(module, exports, __webpack_require__) {
 
-	var $ = __webpack_require__(122);
+	var $ = __webpack_require__(123);
 	
 	$(document).ready(function () {
 	    'use strict';
@@ -12304,10 +12276,10 @@
 
 /***/ },
 
-/***/ 133:
+/***/ 134:
 /***/ function(module, exports, __webpack_require__) {
 
-	var $ = __webpack_require__(122);
+	var $ = __webpack_require__(123);
 	
 	(function () {
 	    'use strict';
@@ -12626,10 +12598,10 @@
 
 /***/ },
 
-/***/ 135:
+/***/ 136:
 /***/ function(module, exports, __webpack_require__) {
 
-	var $ = __webpack_require__(122);
+	var $ = __webpack_require__(123);
 	
 	(function () {
 	    'use strict';
@@ -12666,10 +12638,10 @@
 
 /***/ },
 
-/***/ 136:
+/***/ 137:
 /***/ function(module, exports, __webpack_require__) {
 
-	var $ = __webpack_require__(122);
+	var $ = __webpack_require__(123);
 	
 	(function () {
 	    'use strict';
@@ -12695,10 +12667,10 @@
 
 /***/ },
 
-/***/ 137:
+/***/ 138:
 /***/ function(module, exports, __webpack_require__) {
 
-	var $ = __webpack_require__(122);
+	var $ = __webpack_require__(123);
 	
 	(function () {
 	    'use strict';
@@ -12724,10 +12696,10 @@
 
 /***/ },
 
-/***/ 138:
+/***/ 139:
 /***/ function(module, exports, __webpack_require__) {
 
-	var $ = __webpack_require__(122);
+	var $ = __webpack_require__(123);
 	
 	(function () {
 	    'use strict';
@@ -12786,10 +12758,10 @@
 
 /***/ },
 
-/***/ 139:
+/***/ 140:
 /***/ function(module, exports, __webpack_require__) {
 
-	var $ = __webpack_require__(122);
+	var $ = __webpack_require__(123);
 	
 	(function () {
 	    'use strict';
@@ -12843,10 +12815,10 @@
 
 /***/ },
 
-/***/ 140:
+/***/ 141:
 /***/ function(module, exports, __webpack_require__) {
 
-	var $ = __webpack_require__(122);
+	var $ = __webpack_require__(123);
 	
 	////////
 	////////  P R O F I L E  P H O T O  U P L O A D
@@ -13009,10 +12981,10 @@
 
 /***/ },
 
-/***/ 141:
+/***/ 142:
 /***/ function(module, exports, __webpack_require__) {
 
-	var $ = __webpack_require__(122);
+	var $ = __webpack_require__(123);
 	
 	(function () {
 	    'use strict';
@@ -13041,10 +13013,10 @@
 
 /***/ },
 
-/***/ 142:
+/***/ 143:
 /***/ function(module, exports, __webpack_require__) {
 
-	var $ = __webpack_require__(122);
+	var $ = __webpack_require__(123);
 	
 	/*
 	 * Radio buttons
@@ -13080,7 +13052,7 @@
 
 /***/ },
 
-/***/ 143:
+/***/ 144:
 /***/ function(module, exports) {
 
 	
@@ -13108,168 +13080,10 @@
 
 /***/ },
 
-/***/ 144:
-/***/ function(module, exports, __webpack_require__) {
-
-	var $ = __webpack_require__(122);
-	
-	(function () {
-	    'use strict';
-	
-	    var $shareBtn = $("[data-share-toggle]");
-	
-	    $shareBtn.on("click", function(e){
-	        e.preventDefault();
-	
-	        $(this).toggleClass("active");
-	
-	        $("[data-share-target]").toggleClass("icons-open");
-	    });
-	
-	
-	})();
-
-/***/ },
-
 /***/ 145:
 /***/ function(module, exports, __webpack_require__) {
 
-	var $ = __webpack_require__(122);
-	
-	(function () {
-	    'use strict';
-	
-	    /*!
-	     * video-block
-	     */
-	
-	    var $videoblock = $('[data-video-block-trigger]');
-	
-	    $videoblock.on('click', function(e) {
-	        e.preventDefault();
-	        var $this = $(this);
-	        var $parent = $this.parents('[data-video-block]');
-	
-	        $("body").toggleClass("rhs-video-block--is-open");
-	        $parent.toggleClass("rhs-video-block--open");
-	    });
-	
-	
-	})();
-
-/***/ },
-
-/***/ 146:
-/***/ function(module, exports, __webpack_require__) {
-
-	var $ = __webpack_require__(122);
-	
-	(function () {
-	    'use strict';
-	
-	    var $body = $('body');
-	    var $videoLink = $("[data-video-type]");
-	    var autoplay = getUrlVar()['autoplay'];
-	    var modalIsOpen = false;
-	
-	    $videoLink.on('click', function (e) {
-	
-	        e.preventDefault();
-	
-	        var $this = $(this);
-	        var videoType = $this.data('video-type');
-	        var videoId = $this.data('video-id');
-	
-	        $this.addClass('visited');
-	
-	        // Create the video iFrame
-	        var $videoFrame = createVideoFrame(videoType, videoId);
-	
-	        // Create the vido modal and show it
-	        if(!modalIsOpen) {
-	            showVideoModal($videoFrame);
-	            modalIsOpen = true;
-	        }
-	    });
-	
-	    $body.on('click', '.rhs-video-modal__close, .rhs-video-modal__overlay', function () {
-	        removeVideoModal();
-	        modalIsOpen = false;
-	    });
-	
-	
-	    /*
-	     * Helper functions
-	     */
-	    function createVideoFrame(videoType, videoId) {
-	        switch (videoType) {
-	            case 'vimeo':
-	                return '<iframe src="https://player.vimeo.com/video/' + videoId + '?title=0&byline=0&portrait=0&autoplay=1" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen />';
-	
-	                break;
-	
-	            case 'youtube':
-	                return '<iframe src="http://www.youtube.com/embed/' + videoId + '?autoplay=1&modestbranding=1&rel=0&showinfo=0" frameborder="0" />';
-	
-	                break;
-	
-	            default:
-	                return '<iframe src="https://player.vimeo.com/video/' + videoId + '?title=0&byline=0&portrait=0&autoplay=1" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen />';
-	
-	                break;
-	        }
-	    }
-	
-	    function showVideoModal($videoFrame) {
-	        var $videoModal =  "<div class='rhs-video-modal'>";
-	                $videoModal += "<div class='rhs-video-modal__box'>";
-	                    $videoModal += "<span class='rhs-video-modal__close'></span>";
-	                    $videoModal += $videoFrame;
-	                $videoModal += "</div>";
-	                $videoModal += "<div class='rhs-video-modal__overlay'></div>";
-	            $videoModal += "</div>";
-	
-	        $($videoModal).appendTo('body').fadeIn();
-	    }
-	
-	    function removeVideoModal() {
-	        $('.rhs-video-modal').fadeOut().promise().done(function () {
-	            $(this).remove();
-	        });
-	    }
-	
-	    function getUrlVar() {
-	        var variables = {};
-	        var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi,
-	            function(m,key,value) {
-	                variables[key] = value;
-	            });
-	        return variables;
-	    }
-	
-	    /*
-	     * Autoplay
-	     * - At the bottom due to race condition
-	     */
-	    if(autoplay) {
-	        $videoLink.click();
-	    }
-	
-	})();
-
-/***/ },
-
-/***/ 420:
-/***/ function(module, exports) {
-
-	// removed by extract-text-webpack-plugin
-
-/***/ },
-
-/***/ 422:
-/***/ function(module, exports, __webpack_require__) {
-
-	var $ = __webpack_require__(122);
+	var $ = __webpack_require__(123);
 	
 	(function () {
 	    
@@ -13464,6 +13278,164 @@
 	    
 	})();
 
+
+/***/ },
+
+/***/ 146:
+/***/ function(module, exports, __webpack_require__) {
+
+	var $ = __webpack_require__(123);
+	
+	(function () {
+	    'use strict';
+	
+	    var $shareBtn = $("[data-share-toggle]");
+	
+	    $shareBtn.on("click", function(e){
+	        e.preventDefault();
+	
+	        $(this).toggleClass("active");
+	
+	        $("[data-share-target]").toggleClass("icons-open");
+	    });
+	
+	
+	})();
+
+/***/ },
+
+/***/ 147:
+/***/ function(module, exports, __webpack_require__) {
+
+	var $ = __webpack_require__(123);
+	
+	(function () {
+	    'use strict';
+	
+	    /*!
+	     * video-block
+	     */
+	
+	    var $videoblock = $('[data-video-block-trigger]');
+	
+	    $videoblock.on('click', function(e) {
+	        e.preventDefault();
+	        var $this = $(this);
+	        var $parent = $this.parents('[data-video-block]');
+	
+	        $("body").toggleClass("rhs-video-block--is-open");
+	        $parent.toggleClass("rhs-video-block--open");
+	    });
+	
+	
+	})();
+
+/***/ },
+
+/***/ 148:
+/***/ function(module, exports, __webpack_require__) {
+
+	var $ = __webpack_require__(123);
+	
+	(function () {
+	    'use strict';
+	
+	    var $body = $('body');
+	    var $videoLink = $("[data-video-type]");
+	    var autoplay = getUrlVar()['autoplay'];
+	    var modalIsOpen = false;
+	
+	    $videoLink.on('click', function (e) {
+	
+	        e.preventDefault();
+	
+	        var $this = $(this);
+	        var videoType = $this.data('video-type');
+	        var videoId = $this.data('video-id');
+	
+	        $this.addClass('visited');
+	
+	        // Create the video iFrame
+	        var $videoFrame = createVideoFrame(videoType, videoId);
+	
+	        // Create the vido modal and show it
+	        if(!modalIsOpen) {
+	            showVideoModal($videoFrame);
+	            modalIsOpen = true;
+	        }
+	    });
+	
+	    $body.on('click', '.rhs-video-modal__close, .rhs-video-modal__overlay', function () {
+	        removeVideoModal();
+	        modalIsOpen = false;
+	    });
+	
+	
+	    /*
+	     * Helper functions
+	     */
+	    function createVideoFrame(videoType, videoId) {
+	        switch (videoType) {
+	            case 'vimeo':
+	                return '<iframe src="https://player.vimeo.com/video/' + videoId + '?title=0&byline=0&portrait=0&autoplay=1" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen />';
+	
+	                break;
+	
+	            case 'youtube':
+	                return '<iframe src="http://www.youtube.com/embed/' + videoId + '?autoplay=1&modestbranding=1&rel=0&showinfo=0" frameborder="0" />';
+	
+	                break;
+	
+	            default:
+	                return '<iframe src="https://player.vimeo.com/video/' + videoId + '?title=0&byline=0&portrait=0&autoplay=1" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen />';
+	
+	                break;
+	        }
+	    }
+	
+	    function showVideoModal($videoFrame) {
+	        var $videoModal =  "<div class='rhs-video-modal'>";
+	                $videoModal += "<div class='rhs-video-modal__box'>";
+	                    $videoModal += "<span class='rhs-video-modal__close'></span>";
+	                    $videoModal += $videoFrame;
+	                $videoModal += "</div>";
+	                $videoModal += "<div class='rhs-video-modal__overlay'></div>";
+	            $videoModal += "</div>";
+	
+	        $($videoModal).appendTo('body').fadeIn();
+	    }
+	
+	    function removeVideoModal() {
+	        $('.rhs-video-modal').fadeOut().promise().done(function () {
+	            $(this).remove();
+	        });
+	    }
+	
+	    function getUrlVar() {
+	        var variables = {};
+	        var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi,
+	            function(m,key,value) {
+	                variables[key] = value;
+	            });
+	        return variables;
+	    }
+	
+	    /*
+	     * Autoplay
+	     * - At the bottom due to race condition
+	     */
+	    if(autoplay) {
+	        $videoLink.click();
+	    }
+	
+	})();
+
+/***/ },
+
+/***/ 422:
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
 
 /***/ }
 

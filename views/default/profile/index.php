@@ -34,7 +34,7 @@
 
       if (save)
       {
-          elgg.action('rijkshuisstijl/profile/setprofilefield', {
+        elgg.action('rijkshuisstijl/profile/setprofilefield', {
           data: {
             username: '<?php echo $username ?>',
             name: 'description',
@@ -48,14 +48,25 @@
               // the system prevented the action from running
             }
           }
-        });
+      });
 
-        $('.rhs-editable-text__content').html($('textarea').val());
+      $('.rhs-editable-text__content').html($('textarea').val());
+
+      if ($('.rhs-editable-text__content').html().length > 0)
+      {
+        if ($('#description-content').hasClass('editable-field-link--empty'))
+          $('#description-content').removeClass('editable-field-link--empty');
       }
       else
       {
-        $('textarea').val($('.rhs-editable-text__content').html());
+        if (!$('#description-content').hasClass('editable-field-link--empty'))
+          $('#description-content').addClass('editable-field-link--empty');
       }
+    }
+    else
+    {
+      $('textarea').val($('.rhs-editable-text__content').html());
+    }
   }
 </script>
 
@@ -136,7 +147,7 @@
             <div class="rhs-profile-about"><strong><?php echo elgg_echo('rijkshuisstijl:profile:aboutme') ?></strong>
               <?php if ($editable) : ?>
                 <div data-editable-text class="rhs-editable-text">
-                  <div class="rhs-editable-text__content"><?php echo ($targetUser->description) ? $targetUser->description : "Leeg" ?></div>
+                  <div id="description-content" class="rhs-editable-text__content <?php echo (strlen($targetUser->description) > 0 ? "" : "editable-field-link--empty") ?>"><?php echo ($targetUser->description) ? $targetUser->description : "" ?></div>
                   <form class="rhs-editable-text__editor">
                     <div>
                       <textarea class="elgg-input-plaintext" id="js-initiateTinymce"><?php echo isset($targetUser->description) ? $targetUser->description : "" ?></textarea>

@@ -30,7 +30,7 @@
 	$name = get_input("name");
 	$value = get_input("value");
 
-	$validFields = array('description', 'interests', 'notifications', 'email', 'language');
+	$validFields = array('description', 'interests', 'notifications', 'language');
 
 	if (!in_array($name, $validFields))
 	{
