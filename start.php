@@ -33,7 +33,7 @@ function rijkshuisstijl_init() {
     if (elgg_in_context("register") | elgg_in_context("login") | elgg_in_context("forgotpassword") | elgg_in_context("resetpassword")) {
     	elgg_load_css('splash');
     	elgg_load_js('splash');
-    } else {
+    } elseif (!elgg_in_context("admin")) {
     	elgg_load_css('rijkshuisstijl');
     	elgg_load_js('rijkshuisstijl');
     }
