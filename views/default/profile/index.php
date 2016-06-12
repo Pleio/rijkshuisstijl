@@ -103,7 +103,7 @@
                 <?php foreach ($fields as $field) : ?>
                     <?php if ($field['name'] == "Plaats"): continue; endif ?>
                     <dt><?php echo $field["label"] ?></dt>
-                    <dd data-type="<?php echo $field["type"] ?>" data-name="<?php echo $field["name"] ?>" data-value="<?php echo $field["value"] ?>" data-placeholder="<?php echo $field["label"] ?>" <?php echo $editable ? 'class="js-editableField"' : ''?>><?php echo $field["value"] ?></dd>
+                    <dd data-type="<?php echo $field["type"] ?>" data-name="<?php echo $field["name"] ?>" data-value="<?php echo strip_tags($field["value"]); ?>" data-placeholder="<?php echo $field["label"] ?>" <?php echo $editable ? 'class="js-editableField"' : ''?>><?php echo strip_tags($field["value"]); ?></dd>
               <?php endforeach ?>
               </dl>
             </div>
@@ -151,10 +151,10 @@
             <div class="rhs-profile-about"><strong><?php echo elgg_echo('rijkshuisstijl:profile:aboutme') ?></strong>
               <?php if ($editable) : ?>
                 <div data-editable-text class="rhs-editable-text">
-                  <div id="description-content" class="rhs-editable-text__content <?php echo (strlen($targetUser->description) > 0 ? "" : "editable-field-link--empty") ?>"><?php echo ($targetUser->description) ? $targetUser->description : "" ?></div>
+                  <div id="description-content" class="rhs-editable-text__content <?php echo (strlen($targetUser->description) > 0 ? "" : "editable-field-link--empty") ?>"><?php echo ($targetUser->description) ? strip_tags($targetUser->description) : "" ?></div>
                   <form class="rhs-editable-text__editor">
                     <div>
-                      <textarea class="elgg-input-plaintext" id="js-initiateTinymce"><?php echo isset($targetUser->description) ? $targetUser->description : "" ?></textarea>
+                      <textarea class="elgg-input-plaintext" id="js-initiateTinymce"><?php echo isset($targetUser->description) ? strip_tags($targetUser->description) : "" ?></textarea>
                     </div>
                     <div class="rhs-form__actions rhs-form__under-tinymce" style="position: initial;"><a href="#" class="rhs-button rhs-button--grey" onclick="onEditableTextComplete(event, false)">Annuleer</a>
                       <button class="rhs-button rhs-button--primary" onclick="onEditableTextComplete(event, true)">Opslaan</button>
@@ -162,7 +162,7 @@
                   </form>
                 </div>
               <?php else : ?>
-                <p><?php echo isset($targetUser->description) ? $targetUser->description : "" ?></p>
+                <p><?php echo isset($targetUser->description) ? strip_tags($targetUser->description) : "" ?></p>
               <?php endif ?>
             </div>
           </div>
