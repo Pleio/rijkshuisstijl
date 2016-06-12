@@ -23,7 +23,17 @@
   <div class="rhs-container">
     <div class="rhs-row">
       <div class="rhs-col-xs-9">
-        <h1 data-name="name" data-value="<?php echo $name ?>" data-placeholder="Voor- en achternaam" data-classname="editable-field-link--show-on-mobile" class="rhs-profile__title"><?php echo $name ?></h1>
+        <?php if ($editable) : ?>
+          <h1 data-name="name" data-value="<?php echo $name ?>" data-placeholder="Voor- en achternaam" data-classname="editable-field-link--show-on-mobile" class="rhs-profile__title js-editableField">
+            <a class="editable-field-link editable-field-link--show-on-mobile" href="#Edit field" title="Update veld">
+              <?php echo $name ?>
+            </a>
+          </h1>
+        <?php else : ?>
+          <h1 data-name="name" data-value="<?php echo $name ?>" data-placeholder="Voor- en achternaam" data-classname="editable-field-link--show-on-mobile" class="rhs-profile__title">
+            <?php echo $name ?>          
+          </h1>
+        <?php endif ?>
       </div>
       <div class="rhs-col-xs-3">
         <div class="rhs-profile__actions">

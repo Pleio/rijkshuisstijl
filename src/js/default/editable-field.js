@@ -86,21 +86,40 @@ $(document).ready(function () {
 
     var editFieldCallBack = function(name, value)
     {
-        elgg.action('rijkshuisstijl/profile/setprofileparameter', {
-          data: {
-            username: gUsername,
-            name: name,
-            value: value
-          },
-          success: function (wrapper) {
-            if (wrapper.output) {
-              if (wrapper.output.success == false)
-                alert('An error occurred setting the value.');
-            } else {
-              // the system prevented the action from running
-            }
-          }
-        });
+        if (name == 'name')
+        {
+            elgg.action('/action/usersettings/save', {
+              data: {
+                guid: gUserGuid,
+                name: value,
+                language: gLanguage,
+                email: gEmail
+              },
+              success: function (wrapper) {
+
+              }
+            });
+
+            gName = value;
+        }
+        else
+        {
+            elgg.action('rijkshuisstijl/profile/setprofileparameter', {
+              data: {
+                username: gUsername,
+                name: name,
+                value: value
+              },
+              success: function (wrapper) {
+                if (wrapper.output) {
+                  if (wrapper.output.success == false)
+                    alert('An error occurred setting the value.');
+                } else {
+                  // the system prevented the action from running
+                }
+              }
+            });
+        }
     };
 
     $body.on('click', '.js-editableField', function(e){

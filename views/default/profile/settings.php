@@ -26,9 +26,10 @@ if (!$editable)
 
 <script type="text/javascript">
   var gUsername = '<?php echo $username ?>';
-  var gName = '<?php echo $username ?>';
+  var gName = '<?php echo $targetUser->name ?>';
   var gUserGuid = '<?php echo $targetUser->guid ?>';
   var gLanguage = '<?php echo $targetUser->language ?>';
+  var gEmail = '<?php echo $targetUser->email ?>';
 </script>
 
 <div class="rhs-container">

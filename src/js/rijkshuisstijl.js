@@ -120,35 +120,22 @@ jQuery(document).ready(function () {
 
     $('#emailChangeForm').submit(function (event) {
         event.preventDefault();
-        
+        var email = $('#emailAddress').val();
+
         elgg.action('/action/usersettings/save', {
           data: {
             guid: gUserGuid,
             name: gName,
             language: gLanguage,
-            email: $('#emailAddress').val()
+            email: email
           },
           success: function (wrapper) {
 
           }
         });
+
+        gEmail = email;
     });
-
-    /*$('#emailChangeForm').submit(function (event) {
-        event.preventDefault();
-        
-        elgg.action('/action/usersettings/save', {
-          data: {
-            guid: gUserGuid,
-            name: gName,
-            language: gLanguage,
-            email: $('#emailAddress').val()
-          },
-          success: function (wrapper) {
-
-          }
-        });
-    });*/
 
     $('#taalinstellingen').change(function () {
       

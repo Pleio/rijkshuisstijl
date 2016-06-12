@@ -42,7 +42,10 @@
 <script type="text/javascript">
   var gUsername = '<?php echo $username ?>';
   var gUserGuid = '<?php echo $targetUser->guid ?>';
+  var gName = '<?php echo $targetUser->name ?>';
+  var gLanguage = '<?php echo $targetUser->language ?>';
   var gElggSiteGuid = '<?php echo elgg_get_site_entity()->getGUID(); ?>';
+  var gEmail = '<?php echo $targetUser->email ?>';
 </script>
 
 <div class="rhs-container">

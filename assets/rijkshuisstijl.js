@@ -166,35 +166,22 @@
 	
 	    $('#emailChangeForm').submit(function (event) {
 	        event.preventDefault();
-	        
+	        var email = $('#emailAddress').val();
+	
 	        elgg.action('/action/usersettings/save', {
 	          data: {
 	            guid: gUserGuid,
 	            name: gName,
 	            language: gLanguage,
-	            email: $('#emailAddress').val()
+	            email: email
 	          },
 	          success: function (wrapper) {
 	
 	          }
 	        });
+	
+	        gEmail = email;
 	    });
-	
-	    /*$('#emailChangeForm').submit(function (event) {
-	        event.preventDefault();
-	        
-	        elgg.action('/action/usersettings/save', {
-	          data: {
-	            guid: gUserGuid,
-	            name: gName,
-	            language: gLanguage,
-	            email: $('#emailAddress').val()
-	          },
-	          success: function (wrapper) {
-	
-	          }
-	        });
-	    });*/
 	
 	    $('#taalinstellingen').change(function () {
 	      
@@ -12304,21 +12291,40 @@
 	
 	    var editFieldCallBack = function(name, value)
 	    {
-	        elgg.action('rijkshuisstijl/profile/setprofileparameter', {
-	          data: {
-	            username: gUsername,
-	            name: name,
-	            value: value
-	          },
-	          success: function (wrapper) {
-	            if (wrapper.output) {
-	              if (wrapper.output.success == false)
-	                alert('An error occurred setting the value.');
-	            } else {
-	              // the system prevented the action from running
-	            }
-	          }
-	        });
+	        if (name == 'name')
+	        {
+	            elgg.action('/action/usersettings/save', {
+	              data: {
+	                guid: gUserGuid,
+	                name: value,
+	                language: gLanguage,
+	                email: gEmail
+	              },
+	              success: function (wrapper) {
+	
+	              }
+	            });
+	
+	            gName = value;
+	        }
+	        else
+	        {
+	            elgg.action('rijkshuisstijl/profile/setprofileparameter', {
+	              data: {
+	                username: gUsername,
+	                name: name,
+	                value: value
+	              },
+	              success: function (wrapper) {
+	                if (wrapper.output) {
+	                  if (wrapper.output.success == false)
+	                    alert('An error occurred setting the value.');
+	                } else {
+	                  // the system prevented the action from running
+	                }
+	              }
+	            });
+	        }
 	    };
 	
 	    $body.on('click', '.js-editableField', function(e){
