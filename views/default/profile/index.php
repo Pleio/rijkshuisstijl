@@ -1,6 +1,6 @@
 <?php
   $user = elgg_get_logged_in_user_entity();
-  if (!$user) 
+  if (!$user)
   {
     register_error(elgg_echo("profile:notfound"));
     forward();
@@ -16,6 +16,7 @@
   }
 
   $editable = $targetUser->canEdit();
+  $profileCategory = "profile"; // only display this category on user profile
 ?>
 
 <script type="text/javascript">
@@ -31,7 +32,7 @@
       event.stopPropagation();
       var editableTextTrigger = $('[data-editable-text]');
 
-      if (editableTextTrigger.hasClass('rhs-editable-text--editing')) 
+      if (editableTextTrigger.hasClass('rhs-editable-text--editing'))
       {
           editableTextTrigger.removeClass('rhs-editable-text--editing');
       }
@@ -101,6 +102,7 @@
             <div class="js-editableFields"><?php if ($editable) : ?><a class="js-editableFieldsToggle">Bewerk velden</a><?php endif; ?>
               <dl class="rhs-profile-information">
                 <?php foreach ($fields as $field) : ?>
+                    <?php if (!$field['category'] || $field['category']->metadata_name != "profile"): continue; endif ?>
                     <?php if ($field['name'] == "Plaats"): continue; endif ?>
                     <dt><?php echo $field["label"] ?></dt>
                     <dd data-type="<?php echo $field["type"] ?>" data-name="<?php echo $field["name"] ?>" data-value="<?php echo strip_tags($field["value"]); ?>" data-placeholder="<?php echo $field["label"] ?>" <?php echo $editable ? 'class="js-editableField"' : ''?>><?php echo strip_tags($field["value"]); ?></dd>
