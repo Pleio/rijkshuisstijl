@@ -2,7 +2,7 @@
 
 $topic_options = array(
     'mine' => elgg_echo('rijkshuisstijl:topics:mine'),
-    '' => elgg_echo('rijkshuisstijl:topics:all')
+    'all' => elgg_echo('rijkshuisstijl:topics:all')
 );
 
 $groups = rijkshuisstijl_get_featured_groups();
