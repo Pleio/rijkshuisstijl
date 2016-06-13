@@ -14,7 +14,8 @@ if ($site->canWriteToContainer(0, 'object', 'news')) {
 $options = array(
     'type' => 'object',
     'subtype' => 'news',
-    'full_view' => false
+    'full_view' => false,
+    'display_as_list' => false
 );
 
 $topic = get_input('topic');
