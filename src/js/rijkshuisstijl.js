@@ -61,7 +61,7 @@ jQuery(document).ready(function () {
     interestFields.click(function ()
     {
         setTimeout(function () {
-        var interests = [ ];
+        var interests = [];
 
         interestFields.each(function (index) {
             interestField = $(this);
@@ -108,7 +108,7 @@ jQuery(document).ready(function () {
             block_all: 0,
             user_guid: gUserGuid,
             "subscriptions" : {
-              [gElggSiteGuid]: newValue
+              gElggSiteGuid: newValue
             }
           },
           success: function (wrapper) {
@@ -160,7 +160,7 @@ jQuery(document).ready(function () {
           data: {
             user_guid: gUserGuid,
             "digest": {
-              [groupGuid]: value
+              groupGuid: value
             }
           },
           success: function (wrapper) {
