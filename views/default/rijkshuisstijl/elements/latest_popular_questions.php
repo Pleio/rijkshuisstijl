@@ -1,5 +1,9 @@
 <?php
-$group = $vars['group'];
+if (isset($vars['group'])) {
+  $group = $vars['group'];
+} else {
+  $group = false;
+}
 ?>
 
 <div class="rhs-container">
@@ -15,10 +19,10 @@ $group = $vars['group'];
         </h3>
         <div class="rhs-card-list__content">
           <?php
-            foreach (rijkshuisstijl_get_latest_objects_from_group('question', $group) as $question)
-              echo elgg_view("rijkshuisstijl/elements/forum_question_row", array('question' => $question));
+            foreach (rijkshuisstijl_get_latest_objects('question', $group) as $question)
+              echo elgg_view("rijkshuisstijl/elements/question_row", array('question' => $question));
           ?>
-          <a href="/questions/all?topic=<?php echo $group->guid; ?>" title="<?php echo elgg_echo("rijkshuisstijl:all"); ?>" class="rhs-read-more rhs-card-list__read-more">
+          <a href="/questions/all?topic=<?php echo ($group) ? $group->guid : "all"; ?>" title="<?php echo elgg_echo("rijkshuisstijl:all"); ?>" class="rhs-read-more rhs-card-list__read-more">
             <span class="rhs-icon-arrow-right-circle rhs-read-more__icon"></span>
             <?php echo elgg_echo("rijkshuisstijl:all"); ?>
           </a>
@@ -32,10 +36,10 @@ $group = $vars['group'];
         </h3>
         <div class="rhs-card-list__content">
           <?php
-            foreach (rijkshuisstijl_get_popular_objects_from_group('question', $group) as $question)
-              echo elgg_view("rijkshuisstijl/elements/forum_question_row", array('question' => $question));
+            foreach (rijkshuisstijl_get_popular_objects('question', $group) as $question)
+              echo elgg_view("rijkshuisstijl/elements/question_row", array('question' => $question));
           ?>
-          <a href="/questions/all?category=most_viewed&topic=<?php echo $group->guid; ?>" title="Bekijk alles" class="rhs-read-more rhs-card-list__read-more">
+          <a href="/questions/all?category=most_viewed&topic=<?php echo ($group) ? $group->guid : "all"; ?>" title="Bekijk alles" class="rhs-read-more rhs-card-list__read-more">
           <span class="rhs-icon-arrow-right-circle rhs-read-more__icon"></span>
           <?php echo elgg_echo("rijkshuisstijl:all"); ?></a>
         </div>

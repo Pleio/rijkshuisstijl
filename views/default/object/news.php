@@ -118,10 +118,6 @@ if ($full) {
       echo '<span class="rhs-icon-jurisprudentie rhs-news-list__item__category__icon"></span>';
     }
 
-    if ($entity->headertime) {
-        echo '<span class="rhs-icon-featured rhs-news-list__item__category__icon"></span>';
-    }
-
     echo $entity->getContainerEntity()->name;
 
     echo '</span>';

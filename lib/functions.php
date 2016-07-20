@@ -12,25 +12,35 @@ function rijkshuisstijl_get_featured_groups() {
     ));
 }
 
-function rijkshuisstijl_get_latest_objects_from_group($subtype = 'question', ElggGroup $group) {
-    return elgg_get_entities(array(
+function rijkshuisstijl_get_latest_objects($subtype = 'question', ElggGroup $group = null) {
+    $options = array(
         'type' => 'object',
         'subtype' => $subtype,
-        'container_guid' => $group->guid,
         'order_by' => 'e.time_updated DESC',
         'limit' => 5
-    ));
+    );
+
+    if ($group) {
+        $options['container_guid'] = $group->guid;
+    }
+
+    return elgg_get_entities($options);
 }
 
-function rijkshuisstijl_get_popular_objects_from_group($subtype = 'question', ElggGroup $group) {
-    return elgg_get_entities_from_private_settings(array(
+function rijkshuisstijl_get_popular_objects($subtype = 'question', ElggGroup $group = null) {
+    $options = array(
         'type' => 'object',
         'subtype' => $subtype,
-        'container_guid' => $group->guid,
         'private_setting_name' => 'view_counter',
         'order_by' => 'cast(ps.value as unsigned) DESC',
         'limit' => 5
-    ));
+    );
+
+    if ($group) {
+        $options['container_guid'] = $group->guid;
+    }
+
+    return elgg_get_entities_from_private_settings($options);
 }
 
 function rijkshuisstijl_get_interests($user) {

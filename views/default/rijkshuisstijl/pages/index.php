@@ -1,7 +1,7 @@
 <div class="rhs-sections">
     <div class="rhs-section rhs-section--with-row">
         <div class="rhs-container">
-            <?php echo elgg_view('rijkshuisstijl/elements/forum'); ?>
+            <?php echo elgg_view('rijkshuisstijl/elements/latest_popular_questions'); ?>
         </div>
     </div>
 

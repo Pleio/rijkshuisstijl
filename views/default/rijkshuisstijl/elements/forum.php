@@ -26,8 +26,8 @@ if ($user) {
         <h3 data-accordion-trigger="" class="rhs-card-list__title"><?php echo $group->name; ?></h3>
         <div class="rhs-card-list__content">
           <?php
-            foreach (rijkshuisstijl_get_latest_objects_from_group('question', $group) as $question)
-              echo elgg_view("rijkshuisstijl/elements/forum_question_row", array('question' => $question));
+            foreach (rijkshuisstijl_get_latest_objects('question', $group) as $question)
+              echo elgg_view("rijkshuisstijl/elements/question_row", array('question' => $question));
           ?>
           <a href="/questions/all?topic=<?php echo $group->guid ?>" title="Bekijk alles" class="rhs-read-more rhs-card-list__read-more">
             <span class="rhs-icon-arrow-right-circle rhs-read-more__icon"></span><?php echo elgg_echo('rijkshuisstijl:all') ?>

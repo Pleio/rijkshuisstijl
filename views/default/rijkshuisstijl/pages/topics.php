@@ -4,7 +4,7 @@ $group = $vars['group'];
 
 <div class="rhs-sections">
   <div class="rhs-section rhs-section--item-even">
-    <?php echo elgg_view('rijkshuisstijl/elements/questions', array(
+    <?php echo elgg_view('rijkshuisstijl/elements/latest_popular_questions', array(
       'group' => $group
     )); ?>
   </div>
