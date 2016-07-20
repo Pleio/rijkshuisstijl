@@ -77,7 +77,7 @@ function rijkshuisstijl_get_news_leader() {
         'subtype' => 'news',
         'metadata_name_value_pairs' => array(
             array(
-                'name' => 'headertime',
+                'name' => 'featuredPhotoTime',
                 'operand' => '!=',
                 'value' => 'null'
             )

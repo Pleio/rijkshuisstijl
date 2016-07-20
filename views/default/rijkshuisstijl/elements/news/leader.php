@@ -3,7 +3,7 @@ $leader = $vars['leader'];
 ?>
 
 <div class="rhs-article rhs-article--content-right">
-  <div style="background-image: url('/mod/rijkshuisstijl/assets/image/woman.jpg');" class="rhs-article__image"></div>
+  <div style="background-image: url('<?php echo $leader->getFeaturedPhotoURL(); ?>');" class="rhs-article__image"></div>
   <div class="rhs-article__content">
     <h2 class="rhs-article__title">
       <a href="<?php echo $leader->getURL(); ?>" title="<?php echo $leader->title; ?>"><?php echo $leader->title; ?></a>
