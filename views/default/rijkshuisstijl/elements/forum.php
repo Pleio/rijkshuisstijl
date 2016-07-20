@@ -2,11 +2,6 @@
 $groups = rijkshuisstijl_get_featured_groups();
 $user = elgg_get_logged_in_user_entity();
 $display_title = elgg_extract("display_title", $vars, true);
-
-if ($user) {
-  $interests = rijkshuisstijl_get_interests($user);
-}
-
 ?>
 
 <?php if ($display_title): ?>
@@ -17,10 +12,6 @@ if ($user) {
 
 <div class="rhs-row">
   <?php foreach ($groups as $group): ?>
-    <?php
-      if (count($interests) > 0 && $user && !in_array($group->guid, $interests))
-        continue;
-    ?>
     <div class="rhs-col-lg-6">
       <div data-accordion-item="" class="rhs-card-list rhs-card-list--margin-bottom">
         <h3 data-accordion-trigger="" class="rhs-card-list__title"><?php echo $group->name; ?></h3>
