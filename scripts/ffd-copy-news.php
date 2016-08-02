@@ -67,6 +67,7 @@ function process_page(ElggObject $page) {
   $news->tags = $page->tags;
   $news->owner_guid = $page->owner_guid;
   $news->container_guid = $container_guid;
+  $news->access_id = get_default_access();
   $news->save();
 
   $news->time_created = $page->time_created;
