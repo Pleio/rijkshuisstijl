@@ -1,5 +1,5 @@
 # Rijkshuisstijl in Elgg
-Deze plugin implementeert een responsief Rijkshuisstijl thema in Elgg. Het thema werkt op Elgg 1.8, 1.9 en 2.0
+Deze plugin implementeert een responsief Rijkshuisstijl thema in Elgg. Het thema werkt op Elgg 1.8.
 
 ## Ontwikkelomgeving
 Zorg ervoor dat je [Node.js](https://nodejs.org/en/download/) hebt geinstalleerd, dat kan bijvoorbeeld op OSX met:

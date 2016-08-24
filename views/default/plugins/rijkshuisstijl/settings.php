@@ -1,15 +1,20 @@
 <?php
 $plugin = elgg_extract("entity", $vars);
 
-$contact = unserialize($plugin->contact);
-$topics = unserialize($plugin->topics);
+$default_colors = array(
+    1 => "#8FCAE7",
+    2 => "#DDEFF8",
+    3 => "#154273",
+    4 => "#009EE3",
+    5 => "#0E6999",
+    6 => "#1AA0E0",
+    7 => "#01689B",
+    8 => "#EEF7FB",
+    9 => "#F2F9FC"
+);
 
-if (!$plugin->logo) {
-    $plugin->logo = "belastingdienst";
-}
-
-if (!$topics) {
-    $topics = array();
+if ($plugin->colors) {
+    $colors = unserialize($plugin->colors);
 }
 
 echo "<p>";
@@ -20,31 +25,37 @@ echo "<p>";
             'Belastingdienst' => 'belastingdienst',
             'Rijksdienst voor Ondernemend Nederland' => 'rvo'
         ),
-        'value' => $plugin->logo
+        'value' => $plugin->logo ? $plugin->logo : "belastingdienst"
     ));
 echo "</p>";
 
-/*echo "<p>";
-    echo "<label>".  elgg_echo("rijkshuisstijl:contact") . "</label>";
-    echo "<table>";
-    echo "<tr><td>" . elgg_echo("rijkshuisstijl:title") . "</td><td>" . elgg_echo("rijkshuisstijl:url") . "</td></tr>";
-    for ($i = 1; $i <= 5; $i++):
-        echo "<tr><td>";
-        echo elgg_view('input/text', array(
-            'name' => "params[contact][{$i}][title]",
-            'value' => $contact[$i]['title']
+echo "<p>";
+    echo "<label>" . elgg_echo("rijkshuisstijl:colors") . "</label>";
+echo "</p>";
+echo "<div>";
+    for ($i = 1; $i < 10; $i++) {
+        echo elgg_view("input/color", array(
+            "name" => "params[colors][{$i}]",
+            "label" => elgg_echo("rijkshuisstijl:color") . " {$i}",
+            "value" => $colors[$i] ? $colors[$i] : $default_colors[$i]
         ));
-        echo "</td><td>";
-        echo elgg_view('input/text', array(
-            'name' => "params[contact][{$i}][url]",
-            'value' => $contact[$i]['url']
-        ));
-        echo "</td></tr>";
-    endfor;
-    echo "</table>";
-echo "</p>";*/
+    }
+echo "</div>";
 
-echo elgg_view("input/hidden", array(
-    'name' => 'on_rijkshuisstijl_settings',
-    'value' => 'true'
-));
+echo "<div style='clear:both'>";
+    echo "<br /><br />";
+    echo "<p>";
+    echo "<label>" . elgg_echo("rijkshuisstijl:special_settings") . "</label>";
+    echo elgg_view('input/radio', array(
+        'name' => 'params[special]',
+        'options' => array(
+            elgg_echo("rijkshuisstijl:none") => 'none',
+            elgg_echo("rijkshuisstijl:ffd") => 'ffd'
+        ),
+        'value' => $plugin->special ? $plugin->special : "none"
+    ));
+    echo "<div class='elgg-subtext'>";
+        echo elgg_echo("rijkshuisstijl:special_settings:explanation");
+    echo "</div>";
+    echo "</p>";
+echo "</div>";

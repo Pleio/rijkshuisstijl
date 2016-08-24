@@ -108,6 +108,13 @@ $dutch = array(
     'rijkshuisstijl:footer:mail' => 'Per brief',
     'rijkshuisstijl:footer:followus' => 'Volg ons op',
     'rijkshuisstijl:of' => 'van',
+    'rijkshuisstijl:special_settings' => 'Speciale instellingen',
+    'rijkshuisstijl:special_settings:explanation' => 'Selecteer alleen een van deze opties wanneer je als deelsite speciale functionaliteit nodig hebt.',
+    'rijkshuisstijl:none' => 'Geen',
+    'rijkshuisstijl:ffd' => 'Forum Fiscaal Dienstverleners',
+    'rijkshuisstijl:colors' => 'Kleuren',
+    'rijkshuisstijl:color' => 'Kleur'
+
 );
 
 add_translation('nl', $dutch);

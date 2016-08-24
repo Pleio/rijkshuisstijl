@@ -1,14 +1,17 @@
 <?php
 
 function rijkshuisstijl_plugins_settings_save($hook, $type, $value, $params) {
-    if (get_input('on_rijkshuisstijl_settings') != "true") {
+    $plugin_id = get_input('plugin_id');
+    if ($plugin_id !== "rijkshuisstijl") {
         return;
     }
 
     $params = get_input('params');
-    $params['contact'] = serialize($params['contact']);
-
+    $params['colors'] = serialize($params['colors']);
     set_input('params', $params);
+
+    // re-render CSS (less)
+    elgg_invalidate_simplecache();
 }
 
 function rijkshuisstijl_custom_index($hook, $type, $value, $params) {

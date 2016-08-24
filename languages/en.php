@@ -108,6 +108,12 @@ $english = array(
     'rijkshuisstijl:footer:mail' => 'Mail',
     'rijkshuisstijl:footer:followus' => 'Follow us',
     'rijkshuisstijl:of' => 'of',
+    'rijkshuisstijl:special_settings' => 'Special settings',
+    'rijkshuisstijl:special_settings:explanation' => 'Only select one of these options if you have special requirements for your template.',
+    'rijkshuisstijl:none' => 'None',
+    'rijkshuisstijl:ffd' => 'Forum Fiscaal Dienstverleners',
+    'rijkshuisstijl:colors' => 'Colors',
+    'rijkshuisstijl:color' => 'Color'
 );
 
 add_translation('en', $english);

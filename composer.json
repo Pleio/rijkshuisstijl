@@ -9,6 +9,7 @@
         "issues": "https://github.com/Pleio/rijkshuisstijl/issues"
     },
     "require": {
-        "composer/installers": "^1.0.8"
+        "composer/installers": "^1.0.8",
+        "oyejorge/less.php": "~1.7.0.9"
     }
 }

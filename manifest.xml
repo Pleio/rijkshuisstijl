@@ -17,19 +17,7 @@
     </requires>
     <requires>
         <type>plugin</type>
-        <name>questions</name>
-    </requires>
-    <requires>
-        <type>plugin</type>
-        <name>videos</name>
-    </requires>
-    <requires>
-        <type>plugin</type>
-        <name>pinboard</name>
-    </requires>
-    <requires>
-        <type>plugin</type>
-        <name>news</name>
+        <name>newsletter</name>
     </requires>
     <conflicts>
         <type>plugin</type>

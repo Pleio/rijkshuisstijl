@@ -1,6 +1,3 @@
-// require CSS entry file
-require("../less/all.less");
-
 // require non-NPM libraries
 require("./plugins/jquery.dotdotdot-1.7.4.js");
 
