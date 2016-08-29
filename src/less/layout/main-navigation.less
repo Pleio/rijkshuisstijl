@@ -22,8 +22,15 @@
     .mobile-sub-open & {
       transform: translate(-100%, 0);
     }
+    &:hover {
+      background-color: @color-nonary;
+    }
     &.active {
       color: @color-quaternary;
+    }
+    &.active:hover  {
+      color: @color-quaternary;
+      background-color: @color-nonary;
     }
   }
 
@@ -63,8 +70,8 @@
 
     &.@{namespace}-home-link {
       font-family: @font--bold;
-      line-height: 3.7rem;
-      padding: 0.2rem 2rem 0;
+      line-height: 5rem;
+      padding: 0 2rem 0;
       margin-bottom: 1.4rem;
     }
   }
@@ -87,7 +94,7 @@
   @media (min-width: @screen-sm) {
     float: right;
     width: auto;
-    padding: 0.2rem 1rem 0;
+    padding: 0.2rem 2rem 0;
   }
   &.active {
     background-color: @color-main-navigation-active;

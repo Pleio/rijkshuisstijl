@@ -29,7 +29,10 @@
     }
   }
 
-  p {
+  ul {
+    list-style: square;
+    margin: 0 0 1.5rem 0;
+    padding: 0 0 0 2rem;
     font-size: @font-size--medium;
     line-height: @line-height--medium;
 
@@ -38,8 +41,27 @@
       line-height: @line-height--base;
     }
 
-    &:last-child {
-      margin-bottom: 0;
+    li {
+      margin: 0 0 0.5rem 0;
+
+      ul {
+        margin: 0.5rem 0 0 0;
+      }
+    }
+  }
+
+  blockquote {
+    margin: 0 0 0 2rem;
+    padding: 0;
+  }
+
+  p {
+    font-size: @font-size--medium;
+    line-height: @line-height--medium;
+
+    @media (min-width: @screen-md) {
+      font-size: @font-size--base;
+      line-height: @line-height--base;
     }
   }
 
@@ -75,6 +97,9 @@
   padding: 1.5rem 2rem !important;
   font-size: @font-size--medium !important;
   line-height: @line-height--medium !important;
+  height: auto;
+  min-height: 150px;
+  overflow-y: hidden;
 
   @media (min-width: @screen-md) {
     font-size: @font-size--base !important;

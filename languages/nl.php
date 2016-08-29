@@ -113,8 +113,9 @@ $dutch = array(
     'rijkshuisstijl:none' => 'Geen',
     'rijkshuisstijl:ffd' => 'Forum Fiscaal Dienstverleners',
     'rijkshuisstijl:colors' => 'Kleuren',
-    'rijkshuisstijl:color' => 'Kleur'
-
+    'rijkshuisstijl:color' => 'Kleur',
+    'rijkshuisstijl:404:title' => 'Sorry, deze pagina is niet beschikbaar',
+    'rijkshuisstijl:404:content' => 'De link waarop je hebt geklikt, is mogelijk buiten werking of de pagina is verwijderd.'
 );
 
 add_translation('nl', $dutch);

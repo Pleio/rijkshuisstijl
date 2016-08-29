@@ -26,6 +26,7 @@ if (isset($vars['class'])) {
 $defaults = array(
     'disabled' => false,
     'value' => '',
+    'data-selector' => true,
     'options_values' => array(),
     'options' => array(),
 );

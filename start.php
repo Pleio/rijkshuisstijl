@@ -180,7 +180,7 @@ function rijkshuisstijl_route_news_hook($hook_name, $entity_type, $return_value,
 	switch ($page[0]) {
 		case null:
 			include(dirname(__FILE__) . "/pages/news/all.php");
-			return true;
+			return false;
 			break;
 	}
 }
@@ -193,11 +193,11 @@ function rijkshuisstijl_route_pinboard_hook($hook_name, $entity_type, $return_va
 				set_input("guid", $page[1]);
 			}
 			include(dirname(__FILE__) . "/pages/pinboard/detail.php");
-			return true;
+			return false;
 			break;
 		case null:
 			include(dirname(__FILE__) . "/pages/pinboard/all.php");
-			return true;
+			return false;
 			break;
 	}
 }
@@ -212,7 +212,7 @@ function rijkshuisstijl_route_questions_hook($hook_name, $entity_type, $return_v
 			}
 
 			include(dirname(__FILE__) . "/pages/questions/all.php");
-			return true;
+			return false;
 			break;
 		case "workflow":
 			$workflow = true;
@@ -223,11 +223,11 @@ function rijkshuisstijl_route_questions_hook($hook_name, $entity_type, $return_v
 			}
 
 			include(dirname(__FILE__) . "/pages/questions/view.php");
-			return true;
+			return false;
 			break;
 		case "":
 			include(dirname(__FILE__) . "/pages/questions/index.php");
-			return true;
+			return false;
 			break;
 	}
 }
@@ -241,7 +241,7 @@ function rijkshuisstijl_route_pages_hook($hook_name, $entity_type, $return_value
 			}
 
 			include(dirname(__FILE__) . "/pages/pages/view.php");
-			return true;
+			return false;
 			break;
 	}
 }
@@ -266,19 +266,19 @@ function rijkshuisstijl_route_profile_hook($hook_name, $entity_type, $return_val
 	switch ($page[1]) {
 		case "edit":
 			include(dirname(__FILE__) . "/pages/profile/edit.php");
-			return true;
+			return false;
 			break;
 		case "interests":
 			include(dirname(__FILE__) . "/pages/profile/interests.php");
-			return true;
+			return false;
 			break;
 		case "settings":
 			include(dirname(__FILE__) . "/pages/profile/settings.php");
-			return true;
+			return false;
 			break;
 		default:
 			include(dirname(__FILE__) . "/pages/profile/index.php");
-			return true;
+			return false;
 			break;
 	}
 }

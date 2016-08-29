@@ -81,20 +81,6 @@ var $ = require("jquery");
     });
 
 
-/*    $(".selecter-default").selecter({
-        callback: selecterCallback
-    });
-    function selecterCallback(){
-    }
-
-
-    $(".selecter-menu").selecter({
-        links: true
-    });*/
-
-
-
-
     $(".rhs-answer-edit-block__content").on("change", function(){
         if($(this).val().length == 0) {
             $(this).parent("div").child(".rhs-answer-edit-block__submit").attr("disabled", true);

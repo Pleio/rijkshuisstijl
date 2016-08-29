@@ -21,13 +21,13 @@ if (!$question) {
 
 $container = $question->getContainerEntity();
 
-if (elgg_instanceof($container, "user")) {
-	$access_setting = questions_get_personal_access_level();
+if ($container instanceof ElggGroup) {
+	$access_setting = questions_get_group_access_level($container);
 	if ($access_setting !== false) {
 		$show_access_options = false;
 	}
 } else {
-	$access_setting = questions_get_group_access_level($container);
+	$access_setting = questions_get_personal_access_level();
 	if ($access_setting !== false) {
 		$show_access_options = false;
 	}

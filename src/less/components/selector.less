@@ -81,6 +81,12 @@
   transform: translate(0, -0.5rem);
   visibility: hidden;
   transition: @trans-all;
+
+  .___reversed & {
+    top: auto;
+    bottom: 0;
+    transform: translate(0, 0.5rem);
+  }
 }
 
 .selector__option {
@@ -105,4 +111,12 @@
     color: @color-quaternary;
   }
 
+}
+
+.selector-spacer {
+  padding: 1rem 0 0 0;
+
+  @media (min-width: @screen-md){
+    padding: 0;
+  }
 }

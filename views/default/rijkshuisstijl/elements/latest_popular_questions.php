@@ -1,8 +1,6 @@
 <?php
 if (isset($vars['group'])) {
   $group = $vars['group'];
-} else {
-  $group = false;
 }
 ?>
 

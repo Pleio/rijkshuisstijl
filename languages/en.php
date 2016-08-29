@@ -113,7 +113,9 @@ $english = array(
     'rijkshuisstijl:none' => 'None',
     'rijkshuisstijl:ffd' => 'Forum Fiscaal Dienstverleners',
     'rijkshuisstijl:colors' => 'Colors',
-    'rijkshuisstijl:color' => 'Color'
+    'rijkshuisstijl:color' => 'Color',
+    'rijkshuisstijl:404:title' => 'Could not find the page',
+    'rijkshuisstijl:404:content' => 'The link you followed could not be found on our system. Probably the link is not working or the page has been removed.'
 );
 
 add_translation('en', $english);

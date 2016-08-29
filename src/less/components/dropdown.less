@@ -68,12 +68,12 @@
       right: 0;
       box-shadow: none;
       width: 100%;
-      top: 14.2rem;
+      top: 13.2rem;
       transform: translate(100%, 0);
       bottom: 0;
       z-index: @lift-20;
       transition: 0.2s ease;
-      padding: 0 2rem 1.2rem 2rem;
+      padding: 0 0 1.2rem 0;
     }
 
     .@{namespace}-main-navigation .dropdown--open & {
@@ -91,20 +91,29 @@
   white-space: nowrap;
   padding: 0 2rem;
   transition: @trans-color;
-  &:hover {
-    color: @color-quaternary;
-  }
-  &.active {
-    background-color: @color-nonary;
-  }
   @media (min-width: @screen-lg) {
     font-size: 1.8rem;
     line-height: 3.2rem;
+    
+    &:hover {
+      color: @color-quaternary;
+    }
+
+    &.active {
+      background-color: @color-nonary;
+    }
   }
   .@{namespace}-mobile-navigation & {
     @media (max-width: @screen-md-max) {
       &:hover {
-        color: @color-black;
+        background-color: @color-nonary;
+      }
+      &.active {
+        color: @color-quaternary;
+      }
+      &.active:hover  {
+        color: @color-quaternary;
+        background-color: @color-nonary;
       }
     }
   }
@@ -117,15 +126,26 @@
 }
 
 .@{namespace}-dropdown__back {
+  position: relative;
   text-decoration: none;
   display: block;
   color: @color-black;
-  padding-right: 2rem;
   margin-bottom: 1.1rem;
-  padding-bottom: 0.3rem;
+  padding: 0 2rem;
   font-size: 1.6rem;
-  line-height: 4rem;
-  border-bottom: 0.1rem solid @color-grey--50;
+  line-height: 5rem;
+  &:hover {
+    background-color: @color-nonary;
+  }
+  &:before {
+      position: absolute;
+      content: "";
+      height: 0.1rem;
+      left: 2rem;
+      bottom: 0;
+      right: 2rem;
+      background-color: #B4B4B4;
+  }
   &:after {
     font-family: @font--icons;
     content: @icon-angle-left;
@@ -141,5 +161,6 @@
   font-family: @font--bold;
   text-decoration: none;
   font-size: 1.6rem;
-  line-height: 3rem;
+  line-height: 3.2rem;
+  padding: 0 2rem;
 }

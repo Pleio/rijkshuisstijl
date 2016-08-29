@@ -26,12 +26,6 @@
   opacity:1;
   visibility: visible;
   transition: @swift-ease-out;
-  @media (min-width: @screen-md) and (min-height: 600px) {
-    bottom: -5rem;
-  }
-  @media (min-width: @screen-md) and (min-height: 760px) {
-    bottom: 0;
-  }
 }
 
 .@{namespace}-modal__box {
@@ -41,7 +35,8 @@
   right: 0;
   left: 0;
   bottom: 0;
-  overflow: scroll;
+  overflow-x: hidden;
+  overflow-y: scroll;
   box-shadow: @box-shadow-very-big;
   background: #fff;
 
@@ -53,21 +48,24 @@
     bottom: 0;
     right: 0;
     margin: 0 auto;
-    overflow: scroll;
+    overflow-x: hidden;
+    overflow-y: auto;
   }
 
   @media (min-width: @screen-md) and (min-height: 600px) {
     top: 5%;
     bottom: auto;
     max-height: 100vh;
-    overflow: visible;
+    overflow-x: hidden;
+    overflow-y: auto;
   }
 
   @media (min-width: @screen-md) and (min-height: 750px) {
     top: 15%;
     bottom: auto;
     max-height: 80vh;
-    overflow: visible;
+    overflow-x: hidden;
+    overflow-y: auto;
   }
 }
 

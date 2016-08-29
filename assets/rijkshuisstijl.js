@@ -34876,7 +34876,7 @@
 	    function SearchResults(props) {
 	        _classCallCheck(this, SearchResults);
 	
-	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(SearchResults).call(this, props));
+	        var _this = _possibleConstructorReturn(this, (SearchResults.__proto__ || Object.getPrototypeOf(SearchResults)).call(this, props));
 	
 	        _this.state = {
 	            q: '',
@@ -34981,7 +34981,7 @@
 	    function SearchResultColumn() {
 	        _classCallCheck(this, SearchResultColumn);
 	
-	        return _possibleConstructorReturn(this, Object.getPrototypeOf(SearchResultColumn).apply(this, arguments));
+	        return _possibleConstructorReturn(this, (SearchResultColumn.__proto__ || Object.getPrototypeOf(SearchResultColumn)).apply(this, arguments));
 	    }
 	
 	    _createClass(SearchResultColumn, [{
