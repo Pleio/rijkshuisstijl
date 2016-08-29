@@ -1,9 +1,9 @@
 <?php
 
 $category_options = array(
-    'all' => 'Alle categorien',
-    'news' => 'Nieuws',
-    'jurisprudence' => 'Jurisprudentie'
+    'all' => elgg_echo("rijkshuisstijl:all_categories"),
+    'news' => elgg_echo("rijkshuisstijl:news"),
+    'jurisprudence' => elgg_echo("rijkshuisstijl:jurisprudence")
 );
 
 $options = array(
