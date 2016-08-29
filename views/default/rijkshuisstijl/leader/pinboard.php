@@ -1,5 +1,5 @@
 <div class="rhs-lead rhs-lead--with-description">
-  <div style="background-image:url('<?php echo rijkshuisstijl_asset("image/lead--theme.jpg"); ?>');" class="rhs-lead__background"></div>
+  <div style="background-image:url('<?php echo rijkshuisstijl_asset("image/leaders/pinboard.jpg"); ?>');" class="rhs-lead__background"></div>
   <div class="rhs-container">
     <h1 class="rhs-bulletin__title"><?php echo elgg_echo("rijkshuisstijl:pinboard"); ?></h1>
     <div class="rhs-row">

@@ -97,7 +97,6 @@ if ($current_page < $total_pages) {
     $pages->items = array_merge($pages->items, range($current_page + 1, $last_page));
 }
 
-echo '<div class="rhs-section rhs-section--item rhs-section--float-right">';
 echo '<div class="rhs-pagination">';
     if ($pages->prev['href']) {
         echo elgg_view('output/url', $pages->prev);
@@ -118,5 +117,4 @@ echo '<div class="rhs-pagination">';
             'class' => 'rhs-pagination__next disabled'
         )));
     }
-echo '</div>';
 echo '</div>';

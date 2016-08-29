@@ -195,6 +195,7 @@
 	    });
 	
 	    $('select[name="groupNotifications"]').change(function () {
+	      console.log('changed');
 	      var groupGuid = $(this).attr('group-id');
 	      var value = $(this).val();
 	
@@ -10865,20 +10866,6 @@
 	    });
 	
 	
-	/*    $(".selecter-default").selecter({
-	        callback: selecterCallback
-	    });
-	    function selecterCallback(){
-	    }
-	
-	
-	    $(".selecter-menu").selecter({
-	        links: true
-	    });*/
-	
-	
-	
-	
 	    $(".rhs-answer-edit-block__content").on("change", function(){
 	        if($(this).val().length == 0) {
 	            $(this).parent("div").child(".rhs-answer-edit-block__submit").attr("disabled", true);
@@ -13146,18 +13133,24 @@
 	        
 	        function buildSelector() {
 	            // Build selector out of each 'select' that is found
-	            $dataSelector.each(function(index) {        
+	            $dataSelector.each(function(index) {
+	                var selectorClass = '';
+	                if ( $(this).attr('data-selector') ) {
+	                    selectorClass = ' ___'+ $(this).attr('data-selector');
+	                }
+	
 	                var tabIndex = 0;
-	                if ($(this).attr('tabindex')) {
+	                if ( $(this).attr('tabindex') ) {
 	                    tabIndex = $(this).attr('tabindex');
 	                }
+	
 	                $(this).attr('tabindex', -1);
 	                // Wrap the 'select' element in a new stylable selector
-	                $(this).wrap('<div class="selector' + mobileState + '"></div>');
+	                $(this).wrap('<div class="selector' + mobileState + selectorClass + '"></div>');
 	                // Fill the selector with a stylable 'select'
 	                $(this).parent().append('<div class="selector__select" tabindex="'+ tabIndex + '"></div><ul class="selector__options"></ul>');
 	
-	                var optionSelectedText = "";
+	                var optionSelectedText = '';
 	                $(this).children('option').each(function() {
 	                    var optionText = $(this).text(),
 	                        optionValue = $(this).attr('value'),
@@ -13178,9 +13171,15 @@
 	                    }
 	
 	                    // Fill the selector with stylable 'options'
-	                    $(this).closest('.selector')
-	                        .children('.selector__options')
-	                        .append('<li class="selector__option'+ optionSelected +'" data-value="'+ optionValue +'">'+ optionText +'</li>');
+	                    if ( selectorClass === ' ___reversed' ) {
+	                        $(this).closest('.selector')
+	                            .children('.selector__options')
+	                            .prepend('<li class="selector__option'+ optionSelected +'" data-value="'+ optionValue +'">'+ optionText +'</li>');
+	                    } else {
+	                        $(this).closest('.selector')
+	                            .children('.selector__options')
+	                            .append('<li class="selector__option'+ optionSelected +'" data-value="'+ optionValue +'">'+ optionText +'</li>');
+	                    }
 	                });
 	                // Set our selector to the disabled ('Make a choice..') or selected text
 	                $(this).closest('.selector').children('.selector__select').text(optionSelectedText)
@@ -13247,6 +13246,9 @@
 	            var $selectedOption = $(el);
 	            var selectedOptionText = $selectedOption.text();
 	            
+	
+	            console.log($selectedOption);
+	
 	            // Add selected state
 	            $selectedOption.siblings().removeClass(selectedState);
 	            $selectedOption.addClass(selectedState);
@@ -13284,6 +13286,9 @@
 	                ev.stopPropagation();
 	                
 	                var found = $(this).find('.' + selectedState);
+	                if (found.length ===  0) {
+	                    found = $(this).find('.selector__option')[0];
+	                }
 	                
 	                if (ev.keyCode === 38) {        // up
 	                    var prev = $(found).prev('.selector__option:not(.___is-disabled)');

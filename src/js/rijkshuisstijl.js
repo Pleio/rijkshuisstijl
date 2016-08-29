@@ -149,6 +149,7 @@ jQuery(document).ready(function () {
     });
 
     $('select[name="groupNotifications"]').change(function () {
+      console.log('changed');
       var groupGuid = $(this).attr('group-id');
       var value = $(this).val();
 

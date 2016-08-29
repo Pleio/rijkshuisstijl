@@ -17,7 +17,8 @@ $content = elgg_view_layout('one_column', array(
     'class' => 'rhs-card-user-content',
     'content' => elgg_view('pinboard/pages/detail', array(
         'entity' => $entity
-    ))
+    )),
+    'small_width' => true
 ));
 
 echo elgg_view_page($entity->title, $content);

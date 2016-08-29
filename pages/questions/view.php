@@ -42,7 +42,8 @@ $body = elgg_view_layout('one_column', array(
     'content' => elgg_view('questions/pages/detail', array(
         'entity' => $entity,
         'workflow' => $workflow
-    ))
+    )),
+    'small_width' => true
 ));
 
 echo elgg_view_page($title, $body);

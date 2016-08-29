@@ -3,7 +3,7 @@ $site = elgg_get_site_entity();
 ?>
 
 <div class="rhs-lead rhs-lead--home">
-  <div style="background-image:url('<?php echo rijkshuisstijl_asset("image/lead--home.jpg"); ?>');" class="rhs-lead__background"></div>
+  <div style="background-image:url('<?php echo rijkshuisstijl_asset("image/leaders/home.jpg"); ?>');" class="rhs-lead__background"></div>
   <div class="rhs-container">
     <h1 class="rhs-home__title"><?php echo $site->name; ?></h1>
     <p class="rhs-home__subtitle visible-md visible-xl visible-lg"><?php echo $site->description; ?></p>

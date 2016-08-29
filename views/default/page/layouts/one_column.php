@@ -17,11 +17,17 @@ if (isset($vars['class'])) {
 
 // navigation defaults to breadcrumbs
 $nav = elgg_extract('nav', $vars, elgg_view('navigation/breadcrumbs'));
+$small_width = elgg_extract('small_width', $vars);
 ?>
 
 <div class="<?php echo $class; ?>">
     <div class="rhs-container">
-    <?php
+        <?php if ($small_width): ?>
+            <div class="rhs-row">
+            <div class="rhs-col-md-offset-1 rhs-col-md-10 rhs-col-lg-offset-2 rhs-col-lg-8">
+        <?php endif; ?>
+
+        <?php
         echo $nav;
 
         if (isset($vars['title'])) {
@@ -34,6 +40,11 @@ $nav = elgg_extract('nav', $vars, elgg_view('navigation/breadcrumbs'));
         if (isset($vars['area1'])) {
             echo $vars['area1'];
         }
-    ?>
+        ?>
+
+        <?php if ($small_width): ?>
+            </div>
+            </div>
+        <?php endif; ?>
     </div>
 </div>

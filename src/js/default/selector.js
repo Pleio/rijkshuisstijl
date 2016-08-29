@@ -1,3 +1,5 @@
+var $ = require("jquery");
+
 (function () {
     
     'use strict';
@@ -136,6 +138,9 @@
             var $selectedOption = $(el);
             var selectedOptionText = $selectedOption.text();
             
+
+            console.log($selectedOption);
+
             // Add selected state
             $selectedOption.siblings().removeClass(selectedState);
             $selectedOption.addClass(selectedState);
