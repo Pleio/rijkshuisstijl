@@ -28,7 +28,8 @@ echo "<p>";
         'options_values' => array(
             null => " - " . elgg_echo("rijkshuisstijl:none") . " - ",
             'belastingdienst' => 'Belastingdienst',
-            'rvo' => 'Rijksdienst voor Ondernemend Nederland'
+            'rvo' => 'Rijksdienst voor Ondernemend Nederland',
+            'nationaal_archief' => 'Nationaal Archief'
         ),
         'value' => $plugin->logo ? $plugin->logo : "belastingdienst"
     ));
