@@ -34,24 +34,19 @@ function rijkshuisstijl_init() {
 
 	elgg_register_plugin_hook_handler("route", "profile", "rijkshuisstijl_route_profile_hook", 100);
 
-	elgg_register_simplecache_view("css/rijkhuisstijl");
-    $rijkshuisstijl = elgg_get_simplecache_url("css", "rijkshuisstijl");
-    elgg_register_css("rijkshuisstijl", $rijkshuisstijl, 500);
+    elgg_register_css("rijkshuisstijl", "/css/rijkshuisstijl.css", 500);
+    elgg_register_css("splash", "/css/splash.css");
 
-	elgg_register_simplecache_view("css/splash");
-	$splash = elgg_get_simplecache_url("css", "splash");
-    elgg_register_css("splash", $splash);
-
-	elgg_register_js("rijkshuisstijl-admin", "/mod/rijkshuisstijl/assets/rijkshuisstijlAdmin.js", "footer");
-	elgg_register_js("rijkshuisstijl", "/mod/rijkshuisstijl/assets/rijkshuisstijl.js", "footer");
 	elgg_register_js("splash", "/mod/rijkshuisstijl/assets/splash.js", "footer");
+	elgg_register_js("rijkshuisstijl", "/mod/rijkshuisstijl/assets/rijkshuisstijl.js", "footer");
+	elgg_register_js("rijkshuisstijl-admin", "/mod/rijkshuisstijl/assets/rijkshuisstijlAdmin.js", "footer");
 
     if (elgg_in_context("register") | elgg_in_context("login") | elgg_in_context("forgotpassword") | elgg_in_context("resetpassword")) {
     	elgg_load_css('splash');
     	elgg_load_js('splash');
     } elseif (elgg_in_context("admin")) {
     	elgg_load_js("rijkshuisstijl-admin");
-    } elseif (!elgg_in_context("admin")) {
+    } else {
     	elgg_load_css('rijkshuisstijl');
     	elgg_load_js('rijkshuisstijl');
     }
