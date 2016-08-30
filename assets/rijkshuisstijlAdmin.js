@@ -23584,7 +23584,7 @@
 	                    _react2.default.createElement('input', { name: "params[footer][" + this.props.id + "][title]", type: 'text', onChange: this.changeTitle, value: this.state.title }),
 	                    _react2.default.createElement(
 	                        'button',
-	                        { onClick: this.saveCategory },
+	                        { onClick: this.saveCategory, className: 'elgg-button elgg-button-action' },
 	                        elgg.echo("rijkshuisstijl:save")
 	                    )
 	                ),
@@ -23738,7 +23738,7 @@
 	                    _react2.default.createElement('input', { name: "params[footer][" + this.props.categoryId + "][items][" + this.props.id + "][url]", type: 'text', value: this.state.url, onChange: this.changeUrl }),
 	                    _react2.default.createElement(
 	                        'button',
-	                        { onClick: this.saveItem },
+	                        { onClick: this.saveItem, className: 'elgg-button elgg-button-action' },
 	                        elgg.echo("rijkshuisstijl:save")
 	                    )
 	                ),

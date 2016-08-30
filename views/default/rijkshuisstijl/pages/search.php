@@ -28,8 +28,14 @@
       <div class="rhs-content-header__menu">
         <?php foreach ($vars['types'] as $type): ?>
           <?php list($type, $subtype) = $type; ?>
-          <a href="/search?q=<?php echo $vars['sanitized_query']; ?>&entity_type=<?php echo $type; ?>&entity_subtype=<?php echo $subtype; ?>" class="rhs-content-header__link <?php echo ($vars['entity_subtype'] == $subtype) ? "active" : ""; ?>">
-          <?php $count = isset($vars['total_results']['count_per_subtype'][$subtype]) ? $vars['total_results']['count_per_subtype'][$subtype] : 0; ?>
+          <a href="/search?q=<?php echo $vars['sanitized_query']; ?>&entity_type=<?php echo $type; ?><?php echo ($subtype) ? "&entity_subtype=" . $subtype : ""; ?>" class="rhs-content-header__link <?php echo ($vars['entity_subtype'] == $subtype) ? "active" : ""; ?>">
+          <?php
+            if ($subtype) {
+              $count = isset($vars['total_results']['count_per_subtype'][$subtype]) ? $vars['total_results']['count_per_subtype'][$subtype] : 0;
+            } else {
+              $count = isset($vars['total_results']['count_per_type'][$type]) ? $vars['total_results']['count_per_type'][$type] : 0;
+            }
+          ?>
           <?php if ($subtype): ?>
             <?php echo elgg_echo("item:object:" . $subtype); ?> (<?php echo $count; ?>)
           <?php else: ?>

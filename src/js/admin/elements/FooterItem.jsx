@@ -61,7 +61,7 @@ export default class FooterItem extends React.Component {
                 <div className={!this.state.editing ? "hidden" : ""}>
                     <input name={"params[footer][" + this.props.categoryId + "][items][" + this.props.id + "][title]"} type="text" value={this.state.title} onChange={this.changeTitle}></input>
                     <input name={"params[footer][" + this.props.categoryId + "][items][" + this.props.id + "][url]"} type="text" value={this.state.url} onChange={this.changeUrl}></input>
-                    <button onClick={this.saveItem}>
+                    <button onClick={this.saveItem} className="elgg-button elgg-button-action">
                         {elgg.echo("rijkshuisstijl:save")}
                     </button>
                 </div>

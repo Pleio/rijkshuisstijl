@@ -62,7 +62,7 @@ export default class FooterCategory extends React.Component {
             <div className="elgg-module elgg-module-inline">
                 <div className={this.state.editing ? "elgg-head" : "elgg-head hidden"}>
                     <input name={"params[footer][" + this.props.id + "][title]"} type="text" onChange={this.changeTitle} value={this.state.title}></input>
-                    <button onClick={this.saveCategory}>
+                    <button onClick={this.saveCategory} className="elgg-button elgg-button-action">
                         {elgg.echo("rijkshuisstijl:save")}
                     </button>
                 </div>
