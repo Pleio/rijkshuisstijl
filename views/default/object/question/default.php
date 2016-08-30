@@ -22,7 +22,7 @@ if ($entity->canEdit()) {
     </a>
     <div class="rhs-card-user-content__data">
       <a href="<?php echo $poster->getURL(); ?>" title="<?php echo $poster->name; ?>"><?php echo $poster->name; ?></a>
-      <span><?php echo elgg_view_friendly_time($entity->time_created); ?></span>
+      <span><?php echo rijkshuisstijl_view_friendly_time($entity->time_created); ?></span>
     </div>
   </div>
   <div class="rhs-card-user-content__content <?php echo ($entity->canEdit()) ? "editable": "" ?>" <?php echo $onclick; ?>>
@@ -59,7 +59,7 @@ if ($entity->canEdit()) {
             <a href="<?php echo $poster->getURL(); ?>" title="Ga naar profielpagina">
               <?php echo $poster->name; ?>
             </a>
-            <?php echo elgg_view_friendly_time($entity->time_created); ?>
+            <?php echo rijkshuisstijl_view_friendly_time($entity->time_created); ?>
           </div>
         <div class="rhs-card-topic__description">
           <?php echo elgg_get_excerpt($entity->description); ?>

@@ -23,6 +23,9 @@
     "jsx-loader": "^0.13.2",
     "moment": "^2.13.0",
     "react": "^15.0.2",
-    "react-dom": "^15.0.2"
+    "react-dom": "^15.0.2",
+    "react-redux": "^4.4.5",
+    "redux": "^3.5.2",
+    "redux-logger": "^2.6.1"
   }
 }

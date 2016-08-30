@@ -1,13 +1,13 @@
 <?php
 
 function rijkshuisstijl_plugins_settings_save($hook, $type, $value, $params) {
-    $plugin_id = get_input('plugin_id');
-    if ($plugin_id !== "rijkshuisstijl") {
+    if (get_input('plugin_id') !== "rijkshuisstijl") {
         return;
     }
 
     $params = get_input('params');
     $params['colors'] = serialize($params['colors']);
+    $params['footer'] = serialize($params['footer']);
     set_input('params', $params);
 
     // re-render CSS (less)

@@ -18,7 +18,7 @@ if ($entity->canEdit()) {
     <a href="<?php echo $poster->getURL(); ?>" title="<?php echo elgg_echo("rijkshuisstijl:go_to_profile"); ?>" class="rhs-reaction__name">
       <?php echo $poster->name; ?>
     </a>
-    <div class="rhs-reaction__time"><?php echo elgg_view_friendly_time($entity->time_created); ?></div>
+    <div class="rhs-reaction__time"><?php echo rijkshuisstijl_view_friendly_time($entity->time_created); ?></div>
   </div>
   <div class="rhs-reaction__body">
     <div class="<?php echo ($entity->canEdit()) ? "rhs-reaction__editable": "" ?>" <?php echo $onclick; ?>>

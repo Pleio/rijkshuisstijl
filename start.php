@@ -5,14 +5,15 @@ require_once(dirname(__FILE__) . "/lib/hooks.php");
 
 elgg_register_event_handler('init', 'system', 'rijkshuisstijl_init');
 
-// Limit search results to these subtypes
-$CONFIG->search_subtypes = array(
-	'question',
-	'answer',
-	'videos',
-	'cafe',
-	'comment',
-	'news'
+// Limit search results to these types
+$CONFIG->search_types = array(
+	array('object','question'),
+	array('object','answer'),
+	array('object','videos'),
+	array('object','cafe'),
+	array('object','comment'),
+	array('object','news'),
+	array('user')
 );
 
 define("RIJKSHUISSTIJL_LESS", dirname(__FILE__) . "/src/less/");
@@ -41,16 +42,15 @@ function rijkshuisstijl_init() {
 	$splash = elgg_get_simplecache_url("css", "splash");
     elgg_register_css("splash", $splash);
 
+	elgg_register_js("rijkshuisstijl-admin", "/mod/rijkshuisstijl/assets/rijkshuisstijlAdmin.js", "footer");
 	elgg_register_js("rijkshuisstijl", "/mod/rijkshuisstijl/assets/rijkshuisstijl.js", "footer");
 	elgg_register_js("splash", "/mod/rijkshuisstijl/assets/splash.js", "footer");
-
-	elgg_register_simplecache_view("js/rhsadmin");
-	$admin = elgg_get_simplecache_url("js", "rhsadmin");
-	elgg_register_js("rhsadmin", $admin, "footer");
 
     if (elgg_in_context("register") | elgg_in_context("login") | elgg_in_context("forgotpassword") | elgg_in_context("resetpassword")) {
     	elgg_load_css('splash');
     	elgg_load_js('splash');
+    } elseif (elgg_in_context("admin")) {
+    	elgg_load_js("rijkshuisstijl-admin");
     } elseif (!elgg_in_context("admin")) {
     	elgg_load_css('rijkshuisstijl');
     	elgg_load_js('rijkshuisstijl');

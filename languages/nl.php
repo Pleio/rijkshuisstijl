@@ -101,12 +101,8 @@ $dutch = array(
     'rijkshuisstijl:forum:closemodal' => 'Sluit modal',
     'rijkshuisstijl:forum:showall' => 'Alles',
     'rijkshuisstijl:forum:search' => 'Zoeken',
+    'rijkshuisstijl:footer:elements' => 'Footer elementen',
     'rijkshuisstijl:cafe:askedby' => 'Gesteld door',
-    'rijkshuisstijl:footer:contact' => 'Contact',
-    'rijkshuisstijl:footer:phone' => 'Bellen',
-    'rijkshuisstijl:footer:visit' => 'Bezoeken',
-    'rijkshuisstijl:footer:mail' => 'Per brief',
-    'rijkshuisstijl:footer:followus' => 'Volg ons op',
     'rijkshuisstijl:of' => 'van',
     'rijkshuisstijl:special_settings' => 'Speciale instellingen',
     'rijkshuisstijl:special_settings:explanation' => 'Selecteer alleen een van deze opties wanneer je als deelsite speciale functionaliteit nodig hebt.',
@@ -115,7 +111,15 @@ $dutch = array(
     'rijkshuisstijl:colors' => 'Kleuren',
     'rijkshuisstijl:color' => 'Kleur',
     'rijkshuisstijl:404:title' => 'Sorry, deze pagina is niet beschikbaar',
-    'rijkshuisstijl:404:content' => 'De link waarop je hebt geklikt, is mogelijk buiten werking of de pagina is verwijderd.'
+    'rijkshuisstijl:404:content' => 'De link waarop je hebt geklikt, is mogelijk buiten werking of de pagina is verwijderd.',
+    'rijkshuisstijl:add:item' => 'Item toevoegen',
+    'rijkshuisstijl:add:category' => 'Categorie toevoegen',
+    'rijkshuisstijl:new:item' => 'Nieuw item',
+    'rijkshuisstijl:new:category' => 'Nieuwe categorie',
+    'rijkshuisstijl:save' => 'Opslaan',
+    'rijkshuisstijl:edit' => 'Wijzig',
+    'rijkshuisstijl:delete' => 'Verwijder'
+
 );
 
 add_translation('nl', $dutch);

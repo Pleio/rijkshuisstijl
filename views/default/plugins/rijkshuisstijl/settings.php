@@ -17,6 +17,10 @@ if ($plugin->colors) {
     $colors = unserialize($plugin->colors);
 }
 
+echo "<script>";
+echo "var initialFooterState = " . json_encode(unserialize($plugin->footer));
+echo "</script>";
+
 echo "<p>";
     echo "<label>" . elgg_echo("rijkshuisstijl:logo") . "</label>";
     echo elgg_view('input/radio', array(
@@ -40,9 +44,11 @@ echo "<div>";
             "value" => $colors[$i] ? $colors[$i] : $default_colors[$i]
         ));
     }
-echo "</div>";
+echo "</div>"; ?>
 
-echo "<div style='clear:both'>";
+<div style="clear: both" id="rijkshuisstijl-footer"></div>
+
+<?php echo "<div style='clear:both'>";
     echo "<br /><br />";
     echo "<p>";
     echo "<label>" . elgg_echo("rijkshuisstijl:special_settings") . "</label>";

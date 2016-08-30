@@ -43,7 +43,7 @@ $editor_link = elgg_view('output/url', array(
     'is_trusted' => true,
 ));
 
-$date = elgg_view_friendly_time($annotation->time_created);
+$date = rijkshuisstijl_view_friendly_time($annotation->time_created);
 $editor_text = elgg_echo('pages:strapline', array($date, $editor_link));
 $categories = elgg_view('output/categories', $vars);
 

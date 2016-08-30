@@ -76,7 +76,7 @@ elgg.tinymce.init = function() {
         toolbar1: "<?php echo $menu1;?>",
         browser_spellcheck: true,
         media_strict: false,
-        content_css: "/cache/css/default/rijkshuisstijl.css",
+        content_css: "/css/rijkshuisstijl.css",
         image_advtab: true,
         language: "<?php echo get_language(); ?>",
         extended_valid_elements: "<?php echo $valid_elements;?>",

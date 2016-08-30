@@ -18,7 +18,7 @@ $container_guid = get_input('container_guid', ELGG_ENTITIES_ANY_VALUE);
 $profile_fields = get_input('elasticsearch_profile_fields');
 
 global $CONFIG;
-$subtypes = $CONFIG->search_subtypes;
+$types = $CONFIG->search_types;
 
 if (!$entity_type) {
     $entity_type = 'object';
@@ -63,7 +63,7 @@ $content = elgg_view("rijkshuisstijl/pages/search", array(
     'search_type' => $search_type,
     'entity_type' => $entity_type,
     'entity_subtype' => $entity_subtype,
-    'subtypes' => $subtypes,
+    'types' => $CONFIG->search_types,
     'limit' => $limit,
     'offset' => $offset,
     'sort' => $sort,

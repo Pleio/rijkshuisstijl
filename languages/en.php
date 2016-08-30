@@ -102,11 +102,7 @@ $english = array(
     'rijkshuisstijl:forum:showall' => 'Show all',
     'rijkshuisstijl:forum:search' => 'Search',
     'rijkshuisstijl:cafe:askedby' => 'Asked by',
-    'rijkshuisstijl:footer:contact' => 'Contact',
-    'rijkshuisstijl:footer:phone' => 'Phone',
-    'rijkshuisstijl:footer:visit' => 'Visit',
-    'rijkshuisstijl:footer:mail' => 'Mail',
-    'rijkshuisstijl:footer:followus' => 'Follow us',
+    'rijkshuisstijl:footer:elements' => 'Footer elements',
     'rijkshuisstijl:of' => 'of',
     'rijkshuisstijl:special_settings' => 'Special settings',
     'rijkshuisstijl:special_settings:explanation' => 'Only select one of these options if you have special requirements for your template.',
@@ -115,7 +111,14 @@ $english = array(
     'rijkshuisstijl:colors' => 'Colors',
     'rijkshuisstijl:color' => 'Color',
     'rijkshuisstijl:404:title' => 'Could not find the page',
-    'rijkshuisstijl:404:content' => 'The link you followed could not be found on our system. Probably the link is not working or the page has been removed.'
+    'rijkshuisstijl:404:content' => 'The link you followed could not be found on our system. Probably the link is not working or the page has been removed.',
+    'rijkshuisstijl:add:item' => 'Add item',
+    'rijkshuisstijl:add:category' => 'Add category',
+    'rijkshuisstijl:new:item' => 'New item',
+    'rijkshuisstijl:new:category' => 'New category',
+    'rijkshuisstijl:save' => 'Save',
+    'rijkshuisstijl:edit' => 'Edit',
+    'rijkshuisstijl:delete' => 'Delete',
 );
 
 add_translation('en', $english);

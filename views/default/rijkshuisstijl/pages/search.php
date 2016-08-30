@@ -26,10 +26,15 @@
         </div>
       </div>
       <div class="rhs-content-header__menu">
-        <?php foreach ($vars['subtypes'] as $subtype): ?>
-          <a href="/search?q=<?php echo $vars['sanitized_query']; ?>&entity_type=object&entity_subtype=<?php echo $subtype; ?>" class="rhs-content-header__link <?php echo ($vars['entity_subtype'] == $subtype) ? "active" : ""; ?>">
+        <?php foreach ($vars['types'] as $type): ?>
+          <?php list($type, $subtype) = $type; ?>
+          <a href="/search?q=<?php echo $vars['sanitized_query']; ?>&entity_type=<?php echo $type; ?>&entity_subtype=<?php echo $subtype; ?>" class="rhs-content-header__link <?php echo ($vars['entity_subtype'] == $subtype) ? "active" : ""; ?>">
           <?php $count = isset($vars['total_results']['count_per_subtype'][$subtype]) ? $vars['total_results']['count_per_subtype'][$subtype] : 0; ?>
-          <?php echo elgg_echo("item:object:" . $subtype); ?> (<?php echo $count; ?>)
+          <?php if ($subtype): ?>
+            <?php echo elgg_echo("item:object:" . $subtype); ?> (<?php echo $count; ?>)
+          <?php else: ?>
+            <?php echo elgg_echo("item:" . $type); ?> (<?php echo $count; ?>)
+          <?php endif; ?>
           </a>
         <?php endforeach; ?>
       </div>

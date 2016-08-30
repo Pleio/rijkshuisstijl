@@ -50,28 +50,6 @@
 
 <div class="rhs-container">
   <div class="rhs-sections rhs-sections--large-top-padding">
-    <?php if (count($groups) > 0): ?>
-      <div class="rhs-section rhs-section--item rhs-section--background-transparent">
-        <div class="rhs-profile-block">
-          <div class="rhs-row">
-            <div class="rhs-col-md-7">
-              <h2 class="rhs-profile-block__title"><?php echo elgg_echo('rijkshuisstijl:profile:interests:interestsdescription') ?></h2>
-            </div>
-            <div class="rhs-col-md-1"></div>
-            <div class="rhs-col-md-4">
-              <p class="rhs-form__element rhs-form__element--small-padding">
-                <?php foreach($groups as $group): ?>
-                  <label for="interest-<?php echo $group->guid; ?>" class="rhs-checkbox-switch">
-                    <input type="checkbox" id="interest-<?php echo $group->guid; ?>" interest-id="<?php echo $group->guid ?>" name="interests" <?php echo in_array($group->guid, $interests) ? "checked" : ""; ?> class="rhs-checkbox-switch__input"><span class="rhs-checkbox-switch__placeholder"></span><?php echo $group->name; ?>
-                  </label>
-                <?php endforeach; ?>
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    <?php endif; ?>
-
     <div class="rhs-section rhs-section--item rhs-section--background-transparent">
       <div class="rhs-profile-block">
         <div class="rhs-row">
@@ -103,7 +81,7 @@
                   "name" => "option-$opt"
                   //"class" => "rhs-checkbox__input js-validateCheckbox"
                 );
-          
+
                 if (newsletter_check_user_subscription($targetUser, elgg_get_site_entity()))
                 {
                   $options['checked'] = 'checked';
@@ -147,14 +125,19 @@
               ?>
                   <p class="rhs-form__element">
                     <label class="rhs-form__label"><span class="rhs-form__label-text"><?php echo $group->name ?></span>
-                      <select name="groupNotifications" group-id="<?php echo $group->guid ?>" data-label="custom" class="selecter-default elgg-input-dropdown">
-                        <option value="" disabled>Geef uw voorkeur</option>
-                        <option value="none" <?php echo $interval == 'none' ? 'selected' : '' ?>>Geen</option>
-                        <option value="daily" <?php echo $interval == 'daily' ? 'selected' : '' ?>>Dagelijks</option>
-                        <option value="weekly" <?php echo $interval == 'weekly' ? 'selected' : '' ?>>Wekelijks</option>
-                        <option value="fortnightly" <?php echo $interval == 'fortnightly' ? 'selected' : '' ?>>Tweewekelijks</option>
-                        <option value="monthly" <?php echo $interval == 'monthly' ? 'selected' : '' ?>>Maandelijks</option>
-                      </select>
+                      <?php echo elgg_view("input/dropdown", array(
+                        "name" => "groupNotifications",
+                        "group-id" => $group->guid,
+                        "data-label" => "custom",
+                        "options_values" => array(
+                          "none" => elgg_echo("digest:interval:none"),
+                          "daily" => elgg_echo("digest:interval:daily"),
+                          "weekly" => elgg_echo("digest:interval:weekly"),
+                          "fortnightly" => elgg_echo("digest:interval:fortnightly"),
+                          "Monthly" => elgg_echo("digest:interval:monthly")
+                        )
+                      ));
+                      ?>
                     </label>
                   </p>
               <?php

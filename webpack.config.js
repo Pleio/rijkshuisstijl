@@ -1,6 +1,7 @@
 module.exports = {
     entry: {
         rijkshuisstijl: "./src/js/rijkshuisstijl.js",
+        rijkshuisstijlAdmin: "./src/js/admin.jsx",
         splash: "./src/js/splash.js"
     },
     output: {
