@@ -23,11 +23,12 @@ echo "</script>";
 
 echo "<p>";
     echo "<label>" . elgg_echo("rijkshuisstijl:logo") . "</label>";
-    echo elgg_view('input/radio', array(
+    echo elgg_view('input/dropdown', array(
         'name' => 'params[logo]',
-        'options' => array(
-            'Belastingdienst' => 'belastingdienst',
-            'Rijksdienst voor Ondernemend Nederland' => 'rvo'
+        'options_values' => array(
+            null => " - " . elgg_echo("rijkshuisstijl:none") . " - ",
+            'belastingdienst' => 'Belastingdienst',
+            'rvo' => 'Rijksdienst voor Ondernemend Nederland'
         ),
         'value' => $plugin->logo ? $plugin->logo : "belastingdienst"
     ));
