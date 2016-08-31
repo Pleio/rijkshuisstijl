@@ -28,19 +28,25 @@ function rijkshuisstijl_get_latest_objects($subtype = 'question', ElggGroup $gro
 }
 
 function rijkshuisstijl_get_popular_objects($subtype = 'question', ElggGroup $group = null) {
-    $options = array(
-        'type' => 'object',
-        'subtype' => $subtype,
-        'private_setting_name' => 'view_counter',
-        'order_by' => 'cast(ps.value as unsigned) DESC',
-        'limit' => 5
-    );
+    $id = (int) get_subtype_id("object", $subtype);
 
+    $sql = "SELECT guid FROM elgg_entity_views WHERE type = 'object' AND subtype = {$id}";
     if ($group) {
-        $options['container_guid'] = $group->guid;
+        $container_guid = (int) $group->guid;
+        $sql .= " AND container_guid = {$container_guid}";
     }
 
-    return elgg_get_entities_from_private_settings($options);
+    $sql .= " ORDER BY views DESC LIMIT 5";
+
+    $return = array();
+    foreach (get_data($sql) as $object) {
+        $object = get_entity($object->guid);
+        if ($object) {
+            $return[] = $object;
+        }
+    }
+
+    return $return;
 }
 
 function rijkshuisstijl_get_interests($user) {

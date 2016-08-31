@@ -5,13 +5,15 @@ import reducers from './reducers'
 import FooterList from './elements/FooterList'
 import createLogger from 'redux-logger'
 
-let loggerMiddleware = createLogger()
+if (initialFooterState) {
+    let loggerMiddleware = createLogger()
 
-let store = createStore(
-    reducers,
-    {footer: initialFooterState},
-    applyMiddleware(loggerMiddleware)
-)
+    let store = createStore(
+        reducers,
+        {footer: initialFooterState},
+        applyMiddleware(loggerMiddleware)
+    )
+}
 
 export default class Footer extends React.Component {
     render() {

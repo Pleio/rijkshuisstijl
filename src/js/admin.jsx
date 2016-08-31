@@ -4,7 +4,6 @@ import React from 'react'
 import Footer from './admin/Footer'
 
 elgg.provide('elgg.rijkshuisstijlAdmin');
-
 elgg.rijkshuisstijlAdmin.init = function() {
     $('[data-colorpicker]').change(function(e) {
         $(this).parent().parent().find("[data-color]").css("background-color", e.target.value);
