@@ -17,8 +17,14 @@ if ($plugin->colors) {
     $colors = unserialize($plugin->colors);
 }
 
+if ($plugin->footer) {
+    $initialState = unserialize($plugin->footer);
+} else {
+    $initialState =  array();
+}
+
 echo "<script>";
-echo "var initialFooterState = " . json_encode(unserialize($plugin->footer));
+echo "var initialFooterState = " . json_encode($initialState);
 echo "</script>";
 
 echo "<p>";
