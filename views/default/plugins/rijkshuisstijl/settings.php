@@ -19,8 +19,16 @@ if ($plugin->colors) {
 
 if ($plugin->footer) {
     $initialState = unserialize($plugin->footer);
+}
+
+if ($initialState) {
+    foreach($initialState as $category => $value) {
+        if (!$value['items']) {
+            $initialState[$category]['items'] = array();
+        }
+    }
 } else {
-    $initialState =  array();
+    $initialState = array();
 }
 
 echo "<script>";
