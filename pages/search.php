@@ -18,21 +18,22 @@ $container_guid = get_input('container_guid', ELGG_ENTITIES_ANY_VALUE);
 $profile_fields = get_input('elasticsearch_profile_fields');
 
 global $CONFIG;
-$types = $CONFIG->search_types;
-
-if (!$entity_type) {
-    $entity_type = 'object';
+$types = array('object', 'user');
+$subtypes = array();
+foreach ($CONFIG->search_types as $type) {
+    if ($type[1]) {
+        $subtypes[] = $type[1];
+    }
 }
 
-if (!$entity_subtype) {
+if (!$entity_type && !$entity_subtype) {
+    $entity_type = $types[0];
     $entity_subtype = $subtypes[0];
 }
 
 $total_results = ESInterface::get()->search(
     $query,
-    $search_type,
-    $entity_type,
-    $subtypes
+    $search_type
 );
 
 $results = ESInterface::get()->search(

@@ -6,33 +6,45 @@ if (!elgg_is_xhr()) {
 
 $q = get_input('q');
 $search_type = 'default';
-
 $return = array();
 
-foreach ($CONFIG->search_subtypes as $subtype) {
-    $results = ESInterface::get()->search(
-        $q,
-        $search_type,
-        'object',
-        $subtype,
-        5
-    );
+if ($q) {
+    foreach ($CONFIG->search_types as list($type, $subtype)) {
+        $results = ESInterface::get()->search(
+            $q,
+            $search_type,
+            $type,
+            $subtype,
+            5
+        );
 
-    $return[$subtype] = array();
-    foreach ($results['hits'] as $result) {
-        if (!in_array($result->getSubtype(), array('answer', 'comment'))) {
-            $title = $result->title;
+        if ($subtype) {
+            $typeString = $type . ":" . $subtype;
         } else {
-            $title = $result->getContainerEntity()->title;
+            $typeString = $type;
         }
 
-        $return[$subtype][] = array(
-            'guid' => $result->guid,
-            'title' => html_entity_decode($title, ENT_QUOTES),
-            'time_created' => date('c', $result->time_created), // ISO-8601
-            'url' => $result->getURL()
-        );
+        $return[$typeString] = array();
+        foreach ($results['hits'] as $result) {
+            if (!in_array($result->getSubtype(), array('answer', 'comment'))) {
+                if ($result->title) {
+                    $title = $result->title;
+                } else {
+                    $title = $result->name;
+                }
+            } else {
+                $title = $result->getContainerEntity()->title;
+            }
+
+            $return[$typeString][] = array(
+                'guid' => $result->guid,
+                'title' => html_entity_decode($title, ENT_QUOTES),
+                'time_created' => date('c', $result->time_created), // ISO-8601
+                'url' => $result->getURL()
+            );
+        }
     }
 }
 
 echo json_encode($return);
+

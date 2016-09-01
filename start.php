@@ -30,6 +30,10 @@ function rijkshuisstijl_init() {
 	    elgg_register_plugin_hook_handler("route", "pages", "rijkshuisstijl_route_pages_hook", 100);
 
 		elgg_register_page_handler("topics", "rijkshuisstijl_topics_page_handler");
+
+		elgg_register_page_handler("rijkshuisstijl", "rijkshuisstijl_page_handler");
+		elgg_register_page_handler("rijkshuisstijl-admin", "rijkshuisstijl_admin_page_handler");
+		elgg_register_action("rijkshuisstijl/admin/banner", dirname(__FILE__) . "/actions/admin/banner.php", "admin");
     }
 
 	elgg_register_plugin_hook_handler("route", "profile", "rijkshuisstijl_route_profile_hook", 100);
@@ -129,6 +133,28 @@ function rijkshuisstijl_profile_page_handler($page) {
 	$body = elgg_view_layout("one_column", array("content" => $content));
 	echo elgg_view_page($user->name, $body);
 	return true;
+}
+
+function rijkshuisstijl_page_handler($page) {
+	switch ($page[0]) {
+		case "banner":
+			require dirname(__FILE__) . "/pages/banner.php";
+			return true;
+			break;
+	}
+}
+
+function rijkshuisstijl_admin_page_handler($page) {
+	if (!elgg_is_admin_logged_in()) {
+		forward('');
+	}
+
+	switch ($page[0]) {
+		case "banner":
+			require dirname(__FILE__) . "/pages/admin/banner.php";
+			return true;
+			break;
+	}
 }
 
 function rijkshuisstijl_topics_page_handler($page) {

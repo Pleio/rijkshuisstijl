@@ -52,10 +52,10 @@ export default class SearchResults extends React.Component {
 
     render() {
         var j = 0;
-        var result = Object.keys(this.state.results).map(function(subtype) {
-            if (this.state.results[subtype].length > 0) {
+        var result = Object.keys(this.state.results).map(function(type) {
+            if (this.state.results[type].length > 0) {
                 return (
-                    <SearchResultColumn key={subtype} q={this.state.q} subtype={subtype} results={this.state.results[subtype]} />
+                    <SearchResultColumn key={type} q={this.state.q} type={type} results={this.state.results[type]} />
                 );
             }
         }.bind(this))

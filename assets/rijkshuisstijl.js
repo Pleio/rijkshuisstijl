@@ -13488,7 +13488,15 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	_reactDom2.default.render(_react2.default.createElement(_SearchResults2.default, null), document.getElementById('main-nav-results'));
+	function rijkshuisstijl_init() {
+	    var navResults = document.getElementById('main-nav-results');
+	
+	    if (navResults) {
+	        _reactDom2.default.render(_react2.default.createElement(_SearchResults2.default, null), document.getElementById('main-nav-results'));
+	    }
+	}
+	
+	elgg.register_hook_handler("init", "system", rijkshuisstijl_init);
 
 /***/ },
 /* 30 */
@@ -34951,9 +34959,9 @@
 	        key: 'render',
 	        value: function render() {
 	            var j = 0;
-	            var result = Object.keys(this.state.results).map(function (subtype) {
-	                if (this.state.results[subtype].length > 0) {
-	                    return _react2.default.createElement(_SearchResultColumn2.default, { key: subtype, q: this.state.q, subtype: subtype, results: this.state.results[subtype] });
+	            var result = Object.keys(this.state.results).map(function (type) {
+	                if (this.state.results[type].length > 0) {
+	                    return _react2.default.createElement(_SearchResultColumn2.default, { key: type, q: this.state.q, type: type, results: this.state.results[type] });
 	                }
 	            }.bind(this));
 	
@@ -35015,7 +35023,7 @@
 	            var title = _react2.default.createElement(
 	                'h4',
 	                { className: 'rhs-nav-result-list__title' },
-	                elgg.echo("item:object:" + this.props.subtype)
+	                elgg.echo("item:" + this.props.type)
 	            );
 	
 	            var results = this.props.results.map(function (result) {
@@ -35033,6 +35041,8 @@
 	                );
 	            });
 	
+	            var type = this.props.type.split(":");
+	
 	            return _react2.default.createElement(
 	                'div',
 	                { className: 'rhs-nav-result-list rhs-col-sm-6' },
@@ -35040,7 +35050,7 @@
 	                results,
 	                _react2.default.createElement(
 	                    'a',
-	                    { href: "/search?q=" + this.props.q + "&search_type=entities&entity_type=object&entity_subtype=" + this.props.subtype, title: 'Bekijk alle resultaten', className: 'rhs-main-nav-results__submit' },
+	                    { href: "/search?q=" + this.props.q + "&search_type=entities&entity_type=" + type[0] + "&entity_subtype=" + type[1], title: 'Bekijk alle resultaten', className: 'rhs-main-nav-results__submit' },
 	                    'Bekijk alle resultaten'
 	                )
 	            );

@@ -7,7 +7,7 @@ export default class SearchResultColumn extends React.Component {
     render() {
         var title = (
             <h4 className="rhs-nav-result-list__title">
-                { elgg.echo("item:object:" + this.props.subtype) }
+                { elgg.echo("item:" + this.props.type) }
             </h4>
         );
 
@@ -21,11 +21,13 @@ export default class SearchResultColumn extends React.Component {
             )
         })
 
+        var type = this.props.type.split(":");
+
         return (
             <div className="rhs-nav-result-list rhs-col-sm-6">
                 { title }
                 { results }
-                <a href={ "/search?q=" + this.props.q + "&search_type=entities&entity_type=object&entity_subtype=" + this.props.subtype } title="Bekijk alle resultaten" className="rhs-main-nav-results__submit">
+                <a href={ "/search?q=" + this.props.q + "&search_type=entities&entity_type=" + type[0] + "&entity_subtype=" + type[1] } title="Bekijk alle resultaten" className="rhs-main-nav-results__submit">
                     Bekijk alle resultaten
                 </a>
             </div>
