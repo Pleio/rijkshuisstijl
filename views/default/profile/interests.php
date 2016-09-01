@@ -127,8 +127,9 @@
                     <label class="rhs-form__label"><span class="rhs-form__label-text"><?php echo $group->name ?></span>
                       <?php echo elgg_view("input/dropdown", array(
                         "name" => "groupNotifications",
-                        "group-id" => $group->guid,
+                        "data-group-id" => $group->guid,
                         "data-label" => "custom",
+                        "value" =>  $interval,
                         "options_values" => array(
                           "none" => elgg_echo("digest:interval:none"),
                           "daily" => elgg_echo("digest:interval:daily"),

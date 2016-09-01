@@ -100,7 +100,7 @@
 	        });
 	    });
 	
-	    var interestFields = $("input[name='interests']");
+	    var interestFields = jQuery("input[name='interests']");
 	    interestFields.click(function ()
 	    {
 	        setTimeout(function () {
@@ -194,33 +194,29 @@
 	      });
 	    });
 	
-	    $('select[name="groupNotifications"]').change(function () {
-	      console.log('changed');
-	      var groupGuid = $(this).attr('group-id');
-	      var value = $(this).val();
+	    jQuery('select[name="groupNotifications"]').change(function (e) {
+	      var groupGuid = jQuery(this).data('group-id');
+	      var value = jQuery(this).val();
 	
-	      setTimeout(function () {
-	        elgg.action('/action/digest/update/usersettings', {
-	          data: {
-	            user_guid: gUserGuid,
-	            "digest": {
-	              groupGuid: value
-	            }
-	          },
-	          success: function (wrapper) {
-	            
-	          }
-	        });
-	      }, 100);
+	      var settings = {};
+	      settings[groupGuid] = value;
 	
-	      elgg.action('/action/notificationsettings/groupsave', {
+	      elgg.action('/action/digest/update/usersettings', {
+	        data: {
+	          user_guid: elgg.page_owner.guid,
+	          digest: settings
+	        },
+	        success: function(wrapper) {}
+	      });
+	
+	      /*elgg.action('/action/notificationsettings/groupsave', {
 	        data: {
 	          guid: gUserGuid
 	        },
 	        success: function (wrapper) {
 	
 	        }
-	      });
+	      });*/
 	    });
 	});
 
@@ -13246,9 +13242,6 @@
 	            var $selectedOption = $(el);
 	            var selectedOptionText = $selectedOption.text();
 	            
-	
-	            console.log($selectedOption);
-	
 	            // Add selected state
 	            $selectedOption.siblings().removeClass(selectedState);
 	            $selectedOption.addClass(selectedState);
