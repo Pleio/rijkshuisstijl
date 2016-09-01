@@ -9,10 +9,10 @@ elgg_register_event_handler('init', 'system', 'rijkshuisstijl_init');
 $CONFIG->search_types = array(
 	array('object','question'),
 	array('object','answer'),
+	array('object','news'),
 	array('object','videos'),
 	array('object','cafe'),
 	array('object','comment'),
-	array('object','news'),
 	array('user')
 );
 

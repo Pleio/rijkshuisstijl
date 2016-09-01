@@ -21620,10 +21620,11 @@
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
-	if (initialFooterState) {
-	    var loggerMiddleware = (0, _reduxLogger2.default)();
+	var store = void 0;
+	var loggerMiddleware = (0, _reduxLogger2.default)();
 	
-	    var _store = (0, _redux.createStore)(_reducers2.default, { footer: initialFooterState }, (0, _redux.applyMiddleware)(loggerMiddleware));
+	if (typeof initialFooterState !== 'undefined') {
+	    store = (0, _redux.createStore)(_reducers2.default, { footer: initialFooterState }, (0, _redux.applyMiddleware)(loggerMiddleware));
 	}
 	
 	var Footer = function (_React$Component) {

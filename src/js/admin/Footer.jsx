@@ -5,10 +5,11 @@ import reducers from './reducers'
 import FooterList from './elements/FooterList'
 import createLogger from 'redux-logger'
 
-if (initialFooterState) {
-    let loggerMiddleware = createLogger()
+let store;
+let loggerMiddleware = createLogger()
 
-    let store = createStore(
+if (typeof initialFooterState !== 'undefined') {
+    store = createStore(
         reducers,
         {footer: initialFooterState},
         applyMiddleware(loggerMiddleware)
