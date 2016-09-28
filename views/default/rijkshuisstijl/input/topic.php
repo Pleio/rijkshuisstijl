@@ -22,4 +22,7 @@ if (array_key_exists($value, $topic_options)) {
 }
 
 $vars = array_merge($defaults, $vars);
-echo elgg_view('input/dropdown', $vars);
+
+if ($groups) {
+    echo elgg_view('input/dropdown', $vars);
+}

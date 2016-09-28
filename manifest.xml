@@ -17,6 +17,10 @@
     </requires>
     <requires>
         <type>plugin</type>
+        <name>entity_view_counter</name>
+    </requires>
+    <requires>
+        <type>plugin</type>
         <name>newsletter</name>
     </requires>
     <conflicts>
