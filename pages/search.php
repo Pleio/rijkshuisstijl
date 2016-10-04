@@ -26,11 +26,6 @@ foreach ($CONFIG->search_types as $type) {
     }
 }
 
-if (!$entity_type && !$entity_subtype) {
-    $entity_type = $types[0];
-    $entity_subtype = $subtypes[0];
-}
-
 $total_results = ESInterface::get()->search(
     $query,
     $search_type

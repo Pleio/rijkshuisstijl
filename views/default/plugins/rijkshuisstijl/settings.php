@@ -81,3 +81,12 @@ echo "</div>"; ?>
     echo "</div>";
     echo "</p>";
 echo "</div>";
+
+echo "<p>";
+    echo "<label>" . elgg_echo("rijkshuisstijl:registration_text") . "</label>";
+    echo elgg_view('input/longtext', array(
+        'name' => 'params[registration_text]',
+        'value' => $plugin->registration_text
+    ));
+echo "</p>";
+

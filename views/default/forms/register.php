@@ -16,9 +16,18 @@ if (elgg_is_sticky_form('register')) {
     elgg_clear_sticky_form('register');
 }
 
+$registration_text = elgg_get_plugin_setting("registration_text", "rijkshuisstijl");
+
 ?>
 
 <h1 class="rhs-splash__title"><?php echo elgg_echo('register'); ?></h1>
+
+<?php if ($registration_text): ?>
+    <p class="rhs-form__element rhs-form__element--text">
+        <?php echo $registration_text; ?>
+    </p>
+<?php endif; ?>
+
 <p class="rhs-form__element">
     <label class="rhs-form__label">
         <span class="rhs-form__label-text"><?php echo elgg_echo('rijkshuisstijl:register:name'); ?>*</span>

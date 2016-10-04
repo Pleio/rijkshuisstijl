@@ -1,7 +1,6 @@
 <?php
 
 $topic_options = array(
-    'mine' => elgg_echo('rijkshuisstijl:topics:mine'),
     'all' => elgg_echo('rijkshuisstijl:topics:all')
 );
 

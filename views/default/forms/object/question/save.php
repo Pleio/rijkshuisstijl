@@ -92,17 +92,20 @@ if (elgg_view_exists("input/categories")) {
 		'class' => 'rhs-form__input'
 	), $vars));
 }
+?>
 
-// access options
-if ($show_access_options) {
-	echo "<div>";
-	echo "<label for='question_access_id'>" . elgg_echo("access") . "</label><br />";
-	echo elgg_view('input/access', $access_id);
-	echo "</div>";
-} else {
-	echo elgg_view("input/hidden", array("name" => "access_id", "value" => $access_setting));
-}
+<?php if ($show_access_options): ?>
+	<div class="rhs-form__element">
+		<?php echo elgg_view("input/access", $access_id); ?>
+	</div>
+<?php else: ?>
+	<?php echo elgg_view("input/hidden", array(
+		"name" => "access_id",
+		"value" => $access_setting
+	)); ?>
+<?php endif; ?>
 
+<?php
 // container selection options
 if (!$editing || (questions_experts_enabled() && questions_is_expert())) {
 	if (!$editing) {
@@ -111,19 +114,9 @@ if (!$editing || (questions_experts_enabled() && questions_is_expert())) {
 		$owner = $question->getOwnerEntity();
 	}
 
-	$container_options = true;
-	$select = "<select name='container_guid' class='elgg-input-dropdown' id='questions-container-guid'>";
-
-	// add user to the list
-	$selected = "";
-	if ($owner->getGUID() == $question->getContainerGUID()) {
-		$selected = "selected='selected'";
-	}
-
+	$container_options = array();
 	if (!questions_limited_to_groups()) {
-		$select .= "<option value='" . $owner->getGUID() . "' " . $selected . ">" . $owner->name . "</option>";
-	} else {
-		$select .= "<option value='' " . $selected . ">" . elgg_echo("questions:edit:question:container:select") . "</option>";
+		$container_options[$owner->guid] = $owner->name;
 	}
 
 	if (elgg_is_active_plugin("groups")) {
@@ -140,28 +133,28 @@ if (!$editing || (questions_experts_enabled() && questions_is_expert())) {
 			"relationship_guid" => elgg_get_logged_in_user_guid()
 		);
 
-		if ($groups = elgg_get_entities_from_relationship($group_options)) {
-			$select .= "<optgroup label='" . htmlspecialchars(elgg_echo("groups"), ENT_QUOTES, "UTF-8", false) . "'>";
-			foreach ($groups as $group) {
-				$selected = "";
-				if ($group->getGUID() == $question->getContainerGUID()) {
-					$selected = "selected='selected'";
-				}
-				$select .= "<option value='" . $group->getGUID() . "' " . $selected . ">" . $group->name . "</option>";
-			}
-			$select .= "</optgroup>";
+		$groups = elgg_get_entities_from_relationship($group_options);
+		foreach ($groups as $group) {
+			$container_options[$group->guid] = $group->name;
 		}
 	}
-
-	$select .= "</select>";
-
-	echo $select;
+	?>
+	<div class="rhs-form__element">
+		<?php echo elgg_view("input/dropdown", array(
+			"name" => "container_guid",
+			"placeholder" => "Kies een thema",
+			"value" => $question->container_guid,
+			"options_values" => $container_options,
+			"required" => ""
+		)); ?>
+	</div>
+	<?php
 } else {
 	echo elgg_view("input/hidden", array("name" => "container_guid", "value" => $question->container_guid));
 }
 
 // end of the form
-echo "<div class='elgg-foot'>";
+echo "<div class='rhs-form__actions'>";
 
 if ($editing) {
 	echo elgg_view("input/hidden", array("name" => "guid", "value" => $question->guid));
@@ -177,5 +170,7 @@ if ($editing && questions_can_move_to_discussions($container)) {
 	));
 }
 
-echo elgg_view("input/submit", array("value" => elgg_echo("submit")));
+echo elgg_view("input/submit", array(
+	"value" => elgg_echo("rijkshuisstijl:save")
+));
 echo "</div>";

@@ -26,9 +26,15 @@
         </div>
       </div>
       <div class="rhs-content-header__menu">
+
+        <a href="/search?q=<?php echo $vars['sanitized_query']; ?>" class="rhs-content-header__link <?php echo (!$vars['entity_type'] && !$vars['entity_subtype']) ? "active" : ""; ?>">
+          <?php echo elgg_echo("rijkshuisstijl:all"); ?>
+          (<?php echo $vars['total_results']['count']; ?>)
+        </a>
+
         <?php foreach ($vars['types'] as $type): ?>
           <?php list($type, $subtype) = $type; ?>
-          <a href="/search?q=<?php echo $vars['sanitized_query']; ?>&entity_type=<?php echo $type; ?><?php echo ($subtype) ? "&entity_subtype=" . $subtype : ""; ?>" class="rhs-content-header__link <?php echo ($vars['entity_subtype'] == $subtype) ? "active" : ""; ?>">
+          <a href="/search?q=<?php echo $vars['sanitized_query']; ?>&entity_type=<?php echo $type; ?><?php echo ($subtype) ? "&entity_subtype=" . $subtype : ""; ?>" class="rhs-content-header__link <?php echo ($vars['entity_type'] == $type && $vars['entity_subtype'] == $subtype) ? "active" : ""; ?>">
           <?php
             if ($subtype) {
               $count = isset($vars['total_results']['count_per_subtype'][$subtype]) ? $vars['total_results']['count_per_subtype'][$subtype] : 0;

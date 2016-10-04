@@ -42,11 +42,14 @@ unset($vars['options']);
 $value = $vars['value'];
 unset($vars['value']);
 
-if (!$value) {
+$placeholder = $vars['placeholder'];
+unset($vars['placeholder']);
+
+if (!$value && !$placeholder) {
     if ($options_values) {
         $value = array_keys($options_values)[0];
     } else {
-        $value = $options[0];
+        $value = $values[0];
     }
 }
 
@@ -54,9 +57,12 @@ if (!$value) {
 <select <?php echo elgg_format_attributes($vars); ?> data-selector>
 <?php
 
+if ($placeholder) {
+    echo "<option disabled>$placeholder</option>";
+}
+
 if ($options_values) {
     foreach ($options_values as $opt_value => $option) {
-
         $option_attrs = elgg_format_attributes(array(
             'value' => $opt_value,
             'selected' => (string)$opt_value == (string)$value,
