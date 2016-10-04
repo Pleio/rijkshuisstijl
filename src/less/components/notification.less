@@ -1,57 +1,57 @@
 .@{namespace}-overlay-notification {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: @lift-30;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    pointer-events: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: @lift-30;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	pointer-events: none;
 
-    &.notification--open {
-        /* name, duration, timing-function, delay, iteration-count, direction, fill-mode and play-state. */
-        animation: fadein 0.5s ease 1s backwards, fadeout 0.3s ease 4s forwards;
-    }
+	&.notification--open {
+	    /* name, duration, timing-function, delay, iteration-count, direction, fill-mode and play-state. */
+	    animation: fadein 0.5s ease 1s backwards, fadeout 0.3s ease 4s forwards;
+	}
 
-    .notification {
-        width: 28rem;
-        min-height: 12rem;
-        background-color: @belastingdienst--7;
-        margin: 0 0 10rem 0;
-        padding: 3rem;
-        font-family: @font;
-        font-size: @font-size--title-normal;
-        line-height: @line-height--title-normal;
-        text-align: center;
-        color: @color-white;
+	.notification {
+		width: 28rem;
+		min-height: 12rem;
+		background-color: @belastingdienst--7;
+		margin: 0 0 10rem 0;
+		padding: 3rem;
+		font-family: @font;
+		font-size: @font-size--title-normal;
+		line-height: @line-height--title-normal;
+		text-align: center;
+		color: @color-white;
 
-        @media (min-width: @screen-sm) {
-            width: 31.5rem;
-        }
-    }
+		@media (min-width: @screen-sm) {
+			width: 31.5rem;
+		}
+	}
 
 }
 
 @keyframes fadein {
   from {
-    opacity: 0;
-    transform: translate(0, -1rem);
+  	opacity: 0;
+  	transform: translate(0, -1rem);
   }
   to {
-    opacity: 1;
-    transform: translate(0, 0);
+  	opacity: 1;
+  	transform: translate(0, 0);
   }
 }
 
 @keyframes fadeout {
   from {
-    opacity: 1;
-    transform: translate(0, 0);
+  	opacity: 1;
+  	transform: translate(0, 0);
   }
   to {
-    opacity: 0;
-    transform: translate(0, -1rem);
+  	opacity: 0;
+  	transform: translate(0, -1rem);
   }
 }

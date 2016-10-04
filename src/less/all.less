@@ -1,3 +1,6 @@
+
+
+
 // Core
 // -------------------------------
 @import "core/mixins/appearance";
@@ -11,13 +14,14 @@
 @import "core/variables";
 @import "core/layout";
 @import "core/typography";
+// @import "core/print"; moved to bottom to insure !important works in all cases
 @import "core/help-classes";
 
 // Grid
 // -------------------------------
 @import "grid/variables";
 @import "grid/mixins/clearfix";
-@import "grid/mixins/grid";
+@import "grid/mixins/grid";  
 @import "grid/mixins/grid-framework";
 @import "grid/mixins/responsive-visibility";
 @import "grid/normalize";
@@ -30,11 +34,11 @@
 
 // Layout
 // -------------------------------
+@import "layout/page-layout";
 @import "layout/top-navigation";
 @import "layout/main-navigation";
 @import "layout/mobile-navigation";
 @import "layout/header";
-@import "layout/page-layout";
 @import "layout/footer";
 @import "layout/lead";
 @import "layout/content-editable";
@@ -106,5 +110,6 @@
 
 
 @import "plugins/tinymce-custom";
+
 @import "core/print";
 @import "elgg";
