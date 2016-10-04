@@ -19,7 +19,10 @@ $english = array(
     'rijkshuisstijl:featured' => 'Featured',
     'rijkshuisstijl:more' => 'Read more',
     'rijkshuisstijl:registration_text' => 'Registration text',
-    'rijkshuisstijl:ask_question' => 'Ask a question',
+    'rijkshuisstijl:question:add' => 'Ask a question',
+    'rijkshuisstijl:question:edit' => 'Edit question',
+    'rijkshuisstijl:pinboard:add' => 'Post a message',
+    'rijkshuisstijl:pinboard:edit' => 'Edit message',
     'rijkshuisstijl:recent_questions' => 'Recent questions',
     'rijkshuisstijl:popular_questions' => 'Popular questions',
     'rijkshuisstijl:welcome_to' => 'Welcome to',
@@ -104,8 +107,7 @@ $english = array(
     'rijkshuisstijl:profile:settings:urpasswordminimal' => 'Your password should contain a minimum of 8 characters',
     'rijkshuisstijl:profile:settings:passwordsdonotmatch' => 'The verification password does not match with your password',
     'rijkshuisstijl:profile:settings:fillinvalidemail' => 'Fill in a valid email address',
-    'rijkshuisstijl:forum:postamessage' => 'Post a message',
-    'rijkshuisstijl:forum:closemodal' => 'Close modal',
+    'rijkshuisstijl:closemodal' => 'Close modal',
     'rijkshuisstijl:forum:showall' => 'Show all',
     'rijkshuisstijl:forum:search' => 'Search',
     'rijkshuisstijl:cafe:askedby' => 'Asked by',
@@ -126,6 +128,8 @@ $english = array(
     'rijkshuisstijl:save' => 'Save',
     'rijkshuisstijl:edit' => 'Edit',
     'rijkshuisstijl:delete' => 'Delete',
+    'rijkshuisstijl:object:question' => 'question',
+    'rijkshuisstijl:object:pinboard' => 'message'
 );
 
 add_translation('en', $english);

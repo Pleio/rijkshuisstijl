@@ -45,7 +45,7 @@ $users_online = count(find_active_users());
                 <?php echo elgg_echo("rijkshuisstijl:or"); ?>
               </span>
                 <button class="rhs-button rhs-button--primary rhs-button--inline rhs-forum-action__button js-toggleModal" data-modal-id="#modal-item">
-                  + <?php echo elgg_echo("rijkshuisstijl:ask_question"); ?>
+                  + <?php echo elgg_echo("rijkshuisstijl:question:add"); ?>
                 </button>
               </div>
         </div>

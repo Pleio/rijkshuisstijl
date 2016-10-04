@@ -173,3 +173,42 @@
   left: 0;
   cursor: pointer;
 }
+
+.@{namespace}-button__underline {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    height: 4rem;
+    padding: 0 1rem;
+    color: @color-grey--80;
+    cursor: pointer;
+    transition: color 0.2s ease, background-color 0.2s ease;
+    user-select: none;
+
+    &:after {
+        content: '';
+        position: absolute;
+        height: 1px;
+        background-color: @color-grey--60;
+        left: 1rem;
+        right: 1rem;
+        bottom: 0.8rem;
+        transition: color 0.2s ease, background-color 0.2s ease;
+    }
+
+    &:hover {
+        color: @color-black;
+
+        &:after {
+            background-color: @color-grey--80;
+        }
+    }
+
+    @media ( max-width: @screen-xs-max ) {
+        height: 3.6rem;
+
+        .form & {
+            height: 4rem;
+        }
+    }
+}

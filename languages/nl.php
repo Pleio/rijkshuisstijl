@@ -20,7 +20,10 @@ $dutch = array(
     'rijkshuisstijl:more' => 'Lees meer',
     'rijkshuisstijl:welcome_to' => 'Welkom op',
     'rijkshuisstijl:registration_text' => 'Registratietekst',
-    'rijkshuisstijl:ask_question' => 'Stel een vraag',
+    'rijkshuisstijl:question:add' => 'Een vraag stellen',
+    'rijkshuisstijl:question:edit' => 'Vraag wijzigen',
+    'rijkshuisstijl:pinboard:add' => 'Plaats een bericht',
+    'rijkshuisstijl:pinboard:edit' => 'Wijzig bericht',
     'rijkshuisstijl:recent_questions' => 'Recente vragen',
     'rijkshuisstijl:popular_questions' => 'Populaire vragen',
     'rijkshuisstijl:all_categories' => 'Alle categorieën',
@@ -104,8 +107,7 @@ $dutch = array(
     'rijkshuisstijl:profile:settings:urpasswordminimal' => 'Uw wachtwoord moet minimaal 8 karakters bevatten',
     'rijkshuisstijl:profile:settings:passwordsdonotmatch' => 'Wachtwoord ter verificatie komt niet overeen met uw wachtwoord',
     'rijkshuisstijl:profile:settings:fillinvalidemail' => 'Vul een geldig e-mailadres in',
-    'rijkshuisstijl:forum:postamessage' => 'Plaats een bericht',
-    'rijkshuisstijl:forum:closemodal' => 'Sluit modal',
+    'rijkshuisstijl:closemodal' => 'Sluit modal',
     'rijkshuisstijl:forum:showall' => 'Alles',
     'rijkshuisstijl:forum:search' => 'Zoeken',
     'rijkshuisstijl:footer:elements' => 'Footer elementen',
@@ -125,8 +127,9 @@ $dutch = array(
     'rijkshuisstijl:new:category' => 'Nieuwe categorie',
     'rijkshuisstijl:save' => 'Opslaan',
     'rijkshuisstijl:edit' => 'Wijzig',
-    'rijkshuisstijl:delete' => 'Verwijder'
-
+    'rijkshuisstijl:delete' => 'Verwijder',
+    'rijkshuisstijl:object:question' => 'vraag',
+    'rijkshuisstijl:object:pinboard' => 'bericht'
 );
 
 add_translation('nl', $dutch);

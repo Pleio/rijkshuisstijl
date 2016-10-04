@@ -57,6 +57,15 @@ if ($entity) {
 </div>
 
 <div class="rhs-form__actions">
+    <?php if ($entity && $entity->canEdit()) {
+        echo elgg_view("output/confirmlink", array(
+            "class" => "rhs-button__underline",
+            "href" => "/action/pinboard/delete?guid={$entity->guid}",
+            "text" => elgg_echo("rijkshuisstijl:delete") . " " . elgg_echo("rijkshuisstijl:object:pinboard"),
+            "is_action" => true
+        ));
+    } ?>
+
     <?php echo elgg_view("input/submit", array(
             'value' => elgg_echo('pinboard:publish'),
             'class' => 'rhs-button rhs-button--color-septenary'

@@ -8,7 +8,7 @@ $entity = $vars['entity'];
 
 <?php if (elgg_is_logged_in()): ?>
     <div data-forum-answer-block="" class="rhs-edit-block__wrapper" style="">
-        <?php echo elgg_view_form("pinboard/comment", array(
+        <?php echo elgg_view_form("answers/save", array(
             'name' => 'pinboard_comment',
             'class' => 'rhs-edit-block',
             'action' => 'action/comment/save'

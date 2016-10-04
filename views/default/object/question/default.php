@@ -5,11 +5,6 @@ $full_view = elgg_extract('full_view', $vars, false);
 $poster = $entity->getOwnerEntity();
 $count = $entity->countAnswers();
 
-if ($entity->canEdit()) {
-  $onclick = "onclick=\"location.href = '/questions/edit/" . $entity->guid . "'\"";
-} else {
-  $onclick = '';
-}
 ?>
 
 <?php if ($full_view): ?>
@@ -25,7 +20,7 @@ if ($entity->canEdit()) {
       <span><?php echo rijkshuisstijl_view_friendly_time($entity->time_created); ?></span>
     </div>
   </div>
-  <div class="rhs-card-user-content__content <?php echo ($entity->canEdit()) ? "editable": "" ?>" <?php echo $onclick; ?>>
+  <div class="rhs-card-user-content__content">
     <?php echo $entity->description; ?>
   </div>
   <div class="rhs-card-user-content__options">
@@ -36,6 +31,11 @@ if ($entity->canEdit()) {
       <div class="rhs-card-user-content__views">
         <?php echo entity_view_counter_count_views($entity); ?>
       </div>
+      <?php if ($entity->canEdit()): ?>
+        <a href="/questions/edit/<?php echo $entity->guid; ?>" data-modal-id="#modal-item" title="<?php echo elgg_echo("rijkshuisstijl:edit"); ?>" class="js-toggleModal rhs-card-user-content__edit">
+          <?php echo elgg_echo("rijkshuisstijl:edit"); ?>
+        </a>
+      <?php endif; ?>
       <?php if (elgg_is_active_plugin('content_subscriptions')): ?>
         <?php
         echo elgg_view('rijkshuisstijl/elements/content_subscription', array(
@@ -46,6 +46,12 @@ if ($entity->canEdit()) {
       <?php endif; ?>
     </div>
   </div>
+
+  <?php if ($entity->canEdit()): ?>
+    <?php echo elgg_view("modals/save_question", array(
+        "entity" => $entity
+    )); ?>
+  <?php endif; ?>
 <?php else: ?>
   <div class="rhs-col-md-12">
     <div class="rhs-card-topic"><a href="<?php echo $poster->getURL(); ?>" title="<?php echo elgg_echo("rijkshuisstijl:go_to_profile"); ?>" class="rhs-card-topic__profile-picture">

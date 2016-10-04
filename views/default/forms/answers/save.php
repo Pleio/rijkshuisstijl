@@ -10,7 +10,16 @@ $poster = elgg_get_logged_in_user_entity();
 $entity = elgg_extract("entity", $vars);
 
 if ($entity) {
-    echo elgg_view("input/hidden", array("name" => "container_guid", "value" => $entity->guid));
+    if (elgg_is_active_plugin("questions") && $entity instanceof ElggQuestion) {
+        // answer endpoint receives different permission levels
+        $container_field = "container_guid";
+        $description_field = "description";
+    } else {
+        $container_field = "entity_guid";
+        $description_field = "generic_comment";
+    }
+
+    echo elgg_view("input/hidden", array("name" => $container_field, "value" => $entity->guid));
 }
 
 ?>
@@ -26,15 +35,12 @@ if ($entity) {
 
 <?php echo elgg_view('input/longtext', array(
     'id' => 'data-forum-answer-textarea',
-    'name' => 'description',
+    'name' => $description_field,
     'value' => elgg_get_sticky_value('comment', 'description', $comment->description)
 ));
 ?>
 
 <div class="rhs-edit-block__bottom rhs-form__actions">
-    <a href="#" title="..." data-forum-answer-close class="rhs-button">
-        <?php echo elgg_echo("rijkshuisstijl:cancel"); ?>
-    </a>
     <?php echo elgg_view("input/submit", array(
             'class' => 'elgg-button elgg-button-primary',
             'value' => elgg_echo('rijkshuisstijl:answer:submit')

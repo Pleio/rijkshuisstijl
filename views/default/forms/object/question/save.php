@@ -156,6 +156,15 @@ if (!$editing || (questions_experts_enabled() && questions_is_expert())) {
 // end of the form
 echo "<div class='rhs-form__actions'>";
 
+if ($question && $question->canEdit()) {
+	echo elgg_view("output/confirmlink", array(
+		"class" => "rhs-button__underline",
+		"href" => "/action/questions/delete?guid={$question->guid}",
+		"text" => elgg_echo("rijkshuisstijl:delete") . " " . elgg_echo("rijkshuisstijl:object:question"),
+		"is_action" => true
+	));
+}
+
 if ($editing) {
 	echo elgg_view("input/hidden", array("name" => "guid", "value" => $question->guid));
 }
