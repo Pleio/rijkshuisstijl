@@ -6,10 +6,10 @@ elgg.tinymce.init = function() {
         tinyMCE.triggerSave();
     });
 
-    var toolbar = "bold,italic,numlist,bullist,link,image";
+    var toolbar = "bold,italic,forecolor,numlist,bullist,link,image";
 
     if (elgg.is_admin_logged_in()) {
-        toolbar = "bold,italic,numlist,bullist,link,image,code";
+        toolbar = "bold,italic,forecolor,numlist,bullist,link,image,code";
     }
 
     var calculateHeight = function($id) {
@@ -83,7 +83,7 @@ elgg.tinymce.init = function() {
         mode: "specific_textareas",
         editor_selector: "elgg-input-longtext",
         menubar: false,
-        plugins: "lists,spellchecker,fullscreen,paste,image,link,placeholder",
+        plugins: "lists,spellchecker,fullscreen,paste,image,link,placeholder,textcolor",
         relative_urls: false,
         body_id: "content-editable",
         remove_script_host: false,
