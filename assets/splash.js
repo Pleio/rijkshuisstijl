@@ -12307,7 +12307,7 @@
 	                valid = false;
 	            }
 	        } else { // regex
-	            var valid = (new RegExp('^'+validation+'$')).test(value);
+	            var valid = (new RegExp('^'+validation+'$', 'm')).test(value);
 	        }
 	
 	        // Show indication
@@ -12564,9 +12564,13 @@
 	
 	    // Validate form interactions
 	
-	    $body.on('submit', '.js-validateForm', function(e){
+	    $body.on('submit', '.js-validateForm', function(e) {
+	        // make sure tinyMCE forms are saved first
+	        tinyMCE.triggerSave();
+	
 	        var $form = $(e.target);
 	        var valid = validateForm($form, true)
+	
 	        if ( ! valid ) {
 	            e.preventDefault();
 	        }

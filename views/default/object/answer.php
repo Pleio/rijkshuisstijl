@@ -21,7 +21,7 @@ if ($entity->canEdit()) {
   </div>
   <div class="rhs-reaction__body">
     <div class="<?php echo ($entity->canEdit()) ? "rhs-reaction__editable": "" ?>" <?php echo $onclick; ?>>
-      <?php echo $entity->description; ?>
+      <?php echo elgg_view("output/longtext", ["value" => $entity->description]); ?>
     </div>
 
     <?php if (elgg_is_logged_in()): ?>

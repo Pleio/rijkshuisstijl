@@ -96,7 +96,7 @@ if ($full) {
         echo '<div class="rhs-news-item__meta__date">' . date("d-m-Y", $entity->time_created) . '</div>';
       echo '</div>';
       echo '<div class="rhs-news-item__content rhs-content-editable">';
-      echo $entity->description;
+      echo elgg_view("output/longtext", ["value" => $entity->description]);
       echo '</div>';
       echo '<div class="rhs-news-item__actions">';
         echo '<div class="rhs-content-actions"><a href="javascript:window.print();" title="Afdrukken" class="rhs-button rhs-button--with-icon rhs-content-actions__print"><span class="rhs-icon-print"></span>Afdrukken</a>';

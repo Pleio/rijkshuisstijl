@@ -19,7 +19,7 @@ $entity = elgg_extract("entity", $vars);
         <div class="rhs-modal__content">
             <?php if(elgg_is_active_plugin("questions")): ?>
                 <?php echo elgg_view_form("object/question/save", array(
-                    "class" => "js-validateForm js-validateItemForm"
+                    "class" => "js-validateForm"
                     ), $vars); ?>
             <?php endif; ?>
         </div>

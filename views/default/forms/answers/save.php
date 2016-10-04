@@ -29,21 +29,30 @@ if ($entity) {
     <?php echo elgg_echo("rijkshuisstijl:back_to_forum"); ?>
 </a>
 
-<div class="rhs-edit-block__top"><img src="<?php echo $poster->getIconURL('small') ?>" class="rhs-edit-block__image">
-  <div href="/profile-public.html" title="<?php echo elgg_echo("rijkshuisstijl:go_to_profile"); ?>" class="rhs-edit-block__name"><?php echo $poster->name ?></div>
+<div class="rhs-edit-block__top"><img src="<?php echo $poster->getIconURL("small") ?>" class="rhs-edit-block__image">
+  <div href="#" title="<?php echo elgg_echo("rijkshuisstijl:go_to_profile"); ?>" class="rhs-edit-block__name"><?php echo $poster->name ?></div>
 </div>
 
-<?php echo elgg_view('input/longtext', array(
-    'id' => 'data-forum-answer-textarea',
-    'name' => $description_field,
-    'value' => elgg_get_sticky_value('comment', 'description', $comment->description)
+<?php echo elgg_view("input/longtext", array(
+    "id" => "data-forum-answer-textarea",
+    "name" => $description_field,
+    "value" => elgg_get_sticky_value("comment", "description", $comment->description)
 ));
 ?>
 
 <div class="rhs-edit-block__bottom rhs-form__actions">
+    <?php echo elgg_view("output/url", array(
+        "class" => "rhs-button",
+        "href" => "#",
+        "text" => elgg_echo("rijkshuisstijl:cancel"),
+        "data-forum-answer-close" => "",
+
+    ));
+    ?>
+
     <?php echo elgg_view("input/submit", array(
-            'class' => 'elgg-button elgg-button-primary',
-            'value' => elgg_echo('rijkshuisstijl:answer:submit')
+            "class" => "elgg-button elgg-button-primary",
+            "value" => elgg_echo("rijkshuisstijl:answer:submit")
         ));
     ?>
 </div>

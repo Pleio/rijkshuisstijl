@@ -22,7 +22,7 @@ $count = $entity->countComments();
     </div>
   </div>
   <div class="rhs-card-user-content__content">
-    <?php echo $entity->description; ?>
+    <?php echo elgg_view("output/longtext", ["value" => $entity->description]); ?>
   </div>
   <div class="rhs-card-user-content__options">
     <button title="Geef antwoord" data-forum-answer-toggle class="rhs-button rhs-button--with-icon">
