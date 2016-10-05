@@ -2,6 +2,7 @@ import React from "react"
 import TinyMCE from "./TinyMCE"
 import moment from "moment"
 import Votes from "./Votes"
+import classnames from "classnames"
 
 const TINYMCE_CONFIG = {
     menu: {},
@@ -9,7 +10,9 @@ const TINYMCE_CONFIG = {
     plugins: "lists,spellchecker,fullscreen,paste,image,link,placeholder,code,textcolor",
     toolbar: "bold,italic,forecolor,numlist,bullist,link,image",
     relative_urls: false,
+    height: "300px",
     media_strict: false,
+    body_class: "rhs-content-editable",
     document_base_url: elgg.config.wwwroot,
     content_css: "/css/rijkshuisstijl.css",
     image_advtab: false,
@@ -46,7 +49,7 @@ export default class Comment extends React.Component {
 
     render() {
         let comment = (
-            <div className="comment">
+            <div className={classnames({comment: true, "___can-edit": this.props.entity.canEdit})}>
                 <Votes entity={this.props.entity} />
                 <div className="comment__top">
                     <a href={this.props.entity.owner.url}
@@ -61,18 +64,18 @@ export default class Comment extends React.Component {
                         <div className="comment__date">
                             {moment(this.props.entity.timeCreated).format("LLL")}
                         </div>
-                        <div className="comment__edit" onClick={this.toggleEdit} style={{cursor:"pointer"}}>
+                        <div className="comment__edit" onClick={this.toggleEdit}>
                             Wijzig
                         </div>
                     </div>
                 </div>
-                <div className="comment__body" dangerouslySetInnerHTML={{__html: this.props.entity.description}}></div>
+                <div className="comment__body rhs-content-editable" dangerouslySetInnerHTML={{__html: this.props.entity.description}}></div>
             </div>
         )
 
         if (this.state.editing) {
             comment = (
-                <div className="comment-edit__wrapper ___is-open" style={{maxHeight:"350px"}}>
+                <div className="comment-edit__wrapper ___is-open">
                     <form className="comment-edit" method="POST" action={"/" + elgg.security.addToken("action/comment/save")}>
                         <div title="Terug naar forum" className="comment-edit__close" onClick={this.toggleEdit}></div>
                             <h3 className="comment-edit__title">Bewerk antwoord</h3>

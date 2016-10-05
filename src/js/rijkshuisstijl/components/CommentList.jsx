@@ -36,6 +36,7 @@ const QUERY = gql`
         status
         comments {
             guid
+            canEdit
             description
             timeCreated
             votes

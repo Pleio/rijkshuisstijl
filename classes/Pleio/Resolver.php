@@ -43,7 +43,7 @@ class Resolver {
             "status" => "ok",
             "type" => $entity->type,
             "title" => $entity->title,
-            "description" => $entity->description,
+            "description" => elgg_autop(filter_tags($entity->description)),
             "timeCreated" => date("c", $entity->time_created),
             "timeUpdated" => date("c", $entity->time_updated),
             "canEdit" => $entity->canEdit(),
@@ -69,7 +69,8 @@ class Resolver {
             $comments[] = [
                 "guid" => $entity->guid,
                 "ownerGuid" => $entity->owner_guid,
-                "description" => $entity->description,
+                "canEdit" => $entity->canEdit(),
+                "description" => elgg_autop(filter_tags($entity->description)),
                 "timeCreated" => date("c", $entity->time_created),
                 "timeUpdated" => date("c", $entity->time_updated)
             ];
@@ -164,7 +165,7 @@ class Resolver {
                 "ownerGuid" => $entity->owner_guid,
                 "title" => $entity->title,
                 "type" => $entity->type,
-                "description" => $entity->description,
+                "description" => elgg_autop(filter_tags($entity->description)),
                 "timeCreated" => date("c", $entity->time_created),
                 "timeUpdated" => date("c", $entity->time_updated),
                 "tags" => Helpers::renderTags($entity->tags)
@@ -257,7 +258,7 @@ class Resolver {
                     "ownerGuid" => $entity->owner_guid,
                     "title" => $entity->title,
                     "type" => $entity->type,
-                    "description" => $entity->description,
+                    "description" => elgg_autop(filter_tags($entity->description)),
                     "timeCreated" => date("c", $entity->time_created),
                     "timeUpdated" => date("c", $entity->time_updated),
                     "tags" => Helpers::renderTags($entity->tags)
