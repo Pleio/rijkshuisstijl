@@ -10,6 +10,8 @@
     },
     "require": {
         "composer/installers": "^1.0.8",
-        "oyejorge/less.php": "~1.7.0.9"
+        "oyejorge/less.php": "~1.7.0.9",
+        "webonyx/graphql-php": "v0.6.4",
+        "ivome/graphql-relay-php": "^0.1.2"
     }
 }

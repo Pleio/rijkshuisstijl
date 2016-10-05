@@ -129,7 +129,9 @@ $english = array(
     'rijkshuisstijl:edit' => 'Edit',
     'rijkshuisstijl:delete' => 'Delete',
     'rijkshuisstijl:object:question' => 'question',
-    'rijkshuisstijl:object:pinboard' => 'message'
+    'rijkshuisstijl:object:pinboard' => 'message',
+    'rijkshuisstijl:object:answer' => 'answer',
+    'rijkshuisstijl:object:comment' => 'comment',
 );
 
 add_translation('en', $english);

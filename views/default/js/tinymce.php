@@ -12,15 +12,6 @@ elgg.tinymce.init = function() {
         toolbar = "bold,italic,forecolor,numlist,bullist,link,image,code";
     }
 
-    var calculateHeight = function($id) {
-        var maxHeight = 500;
-        var minHeight = 150;
-        var height = 80 + $id.contents().find("body").height();
-            height = height > maxHeight ? maxHeight : height;
-            height = height < minHeight ? minHeight : height;
-        return height;
-    };
-
     tinymce.PluginManager.add('placeholder', function(editor) {
         editor.on('init', function() {
             var label = new Label;
@@ -83,7 +74,8 @@ elgg.tinymce.init = function() {
         mode: "specific_textareas",
         editor_selector: "elgg-input-longtext",
         menubar: false,
-        plugins: "lists,spellchecker,fullscreen,paste,image,link,placeholder,code,textcolor",
+        plugins: "autoresize,lists,spellchecker,fullscreen,paste,image,link,placeholder,code,textcolor",
+        autoresize_max_height: 250,
         relative_urls: false,
         body_id: "content-editable",
         remove_script_host: false,
@@ -94,32 +86,7 @@ elgg.tinymce.init = function() {
         media_strict: false,
         content_css: "/css/rijkshuisstijl.css",
         image_advtab: false,
-        language: "<?php echo get_language(); ?>",
-        setup : function(ed) {
-            tinymceObject = ed;
-
-            setTimeout( function(){
-                var $id = $("#"+$(ed).attr("id")+"_ifr");
-
-                $id.contents().find("body, html")
-                .css({minHeight: "auto", height: "auto"});
-                $id.css({ height:calculateHeight($id) });
-            }, 200);
-
-            ed.on("keydown", function(e) {
-                var $id = $("#"+$(ed).attr("id")+"_ifr");
-
-                setTimeout( function(){
-                    $id.css({ height:calculateHeight($id) });
-                }, 30);
-            });
-
-            ed.on("blur", function(e) {
-                var $id = $("#"+$(ed).attr("id")+"_ifr");
-
-                $id.css({ height:calculateHeight($id) });
-            });
-       }
+        language: "<?php echo get_language(); ?>"
     });
 }
 

@@ -24,11 +24,11 @@ var $ = require("jquery");
     };
 
     $("[data-vote-up]").on('click', function(e) {
-        submitVote($(this).data('guid'), "upvote", $(this).parent().children("span"));
+        submitVote($(this).data('guid'), "upvote", $(this).parent().children("[data-vote-points]"));
     });
 
     $("[data-vote-down]").on('click', function(e) {
-        submitVote($(this).data('guid'), "downvote", $(this).parent().children("span"));
+        submitVote($(this).data('guid'), "downvote", $(this).parent().children("[data-vote-points]"));
     })
 
 })();

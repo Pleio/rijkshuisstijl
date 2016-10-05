@@ -1,0 +1,211 @@
+.comment-container {
+    position: relative;
+    margin: 0 0 2rem 0;
+}
+
+.comment {
+    position: relative; // position .vote-up-down next to comment
+    background-color: @color-secondary--40;
+
+    &[data-comment-edit] {
+        transition: opacity @trans-fast;
+    }
+
+    @media ( max-width: @screen-xs-max ) {
+        display: flex;
+        flex-direction: column;
+        padding: 2rem;
+        margin-left: -2rem;
+        margin-right: -2rem;
+    }
+
+    @media ( min-width: @screen-sm ) {
+        padding: 3rem 2rem 3rem 8rem;
+
+        &.___is-editing {
+            position: absolute;
+            opacity: 0;
+        }
+    }
+}
+
+.comment__vote {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 2.4rem;
+
+    @media ( max-width: @screen-xs-max ) {
+        margin: 1.5rem 0 0 0;
+        order: 1;
+    }
+
+    @media ( min-width: @screen-sm ) {
+        position: absolute;
+        top: 0;
+        left: -4.4rem;
+    }
+}
+
+.comment__vote-up,
+.comment__vote-down {
+    position: relative;
+    width: 100%;
+    height: 1.2rem;
+    text-indent: -9999px;
+    cursor: pointer;
+
+    &:before {
+        content: '';
+        position: absolute;
+        display: block;
+        overflow: hidden;
+        left: 0;
+        width: 0;
+        height: 0;
+        border-left: 1.25rem solid transparent;
+        border-right: 1.25rem solid transparent;
+        transition: border-color @trans-fast;
+    }
+}
+.comment__vote-up {
+    &:before {
+        bottom: 0;
+        border-bottom: 1.25rem solid @color-primary;
+    }
+
+    &.___is-active:before,
+    &:hover:before {
+        border-bottom-color: @color-septenary;
+    }
+}
+.comment__vote-down {
+    &:before {
+        top: 0;
+        border-top: 1.25rem solid @color-primary;
+    }
+
+    &.___is-active:before,
+    &:hover:before {
+        border-top-color: @color-septenary;
+    }
+}
+
+.comment__points {
+    color: @color-septenary;
+    font-size: @font-size--title-small;
+    padding: 0.5rem 0;
+}
+
+
+.comment__top {
+    width: 100%;
+    margin-bottom: 1rem;
+
+     @media ( max-width: @screen-xs-max ) {
+        display: flex;
+    }
+}
+
+.comment__picture {
+    display: block;
+    width: 4rem;
+    height: 4rem;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    border-radius: 50%;
+    overflow: hidden;
+
+    @media ( max-width: @screen-xs-max ) {
+        margin: 0 1.5rem 0 0;
+    }
+
+    @media ( min-width: @screen-sm ) {
+        position: absolute;
+        top: 2rem;
+        left: 2rem;
+    }
+}
+
+.comment__justify {
+    position: relative;
+    display: flex;
+    flex-grow: 1;
+
+    @media ( max-width: @screen-xs-max ) {
+        display: flex;
+        flex-direction: column;
+    }
+
+    @media ( min-width: @screen-sm ) {
+        justify-content: space-between;
+    }
+}
+
+.comment__name {
+    font-weight: bold;
+    color: @color-septenary;
+    transition: color @trans-fast;
+
+    &:hover {
+        color: @color-quaternary    ;
+    }
+}
+
+.comment__date {
+    color: @color-septenary;
+    transition: opacity @trans-fast;
+
+    @media ( min-width: @screen-sm ) {
+        .comment:hover & {
+            opacity: 0;
+        }
+    }
+}
+
+.comment__edit {
+    position: absolute;
+    right: 0;
+    color: @color-septenary;
+
+    transition: opacity @trans-fast;
+
+    &:before {
+        content: @icon-pencil;
+        font-family: @font--icons;
+        font-size: 1.5rem;
+        margin: 0 0.5rem 0.2rem 0;
+    }
+
+    @media ( min-width: @screen-sm ) {
+        opacity: 0;
+
+        .comment:hover & {
+            opacity: 1;
+        }
+    }
+
+    @media ( max-width: @screen-xs-max ) {
+        span {
+            display: none;
+        }
+    }
+}
+
+.comment__body {
+    transition: color @trans-fast;
+    .comment:hover & {
+        color: @color-septenary;
+    }
+}
+
+.comment__description {
+    color: @color-primary;
+}
+
+.comment-edit__cancel {
+    @media ( max-width: @screen-xs-max ) {
+        display: none;
+    }
+}

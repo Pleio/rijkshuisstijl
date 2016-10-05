@@ -129,7 +129,9 @@ $dutch = array(
     'rijkshuisstijl:edit' => 'Wijzig',
     'rijkshuisstijl:delete' => 'Verwijder',
     'rijkshuisstijl:object:question' => 'vraag',
-    'rijkshuisstijl:object:pinboard' => 'bericht'
+    'rijkshuisstijl:object:pinboard' => 'bericht',
+    'rijkshuisstijl:object:answer' => 'antwoord',
+    'rijkshuisstijl:object:comment' => 'reactie'
 );
 
 add_translation('nl', $dutch);
