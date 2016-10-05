@@ -83,7 +83,7 @@ elgg.tinymce.init = function() {
         mode: "specific_textareas",
         editor_selector: "elgg-input-longtext",
         menubar: false,
-        plugins: "lists,spellchecker,fullscreen,paste,image,link,placeholder,textcolor",
+        plugins: "lists,spellchecker,fullscreen,paste,image,link,placeholder,code,textcolor",
         relative_urls: false,
         body_id: "content-editable",
         remove_script_host: false,

@@ -37,6 +37,7 @@ function rijkshuisstijl_init() {
     }
 
 	elgg_register_plugin_hook_handler("route", "profile", "rijkshuisstijl_route_profile_hook", 100);
+	elgg_register_plugin_hook_handler("allowed_styles", "htmlawed", "rijkshuisstijl_allowed_styles");
 
     elgg_register_css("rijkshuisstijl", "/css/rijkshuisstijl.css", 500);
     elgg_register_css("splash", "/css/splash.css");
