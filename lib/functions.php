@@ -83,7 +83,7 @@ function rijkshuisstijl_get_popular_users() {
 
     arsort($top_users);
 
-    $top_users = array_slice($top_users, 0, 10, true);
+    $top_users = array_slice($top_users, 0, 5, true);
 
     $users = array();
     foreach ($top_users as $guid => $score) {

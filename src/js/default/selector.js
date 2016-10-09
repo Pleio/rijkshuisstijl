@@ -40,7 +40,7 @@ var $ = require("jquery");
                 // Wrap the 'select' element in a new stylable selector
                 $(this).wrap('<div class="selector' + mobileState + selectorClass + '"></div>');
                 // Fill the selector with a stylable 'select'
-                $(this).parent().append('<div class="selector__select" tabindex="'+ tabIndex + '"></div><ul class="selector__options"></ul>');
+                $(this).parent().append('<div class="selector__select" tabindex="'+ tabIndex + '"></div><div class="selector__options"><ul class="selector__list"></ul></div>');
 
                 var optionSelectedText = '';
                 $(this).children('option').each(function() {
@@ -65,11 +65,11 @@ var $ = require("jquery");
                     // Fill the selector with stylable 'options'
                     if ( selectorClass === ' ___reversed' ) {
                         $(this).closest('.selector')
-                            .children('.selector__options')
+                            .find('.selector__list')
                             .prepend('<li class="selector__option'+ optionSelected +'" data-value="'+ optionValue +'">'+ optionText +'</li>');
                     } else {
                         $(this).closest('.selector')
-                            .children('.selector__options')
+                            .find('.selector__list')
                             .append('<li class="selector__option'+ optionSelected +'" data-value="'+ optionValue +'">'+ optionText +'</li>');
                     }
                 });
