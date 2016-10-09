@@ -134,7 +134,6 @@ const TinyMCE = React.createClass({
       }
     };
 
-    console.log(config);
     tinymce.init(config);
 
     findDOMNode(this).style.hidden = '';
