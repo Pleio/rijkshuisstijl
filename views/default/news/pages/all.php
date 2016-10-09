@@ -1,8 +1,11 @@
 <?php
 $leader = rijkshuisstijl_get_news_leader();
+
+$topic = get_input("topic");
+$category = get_input("category");
 ?>
 
-<?php if ($leader): ?>
+<?php if ($leader && !$topic && !$category): ?>
     <div class="rhs-section rhs-section--item">
     <?php echo elgg_view('rijkshuisstijl/elements/news/leader', array(
         'leader' => $leader

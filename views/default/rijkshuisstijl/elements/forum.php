@@ -2,9 +2,13 @@
 $groups = rijkshuisstijl_get_featured_groups();
 $user = elgg_get_logged_in_user_entity();
 $display_title = elgg_extract("display_title", $vars, true);
+$title = elgg_extract("title", $vars);
+
 ?>
 
-<?php if ($display_title): ?>
+<?php if ($title): ?>
+  <h2 class="rhs-section__subtitle"><?php echo $title; ?></h2>
+<?php elseif ($display_title): ?>
   <h2 class="rhs-section__subtitle"><?php echo elgg_echo('rijkshuisstijl:forum') ?></h2>
   <a href="/questions/all" title="<?php echo elgg_echo("rijkshuisstijl:more"); ?>" class="rhs-section__read-more">  <?php echo elgg_echo("rijkshuisstijl:all"); ?>
   </a>

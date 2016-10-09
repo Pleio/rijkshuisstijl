@@ -17,6 +17,12 @@
 
   $editable = $targetUser->canEdit();
   $profileCategory = "profile"; // only display this category on user profile
+
+  foreach ($fields as $field) {
+    if ($field["name"] == "Plaats") {
+      $locationValue = $field["value"];
+    }
+  }
 ?>
 
 <script type="text/javascript">
@@ -81,13 +87,13 @@
       <div class="rhs-profile-block">
         <div class="rhs-row">
           <div class="rhs-col-lg-2 rhs-col-sm-3">
-            <?php 
+            <?php
               if ($editable)
                 echo '<a data-modal-id="#modal-item" class="rhs-profile-image rhs-profile-image--url js-toggleModal">';
               else
                 echo '<div class="rhs-profile-image">'
-            ?>          
-            
+            ?>
+
             <img src="<?php echo $targetUser->getIconURL('large') ?>" alt="<?php echo $targetUser->name ?>" title="<?php echo $targetUser->name ?>" class="rhs-profile-image__img">
 
             <?php
@@ -114,7 +120,7 @@
             <div class="rhs-profile-progress">
               <?php if ($targetUser->canEdit()): ?>
                 <p class="rhs-profile-progress__bar rhs-profile-progress__bar--level-<?php echo $vars['completeness']; ?>">
-                  <span class="rhs-profile-progress__bar-text"><?php echo elgg_echo("rijkshuisstjil:completeness:" . $vars['completeness']); ?></span>
+                  <span class="rhs-profile-progress__bar-text"><?php echo elgg_echo("rijkshuisstijl:completeness:" . $vars['completeness']); ?></span>
                 </p>
               <?php endif; ?>
                 <dl class="rhs-profile-progress__statistics">
@@ -128,6 +134,22 @@
                   <dd><?php echo $vars['number_downvotes']; ?></dd>
               </dl>
             </div>
+
+            <?php if (elgg_is_admin_logged_in()): ?>
+              <div class="rhs-admin__options elgg-avatar">
+                <?php echo elgg_echo("rijkshuisstijl:manage_user"); ?>
+
+                <?php
+                $params = array(
+                  'entity' => $targetUser,
+                  'username' => $targetUser->username,
+                  'name' => $targetUser->name,
+                );
+                echo elgg_view_icon('hover-menu');
+                echo elgg_view_menu('user_hover', $params);
+                ?>
+              </div>
+            <?php endif; ?>
           </div>
         </div>
       </div>
@@ -141,13 +163,9 @@
             <div class="js-editableFields"><?php if ($editable) : ?><a class="js-editableFieldsToggle">Bewerk velden</a><?php endif; ?>
               <dl class="rhs-profile-information">
                 <dt><?php echo elgg_echo('rijkshuisstijl:profile:worklocation') ?></dt>
-                <?php foreach ($fields as $field) : ?>
-                  <?php 
-                    if ($field["name"] == 'Plaats') :
-                  ?>
-                    <dd data-name="<?php echo $field["name"] ?>" data-value="<?php echo $field["value"] ?>" <?php echo $editable ? 'class="js-editableField"' : ''?>><?php echo $field["value"] ?></dd>
-                  <?php endif ?>
-              <?php endforeach ?>
+                <dd data-name="Plaats" data-value="<?php echo $locationValue; ?>" <?php echo $editable ? 'class="js-editableField"' : ''?>>
+                  <?php echo $locationValue; ?>
+                </dd>
               </dl>
             </div>
             <div class="rhs-profile-about"><strong><?php echo elgg_echo('rijkshuisstijl:profile:aboutme') ?></strong>

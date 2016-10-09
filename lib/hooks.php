@@ -20,5 +20,7 @@ function rijkshuisstijl_custom_index($hook, $type, $value, $params) {
 }
 
 function rijkshuisstijl_allowed_styles($hook, $type, $value, $params) {
-    return array_diff($value, ["cursor", "text-align", "vertical-align", "font-size", "border", "border-top", "background-color", "border-bottom", "border-left", "border-right", "margin", "margin-top", "margin-bottom", "margin-left", "margin-right", "padding", "float", "width"]);
+    $allowed_styles = ["cursor", "text-align", "vertical-align", "font-size", "border", "border-top", "background-color", "border-bottom", "border-left", "border-right", "margin", "margin-top", "margin-bottom", "margin-left", "margin-right", "padding", "float", "width"];
+
+    return array_intersect($value, $allowed_styles);
 }

@@ -30,11 +30,4 @@ if (questions_workflow_enabled() && questions_is_expert()) {
     <span><?php echo $entity->countAnswers(); ?></span> <?php echo ($count==1) ? elgg_echo("rijkshuisstijl:count:answer") : elgg_echo("rijkshuisstijl:count:answers"); ?>
 </div>
 
-<?php echo elgg_list_entities(array(
-    'type' => 'object',
-    'subtype' => 'answer',
-    'container_guid' => $entity->guid,
-    'order_by' => 'time_created DESC',
-    'limit' => false,
-    'pagination' => false
-)); ?>
+<div data-comments data-guid="<?php echo $entity->guid; ?>"></div>

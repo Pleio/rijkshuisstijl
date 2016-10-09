@@ -6,10 +6,10 @@ elgg.tinymce.init = function() {
         tinyMCE.triggerSave();
     });
 
-    var toolbar = "bold,italic,forecolor,numlist,bullist,link,image";
+    var toolbar = "bold,italic,forecolor,numlist,bullist,link,image,embed";
 
     if (elgg.is_admin_logged_in()) {
-        toolbar = "bold,italic,forecolor,numlist,bullist,link,image,code";
+        toolbar = "bold,italic,forecolor,numlist,bullist,link,image,embed,code";
     }
 
     tinymce.PluginManager.add('placeholder', function(editor) {
@@ -81,11 +81,22 @@ elgg.tinymce.init = function() {
         remove_script_host: false,
         document_base_url: elgg.config.wwwroot,
         menu: {},
+        setup: function(editor) {
+            editor.addButton("embed", {
+                icon: "embed",
+                onclick: function(e) {
+                    elgg.embed.textAreaId = editor.id;
+                    $.fancybox({
+                        href:"/embed"
+                    })
+                }
+            })
+        },
         toolbar1: toolbar,
         browser_spellcheck: true,
         media_strict: false,
         content_css: "/css/rijkshuisstijl.css",
-        image_advtab: false,
+        image_advtab: elgg.is_admin_logged_in(),
         language: "<?php echo get_language(); ?>"
     });
 }

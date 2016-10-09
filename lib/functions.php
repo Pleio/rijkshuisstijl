@@ -49,6 +49,50 @@ function rijkshuisstijl_get_popular_objects($subtype = 'question', ElggGroup $gr
     return $return;
 }
 
+function rijkshuisstijl_get_popular_users() {
+    $options = array(
+        'annotation_name' => 'vote',
+        'where' => 'n_table.time_created > ' . (time() - 3600*24*24),
+        'order_by' => 'n_table.time_created desc',
+        'limit' => 500
+    );
+
+    $annotations = elgg_get_annotations($options);
+
+    $top_users = array();
+    foreach ($annotations as $annotation) {
+        $user = $annotation->getEntity()->getOwnerGuid();
+        if (!array_key_exists($user, $top_users)) {
+            $top_users[$user] = array();
+        }
+
+        $top_users[$user][] = $annotation->value/100;
+    }
+
+    $max_scores = 0;
+    foreach ($top_users as $guid => $scores) {
+        if (count($scores) > $max_scores) {
+            $max_scores = count($scores);
+        }
+    }
+
+    // calculate the average score
+    $top_users = array_map(function($scores) use ($max_scores, $eps) {
+        return ($eps * (array_sum($scores) / count($scores))) * ((1-$eps) * (count($scores) / $max_scores));
+    }, $top_users);
+
+    arsort($top_users);
+
+    $top_users = array_slice($top_users, 0, 10, true);
+
+    $users = array();
+    foreach ($top_users as $guid => $score) {
+        $users[] = get_entity($guid);
+    }
+
+    return $users;
+}
+
 function rijkshuisstijl_get_interests($user) {
     $interests = $user->interests;
     if ($interests) {

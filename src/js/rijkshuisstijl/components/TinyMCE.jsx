@@ -104,6 +104,16 @@ const TinyMCE = React.createClass({
 
     config.selector = '#' + this.id;
     config.setup = (editor) => {
+      editor.addButton("embed", {
+          icon: "embed",
+          onclick: function(e) {
+              elgg.embed.textAreaId = editor.id;
+              $.fancybox({
+                  href:"/embed"
+              })
+          }
+      })
+
       EVENTS.forEach((event, index) => {
         const handler = this.props[HANDLER_NAMES[index]];
         if (typeof handler !== 'function') return;
@@ -124,6 +134,7 @@ const TinyMCE = React.createClass({
       }
     };
 
+    console.log(config);
     tinymce.init(config);
 
     findDOMNode(this).style.hidden = '';

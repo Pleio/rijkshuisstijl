@@ -8,7 +8,7 @@ const TINYMCE_CONFIG = {
     menu: {},
     menubar: false,
     plugins: "lists,spellchecker,fullscreen,paste,image,link,placeholder,code,textcolor",
-    toolbar: "bold,italic,forecolor,numlist,bullist,link,image",
+    toolbar: "bold,italic,forecolor,numlist,bullist,link,image,embed",
     relative_urls: false,
     height: "300px",
     media_strict: false,

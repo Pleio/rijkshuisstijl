@@ -29,9 +29,6 @@ $vars = array_merge($defaults, $vars);
 $value = $vars['value'];
 unset($vars['value']);
 
-// clear div to make sure menu does not end up behind TinyMCE editor
-echo "<div style=\"clear: both;\"></div>";
-
 ?>
 
 <textarea <?php echo elgg_format_attributes($vars); ?>>

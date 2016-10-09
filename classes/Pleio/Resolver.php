@@ -42,6 +42,7 @@ class Resolver {
             "guid" => $guid,
             "status" => "ok",
             "type" => $entity->type,
+            "subtype" => $entity->getSubtype(),
             "title" => $entity->title,
             "description" => elgg_autop(filter_tags($entity->description)),
             "timeCreated" => date("c", $entity->time_created),
@@ -53,10 +54,20 @@ class Resolver {
     }
 
     static function getComments($object) {
+        switch ($object["subtype"]) {
+            case "question":
+                $subtype = "answer";
+                break;
+            default:
+                $subtype = "comment";
+                break;
+        }
+
         $options = array(
             "type" => "object",
-            "subtype" => "comment",
-            "container_guid" => (int) $object['guid']
+            "subtype" => $subtype,
+            "container_guid" => (int) $object['guid'],
+            "limit" => 100
         );
 
         $entities = elgg_get_entities($options);

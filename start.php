@@ -63,6 +63,7 @@ function rijkshuisstijl_init() {
     } else {
     	elgg_load_css('rijkshuisstijl');
     	elgg_load_js('rijkshuisstijl');
+    	elgg_load_js('elgg.embed');
     }
 
     // revert hacks of older Elgg modules
@@ -81,8 +82,14 @@ function rijkshuisstijl_init() {
 	elgg_unregister_action('user/passwordreset');
 	elgg_register_action("user/passwordreset", dirname(__FILE__) . "/actions/user/passwordreset.php", "public");
 
-	elgg_unregister_action('logout');
+	elgg_unregister_action("logout");
 	elgg_register_action("logout", dirname(__FILE__) . "/actions/logout.php");
+
+	elgg_unregister_action("comment/save");
+	elgg_register_action("comment/save", dirname(__FILE__) . "/actions/comment/save.php");
+
+	elgg_unregister_action("comment/delete");
+	elgg_register_action("comment/delete", dirname(__FILE__) . "/actions/comment/delete.php");
 
 	elgg_register_action("rijkshuisstijl/profile/setprofileparameter", dirname(__FILE__) . "/actions/profile/setprofileparameter.php");
 	elgg_register_action("rijkshuisstijl/profile/changepassword", dirname(__FILE__) . "/actions/profile/changepassword.php");

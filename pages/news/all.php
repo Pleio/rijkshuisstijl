@@ -40,15 +40,17 @@ if ($category) {
     $tags = get_metastring_id("tags");
     $juris = get_metastring_id("juris");
 
-    $options['joins'] = "LEFT JOIN elgg_metadata md ON e.guid = md.entity_guid AND md.name_id = {$tags} AND md.value_id = {$juris}";
+    if ($tags && $juris) {
+        $options['joins'] = "LEFT JOIN elgg_metadata md ON e.guid = md.entity_guid AND md.name_id = {$tags} AND md.value_id = {$juris}";
 
-    switch ($category) {
-        case "news":
-            $options['wheres'] = "md.value_id IS NULL";
-            break;
-        case "jurisprudence":
-            $options['wheres'] = "md.value_id IS NOT NULL";
-            break;
+        switch ($category) {
+            case "news":
+                $options['wheres'] = "md.value_id IS NULL";
+                break;
+            case "jurisprudence":
+                $options['wheres'] = "md.value_id IS NOT NULL";
+                break;
+        }
     }
 }
 

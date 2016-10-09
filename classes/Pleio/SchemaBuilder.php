@@ -155,6 +155,9 @@ class SchemaBuilder {
                 "title" => [
                     "type" => Type::string()
                 ],
+                "subtype" => [
+                    "type" => Type::string()
+                ],
                 "description" => [
                     "type" => Type::string()
                 ],

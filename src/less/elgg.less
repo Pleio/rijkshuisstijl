@@ -18,6 +18,11 @@
     max-width: 102.4rem;
 }
 
+.embed-wrapper {
+    min-height: 400px;
+    margin: 0;
+}
+
 fieldset {
     border: 0;
     margin: 0;
@@ -77,4 +82,27 @@ div.elgg-module.collapsed .elgg-body  {
 
 .rhs-card-user-content__amount {
     margin-bottom:2rem;
+}
+
+.mce-container iframe {
+    width: auto !important;
+}
+
+.mce-i-embed {
+  font-size: 1.4rem !important;
+  &:before {
+    font-family: @font--icons;
+    content: "\e912" !important;
+  }
+}
+
+.rhs-article__title {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.rhs-admin__options {
+    margin-top: 1em;
+    color: red;
 }
