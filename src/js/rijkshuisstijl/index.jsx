@@ -8,6 +8,10 @@ import ApolloClient, { createNetworkInterface }  from 'apollo-client';
 import { ApolloProvider } from 'react-apollo';
 import { readCookie } from './lib/cookies';
 import moment from "moment";
+import fetch from 'isomorphic-fetch'
+import { polyfill } from 'es6-promise'
+
+polyfill()
 
 moment.locale(elgg.config.language);
 

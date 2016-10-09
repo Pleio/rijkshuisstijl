@@ -20,10 +20,10 @@ Daarna kun je de dependencies installeren door het volgende commando in de map v
 
 Bouw vervolgens de CSS en de JS met het commando
 
-    webpack
+    npm run build
 
 Dit commando haalt de bron uit [src/](src/) en bouwt een nieuwe versie in de map [assets/](assets/). Gebruik het commando
 
-    webpack --watch
+    npm run watch
 
 om een nieuwe versie te bouwen wanneer er wijzigingen zijn.

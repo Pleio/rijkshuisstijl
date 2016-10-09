@@ -2,6 +2,10 @@
 import ReactDOM from 'react-dom'
 import React from 'react'
 import Footer from './admin/Footer'
+import fetch from 'isomorphic-fetch'
+import { polyfill } from 'es6-promise'
+
+polyfill()
 
 elgg.provide('elgg.rijkshuisstijlAdmin');
 elgg.rijkshuisstijlAdmin.init = function() {
