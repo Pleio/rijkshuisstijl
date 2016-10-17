@@ -58,7 +58,11 @@ if (!$value && !$placeholder) {
 <?php
 
 if ($placeholder) {
-    echo "<option disabled>$placeholder</option>";
+    if (!$value) {
+        echo "<option disabled selected>$placeholder</option>";
+    } else {
+        echo "<option disabled>$placeholder</option>";
+    }
 }
 
 if ($options_values) {

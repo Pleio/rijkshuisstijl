@@ -54,6 +54,7 @@ if ($entity) {
     )); ?>
 
     <?php echo elgg_view("input/submit", array(
-    "value" => elgg_echo("rijkshuisstijl:save")
+        "value" => elgg_echo("rijkshuisstijl:save"),
+        "class" => "rhs-button rhs-button--primary"
     )); ?>
 </div>

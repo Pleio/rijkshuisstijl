@@ -152,7 +152,6 @@ $(document).ready(function () {
             $fields.children('dl').children('.js-editableField').attr('data-interaction',1);
             setTimeout( function(){
                 $fields.children('dl').children('.js-editableField').children('input').each(function(){
-                    console.log($(this))
                     blurField($(this));
                 });
             }, 100)

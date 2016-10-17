@@ -6,10 +6,10 @@ elgg.tinymce.init = function() {
         tinyMCE.triggerSave();
     });
 
-    var toolbar = "bold,italic,forecolor,numlist,bullist,link,image,embed";
+    var toolbar = "bold,italic,numlist,bullist,link,image,embed";
 
     if (elgg.is_admin_logged_in()) {
-        toolbar = "bold,italic,forecolor,numlist,bullist,link,image,embed,code";
+        toolbar = "bold,italic,underline,forecolor,alignleft,aligncenter,alignright,numlist,bullist,link,image,embed,undo,redo,code";
     }
 
     tinymce.PluginManager.add('placeholder', function(editor) {

@@ -6,12 +6,6 @@ $category_options = array(
     'mine' => 'Mijn vragen'
 );
 
-if ($category_options[$category]) {
-  $title = $category_options[$category];
-} else {
-  $title = $category_options['all'];
-}
-
 ?>
 
 <div class="rhs-sections">
@@ -19,7 +13,7 @@ if ($category_options[$category]) {
     <div class="rhs-bulletin-action">
       <div class="rhs-container">
         <h1 class="rhs-forum__title">
-          <?php echo $title; ?>
+          <?php echo $vars['title']; ?>
         </h1>
         <div class="rhs-row">
           <div class="rhs-col-md-4 rhs-col-lg-3 rhs-col-lg-offset-3 rhs-pull-right">

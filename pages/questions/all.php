@@ -22,17 +22,14 @@ if ($topic == "mine") {
         $options['container_guids'] = $interests;
     }
 } else {
-    $topic = (int) $topic;
-    if ($topic) {
-        $options['container_guid'] = $topic;
-    }
+    $topic = get_entity((int) $topic);
 }
 
 $content = elgg_list_entities($options, 'elgg_get_entities_from_private_settings');
 
-if ($group) {
-  $options['container_guid'] = $group->guid;
-  $title = $group->name;
+if ($topic) {
+  $options['container_guid'] = $topic->guid;
+  $title = $topic->name;
 } else {
   $title = elgg_echo("rijkshuisstijl:forum");
 }
@@ -53,6 +50,7 @@ switch ($category) {
 }
 
 $body = elgg_view('questions/pages/all', array(
+  'title' => $title,
   'entities' => elgg_list_entities($options, $getter)
 ));
 

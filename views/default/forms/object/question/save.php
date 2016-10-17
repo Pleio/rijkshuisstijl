@@ -63,16 +63,21 @@ elgg_clear_sticky_form("question");
 </div>
 
 <div class="rhs-form__element">
-	<?php echo elgg_view("input/longtext", array(
-		"name" => "description",
-		"id" => "question_description",
-		"data-only-validate-on-submit" => "",
-		"data-validation" => ".{10,}",
-		"data-validationmessage" => elgg_echo("rijkshuisstijl:description:too_short"),
-		"class" => "rhs-form__input js-validateInput",
-		"placeholder" => elgg_echo("questions:edit:question:description"),
-		"value" => elgg_get_sticky_value("question", "description", $question->description)
-	)); ?>
+	<label class="rhs-form__label">
+		<span class="rhs-form__label-text rhs-form__label-text--hidden">
+			<?php echo elgg_echo("questions:edit:question:description"); ?>
+		</span>
+		<?php echo elgg_view("input/longtext", array(
+			"name" => "description",
+			"id" => "question_description",
+			"data-only-validate-on-submit" => "",
+			"data-validation" => ".{10,}",
+			"data-validationmessage" => elgg_echo("rijkshuisstijl:description:too_short"),
+			"class" => "rhs-form__input js-validateInput",
+			"placeholder" => elgg_echo("questions:edit:question:description"),
+			"value" => elgg_get_sticky_value("question", "description", $question->description)
+		)); ?>
+	</label>
 </div>
 
 <div class="rhs-form__element">
@@ -139,14 +144,24 @@ if (!$editing || (questions_experts_enabled() && questions_is_expert())) {
 		}
 	}
 	?>
+
 	<div class="rhs-form__element">
-		<?php echo elgg_view("input/dropdown", array(
-			"name" => "container_guid",
-			"placeholder" => "Kies een thema",
-			"value" => $question->container_guid,
-			"options_values" => $container_options,
-			"required" => ""
-		)); ?>
+		<label class="rhs-form__label">
+			<span class="rhs-form__label-text rhs-form__label-text--hidden">
+				<?php echo elgg_echo("questions:edit:question:description"); ?>
+			</span>
+			<?php echo elgg_view("input/dropdown", array(
+				"name" => "container_guid",
+				"data-selector" => "reversed",
+				"placeholder" => "Kies een thema",
+				"options_values" => $container_options,
+				"value" => ($editing) ? $question->container_guid : false,
+				"class" => "js-validateSelecter",
+				"data-validationmessage" => "Vul een thema in",
+				"required" => ""
+			)); ?>
+
+		</label>
 	</div>
 	<?php
 } else {
@@ -180,6 +195,7 @@ if ($editing && questions_can_move_to_discussions($container)) {
 }
 
 echo elgg_view("input/submit", array(
-	"value" => elgg_echo("rijkshuisstijl:save")
+	"value" => elgg_echo("rijkshuisstijl:save"),
+	"class" => "js-submitForm"
 ));
 echo "</div>";

@@ -131,12 +131,11 @@ var $ = require("jquery");
     var validateSelecter = function($selecter, showMessage) {
         var $label = $selecter.parent().parent('label');
 
-        var firstValue = $selecter.children('option:first').val();
         var value = $selecter.val();
         var validationMessage = $selecter.attr('data-validationMessage');
 
-        var valid=true;
-            if( firstValue === value ) {
+        var valid = true;
+            if(!value) {
                 valid = false;
             }
 
@@ -185,7 +184,6 @@ var $ = require("jquery");
     };
 
     var validateForm = function($form, showMessages){
-
         var valid = true;
 
         $form.find('.js-validateInput').each(function(){
