@@ -45,7 +45,7 @@ var $ = require("jquery");
                 break;
 
             case 'youtube':
-                return '<iframe src="http://www.youtube.com/embed/' + videoId + '?autoplay=1&modestbranding=1&rel=0&showinfo=0" frameborder="0" />';
+                return '<iframe src="https://www.youtube.com/embed/' + videoId + '?autoplay=1&modestbranding=1&rel=0&showinfo=0" frameborder="0" />';
 
                 break;
 

@@ -24,3 +24,41 @@ function rijkshuisstijl_allowed_styles($hook, $type, $value, $params) {
 
     return array_intersect($value, $allowed_styles);
 }
+
+function rijkshuisstijl_site_menu_prepare($hook, $type, $value, $params) {
+    $selected = false;
+    foreach ($value as $section) {
+        foreach ($section as $item) {
+            if ($item->getSelected()) {
+                $selected = true;
+                break 2;
+            }
+        }
+    }
+
+    if (!$selected) {
+        $current_url = current_page_url();
+        $site_url = elgg_get_site_url();
+
+        foreach ($value as $section_name => $section) {
+            foreach ($section as $key => $item) {
+                // do not highlight external links
+                if (strpos($item->getHref(), $site_url) !== 0) {
+                    continue;
+                }
+
+                // do not highlight links to main site URL
+                if ($item->getHref() == $site_url) {
+                    continue;
+                }
+
+                if (strpos($current_url, $item->getHref()) === 0) {
+                    $value[$section_name][$key]->setSelected(true);
+                    break 2;
+                }
+            }
+        }
+    }
+
+    return $return;
+}

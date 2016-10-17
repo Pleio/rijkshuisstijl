@@ -25,7 +25,7 @@ $navresults = elgg_view("page/elements/navresults", $vars);
     <!--[if gt IE 9]><!-->
         <html lang="<?php echo get_current_language(); ?>" dir="ltr" class="ie no-js">
     <!--<![endif]-->
-<html>
+<html lang="<?php echo get_current_language(); ?>">
     <head>
       <?php echo elgg_view("page/elements/head", $vars); ?>
     </head>

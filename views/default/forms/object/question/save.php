@@ -156,7 +156,7 @@ if (!$editing || (questions_experts_enabled() && questions_is_expert())) {
 // end of the form
 echo "<div class='rhs-form__actions'>";
 
-if ($question && $question->canEdit()) {
+if ($editing && $question->canEdit()) {
 	echo elgg_view("output/confirmlink", array(
 		"class" => "rhs-button__underline",
 		"href" => "/action/questions/delete?guid={$question->guid}",

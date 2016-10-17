@@ -5,6 +5,11 @@
 @import "elgg/comment";
 @import "elgg/comment-edit";
 
+
+.rhs-page-layout__footer:before {
+    z-index: 0;
+}
+
 #login-dropdown {
     top: 0;
 }
@@ -102,8 +107,12 @@ div.elgg-module.collapsed .elgg-body  {
 
 .rhs-article__title {
     display: block;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    -webkit-hyphens: auto;
+    -ms-hyphens: auto;
+    -moz-hyphens: auto;
+    hyphens: auto;
 }
 
 .rhs-admin__options {

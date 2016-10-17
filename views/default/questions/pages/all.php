@@ -23,7 +23,7 @@ if ($category_options[$category]) {
         </h1>
         <div class="rhs-row">
           <div class="rhs-col-md-4 rhs-col-lg-3 rhs-col-lg-offset-3 rhs-pull-right">
-            <button class="rhs-button rhs-button--primary rhs-button--inline rhs-forum-action__button js-toggleModal" data-modal-id="#modal-item">
+            <button class="js-toggleModal rhs-button rhs-button--primary rhs-button--inline rhs-bulletin-action__add-button" data-modal-id="#modal-item">
               + <?php echo elgg_echo("rijkshuisstijl:question:add"); ?>
             </button>
           </div>

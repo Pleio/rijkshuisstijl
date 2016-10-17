@@ -18,6 +18,7 @@ require("./default/mobile-menu.js");
 require("./default/mobile-nav-sub-menu.js");
 require("./default/modal.js");
 require("./default/nav-search.js");
+require("./default/profile.js");
 require("./default/profile-upload.js");
 require("./default/question-modal.js");
 require("./default/radio.js");
@@ -132,20 +133,6 @@ jQuery(document).ready(function () {
         });
 
         gEmail = email;
-    });
-
-    $('#taalinstellingen').change(function () {
-      
-      elgg.action('rijkshuisstijl/profile/setprofilefield', {
-        data: {
-          username: gUsername,
-          name: 'language',
-          value: '"' + $(this).val() + '"'
-        },
-        success: function (wrapper) {
-          location.reload();
-        }
-      });
     });
 
     jQuery('select[name="groupNotifications"]').change(function (e) {

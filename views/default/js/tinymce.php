@@ -75,7 +75,6 @@ elgg.tinymce.init = function() {
         editor_selector: "elgg-input-longtext",
         menubar: false,
         plugins: "autoresize,lists,spellchecker,fullscreen,paste,image,link,placeholder,code,textcolor",
-        autoresize_max_height: 250,
         relative_urls: false,
         body_id: "content-editable",
         remove_script_host: false,
@@ -95,7 +94,7 @@ elgg.tinymce.init = function() {
         toolbar1: toolbar,
         browser_spellcheck: true,
         media_strict: false,
-        content_css: "/css/rijkshuisstijl.css",
+        content_css: "/css/rijkshuisstijl.css?v=<?php echo $CONFIG->lastcache; ?>",
         image_advtab: elgg.is_admin_logged_in(),
         language: "<?php echo get_language(); ?>"
     });

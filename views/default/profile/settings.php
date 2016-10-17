@@ -92,25 +92,23 @@ if (!$editable)
               <h2 class="rhs-profile-block__title"><?php echo elgg_echo('rijkshuisstijl:profile:settings:languagesettings') ?></h2>
               <p class="rhs-form__element rhs-form__element--small-padding">
                 <label class="rhs-form__label">
-                  <select name="taal" id="taalinstellingen" data-label="custom" class="selecter-default">
-                    <?php
-                      $validLanguages = array("nl" => "Nederlands", "en" => "English"/*, "fr" => "Francais"*/);
-                      foreach ($validLanguages as $validLanguage => $languageDescription)
-                        echo '<option value="' . $validLanguage . '" ' . ($validLanguage == $targetUser->language ? 'selected' : '') . '>' . $languageDescription . '</option>';
-                    ?>
-                  </select>
+                  <?php echo elgg_view("input/pulldown", array(
+                    "name" => "taal",
+                    "id" => "taalinstellingen",
+                    "data-lang-select" => "",
+                    "options_values" => array(
+                      "en" => "English",
+                      "nl" => "Nederlands"
+                    ),
+                    "value" => $targetUser->language
+                  ));
+                  ?>
                 </label>
               </p>
             </form>
           </div>
         </div>
       </div>
-    </div>
-
-    <div class="rhs-section rhs-section--item rhs-section--background-transparent">
-      <p class="rhs-form__actions">
-        <button data-modal-id="#modal-remove-account" class="rhs-button rhs-button--color-septenary js-toggleModal"> <?php echo elgg_echo('rijkshuisstijl:profile:settings:deleteaccount') ?></button>
-      </p>
     </div>
   </div>
 </div>

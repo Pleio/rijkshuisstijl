@@ -8,7 +8,7 @@ $pins = rijkshuisstijl_get_latest_objects("cafe");
     <div class="rhs-card-links">
       <div class="rhs-card-links__list">
         <h4 class="rhs-card-links__title">
-          <?php echo elgg_echo("rijkshuisttijl:direct_links"); ?>
+          <?php echo elgg_echo("rijkshuisttijl:topics"); ?>
         </h4>
         <?php foreach($topics as $topic): ?>
           <a href="/topics/<?php echo $topic->guid; ?>/<?php echo elgg_get_friendly_title($topic->name); ?>/" title="Inkomstenbelasting" class="rhs-card-links__item">

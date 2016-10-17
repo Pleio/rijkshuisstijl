@@ -42,8 +42,10 @@ var $ = require("jquery");
         if( $modal ) {
             if( $modal.hasClass('rhs-modal--open') ) {
                 closeModal($modal);
+                $body.removeClass("body--overflow");
             } else {
                 openModal($modal);
+                $body.addClass("body--overflow");
             }
         }
     });

@@ -2,7 +2,15 @@
 $leader = rijkshuisstijl_get_news_leader();
 
 $topic = get_input("topic");
+if ($topic == "all") {
+    $topic = false;
+}
+
 $category = get_input("category");
+if ($category == "all") {
+    $category = false;
+}
+
 ?>
 
 <?php if ($leader && !$topic && !$category): ?>
