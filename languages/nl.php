@@ -42,6 +42,7 @@ $dutch = array(
     'rijkshuisstijl:settings:topics' => 'Onderwerpen',
     'rijkshuisstijl:topics:not_exists' => 'Thema bestaat niet',
     'rijkshuisstijl:search:view_all_results' => 'Bekijk alle resultaten',
+    'rijkshuisstijl:search:result' => 'resultaat',
     'rijkshuisstijl:search:results' => 'resultaten',
     'rijkshuisstijl:home' => 'Home',
     'rijkshuisstijl:forum' => 'Forum',

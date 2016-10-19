@@ -1,3 +1,30 @@
+<?php
+$types = [];
+$subtypes = [];
+foreach ($vars['types'] as $search_type) {
+    if (!in_array($search_type[0], $types)) {
+        $types[] = $search_type[0];
+    }
+
+    if ($search_type[1]) {
+        if (!in_array($search_type[1], $subtypes)) {
+            $subtypes[] = $search_type[1];
+        }
+    }
+}
+
+$total = 0;
+foreach ($types as $type) {
+  if ($type == "object") {
+    foreach($subtypes as $subtype) {
+      $total += ($vars['total_results']['count_per_subtype'][$subtype] ? $vars['total_results']['count_per_subtype'][$subtype] : 0);
+    }
+  } else {
+      $total += ($vars['total_results']['count_per_type'][$type] ? $vars['total_results']['count_per_type'][$type] : 0);
+  }
+}
+?>
+
 <div class="rhs-content-header rhs-content-header__search-results">
     <div class="rhs-container">
       <div class="rhs-row">
@@ -21,17 +48,11 @@
         </div>
         <div class="rhs-col-md-3">
           <span class="rhs-search-results__amount">
-            <?php echo $vars['total_results']['count']; ?> <?php echo elgg_echo('rijkshuisstijl:search:results'); ?>
+            <?php echo $total; ?> <?php echo ($total == 1 ? elgg_echo('rijkshuisstijl:search:result') : elgg_echo('rijkshuisstijl:search:results')); ?>
           </span>
         </div>
       </div>
       <div class="rhs-content-header__menu">
-
-        <a href="/search?q=<?php echo $vars['sanitized_query']; ?>" class="rhs-content-header__link <?php echo (!$vars['entity_type'] && !$vars['entity_subtype']) ? "active" : ""; ?>">
-          <?php echo elgg_echo("rijkshuisstijl:all"); ?>
-          (<?php echo $vars['total_results']['count']; ?>)
-        </a>
-
         <?php foreach ($vars['types'] as $type): ?>
           <?php list($type, $subtype) = $type; ?>
           <a href="/search?q=<?php echo $vars['sanitized_query']; ?>&entity_type=<?php echo $type; ?><?php echo ($subtype) ? "&entity_subtype=" . $subtype : ""; ?>" class="rhs-content-header__link <?php echo ($vars['entity_type'] == $type && $vars['entity_subtype'] == $subtype) ? "active" : ""; ?>">

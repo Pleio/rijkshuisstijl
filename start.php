@@ -17,11 +17,9 @@ elgg_register_event_handler('init', 'system', 'rijkshuisstijl_init');
 // Limit search results to these types
 $CONFIG->search_types = array(
 	array('object','question'),
-	array('object','answer'),
 	array('object','news'),
 	array('object','videos'),
 	array('object','cafe'),
-	array('object','comment'),
 	array('user')
 );
 
@@ -43,7 +41,10 @@ function rijkshuisstijl_init() {
 
 		elgg_register_page_handler("rijkshuisstijl", "rijkshuisstijl_page_handler");
 		elgg_register_page_handler("rijkshuisstijl-admin", "rijkshuisstijl_admin_page_handler");
+
 		elgg_register_action("rijkshuisstijl/admin/banner", dirname(__FILE__) . "/actions/admin/banner.php", "admin");
+
+		elgg_register_action("rijkshuisstijl/validate_becon", dirname(__FILE__) . "/actions/validate_becon.php", "public");
     }
 
 	elgg_register_plugin_hook_handler("route", "profile", "rijkshuisstijl_route_profile_hook", 100);
@@ -77,6 +78,8 @@ function rijkshuisstijl_init() {
 	elgg_register_page_handler("resetpassword", "rijkshuisstijl_pages_resetpassword_handler");
 	elgg_register_page_handler("search", "rijkshuisstijl_search_page_handler");
 	elgg_register_page_handler("graphql", "rijkshuisstijl_graphql_page_handler");
+
+	elgg_unregister_menu_item("footer", "report_this");
 
 	elgg_unregister_action('user/requestnewpassword');
 	elgg_register_action("user/requestnewpassword", dirname(__FILE__) . "/actions/user/requestnewpassword.php", "public");

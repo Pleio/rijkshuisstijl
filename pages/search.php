@@ -1,12 +1,33 @@
 <?php
+global $CONFIG;
+
+$types = [];
+$subtypes = [];
+foreach ($CONFIG->search_types as $search_type) {
+    if (!in_array($search_type[0], $types)) {
+        $types[] = $search_type[0];
+    }
+
+    if ($search_type[1]) {
+        if (!in_array($search_type[1], $subtypes)) {
+            $subtypes[] = $search_type[1];
+        }
+    }
+}
+
 $site = elgg_get_site_entity();
 elgg_set_page_owner_guid($site->guid);
 
 $query = stripslashes(get_input('q', get_input('tag', '')));
 $search_type = get_input('search_type', 'all');
 
-$entity_type = get_input('entity_type', ELGG_ENTITIES_ANY_VALUE);
-$entity_subtype = get_input('entity_subtype', ELGG_ENTITIES_ANY_VALUE);
+$entity_type = get_input('entity_type');
+$entity_subtype = get_input('entity_subtype');
+
+if (!$entity_type && !$entity_subtype) {
+    $entity_type = $types[0];
+    $entity_subtype = $subtypes[0];
+}
 
 $limit = get_input('limit', 10);
 $offset = get_input('offset', 0);
@@ -16,15 +37,6 @@ $order = 'desc';
 
 $container_guid = get_input('container_guid', ELGG_ENTITIES_ANY_VALUE);
 $profile_fields = get_input('elasticsearch_profile_fields');
-
-global $CONFIG;
-$types = array('object', 'user');
-$subtypes = array();
-foreach ($CONFIG->search_types as $type) {
-    if ($type[1]) {
-        $subtypes[] = $type[1];
-    }
-}
 
 $total_results = ESInterface::get()->search(
     $query,

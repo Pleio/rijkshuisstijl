@@ -42,6 +42,7 @@ $english = array(
     'rijkshuisstijl:topics:not_exists' => 'Topic does not exist',
     'rijkshuisstijl:settings:topics' => 'Topics',
     'rijkshuisstijl:search:view_all_results' => 'View all results',
+    'rijkshuisstijl:search:result' => 'result',
     'rijkshuisstijl:search:results' => 'results',
     'rijkshuisstijl:home' => 'Home',
     'rijkshuisstijl:forum' => 'Forum',
