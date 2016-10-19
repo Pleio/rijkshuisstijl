@@ -18,7 +18,7 @@
                 'sort_by' => 'priority'
             )); ?>
         </div>
-        <a href="#" title="..." data-nav-search-trigger class="rhs-main-navigation__link rhs-main-navigation__link--search"><span class="rhs-icon-search rhs-main-navigation__link--search__icon"></span><span class="rhs-main-navigation__link__text"><?php echo elgg_echo('search'); ?></span></a>
+        <a href="#" title="<?php echo elgg_echo('search'); ?>" data-nav-search-trigger class="rhs-main-navigation__link rhs-main-navigation__link--search"><span class="rhs-icon-search rhs-main-navigation__link--search__icon"></span><span class="rhs-main-navigation__link__text"><?php echo elgg_echo('search'); ?></span></a>
         <div class="rhs-mobile-navigation-bar">
             <div data-mobile-nav-trigger="" class="rhs-mobile-navigation-bar__trigger"><span class="rhs-icon rhs-icon-mobile-menu"></span><span class="rhs-mobile-navigation-bar__span">Menu</span></div>
         </div>

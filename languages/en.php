@@ -12,7 +12,7 @@ $english = array(
     'rijkshuisstijl:view_all' => 'View all',
     'rijkshuisstijl:manage_banner' => 'Manage banner',
     'rijkshuisstijl:pinboard' => 'Pinboard',
-    'rijkshuisstijl:blog' => 'Blog',
+    'rijkshuisstijl:blogs' => 'Blog',
     'rijkhuissstijl:back_to_forum' => 'Back to forum',
     'rijkshuisstijl:back_to_home' => 'Back to home',
     'rijkshuisstijl:back_to_login' => 'Back to login',
@@ -65,12 +65,16 @@ $english = array(
     'rijkshuisstijl:completeness:3' => 'Almost complete profile',
     'rijkshuisstijl:completeness:4' => 'Complete profile',
     'rijkshuisstijl:vote:up' => 'Vote up answer',
+    'rijkshuisstijl:previous' => 'Previous',
+    'rijkshuisstijl:next' => 'Next',
     'rijkshuisstijl:vote:down' => 'Vote down answer',
     'rijkshuisstijl:vote:already_voted' => 'You already voted on this comment',
     'rijkshuisstijl:vote:could_not_vote' => 'Could not vote on this comment',
     'rijkshuisstijl:answer:submit' => 'Answer',
     'rijkshuisstijl:go_to_profile' => 'Go to profile page',
     'rijkshuisstijl:register:name' => 'First and last name',
+    'rijkshuisstijl:register:becon' => 'BECONnummer',
+    'rijkshuisstijl:register:becon:error' => 'Fill in a correct BECONnummer',
     'rijkshuisstijl:register:name:error' => 'Fill in your first and last name',
     'rijkshuisstijl:register:email:error' => 'Fill in a valid e-mail',
     'rijkshuisstijl:register:username:error' => 'Fill in a valid username',
@@ -138,6 +142,7 @@ $english = array(
     'rijkshuisstijl:object:pinboard' => 'message',
     'rijkshuisstijl:object:answer' => 'answer',
     'rijkshuisstijl:object:comment' => 'comment',
+    'registration:dupeemail' => 'This e-mail address is already registered. Request your password <a href="/forgotpassword">here</a>.'
 );
 
 add_translation('en', $english);

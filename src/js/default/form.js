@@ -294,7 +294,9 @@ var $ = require("jquery");
 
     $body.on('submit', '.js-validateForm', function(e) {
         // make sure tinyMCE forms are saved first
-        tinyMCE.triggerSave();
+        if (typeof tinyMCE !== 'undefined') {
+            tinyMCE.triggerSave();
+        }
 
         var $form = $(e.target);
         var valid = validateForm($form, true)
@@ -305,11 +307,8 @@ var $ = require("jquery");
     });
 
     // Validate forms
-
-    console.log('hi there');
     var validateForms = function() {
         $('.js-validateForm').each( function(){
-            console.log($(this));
             validateForm($(this), false);
         })
     }

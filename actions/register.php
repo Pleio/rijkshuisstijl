@@ -9,10 +9,11 @@
 elgg_make_sticky_form('register');
 
 // Get variables
-$username = get_input('username');
+$email = get_input('email');
+$username = rijkshuisstijl_generate_username($email);
+
 $password = get_input('password', null, false);
 $password2 = get_input('password2', null, false);
-$email = get_input('email');
 $name = get_input('name');
 $friend_guid = (int) get_input('friend_guid', 0);
 $invitecode = get_input('invitecode');
@@ -65,8 +66,15 @@ if (elgg_get_config('allow_registration')) {
                 // do nothing
             }
 
+            // accept general terms
+            if (get_input("accept_terms") == "yes") {
+                $ia = elgg_get_ignore_access(true);
+                $new_user->setPrivateSetting("general_terms_accepted", time());
+                elgg_set_ignore_access($ia);
+            }
+
             // Forward on success, assume everything else is an error...
-            forward();
+            forward('/register?completed=true');
         } else {
             register_error(elgg_echo("registerbad"));
         }
@@ -77,4 +85,4 @@ if (elgg_get_config('allow_registration')) {
     register_error(elgg_echo('registerdisabled'));
 }
 
-forward('/login');
+forward(REFERER);

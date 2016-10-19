@@ -12,12 +12,14 @@ $dutch = array(
     'rijkshuisstijl:view_all' => 'Bekijk alles',
     'rijkshuisstijl:manage_banner' => 'Beheer banner',
     'rijkshuisstijl:pinboard' => 'Prikbord',
-    'rijkshuisstijl:blog' => 'Blog',
+    'rijkshuisstijl:blogs' => 'Blogs',
     'rijkshuisstijl:back_to_forum' => 'Terug naar forum',
     'rijkshuisstijl:back_to_home' => 'Terug naar home',
     'rijkshuisstijl:back_to_login' => 'Terug naar login',
     'rijkshuisstijl:jurisprudence' => 'Jurisprudentie',
     'rijkshuisstijl:featured' => 'Geselecteerd',
+    'rijkshuisstijl:previous' => 'Vorige',
+    'rijkshuisstijl:next' => 'Volgende',
     'rijkshuisstijl:more' => 'Lees meer',
     'rijkshuisstijl:print' => 'Afdrukken',
     'rijkshuisstijl:welcome_to' => 'Welkom op',
@@ -70,6 +72,8 @@ $dutch = array(
     'rijkshuisstijl:vote:already_voted' => 'Je hebt al gestemd op deze reactie',
     'rijkshuisstijl:vote:could_not_vote' => 'Kan niet stemmen op deze reactie',
     'rijkshuisstijl:go_to_profile' => 'Ga naar profielpagina',
+    'rijkshuisstijl:register:becon' => 'BECONnummer',
+    'rijkshuisstijl:register:becon:error' => 'Vul een correct BECONnummer in',
     'rijkshuisstijl:register:name' => 'Voor- en achternaam',
     'rijkshuisstijl:register:name:error' => 'Vul uw gehele voor- en achternaam in',
     'rijkshuisstijl:register:email:error' => 'Vul een geldig e-mailadres in',
@@ -137,7 +141,8 @@ $dutch = array(
     'rijkshuisstijl:object:question' => 'vraag',
     'rijkshuisstijl:object:pinboard' => 'bericht',
     'rijkshuisstijl:object:answer' => 'antwoord',
-    'rijkshuisstijl:object:comment' => 'reactie'
+    'rijkshuisstijl:object:comment' => 'reactie',
+    'registration:dupeemail' => 'Dit e-mail adres is al geregistreerd. Vraag <a href="/forgotpassword">hier</a> uw wachtwoord op.'
 );
 
 add_translation('nl', $dutch);

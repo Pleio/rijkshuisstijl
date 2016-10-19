@@ -21,7 +21,7 @@ $blogs = rijkshuisstijl_get_latest_objects("blog");
   <div class="rhs-col-md-6 rhs-col-lg-8">
     <div data-accordion-item="" class="rhs-bulletin-block">
       <h3 data-accordion-trigger="" class="rhs-bulletin-block__title">
-        <?php echo elgg_echo("rijkshuisstijl:blog"); ?>
+        <?php echo elgg_echo("rijkshuisstijl:blogs"); ?>
       </h3>
       <div class="rhs-bulletin-block__content">
           <?php foreach ($blogs as $blog): ?>

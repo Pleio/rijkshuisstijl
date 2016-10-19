@@ -49,10 +49,10 @@
         <a href="/profile/<?php echo $username; ?>/" title="Profiel" class="rhs-content-header__link <?php echo $selected == "Profiel" ? "active" : ""; ?>">
           <?php echo elgg_echo('rijkshuisstijl:profile:header:profile') ?>
         </a>
-          <a href="/profile/<?php echo $username; ?>/interests" title="..." class="rhs-content-header__link <?php echo $selected == "Interesses" ? "active" : ""; ?>">
+          <a href="/profile/<?php echo $username; ?>/interests" title="<?php echo elgg_echo('rijkshuisstijl:profile:header:interests') ?>" class="rhs-content-header__link <?php echo $selected == "Interesses" ? "active" : ""; ?>">
             <?php echo elgg_echo('rijkshuisstijl:profile:header:interests') ?>
           </a>
-          <a href="/profile/<?php echo $username; ?>/settings" title="..." class="rhs-content-header__link <?php echo $selected == "Instellingen" ? "active" : ""; ?>">
+          <a href="/profile/<?php echo $username; ?>/settings" title="<?php echo elgg_echo('rijkshuisstijl:profile:header:settings') ?>" class="rhs-content-header__link <?php echo $selected == "Instellingen" ? "active" : ""; ?>">
             <?php echo elgg_echo('rijkshuisstijl:profile:header:settings') ?>
           </a>
       <div class="rhs-content-header__dropdown">

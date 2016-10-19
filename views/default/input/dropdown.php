@@ -45,14 +45,6 @@ unset($vars['value']);
 $placeholder = $vars['placeholder'];
 unset($vars['placeholder']);
 
-if (!$value && !$placeholder) {
-    if ($options_values) {
-        $value = array_keys($options_values)[0];
-    } else {
-        $value = $values[0];
-    }
-}
-
 ?>
 <select <?php echo elgg_format_attributes($vars); ?> data-selector>
 <?php
@@ -62,6 +54,14 @@ if ($placeholder) {
         echo "<option disabled selected>$placeholder</option>";
     } else {
         echo "<option disabled>$placeholder</option>";
+    }
+} else {
+    if (!$value) {
+        if ($options_values) {
+            $value = array_keys($options_values)[0];
+        } else {
+            $value = array_keys($options)[0];
+        }
     }
 }
 
@@ -77,8 +77,8 @@ if ($options_values) {
 } else {
     if (is_array($options)) {
         foreach ($options as $option) {
-
             $option_attrs = elgg_format_attributes(array(
+                'value' => $option,
                 'selected' => (string)$option == (string)$value
             ));
 
