@@ -13,45 +13,62 @@ if ($entity) {
 
 ?>
 <div class="rhs-form__element">
-    <?php echo elgg_view('input/dropdown', array(
-        'name' => 'purpose',
-        'options_values' => array(
-            'search' => elgg_echo('pinboard:purpose:search'),
-            'share' => elgg_echo('pinboard:purpose:share'),
-            'experience' => elgg_echo('pinboard:purpose:experience')
+    <?php echo elgg_view("input/dropdown", array(
+        "name" => "purpose",
+        "options_values" => array(
+            "search" => elgg_echo("pinboard:purpose:search"),
+            "share" => elgg_echo("pinboard:purpose:share"),
+            "experience" => elgg_echo("pinboard:purpose:experience")
         ),
 
-        'value' => elgg_get_sticky_value('cafe', 'purpose', $entity->purpose)
+        "value" => elgg_get_sticky_value("cafe", "purpose", $entity->purpose)
     ));
     ?>
 </div>
 
 <div class="rhs-form__element">
-    <?php echo elgg_view('input/text', array(
-        'name' => 'title',
-        'class' => 'elgg-autofocus',
-        'maxlength' => '60',
-        'value' => elgg_get_sticky_value('cafe', 'title', $entity->title),
-        'required' => true,
-        'autofocus' => '',
-        'placeholder' => elgg_echo("pinboard:title")
-    ));
-    ?>
+    <label class="rhs-form__label">
+        <span class="rhs-form__label-text rhs-form__label-text--hidden">
+            <?php echo elgg_echo("pinboard:title"); ?>
+        </span>
+
+        <?php echo elgg_view("input/text", array(
+            "autofocus" => "",
+            "name" => "title",
+            "class" => "rhs-form__input js-validateInput",
+            "value" => elgg_get_sticky_value("cafe", "title", $entity->title),
+            "data-validation" => ".{10,}",
+            "data-validationmessage" => elgg_echo("rijkshuisstijl:title:too_short"),
+            "placeholder" => elgg_echo("pinboard:title")
+        ));
+        ?>
+    </label>
 </div>
 
 <div class="rhs-form__element">
-    <?php echo elgg_view('input/longtext', array(
-        'name' => 'description',
-        'value' => elgg_get_sticky_value('cafe', 'description', $entity->description)
-    ));
-    ?>
+    <label class="rhs-form__label">
+        <span class="rhs-form__label-text rhs-form__label-text--hidden">
+            <?php echo elgg_echo("pinboard:title"); ?>
+        </span>
+
+        <?php echo elgg_view("input/longtext", array(
+            "name" => "description",
+            "class" => "rhs-form__input js-validateInput",
+            "value" => elgg_get_sticky_value("cafe", "description", $entity->description),
+            "data-validation" => ".{10,}",
+            "data-validationmessage" => elgg_echo("rijkshuisstijl:description:too_short"),
+            "class" => "rhs-form__input js-validateInput",
+            "placeholder" => elgg_echo("rijkshuisstijl:description")
+        ));
+        ?>
+    </label>
 </div>
 
 <div class="rhs-form__element">
-    <?php echo elgg_view('input/tags', array(
-        'name' => 'tags',
-        'value' => elgg_get_sticky_value('cafe', 'tags', $entity->tags),
-        'placeholder' => elgg_echo("tags")
+    <?php echo elgg_view("input/tags", array(
+        "name" => "tags",
+        "value" => elgg_get_sticky_value("cafe", "tags", $entity->tags),
+        "placeholder" => elgg_echo("tags")
     ));
     ?>
 </div>
@@ -67,8 +84,8 @@ if ($entity) {
     } ?>
 
     <?php echo elgg_view("input/submit", array(
-            'value' => elgg_echo('pinboard:publish'),
-            'class' => 'rhs-button rhs-button--color-septenary'
+            "value" => elgg_echo("pinboard:publish"),
+            "class" => "rhs-button rhs-button--color-septenary"
         ));
     ?>
 </div>

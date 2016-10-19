@@ -12,21 +12,21 @@ function rijkshuisstijl_autoloader($class) {
     }
 }
 
-elgg_register_event_handler('init', 'system', 'rijkshuisstijl_init');
+elgg_register_event_handler("init", "system", "rijkshuisstijl_init");
 
 // Limit search results to these types
 $CONFIG->search_types = array(
-	array('object','question'),
-	array('object','news'),
-	array('object','videos'),
-	array('object','cafe'),
-	array('user')
+	array("object","question"),
+	array("object","news"),
+	array("object","videos"),
+	array("object","cafe"),
+	array("user")
 );
 
 define("RIJKSHUISSTIJL_LESS", dirname(__FILE__) . "/src/less/");
 
 function rijkshuisstijl_init() {
-    elgg_register_plugin_hook_handler('action', 'plugins/settings/save', 'rijkshuisstijl_plugins_settings_save');
+    elgg_register_plugin_hook_handler("action", "plugins/settings/save", "rijkshuisstijl_plugins_settings_save");
 
     if (elgg_get_plugin_setting("special", "rijkshuisstijl") == "ffd") {
 		elgg_register_plugin_hook_handler("index", "system", "rijkshuisstijl_custom_index", 40); // must be very early
@@ -34,6 +34,7 @@ function rijkshuisstijl_init() {
 		elgg_register_plugin_hook_handler("route", "news", "rijkshuisstijl_route_news_hook", 100);
 	    elgg_register_plugin_hook_handler("route", "pinboard", "rijkshuisstijl_route_pinboard_hook", 100);
 	    elgg_register_plugin_hook_handler("route", "questions", "rijkshuisstijl_route_questions_hook", 100);
+		elgg_register_plugin_hook_handler("route", "blog", "rijkshuisstijl_route_blog_hook", 100);
 	    elgg_register_plugin_hook_handler("route", "pages", "rijkshuisstijl_route_pages_hook", 100);
 		elgg_register_plugin_hook_handler("prepare", "menu:site", "rijkshuisstijl_site_menu_prepare");
 
@@ -43,7 +44,6 @@ function rijkshuisstijl_init() {
 		elgg_register_page_handler("rijkshuisstijl-admin", "rijkshuisstijl_admin_page_handler");
 
 		elgg_register_action("rijkshuisstijl/admin/banner", dirname(__FILE__) . "/actions/admin/banner.php", "admin");
-
 		elgg_register_action("rijkshuisstijl/validate_becon", dirname(__FILE__) . "/actions/validate_becon.php", "public");
     }
 
@@ -59,18 +59,18 @@ function rijkshuisstijl_init() {
 	elgg_register_js("rijkshuisstijl-admin", "/mod/rijkshuisstijl/assets/rijkshuisstijlAdmin.js?v=" . $CONFIG->lastcache, "footer");
 
     if (elgg_in_context("register") | elgg_in_context("login") | elgg_in_context("forgotpassword") | elgg_in_context("resetpassword")) {
-    	elgg_load_css('splash');
-    	elgg_load_js('splash');
+    	elgg_load_css("splash");
+    	elgg_load_js("splash");
     } elseif (elgg_in_context("admin")) {
     	elgg_load_js("rijkshuisstijl-admin");
     } else {
-    	elgg_load_css('rijkshuisstijl');
-    	elgg_load_js('rijkshuisstijl');
-    	elgg_load_js('elgg.embed');
+    	elgg_load_css("rijkshuisstijl");
+    	elgg_load_js("rijkshuisstijl");
+    	elgg_load_js("elgg.embed");
     }
 
     // revert hacks of older Elgg modules
-    elgg_unextend_view('page/elements/head', 'subsite_manager/topbar_fix');
+    elgg_unextend_view("page/elements/head", "subsite_manager/topbar_fix");
 
 	elgg_register_page_handler("login", "rijkshuisstijl_pages_login_handler");
 	elgg_register_page_handler("forgotpassword", "rijkshuisstijl_pages_forgotpassword_handler");
@@ -81,10 +81,10 @@ function rijkshuisstijl_init() {
 
 	elgg_unregister_menu_item("footer", "report_this");
 
-	elgg_unregister_action('user/requestnewpassword');
+	elgg_unregister_action("user/requestnewpassword");
 	elgg_register_action("user/requestnewpassword", dirname(__FILE__) . "/actions/user/requestnewpassword.php", "public");
 
-	elgg_unregister_action('user/passwordreset');
+	elgg_unregister_action("user/passwordreset");
 	elgg_register_action("user/passwordreset", dirname(__FILE__) . "/actions/user/passwordreset.php", "public");
 
 	elgg_unregister_action("logout");
@@ -180,7 +180,7 @@ function rijkshuisstijl_page_handler($page) {
 
 function rijkshuisstijl_admin_page_handler($page) {
 	if (!elgg_is_admin_logged_in()) {
-		forward('');
+		forward("");
 	}
 
 	switch ($page[0]) {
@@ -287,6 +287,21 @@ function rijkshuisstijl_route_questions_hook($hook_name, $entity_type, $return_v
 			break;
 		case "":
 			include(dirname(__FILE__) . "/pages/questions/index.php");
+			return false;
+			break;
+	}
+}
+
+function rijkshuisstijl_route_blog_hook($hook_name, $entity_type, $return_value, $params) {
+	$page = elgg_extract("segments", $return_value);
+
+	switch ($page[0]) {
+		case "view":
+			if (isset($page[1])) {
+				set_input("guid", $page[1]);
+			}
+
+			include(dirname(__FILE__) . "/pages/blog/view.php");
 			return false;
 			break;
 	}

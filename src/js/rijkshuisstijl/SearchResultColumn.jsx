@@ -23,11 +23,17 @@ export default class SearchResultColumn extends React.Component {
 
         var type = this.props.type.split(":");
 
+        let href = "/search?q=" + this.props.q + "&search_type=entities&entity_type=" + type[0]
+        if (type[1]) {
+            href += "&entity_subtype=" + type[1]
+        }
+
         return (
             <div className="rhs-nav-result-list rhs-col-sm-6">
                 { title }
                 { results }
-                <a href={ "/search?q=" + this.props.q + "&search_type=entities&entity_type=" + type[0] + "&entity_subtype=" + type[1] } title="Bekijk alle resultaten" className="rhs-main-nav-results__submit">
+
+                <a href={href} title="Bekijk alle resultaten" className="rhs-main-nav-results__submit">
                     Bekijk alle resultaten
                 </a>
             </div>

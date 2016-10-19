@@ -58,7 +58,7 @@ $number_answers = elgg_get_entities(array_merge($options, array(
 
 $options = array(
   'annotation_name' => 'vote',
-  'annovation_owner_guid' => $targetUser->guid,
+  'annotation_owner_guid' => $targetUser->guid,
   'count' => true
 );
 
@@ -67,7 +67,7 @@ $number_upvotes = elgg_get_annotations(array_merge($options, array(
 )));
 
 $number_downvotes = elgg_get_annotations(array_merge($options, array(
-  'annovation_value' => -1
+  'annotation_value' => -1
 )));
 
 $completeness = profile_manager_profile_completeness($targetUser);

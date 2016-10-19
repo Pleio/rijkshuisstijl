@@ -17,7 +17,9 @@ $entity = elgg_extract("entity", $vars);
             <?php endif; ?>
         </h2>
         <div class="rhs-modal__content">
-            <?php echo elgg_view_form("pinboard/save", array(), $vars); ?>
+            <?php echo elgg_view_form("pinboard/save", array(
+                "class" => "js-validateForm"
+            ), $vars); ?>
         </div>
     </div>
 </div>

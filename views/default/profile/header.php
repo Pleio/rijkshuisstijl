@@ -31,7 +31,7 @@
           </h1>
         <?php else : ?>
           <h1 data-name="name" data-value="<?php echo $name ?>" data-placeholder="Voor- en achternaam" data-classname="editable-field-link--show-on-mobile" class="rhs-profile__title">
-            <?php echo $name ?>          
+            <?php echo $name ?>
           </h1>
         <?php endif ?>
       </div>

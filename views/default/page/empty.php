@@ -37,5 +37,6 @@ $body = elgg_view("page/elements/body", $vars);
 
         <footer class="rhs-page-layout__footer">
         </footer>
+        <?php echo elgg_view("page/elements/foot"); ?>
     </body>
 </html>

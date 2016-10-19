@@ -14,7 +14,7 @@
     <div class="rhs-section rhs-section--background-grey rhs-section--no-subtitle">
         <div class="rhs-container">
             <?php if (elgg_is_active_plugin('pinboard')): ?>
-                <?php echo elgg_view('rijkshuisstijl/elements/themes_pinboard'); ?>
+                <?php echo elgg_view('rijkshuisstijl/elements/themes_blogs'); ?>
             <?php endif; ?>
         </div>
     </div>

@@ -306,8 +306,10 @@ var $ = require("jquery");
 
     // Validate forms
 
+    console.log('hi there');
     var validateForms = function() {
         $('.js-validateForm').each( function(){
+            console.log($(this));
             validateForm($(this), false);
         })
     }
