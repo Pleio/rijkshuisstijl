@@ -36,9 +36,9 @@ if ($topic) {
 
 switch ($category) {
   case "most_viewed":
-    $options['private_setting_name'] = 'view_counter';
-    $options['order_by'] = 'cast(ps.value as unsigned) DESC';
-    $getter = 'elgg_get_entities_from_private_settings';
+    $options["joins"] = array("JOIN elgg_entity_views ev ON e.guid = ev.guid");
+    $options["order_by"] = "ev.views DESC";
+    $getter = 'elgg_get_entities';
     break;
   case "mine":
     $options['owner_guid'] = $user->guid;
@@ -46,6 +46,7 @@ switch ($category) {
     break;
   default:
     $getter = 'elgg_get_entities';
+    $options["order_by"] = "e.last_action DESC";
     break;
 }
 

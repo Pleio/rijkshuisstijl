@@ -16,7 +16,7 @@ function rijkshuisstijl_get_latest_objects($subtype = 'question', ElggGroup $gro
     $options = array(
         'type' => 'object',
         'subtype' => $subtype,
-        'order_by' => 'e.time_updated DESC',
+        'order_by' => 'e.time_created DESC',
         'limit' => 5
     );
 
@@ -63,26 +63,13 @@ function rijkshuisstijl_get_popular_users() {
     foreach ($annotations as $annotation) {
         $user = $annotation->getEntity()->getOwnerGuid();
         if (!array_key_exists($user, $top_users)) {
-            $top_users[$user] = array();
-        }
-
-        $top_users[$user][] = $annotation->value/100;
-    }
-
-    $max_scores = 0;
-    foreach ($top_users as $guid => $scores) {
-        if (count($scores) > $max_scores) {
-            $max_scores = count($scores);
+            $top_users[$user] = $annotation->value;
+        } else {
+            $top_users[$user] += $annotation->value;
         }
     }
-
-    // calculate the average score
-    $top_users = array_map(function($scores) use ($max_scores, $eps) {
-        return ($eps * (array_sum($scores) / count($scores))) * ((1-$eps) * (count($scores) / $max_scores));
-    }, $top_users);
 
     arsort($top_users);
-
     $top_users = array_slice($top_users, 0, 6, true);
 
     $users = array();

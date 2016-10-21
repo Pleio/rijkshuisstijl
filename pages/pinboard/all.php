@@ -10,7 +10,7 @@ elgg_push_context("pinboard");
 $options = array(
     'type' => 'object',
     'subtype' => 'cafe',
-    'order_by' => 'last_action DESC',
+    'order_by' => 'e.last_action DESC',
     'full_view' => false
 );
 
