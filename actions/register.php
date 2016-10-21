@@ -68,7 +68,7 @@ if (elgg_get_config('allow_registration')) {
 
             // accept general terms
             if (get_input("accept_terms") == "yes") {
-                $ia = elgg_get_ignore_access(true);
+                $ia = elgg_set_ignore_access(true);
                 $new_user->setPrivateSetting("general_terms_accepted", time());
                 elgg_set_ignore_access($ia);
             }

@@ -290,13 +290,26 @@ var $ = require("jquery");
         }
     })
 
-    // Validate form interactions
+    // Validate forms
+    var validateForms = function() {
+        var valid = true;
+        $('.js-validateForm').each(function() {
+            if (!validateForm($(this), false)) {
+                valid = false;
+            }
+        })
 
+        return valid;
+    }
+
+    // Validate form interactions
     $body.on('submit', '.js-validateForm', function(e) {
         // make sure tinyMCE forms are saved first
         if (typeof tinyMCE !== 'undefined') {
             tinyMCE.triggerSave();
         }
+
+        debugger;
 
         var $form = $(e.target);
         var valid = validateForm($form, true)
@@ -306,12 +319,11 @@ var $ = require("jquery");
         }
     });
 
-    // Validate forms
-    var validateForms = function() {
-        $('.js-validateForm').each( function(){
-            validateForm($(this), false);
-        })
-    }
+    $body.on('submit', '.js-validateAllForms', function(e) {
+        if (!validateForms()) {
+            e.preventDefault();
+        }
+    })
 
     validateForms();
 

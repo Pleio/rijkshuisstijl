@@ -15,6 +15,7 @@ $categorized_fields = profile_manager_get_categorized_fields(null, true, true);
 
 <?php foreach ($categorized_fields['fields'] as $category): ?>
     <?php foreach ($category as $field): ?>
+        <?php if ($field->metadata_name == "beconnummer") continue; ?>
         <div class="rhs-form__element <?php echo ($field->metadata_type == "pm_datepicker") ? "rhs-form__date" : "" ?>">
             <label class="rhs-form__label">
                 <span class="rhs-form__label-text">
@@ -65,7 +66,7 @@ $categorized_fields = profile_manager_get_categorized_fields(null, true, true);
     <?php echo elgg_view("input/button", array(
         "href" => "/login",
         "value" => elgg_echo("rijkshuisstijl:next"),
-        "class" => "rhs-button rhs-button--color-septenary rhs-button--disabled",
+        "class" => "rhs-button rhs-button--color-septenary rhs-button--disabled js-submitForm",
         "type" => "submit"
     )); ?>
 </p>

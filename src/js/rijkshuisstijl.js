@@ -7,6 +7,7 @@ require("./default/app.js");
 require("./default/autocomplete.js");
 require("./default/checkbox-switch.js");
 require("./default/checkbox.js");
+require("./default/datepicker.js");
 require("./default/dotdotdot.js");
 require("./default/dropdown.js");
 require("./default/editable-field.js");

@@ -85,7 +85,7 @@
     <?php echo elgg_view("input/button", array(
         "href" => "/login",
         "value" => elgg_echo("rijkshuisstijl:next"),
-        "class" => "rhs-button rhs-button--color-septenary rhs-button--disabled",
+        "class" => "rhs-button rhs-button--color-septenary rhs-button--disabled js-submitForm",
         "data-step-next" => ""
     )); ?>
 </p>

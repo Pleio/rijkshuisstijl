@@ -8,6 +8,7 @@ require("./default/checkbox-switch.js");
 require("./default/checkbox.js");
 require("./default/dotdotdot.js");
 require("./default/dropdown.js");
+require("./default/datepicker.js");
 require("./default/editable-field.js");
 require("./default/editable-text.js");
 require("./default/form.js");

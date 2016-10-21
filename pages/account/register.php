@@ -33,7 +33,9 @@ $completed = get_input("completed");
 if ($completed == "true") {
     $content = elgg_view("register/completed");
 } else {
-    $content = elgg_view_form("register");
+    $content = elgg_view_form("register", array(
+        "class" => "js-validateAllForms"
+    ));
 }
 
 echo elgg_view_page($title, $content, "empty", array(
