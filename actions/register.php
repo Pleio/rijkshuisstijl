@@ -44,6 +44,13 @@ if (elgg_get_config('allow_registration')) {
                 'invitecode' => $invitecode
             );
 
+            // accept general terms
+            if (get_input("accept_terms") == "yes") {
+                $ia = elgg_set_ignore_access(true);
+                set_private_setting($guid, "general_terms_accepted", time());
+                elgg_set_ignore_access($ia);
+            }
+
             // @todo should registration be allowed no matter what the plugins return?
             if (!elgg_trigger_plugin_hook('register', 'user', $params, TRUE)) {
                 $ia = elgg_set_ignore_access(true);
@@ -64,13 +71,6 @@ if (elgg_get_config('allow_registration')) {
                 login($new_user);
             } catch (LoginException $e) {
                 // do nothing
-            }
-
-            // accept general terms
-            if (get_input("accept_terms") == "yes") {
-                $ia = elgg_set_ignore_access(true);
-                $new_user->setPrivateSetting("general_terms_accepted", time());
-                elgg_set_ignore_access($ia);
             }
 
             // Forward on success, assume everything else is an error...
