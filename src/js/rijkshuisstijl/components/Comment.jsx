@@ -65,7 +65,7 @@ export default class Comment extends React.Component {
                             {moment(this.props.entity.timeCreated).format("LLL")}
                         </div>
                         <div className="comment__edit" onClick={this.toggleEdit}>
-                            Wijzig
+                            <span>Wijzig</span>
                         </div>
                     </div>
                 </div>
