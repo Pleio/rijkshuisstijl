@@ -33,3 +33,4 @@ unset($vars['default']);
 
 ?>
 <input type="checkbox" <?php echo elgg_format_attributes($vars); ?> />
+<span class="rhs-checkbox__placeholder"></span>

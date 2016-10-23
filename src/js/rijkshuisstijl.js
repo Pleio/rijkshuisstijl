@@ -101,14 +101,14 @@ jQuery(document).ready(function () {
     {
       setTimeout(function () {
         var newValue = $('#option-2').is(':checked') ? 1 : 0;
+        var subscriptions = {};
+        subscriptions[gElggSiteGuid] = newValue;
 
         elgg.action('/action/newsletter/subscriptions', {
           data: {
             block_all: 0,
             user_guid: gUserGuid,
-            "subscriptions" : {
-              gElggSiteGuid: newValue
-            }
+            subscriptions: subscriptions
           },
           success: function (wrapper) {
 
