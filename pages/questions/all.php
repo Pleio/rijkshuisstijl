@@ -12,17 +12,10 @@ $options = array(
 );
 
 $topic = get_input('topic');
-if (!$topic) {
-    $topic = "mine";
-}
-
-if ($topic == "mine") {
-    $interests = rijkshuisstijl_get_interests($user);
-    if ($interests) {
-        $options['container_guids'] = $interests;
-    }
-} else {
+if ($topic && $topic !== "all") {
     $topic = get_entity((int) $topic);
+} else {
+  $topic = null;
 }
 
 $content = elgg_list_entities($options, 'elgg_get_entities_from_private_settings');

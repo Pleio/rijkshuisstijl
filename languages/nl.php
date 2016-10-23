@@ -122,6 +122,7 @@ $dutch = array(
     'rijkshuisstijl:forum:search' => 'Zoeken',
     'rijkshuisstijl:footer:elements' => 'Footer elementen',
     'rijkshuisstijl:cafe:askedby' => 'Gesteld door',
+    'rijkshuisstijl:cafe:latestanswer' => 'Laatste antwoord door',
     'rijkshuisstijl:of' => 'van',
     'rijkshuisstijl:special_settings' => 'Speciale instellingen',
     'rijkshuisstijl:special_settings:explanation' => 'Selecteer alleen een van deze opties wanneer je als deelsite speciale functionaliteit nodig hebt.',

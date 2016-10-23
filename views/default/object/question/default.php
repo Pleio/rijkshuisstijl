@@ -4,6 +4,7 @@ $full_view = elgg_extract('full_view', $vars, false);
 
 $poster = $entity->getOwnerEntity();
 $count = $entity->countAnswers();
+$latestAnswer = $entity->getLatestAnswer();
 
 ?>
 
@@ -60,13 +61,22 @@ $count = $entity->countAnswers();
         <a href="<?php echo $entity->getURL(); ?>" title="<?php echo $title; ?>" class="rhs-card-topic__title">
           <?php echo $entity->title; ?>
         </a>
-        <div class="rhs-card-topic__info"
-          <span class="rhs-hidden-mobile"><?php echo elgg_echo('rijkshuisstijl:cafe:askedby') ?>:</span>
-            <a href="<?php echo $poster->getURL(); ?>" title="Ga naar profielpagina">
-              <?php echo $poster->name; ?>
-            </a>
-            <?php echo rijkshuisstijl_view_friendly_time($entity->time_created); ?>
-          </div>
+        <div class="rhs-card-topic__info">
+          <span class="rhs-hidden-mobile">
+          <?php if ($latestAnswer): ?>
+            <?php echo elgg_echo('rijkshuisstijl:cafe:latestanswer') ?>:</span>
+              <a href="<?php echo $latestAnswer->getOwnerEntity()->getURL(); ?>" title="Ga naar profielpagina">
+                <?php echo $latestAnswer->getOwnerEntity()->name; ?>
+              </a>
+              <?php echo rijkshuisstijl_view_friendly_time($latestAnswer->time_created); ?>
+          <?php else: ?>
+            <?php echo elgg_echo('rijkshuisstijl:cafe:askedby') ?>:</span>
+              <a href="<?php echo $poster->getURL(); ?>" title="Ga naar profielpagina">
+                <?php echo $poster->name; ?>
+              </a>
+              <?php echo rijkshuisstijl_view_friendly_time($entity->time_created); ?>
+          <?php endif; ?>
+        </div>
         <div class="rhs-card-topic__description">
           <?php echo elgg_get_excerpt($entity->description); ?>
         </div>

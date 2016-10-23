@@ -48,6 +48,15 @@ export default class Comment extends React.Component {
     }
 
     render() {
+        let edit
+        if (this.props.entity.canEdit) {
+            edit = (
+                <div className="comment__edit" onClick={this.toggleEdit}>
+                    <span>Wijzig</span>
+                </div>
+            )
+        }
+
         let comment = (
             <div className={classnames({comment: true, "___can-edit": this.props.entity.canEdit})}>
                 <Votes entity={this.props.entity} />
@@ -64,9 +73,7 @@ export default class Comment extends React.Component {
                         <div className="comment__date">
                             {moment(this.props.entity.timeCreated).format("LLL")}
                         </div>
-                        <div className="comment__edit" onClick={this.toggleEdit}>
-                            <span>Wijzig</span>
-                        </div>
+                        {edit}
                     </div>
                 </div>
                 <div className="comment__body rhs-content-editable" dangerouslySetInnerHTML={{__html: this.props.entity.description}}></div>

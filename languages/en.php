@@ -121,6 +121,7 @@ $english = array(
     'rijkshuisstijl:forum:showall' => 'Show all',
     'rijkshuisstijl:forum:search' => 'Search',
     'rijkshuisstijl:cafe:askedby' => 'Asked by',
+    'rijkshuisstijl:cafe:latestanswer' => 'Latest answer by',
     'rijkshuisstijl:footer:elements' => 'Footer elements',
     'rijkshuisstijl:of' => 'of',
     'rijkshuisstijl:special_settings' => 'Special settings',
