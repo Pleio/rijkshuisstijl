@@ -196,6 +196,6 @@ if ($editing && questions_can_move_to_discussions($container)) {
 
 echo elgg_view("input/submit", array(
 	"value" => elgg_echo("rijkshuisstijl:save"),
-	"class" => "js-submitForm"
+	"class" => "rhs-button rhs-button--primary js-submitForm"
 ));
 echo "</div>";

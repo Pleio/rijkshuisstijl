@@ -53,7 +53,6 @@ if ($entity) {
 
         <?php echo elgg_view("input/longtext", array(
             "name" => "description",
-            "class" => "rhs-form__input js-validateInput",
             "value" => elgg_get_sticky_value("cafe", "description", $entity->description),
             "data-validation" => ".{10,}",
             "data-validationmessage" => elgg_echo("rijkshuisstijl:description:too_short"),
