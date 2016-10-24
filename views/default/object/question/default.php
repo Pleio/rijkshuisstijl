@@ -25,7 +25,7 @@ $latestAnswer = $entity->getLatestAnswer();
         <?php echo elgg_view("output/longtext", ["value" => $entity->description]); ?>
     </div>
     <div class="rhs-card-user-content__options">
-        <?php if ($entity->canComment()): ?>
+        <?php if ($entity->canWriteToContainer(0, "object", "answer")): ?>
             <button title="Geef antwoord" data-forum-answer-toggle class="rhs-button rhs-button--with-icon">
                 <span class="rhs-icon-pencil"></span><?php echo elgg_echo("rijkshuisstijl:answer"); ?>
             </button>
