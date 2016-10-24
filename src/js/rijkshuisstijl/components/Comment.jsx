@@ -57,9 +57,16 @@ export default class Comment extends React.Component {
             )
         }
 
+        let votes
+        if (this.props.canComment) {
+            votes = (
+                <Votes entity={this.props.entity} />
+            )
+        }
+
         let comment = (
             <div className={classnames({comment: true, "___can-edit": this.props.entity.canEdit})}>
-                <Votes entity={this.props.entity} />
+                {votes}
                 <div className="comment__top">
                     <a href={this.props.entity.owner.url}
                        title="Bekijk profiel"

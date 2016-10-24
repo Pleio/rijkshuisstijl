@@ -1,8 +1,8 @@
 <?php
 $group = elgg_get_page_owner_entity();
 $user = elgg_get_logged_in_user_entity();
-
 $popular_users = rijkshuisstijl_get_popular_users();
+
 ?>
 
 <div class="rhs-sections">

@@ -255,6 +255,10 @@ class Mutations {
         }
 
         $user = elgg_get_logged_in_user_entity();
+        if (!$user) {
+            throw new Exception("could_not_save");
+        }
+
         $past_vote = elgg_get_annotations(array(
             'guid' => $entity->guid,
             'annotation_name' => 'vote',

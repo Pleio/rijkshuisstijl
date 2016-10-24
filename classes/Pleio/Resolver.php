@@ -47,6 +47,7 @@ class Resolver {
             "description" => elgg_autop(filter_tags($entity->description)),
             "timeCreated" => date("c", $entity->time_created),
             "timeUpdated" => date("c", $entity->time_updated),
+            "canComment" => $entity->canComment(),
             "canEdit" => $entity->canEdit(),
             "accessId" => $entity->access_id,
             "tags" => Helpers::renderTags($entity->tags)

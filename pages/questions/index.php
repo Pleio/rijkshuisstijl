@@ -1,6 +1,4 @@
 <?php
-gatekeeper();
-
 if (get_input('group_guid')) {
   elgg_set_page_owner_guid(get_input('group_guid'));
 } else {

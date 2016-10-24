@@ -1,6 +1,4 @@
 <?php
-gatekeeper();
-
 $topic = get_input('topic');
 $category = get_input('category');
 $user = elgg_get_logged_in_user_entity();

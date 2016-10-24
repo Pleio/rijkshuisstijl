@@ -8,7 +8,7 @@ class CommentList extends React.Component {
         let comments
         if (this.props.data.entity) {
             comments = this.props.data.entity.comments.map((comment) => (
-                <Comment key={comment.guid} entity={comment} />
+                <Comment key={comment.guid} entity={comment} canComment={this.props.data.entity.canComment} />
             ))
         }
 
@@ -34,6 +34,7 @@ const QUERY = gql`
     fragment commentsFragment on Object {
         guid
         status
+        canComment
         comments {
             guid
             canEdit

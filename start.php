@@ -102,7 +102,7 @@ function rijkshuisstijl_init() {
 	elgg_register_action("rijkshuisstijl/profile/setprofileparameter", dirname(__FILE__) . "/actions/profile/setprofileparameter.php");
 	elgg_register_action("rijkshuisstijl/profile/changepassword", dirname(__FILE__) . "/actions/profile/changepassword.php");
 	elgg_register_action("rijkshuisstijl/profile/setprofilefield", dirname(__FILE__) . "/actions/profile/setprofilefield.php");
-	elgg_register_action("rijkshuisstijl/search", dirname(__FILE__) . "/actions/search.php");
+	elgg_register_action("rijkshuisstijl/search", dirname(__FILE__) . "/actions/search.php", "public");
 	elgg_register_action("rijkshuisstijl/vote", dirname(__FILE__) . "/actions/vote.php");
 
     if (!isset($_COOKIE["CSRF_TOKEN"])) {

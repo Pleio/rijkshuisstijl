@@ -160,3 +160,7 @@ function rijkshuisstijl_generate_username($email) {
 
     return $result;
 }
+
+function rijkshuisstijl_get_online_users() {
+    return find_active_users(600, 0, 0, true);
+}

@@ -25,9 +25,11 @@ $latestAnswer = $entity->getLatestAnswer();
         <?php echo elgg_view("output/longtext", ["value" => $entity->description]); ?>
     </div>
     <div class="rhs-card-user-content__options">
-        <button title="Geef antwoord" data-forum-answer-toggle class="rhs-button rhs-button--with-icon">
-            <span class="rhs-icon-pencil"></span><?php echo elgg_echo("rijkshuisstijl:answer"); ?>
-        </button>
+        <?php if ($entity->canComment()): ?>
+            <button title="Geef antwoord" data-forum-answer-toggle class="rhs-button rhs-button--with-icon">
+                <span class="rhs-icon-pencil"></span><?php echo elgg_echo("rijkshuisstijl:answer"); ?>
+            </button>
+        <?php endif; ?>
         <div class="rhs-card-user-content__mobile-top">
             <div class="rhs-card-user-content__views">
                 <?php echo entity_view_counter_count_views($entity); ?>

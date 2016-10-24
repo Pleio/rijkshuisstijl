@@ -34,13 +34,11 @@ $navresults = elgg_view("page/elements/navresults", $vars);
     <!-- Header set -->
     <div class="rhs-page-layout">
     	<div class="rhs-page-layout__header">
-    		<?php if (elgg_is_logged_in()){ ?>
-    			<div class="rhs-top-navigation">
-    				<div class="rhs-container">
-    					<?php echo $topbar; ?>
-    				</div>
-    			</div>
-    		<?php } ?>
+			<div class="rhs-top-navigation">
+				<div class="rhs-container">
+					<?php echo $topbar; ?>
+				</div>
+			</div>
 
     		<header class="rhs-page-layout__header">
     			<?php echo $header; ?>
