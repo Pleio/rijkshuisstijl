@@ -16,9 +16,9 @@
  */
 
 if (isset($vars['class'])) {
-    $vars['class'] = "rhs-checkbox__input {$vars['class']}";
+    $vars['class'] = "elgg-input-checkbox {$vars['class']}";
 } else {
-    $vars['class'] = "rhs-checkbox__input";
+    $vars['class'] = "elgg-input-checkbox";
 }
 
 $defaults = array(
@@ -31,6 +31,9 @@ $vars = array_merge($defaults, $vars);
 $default = $vars['default'];
 unset($vars['default']);
 
+if (isset($vars['name']) && $default !== false) {
+    echo "<input type=\"hidden\" name=\"{$vars['name']}\" value=\"$default\"/>";
+}
+
 ?>
 <input type="checkbox" <?php echo elgg_format_attributes($vars); ?> />
-<span class="rhs-checkbox__placeholder"></span>
