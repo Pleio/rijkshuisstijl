@@ -33,7 +33,7 @@ $categorized_fields = profile_manager_get_categorized_fields(null, true, true);
 <div class="rhs-form__background">
     <div class="rhs-form__element rhs-form__element--no-padding">
         <label for="accept_terms" class="rhs-checkbox">
-            <input type="checkbox" id="accept_terms" name="accept_terms" required data-validationmessage="U moet akkoord gaan" class="rhs-checkbox__input js-validateCheckbox">
+            <input type="checkbox" id="accept_terms" name="accept_terms" required data-validationmessage="U moet akkoord gaan" class="rhs-checkbox__input js-validateCheckbox" value="yes">
             <span class="rhs-checkbox__placeholder"></span>Ik ga akkoord met de <a href="/terms" target="_blank">Algemene Voorwaarden</a>*
         </label>
 
