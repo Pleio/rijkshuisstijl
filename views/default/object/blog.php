@@ -21,20 +21,22 @@ if (!$entity) {
         <?php echo elgg_view("output/longtext", ["value" => $entity->description]); ?>
     </div>
 
-    <div class="rhs-card-user-content__options">
-        <a href="javascript:window.print();" title="Geef antwoord" class="rhs-button rhs-button--with-icon">
-            <span class="rhs-icon-print"></span>
-            <?php echo elgg_echo("rijkshuisstijl:print"); ?>
-        </a>
-        <div class="rhs-card-user-content__mobile-top">
-            <div class="rhs-card-user-content__views">
-                <?php echo entity_view_counter_count_views($entity); ?>
+    <div class="rhs-news-item__actions">
+        <div class="rhs-card-user-content__options">
+            <a href="javascript:window.print();" title="Geef antwoord" class="rhs-button rhs-button--with-icon">
+                <span class="rhs-icon-print"></span>
+                <?php echo elgg_echo("rijkshuisstijl:print"); ?>
+            </a>
+            <div class="rhs-card-user-content__mobile-top">
+                <div class="rhs-card-user-content__views">
+                    <?php echo entity_view_counter_count_views($entity); ?>
+                </div>
+                <?php if ($entity->canEdit()): ?>
+                    <a href="/blog/edit/<?php echo $entity->guid; ?>" title="Wijzig" class="rhs-card-user-content__edit">
+                        <?php echo elgg_echo("rijkshuisstijl:edit"); ?>
+                    </a>
+                <?php endif; ?>
             </div>
-            <?php if ($entity->canEdit()): ?>
-                <a href="/blog/edit/<?php echo $entity->guid; ?>" title="Wijzig" class="rhs-card-user-content__edit">
-                    <?php echo elgg_echo("rijkshuisstijl:edit"); ?>
-                </a>
-            <?php endif; ?>
         </div>
     </div>
 <?php else: ?>
