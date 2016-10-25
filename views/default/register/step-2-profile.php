@@ -32,24 +32,13 @@ $categorized_fields = profile_manager_get_categorized_fields(null, true, true);
 
 <div class="rhs-form__background">
     <div class="rhs-form__element rhs-form__element--no-padding">
-        <label class="rhs-checkbox">
-            <?php echo elgg_view("input/checkbox", array(
-                "name" => "accept_terms",
-                "value" => "yes",
-                "class" => "js-validateCheckbox",
-                "data-validationmessage" => "U moet akkoord gaan"
-            )); ?>
-
+        <label for="accept_terms" class="rhs-checkbox">
+            <input type="checkbox" id="accept_terms" name="accept_terms" required data-validationmessage="U moet akkoord gaan" class="rhs-checkbox__input js-validateCheckbox">
             <span class="rhs-checkbox__placeholder"></span>Ik ga akkoord met de <a href="/terms" target="_blank">Algemene Voorwaarden</a>*
         </label>
 
-        <label class="rhs-checkbox">
-            <?php echo elgg_view("input/checkbox", array(
-                "name" => "newsletter_subscription",
-                "value" => "1",
-                "class" => "js-validateCheckbox",
-                "data-validationmessage" => "U moet akkoord gaan"
-            )); ?>
+        <label for="newsletter_subscription" class="rhs-checkbox">
+            <input type="checkbox" id="newsletter_subscription" name="newsletter_subscription" value="1" class="rhs-checkbox__input">
             <span class="rhs-checkbox__placeholder"></span>Ik wil de site nieuwsbrief ontvangen
         </label>
     </div>
