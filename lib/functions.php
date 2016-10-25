@@ -28,9 +28,10 @@ function rijkshuisstijl_get_latest_objects($subtype = 'question', ElggGroup $gro
 }
 
 function rijkshuisstijl_get_popular_objects($subtype = 'question', ElggGroup $group = null) {
-    $id = (int) get_subtype_id("object", $subtype);
+    global $CONFIG;
 
-    $sql = "SELECT guid FROM elgg_entity_views WHERE type = 'object' AND subtype = {$id}";
+    $id = (int) get_subtype_id("object", $subtype);
+    $sql = "SELECT guid FROM elgg_entity_views WHERE type = 'object' AND subtype = {$id} AND site_guid = {$CONFIG->site_guid}";
     if ($group) {
         $container_guid = (int) $group->guid;
         $sql .= " AND container_guid = {$container_guid}";
