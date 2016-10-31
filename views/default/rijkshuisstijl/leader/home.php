@@ -1,9 +1,17 @@
 <?php
 $site = elgg_get_site_entity();
+$special = elgg_get_plugin_setting("special", "rijkshuisstijl");
+
+if ($special == "ffd") {
+  $leader = "image/leaders/home.jpg";
+} else {
+  $leader = "image/leaders/ht.jpg";
+}
+
 ?>
 
 <div class="rhs-lead rhs-lead--home">
-  <div style="background-image:url('<?php echo rijkshuisstijl_asset("image/leaders/home.jpg"); ?>');" class="rhs-lead__background"></div>
+  <div style="background-image:url('<?php echo rijkshuisstijl_asset($leader); ?>');" class="rhs-lead__background"></div>
   <div class="rhs-container">
     <h1 class="rhs-home__title"><?php echo $site->name; ?></h1>
     <p class="rhs-home__subtitle visible-md visible-xl visible-lg"><?php echo $site->description; ?></p>

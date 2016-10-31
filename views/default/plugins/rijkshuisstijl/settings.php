@@ -13,6 +13,11 @@ $default_colors = array(
     9 => "#F2F9FC"
 );
 
+$noyes_options = array(
+    "no" => elgg_echo("option:no"),
+    "yes" => elgg_echo("option:yes")
+);
+
 if ($plugin->colors) {
     $colors = unserialize($plugin->colors);
 }
@@ -72,7 +77,8 @@ echo "</div>"; ?>
         'name' => 'params[special]',
         'options' => array(
             elgg_echo("rijkshuisstijl:none") => 'none',
-            elgg_echo("rijkshuisstijl:ffd") => 'ffd'
+            elgg_echo("rijkshuisstijl:ffd") => 'ffd',
+            elgg_echo("rijkshuisstijl:ht") => 'ht'
         ),
         'value' => $plugin->special ? $plugin->special : "none"
     ));

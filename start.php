@@ -28,7 +28,8 @@ define("RIJKSHUISSTIJL_LESS", dirname(__FILE__) . "/src/less/");
 function rijkshuisstijl_init() {
     elgg_register_plugin_hook_handler("action", "plugins/settings/save", "rijkshuisstijl_plugins_settings_save");
 
-    if (elgg_get_plugin_setting("special", "rijkshuisstijl") == "ffd") {
+	$special = elgg_get_plugin_setting("special", "rijkshuisstijl");
+    if (in_array($special, ["ffd", "ht"])) {
 		elgg_register_plugin_hook_handler("index", "system", "rijkshuisstijl_custom_index", 40); // must be very early
 
 		elgg_register_plugin_hook_handler("route", "news", "rijkshuisstijl_route_news_hook", 100);
@@ -48,6 +49,7 @@ function rijkshuisstijl_init() {
     }
 
 	elgg_register_plugin_hook_handler("route", "profile", "rijkshuisstijl_route_profile_hook", 100);
+	elgg_register_plugin_hook_handler("route", "subsites", "rijkshuisstijl_route_subsites_hook", 100);
 	elgg_register_plugin_hook_handler("allowed_styles", "htmlawed", "rijkshuisstijl_allowed_styles");
 
 	global $CONFIG;
@@ -236,6 +238,16 @@ function rijkshuisstijl_pages_register_handler($page) {
 function rijkshuisstijl_pages_resetpassword_handler($page) {
 	require dirname(__FILE__) . "/pages/account/reset_password.php";
 	return true;
+}
+
+function rijkshuisstijl_route_subsites_hook($hook_name, $entity_type, $return_value, $params) {
+	$page = elgg_extract("segments", $return_value);
+	switch ($page[0]) {
+		case "join":
+			include(dirname(__FILE__) . "/pages/subsites/join.php");
+			return false;
+			break;
+	}
 }
 
 function rijkshuisstijl_route_news_hook($hook_name, $entity_type, $return_value, $params) {

@@ -118,7 +118,9 @@ if ($full) {
       echo '<span class="rhs-icon-jurisprudentie rhs-news-list__item__category__icon"></span>';
     }
 
-    echo $entity->getContainerEntity()->name;
+    if ($container instanceof ElggGroup) {
+      echo $container->name;
+    }
 
     echo '</span>';
     echo '</a>';

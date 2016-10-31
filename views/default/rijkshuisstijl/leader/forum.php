@@ -1,10 +1,18 @@
 <?php
 $site = elgg_get_site_entity();
 $users_online = rijkshuisstijl_get_online_users();
+$special = elgg_get_plugin_setting("special", "rijkshuisstijl");
+
+if ($special == "ffd") {
+  $leader = "image/leaders/forum.jpg";
+} else {
+  $leader = "image/leaders/ht.jpg";
+}
+
 ?>
 
 <div class="rhs-lead rhs-lead--forum">
-    <div style="background-image: url('<?php echo rijkshuisstijl_asset("image/leaders/forum.jpg"); ?>')" class="rhs-lead__background"></div>
+    <div style="background-image: url('<?php echo rijkshuisstijl_asset($leader); ?>')" class="rhs-lead__background"></div>
     <div class="rhs-lead__content">
         <div class="rhs-container">
             <div class="rhs-forum-action">

@@ -1,4 +1,5 @@
 <?php
+$special = elgg_get_plugin_setting("special", "rijkshuisstijl");
 $leader = rijkshuisstijl_get_news_leader();
 
 $topic = get_input("topic");
@@ -25,9 +26,11 @@ if ($category == "all") {
     <div class="rhs-news__filter">
         <div class="rhs-row">
             <form>
-            <p class="rhs-col-md-4 rhs-col-lg-3">
-                <?php echo elgg_view('rijkshuisstijl/input/news_category'); ?>
-            </p>
+            <?php if ($special == "ffd"): ?>
+                <p class="rhs-col-md-4 rhs-col-lg-3">
+                    <?php echo elgg_view('rijkshuisstijl/input/news_category'); ?>
+                </p>
+            <?php endif; ?>
             <p class="rhs-col-md-4 rhs-col-lg-3">
                 <?php echo elgg_view('rijkshuisstijl/input/topic'); ?>
             </p>

@@ -19,6 +19,8 @@ if (!$question) {
 	$question->access_id = ACCESS_DEFAULT;
 }
 
+
+
 $container = $question->getContainerEntity();
 
 if ($container instanceof ElggGroup) {
@@ -53,7 +55,7 @@ elgg_clear_sticky_form("question");
 			"id" => "js-itemTitle",
 			"autofocus" => "",
 			"data-only-validate-on-submit" => "",
-			"data-validation" => ".{10,}",
+			"data-validation" => ".{4,}",
 			"data-validationmessage" => elgg_echo("rijkshuisstijl:title:too_short"),
 			"class" => "rhs-form__input js-validateInput",
 			"value" => elgg_get_sticky_value("question", "title", $question->title),
@@ -71,7 +73,7 @@ elgg_clear_sticky_form("question");
 			"name" => "description",
 			"id" => "question_description",
 			"data-only-validate-on-submit" => "",
-			"data-validation" => ".{10,}",
+			"data-validation" => ".{4,}",
 			"data-validationmessage" => elgg_echo("rijkshuisstijl:description:too_short"),
 			"class" => "rhs-form__input js-validateInput",
 			"placeholder" => elgg_echo("questions:edit:question:description"),
@@ -112,7 +114,9 @@ if (elgg_view_exists("input/categories")) {
 
 <?php
 // container selection options
-if (!$editing || (questions_experts_enabled() && questions_is_expert())) {
+$featured_groups = rijkshuisstijl_get_featured_groups();
+
+if ($featured_groups && (!$editing || (questions_experts_enabled() && questions_is_expert()))) {
 	if (!$editing) {
 		$owner = elgg_get_logged_in_user_entity();
 	} else {
@@ -124,24 +128,8 @@ if (!$editing || (questions_experts_enabled() && questions_is_expert())) {
 		$container_options[$owner->guid] = $owner->name;
 	}
 
-	if (elgg_is_active_plugin("groups")) {
-		$group_options = array(
-			"type" => "group",
-			"limit" => false,
-			"metadata_name_value_pairs" => array(
-				"name" => "questions_enable",
-				"value" => "yes"
-			),
-			"joins" => array("JOIN " . elgg_get_config("dbprefix") . "groups_entity ge ON e.guid = ge.guid"),
-			"order_by" => "ge.name ASC",
-			"relationship" => "member",
-			"relationship_guid" => elgg_get_logged_in_user_guid()
-		);
-
-		$groups = elgg_get_entities_from_relationship($group_options);
-		foreach ($groups as $group) {
-			$container_options[$group->guid] = $group->name;
-		}
+	foreach ($featured_groups as $group) {
+		$container_options[$group->guid] = $group->name;
 	}
 	?>
 

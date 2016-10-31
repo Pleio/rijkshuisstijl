@@ -1,5 +1,5 @@
 <div class="rhs-sections">
-    <div class="rhs-section rhs-section--with-row">
+    <div class="rhs-section rhs-section--background-white rhs-section--with-row">
         <?php echo elgg_view('rijkshuisstijl/elements/latest_popular_questions'); ?>
     </div>
 
@@ -11,11 +11,11 @@
 
     <?php echo elgg_view("rijkshuisstijl/elements/banner"); ?>
 
-    <div class="rhs-section rhs-section--background-grey rhs-section--no-subtitle">
-        <div class="rhs-container">
-            <?php if (elgg_is_active_plugin('pinboard')): ?>
-                <?php echo elgg_view('rijkshuisstijl/elements/themes_blogs'); ?>
-            <?php endif; ?>
+    <?php if (elgg_is_active_plugin('pinboard')): ?>
+        <div class="rhs-section rhs-section--background-grey rhs-section--no-subtitle">
+            <div class="rhs-container">
+                    <?php echo elgg_view('rijkshuisstijl/elements/themes_blogs'); ?>
+            </div>
         </div>
-    </div>
+    <?php endif; ?>
 </div>

@@ -37,7 +37,7 @@ if ($entity) {
             "name" => "title",
             "class" => "rhs-form__input js-validateInput",
             "value" => elgg_get_sticky_value("cafe", "title", $entity->title),
-            "data-validation" => ".{10,}",
+            "data-validation" => ".{4,}",
             "data-validationmessage" => elgg_echo("rijkshuisstijl:title:too_short"),
             "placeholder" => elgg_echo("pinboard:title")
         ));
@@ -54,7 +54,7 @@ if ($entity) {
         <?php echo elgg_view("input/longtext", array(
             "name" => "description",
             "value" => elgg_get_sticky_value("cafe", "description", $entity->description),
-            "data-validation" => ".{10,}",
+            "data-validation" => ".{4,}",
             "data-validationmessage" => elgg_echo("rijkshuisstijl:description:too_short"),
             "class" => "rhs-form__input js-validateInput",
             "placeholder" => elgg_echo("rijkshuisstijl:description")
