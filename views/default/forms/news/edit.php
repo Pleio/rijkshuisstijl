@@ -40,7 +40,7 @@ foreach ($user->getGroups(array(), 50) as $group) {
     </div>
 </div><br />
 
-<?php if ($container): ?>
+<?php if ($containers): ?>
     <div>
         <label for="container_guid"><?php echo elgg_echo("news:container"); ?></label><br />
         <div>
