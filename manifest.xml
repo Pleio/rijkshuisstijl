@@ -23,6 +23,10 @@
         <type>plugin</type>
         <name>newsletter</name>
     </requires>
+    <requires>
+        <type>plugin</type>
+        <name>content_subscriptions</name>
+    </requires>
     <conflicts>
         <type>plugin</type>
         <name>pleio_template_selector</name>
