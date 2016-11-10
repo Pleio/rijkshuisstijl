@@ -44,7 +44,7 @@ $registration_text = elgg_get_plugin_setting("registration_text", "rijkshuisstij
         "class" => "rhs-button rhs-button--link"
     )); ?>
 
-    <?php echo elgg_view("input/button", array(
+    <?php echo elgg_view("rijkshuisstijl/input/button", array(
         "href" => "/login",
         "value" => elgg_echo("rijkshuisstijl:next"),
         "class" => "rhs-button rhs-button--color-septenary rhs-button--disabled js-submitForm",

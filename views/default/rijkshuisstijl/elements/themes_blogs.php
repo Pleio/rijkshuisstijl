@@ -28,7 +28,7 @@ $blogs = rijkshuisstijl_get_latest_objects("blog");
             <a href="<?php echo $blog->getURL(); ?>" title="<?php echo $blog->title; ?>" class="rhs-bulletin-block__item">
               <table class="rhs-bulletin-block__table">
                 <tbody>
-                    <td class="rhs-bulletin-block__date"><?php echo date("d M", $blog->time_created); ?></td>
+                    <td class="rhs-bulletin-block__date"><?php echo rijkshuisstijl_view_friendly_time($blog->time_created, true); ?></td>
                     <td class="rhs-bulletin-block__text"><?php echo $blog->title; ?></td>
                   </tr>
                 </tbody>

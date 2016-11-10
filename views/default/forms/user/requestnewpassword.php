@@ -32,7 +32,7 @@
 </p>
 
 <p class="rhs-form__actions">
-    <?php echo elgg_view("input/button", array(
+    <?php echo elgg_view("rijkshuisstijl/input/button", array(
         "type" => "submit",
         "class" => "rhs-button rhs-button--color-septenary rhs-button--disabled js-submitForm",
         "value" => elgg_echo('request')

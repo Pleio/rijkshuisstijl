@@ -52,7 +52,7 @@ $categorized_fields = profile_manager_get_categorized_fields(null, true, true);
         "data-step-previous" => ""
     )); ?>
 
-    <?php echo elgg_view("input/button", array(
+    <?php echo elgg_view("rijkshuisstijl/input/button", array(
         "href" => "/login",
         "value" => elgg_echo("rijkshuisstijl:next"),
         "class" => "rhs-button rhs-button--color-septenary rhs-button--disabled js-submitForm",

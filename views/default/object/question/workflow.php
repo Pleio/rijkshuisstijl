@@ -35,7 +35,7 @@ if (elgg_instanceof($container, "group") && (elgg_get_page_owner_guid() != $cont
 $tags = elgg_view("output/tags", array("tags" => $question->tags));
 $categories = elgg_view("output/categories", $vars);
 
-$date = elgg_view_friendly_time($question->time_created);
+$date = rijkshuisstijl_view_friendly_time($question->time_created);
 
 $answers_link = "";
 

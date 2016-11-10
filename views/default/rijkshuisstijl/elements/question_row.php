@@ -11,7 +11,7 @@ if (method_exists($question, "countAnswers")) {
     <table class="rhs-card-list__table">
         <tbody>
             <tr>
-                <td class="rhs-card-list__date"><?php echo date("d M", $question->time_created); ?></td>
+                <td class="rhs-card-list__date"><?php echo rijkshuisstijl_view_friendly_time($question->time_created, true); ?></td>
                 <td class="rhs-card-list__text" style="min-width: 20rem;">
                     <?php echo $question->title ?>
                 </td>

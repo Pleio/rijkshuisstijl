@@ -132,9 +132,9 @@ function rijkshuisstijl_get_news_leader() {
 
 function rijkshuisstijl_view_friendly_time($unix, $only_date = false) {
     if ($only_date) {
-        return date("d M", $unix);
+        return strftime("%d %b", $unix);
     } else {
-        return date("d M Y, H:i", $unix);
+        return strftime("%d %B %Y, %H:%M", $unix);
     }
 }
 

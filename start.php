@@ -26,6 +26,11 @@ $CONFIG->search_types = array(
 define("RIJKSHUISSTIJL_LESS", dirname(__FILE__) . "/src/less/");
 
 function rijkshuisstijl_init() {
+	$lang = get_current_language();
+	if ($lang == "nl") {
+		setlocale(LC_TIME, "nl_NL");
+	}
+
     elgg_register_plugin_hook_handler("action", "plugins/settings/save", "rijkshuisstijl_plugins_settings_save");
 
 	$special = elgg_get_plugin_setting("special", "rijkshuisstijl");

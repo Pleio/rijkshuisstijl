@@ -100,7 +100,7 @@ export default class Comment extends React.Component {
                                     </div>
                                 </div>
                                 <TinyMCE name="generic_comment" config={TINYMCE_CONFIG} className="comment-edit__content" onChange={this.changeDescription} content={this.state.description} />
-                                <div className="comment-edit__bottom rhs-form__actions">
+                                <div className="rhs-edit-block__bottom rhs-form__actions">
                                     <a className="rhs-button__underline" href={"/" + elgg.security.addToken("action/comment/delete?guid=" + this.props.entity.guid)} onClick={this.onRemove}>
                                         Verwijder antwoord
                                     </a>

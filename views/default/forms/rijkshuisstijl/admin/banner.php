@@ -45,7 +45,7 @@ $banner = unserialize(elgg_get_plugin_setting("banner", "rijkshuisstijl"));
 </p>
 
 <p>
-    <?php echo elgg_view("input/button", array(
+    <?php echo elgg_view("rijkshuisstijl/input/button", array(
         "type" => "submit",
         "name" => elgg_echo("save")
     )); ?>

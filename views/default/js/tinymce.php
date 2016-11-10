@@ -9,7 +9,7 @@ elgg.tinymce.init = function() {
     var toolbar = "bold,italic,numlist,bullist,link,image,embed";
 
     if (elgg.is_admin_logged_in()) {
-        toolbar = "bold,italic,underline,forecolor,alignleft,aligncenter,alignright,numlist,bullist,link,image,embed,undo,redo,code";
+        toolbar = "styleselect,bold,italic,underline,forecolor,alignleft,aligncenter,alignright,numlist,bullist,link,image,embed,undo,redo,code,fullscreen";
     }
 
     tinymce.PluginManager.add('placeholder', function(editor) {
