@@ -21,4 +21,4 @@ $entity = $vars['entity'];
 <div class="rhs-card-user-content__amount">
     <span><?php echo $entity->countComments(); ?></span> <?php echo ($count==1) ? elgg_echo("rijkshuisstijl:count:answer") : elgg_echo("rijkshuisstijl:count:answers"); ?>
 </div>
-<div data-comments data-guid="<?php echo $entity->guid; ?>"></div>
+<div data-comments data-guid="<?php echo $entity->guid; ?>" data-show-voting="<?php echo elgg_get_plugin_setting("show_voting", "rijkshuisstijl"); ?>"></div>

@@ -1,10 +1,14 @@
 <?php
 
 $category_options = array(
-    'all' => 'Alles',
-    'most_viewed' => 'Meest bekeken',
-    'mine' => 'Mijn vragen'
+    'all' => "Alles",
+    'most_viewed' => "Meest bekeken"
 );
+
+if (elgg_is_logged_in()) {
+    $category_options["mine"] = "Mijn vragen";
+    $category_options["mine_answers"] = "Mijn antwoorden";
+}
 
 $options = array(
     'name' => 'category',

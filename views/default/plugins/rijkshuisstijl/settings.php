@@ -55,6 +55,18 @@ echo "<p>";
 echo "</p>";
 
 echo "<p>";
+    echo "<label>" . elgg_echo("rijkshuisstijl:show_voting") . "</label>";
+    echo elgg_view('input/dropdown', array(
+        'name' => 'params[show_voting]',
+        'options_values' => array(
+            'yes' => 'Ja',
+            'no' => 'Nee'
+        ),
+        'value' => ($plugin->show_voting === "no") ? "no" : "yes"
+    ));
+echo "</p>";
+
+echo "<p>";
     echo "<label>" . elgg_echo("rijkshuisstijl:colors") . "</label>";
 echo "</p>";
 echo "<div>";
@@ -87,6 +99,7 @@ echo "</div>"; ?>
     echo "</div>";
     echo "</p>";
 echo "</div>";
+
 
 echo "<p>";
     echo "<label>" . elgg_echo("rijkshuisstijl:registration_text") . "</label>";

@@ -48,10 +48,11 @@ function rijkshuisstijl_init() {
     var comments = $("[data-comments]").get(0);
     if (comments) {
         var guid = $(comments).data("guid");
+        var showVoting = ($(comments).data("show-voting") === "no") ? false : true;
 
         ReactDOM.render(
             <ApolloProvider client={client}>
-                <CommentList guid={guid} />
+                <CommentList guid={guid} showVoting={showVoting} />
             </ApolloProvider>,
             comments
         )
