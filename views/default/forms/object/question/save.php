@@ -54,7 +54,6 @@ elgg_clear_sticky_form("question");
 			"name" => "title",
 			"id" => "js-itemTitle",
 			"autofocus" => "",
-			"data-only-validate-on-submit" => "",
 			"data-validation" => ".{4,}",
 			"data-validationmessage" => elgg_echo("rijkshuisstijl:title:too_short"),
 			"class" => "rhs-form__input js-validateInput",

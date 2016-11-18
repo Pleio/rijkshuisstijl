@@ -62,7 +62,7 @@
                 $field_data .= "</div>";
             }
             
-            $category_data .= elgg_view_module("aside", $category_title, $field_data);
+            $category_data .= $field_data;
         }
         
         $form_body .= elgg_view_module("info", $categories_title , $category_data);

@@ -2,6 +2,7 @@
 require_once(dirname(__FILE__) . "/../../vendor/autoload.php");
 require_once(dirname(__FILE__) . "/lib/functions.php");
 require_once(dirname(__FILE__) . "/lib/hooks.php");
+require_once(dirname(__FILE__) . "/lib/events.php");
 
 require_once(dirname(__FILE__) . "/../../vendor/autoload.php");
 spl_autoload_register("rijkshuisstijl_autoloader");
@@ -85,6 +86,9 @@ function rijkshuisstijl_init() {
 	elgg_register_page_handler("resetpassword", "rijkshuisstijl_pages_resetpassword_handler");
 	elgg_register_page_handler("search", "rijkshuisstijl_search_page_handler");
 	elgg_register_page_handler("graphql", "rijkshuisstijl_graphql_page_handler");
+
+	// automatically subscribe users to question when they post a question
+	elgg_register_event_handler("create", "object", "rijkshuisstijl_create_object_handler");
 
 	elgg_unregister_menu_item("footer", "report_this");
 

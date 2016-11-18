@@ -84,7 +84,7 @@ if ($entity) {
 
     <?php echo elgg_view("input/submit", array(
             "value" => elgg_echo("pinboard:publish"),
-            "class" => "rhs-button rhs-button--color-septenary"
+            "class" => "rhs-button rhs-button--color-septenary js-submitForm"
         ));
     ?>
 </div>

@@ -163,5 +163,21 @@ function rijkshuisstijl_generate_username($email) {
 }
 
 function rijkshuisstijl_get_online_users() {
-    return find_active_users(600, 0, 0, true);
+    global $CONFIG;
+
+    $time = time() - 600;
+    $site = elgg_get_site_entity();
+
+    return elgg_get_entities(array(
+        "type" => "user",
+        "count" => true,
+        "joins" => [
+                "join {$CONFIG->dbprefix}users_entity u on e.guid = u.guid",
+                "join {$CONFIG->dbprefix}entity_relationships r ON e.guid = r.guid_one AND relationship = 'member_of_site'"
+        ],
+        "wheres" => [
+            "u.last_action >= {$time}",
+            "r.guid_two = {$site->guid}"
+        ]
+    ));
 }

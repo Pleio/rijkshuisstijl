@@ -16,6 +16,13 @@ $site = elgg_get_site_entity();
     </label>
 </p>
 
+<p class="rhs-form__element">
+    <label for="persistent" class="rhs-checkbox">
+        <input type="checkbox" id="persistent" name="persistent" value="true" class="rhs-checkbox__input">
+        <span class="rhs-checkbox__placeholder"></span><?php echo elgg_echo('user:persistent'); ?>
+    </label>
+</p>
+
 <p class="rhs-splash__form-element">
     <button class="rhs-button rhs-button--color-septenary rhs-button--full-width" type="submit"><?php echo elgg_echo('login'); ?></button>
 </p>
