@@ -65,7 +65,13 @@ if ($options && count($options) > 0) {
             $label = $option;
         }
 
-        echo "<label class=\"rhs-radio rhs-radio--theme\"><input type=\"radio\" $attributes /><span class=\"rhs-radio__placeholder\"></span>$label</label></li>";
+        if ($vars["checked"]) {
+            $chosen = "chosen";
+        } else {
+            $chosen = "";
+        }
+
+        echo "<label class=\"rhs-radio rhs-radio--theme $chosen\"><input type=\"radio\" $attributes /><span class=\"rhs-radio__placeholder\"></span>$label</label></li>";
     }
     echo '</div>';
 }
