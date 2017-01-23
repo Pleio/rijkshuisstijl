@@ -52,6 +52,7 @@ $dutch = array(
     'rijkshuisstijl:search:view_all_results' => 'Bekijk alle resultaten',
     'rijkshuisstijl:search:result' => 'resultaat',
     'rijkshuisstijl:search:results' => 'resultaten',
+    'rijkshuisstijl:choose_theme' => 'Kies een thema',
     'rijkshuisstijl:home' => 'Home',
     'rijkshuisstijl:forum' => 'Forum',
     'rijkshuisstijl:news' => 'Nieuws',

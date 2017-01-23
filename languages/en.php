@@ -123,6 +123,7 @@ $english = array(
     'rijkshuisstijl:closemodal' => 'Close modal',
     'rijkshuisstijl:forum:showall' => 'Show all',
     'rijkshuisstijl:forum:search' => 'Search',
+    'rijkshuisstijl:choose_theme' => 'Choose a theme',
     'rijkshuisstijl:cafe:askedby' => 'Asked by',
     'rijkshuisstijl:cafe:latestanswer' => 'Latest answer by',
     'rijkshuisstijl:footer:elements' => 'Footer elements',

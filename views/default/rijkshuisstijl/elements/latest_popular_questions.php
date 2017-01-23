@@ -7,7 +7,7 @@ if (isset($vars['group'])) {
 ?>
 
 <div class="rhs-container">
-    <h2 class="rhs-section__subtitle">Forum</h2>
+    <h2 class="rhs-section__subtitle"><?php echo elgg_echo("rijkshuisstijl:forum"); ?></h2>
     <a href="/questions/all" title="<?php echo elgg_echo("rijkshuisstijl:all"); ?>" class="rhs-section__read-more">
         <?php echo elgg_echo("rijkshuisstijl:all"); ?>
     </a>

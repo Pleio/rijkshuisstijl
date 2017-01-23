@@ -140,7 +140,7 @@ if ($featured_groups && (!$editing || (questions_experts_enabled() && questions_
 			<?php echo elgg_view("input/dropdown", array(
 				"name" => "container_guid",
 				"data-selector" => "reversed",
-				"placeholder" => "Kies een thema",
+				"placeholder" => elgg_echo("rijkshuisstijl:choose_theme"),
 				"options_values" => $container_options,
 				"value" => ($editing) ? $question->container_guid : false,
 				"class" => "js-validateSelecter",
