@@ -91,7 +91,8 @@ echo "</div>"; ?>
         'options' => array(
             elgg_echo("rijkshuisstijl:none") => 'none',
             elgg_echo("rijkshuisstijl:ffd") => 'ffd',
-            elgg_echo("rijkshuisstijl:ht") => 'ht'
+            elgg_echo("rijkshuisstijl:ht") => 'ht',
+            elgg_echo("rijkshuisstijl:cpf") => 'cpf'
         ),
         'value' => $plugin->special ? $plugin->special : "none"
     ));

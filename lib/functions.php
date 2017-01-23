@@ -12,12 +12,12 @@ function rijkshuisstijl_get_featured_groups() {
     ));
 }
 
-function rijkshuisstijl_get_latest_objects($subtype = 'question', ElggGroup $group = null) {
+function rijkshuisstijl_get_latest_objects($subtype = 'question', ElggGroup $group = null, $limit = 5) {
     $options = array(
         'type' => 'object',
         'subtype' => $subtype,
         'order_by' => 'e.time_created DESC',
-        'limit' => 5
+        'limit' => $limit
     );
 
     if ($group) {
@@ -27,7 +27,7 @@ function rijkshuisstijl_get_latest_objects($subtype = 'question', ElggGroup $gro
     return elgg_get_entities($options);
 }
 
-function rijkshuisstijl_get_popular_objects($subtype = 'question', ElggGroup $group = null) {
+function rijkshuisstijl_get_popular_objects($subtype = 'question', ElggGroup $group = null, $limit = 5) {
     global $CONFIG;
 
     $id = (int) get_subtype_id("object", $subtype);
@@ -37,7 +37,16 @@ function rijkshuisstijl_get_popular_objects($subtype = 'question', ElggGroup $gr
         $sql .= " AND container_guid = {$container_guid}";
     }
 
-    $sql .= " ORDER BY views DESC LIMIT 5";
+    $limit = (int) $limit;
+    if ($limit > 50) {
+        $limit = 50;
+    }
+
+    if ($limit < 0) {
+        $limit = 1;
+    }
+
+    $sql .= " ORDER BY views DESC LIMIT {$limit}";
 
     $return = array();
     foreach (get_data($sql) as $object) {

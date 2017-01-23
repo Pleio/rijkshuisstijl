@@ -1,8 +1,9 @@
 <?php
 $special = elgg_get_plugin_setting("special", "rijkshuisstijl");
+$limit = elgg_extract("limit", $vars, 5);
 
-if (isset($vars['group'])) {
-  $group = $vars['group'];
+if (isset($vars["group"])) {
+  $group = $vars["group"];
 }
 ?>
 
@@ -20,8 +21,8 @@ if (isset($vars['group'])) {
                     </h3>
                     <div class="rhs-card-list__content">
                         <?php
-                        foreach (rijkshuisstijl_get_latest_objects('question', $group) as $question)
-                            echo elgg_view("rijkshuisstijl/elements/question_row", array('question' => $question));
+                        foreach (rijkshuisstijl_get_latest_objects("question", $group, $limit) as $question)
+                            echo elgg_view("rijkshuisstijl/elements/question_row", array("question" => $question));
                         ?>
                         <a href="/questions/all?topic=<?php echo ($group) ? $group->guid : "all"; ?>" title="<?php echo elgg_echo("rijkshuisstijl:all"); ?>" class="rhs-read-more rhs-card-list__read-more">
                             <span class="rhs-icon-arrow-right-circle rhs-read-more__icon"></span>
@@ -37,8 +38,8 @@ if (isset($vars['group'])) {
                     </h3>
                     <div class="rhs-card-list__content">
                         <?php
-                        foreach (rijkshuisstijl_get_popular_objects('question', $group) as $question)
-                            echo elgg_view("rijkshuisstijl/elements/question_row", array('question' => $question));
+                        foreach (rijkshuisstijl_get_popular_objects("question", $group, $limit) as $question)
+                            echo elgg_view("rijkshuisstijl/elements/question_row", array("question" => $question));
                         ?>
                         <a href="/questions/all?category=most_viewed&topic=<?php echo ($group) ? $group->guid : "all"; ?>" title="Bekijk alles" class="rhs-read-more rhs-card-list__read-more">
                             <span class="rhs-icon-arrow-right-circle rhs-read-more__icon"></span>
@@ -51,8 +52,8 @@ if (isset($vars['group'])) {
                 <div data-accordion-item="" class="rhs-card-list rhs-card-list--margin-bottom">
                     <div class="rhs-card-list__content">
                         <?php
-                        foreach (rijkshuisstijl_get_latest_objects('question', $group) as $question)
-                            echo elgg_view("rijkshuisstijl/elements/question_row", array('question' => $question));
+                        foreach (rijkshuisstijl_get_latest_objects("question", $group, $limit) as $question)
+                            echo elgg_view("rijkshuisstijl/elements/question_row", array("question" => $question));
                         ?>
                         <a href="/questions/all?topic=<?php echo ($group) ? $group->guid : "all"; ?>" title="<?php echo elgg_echo("rijkshuisstijl:all"); ?>" class="rhs-read-more rhs-card-list__read-more">
                             <span class="rhs-icon-arrow-right-circle rhs-read-more__icon"></span>
