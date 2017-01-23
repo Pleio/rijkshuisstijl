@@ -1,6 +1,13 @@
 <?php
 $topics = rijkshuisstijl_get_featured_groups();
+if (!$topics) {
+  $topics = [];
+}
+
 $blogs = rijkshuisstijl_get_latest_objects("blog");
+if (!$blogs) {
+  $blogs = [];
+}
 ?>
 
 <div class="rhs-row">
