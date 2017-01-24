@@ -58,10 +58,15 @@ function rijkshuisstijl_init() {
 	elgg_register_plugin_hook_handler("route", "subsites", "rijkshuisstijl_route_subsites_hook", 100);
 	elgg_register_plugin_hook_handler("allowed_styles", "htmlawed", "rijkshuisstijl_allowed_styles");
 
-	global $CONFIG;
-    elgg_register_css("rijkshuisstijl", "/css/rijkshuisstijl.css?v=" . $CONFIG->lastcache, 500);
-    elgg_register_css("splash", "/css/splash.css?v=" . $CONFIG->lastcache);
+    $splash_css = elgg_get_simplecache_url("css", "splash");
+    elgg_register_simplecache_view("css/splash");
+    elgg_register_css("splash", $splash_css);
 
+    $rijkshuisstijl_css = elgg_get_simplecache_url("css", "rijkshuisstijl");
+    elgg_register_simplecache_view("css/rijkshuisstijl");
+    elgg_register_css("rijkshuisstijl", $rijkshuisstijl_css);
+
+    global $CONFIG;
 	elgg_register_js("splash", "/mod/rijkshuisstijl/assets/splash.js?v=" . $CONFIG->lastcache , "footer");
 	elgg_register_js("rijkshuisstijl", "/mod/rijkshuisstijl/assets/rijkshuisstijl.js?v=" . $CONFIG->lastcache, "footer");
 	elgg_register_js("rijkshuisstijl-admin", "/mod/rijkshuisstijl/assets/rijkshuisstijlAdmin.js?v=" . $CONFIG->lastcache, "footer");

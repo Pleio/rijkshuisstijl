@@ -1,17 +1,4 @@
 <?php
-$site = elgg_get_site_entity();
-$key = "css_splash_" . $site->guid;
-
-if (is_memcache_available()) {
-    $cache = new ElggMemcache("rijkshuisstijl");
-    $css = $cache->load($key);
-
-    if ($css) {
-        echo $css;
-        return;
-    }
-}
-
 $parser = new Less_Parser();
 $parser->parseFile(RIJKSHUISSTIJL_LESS . "/splash.less", "/mod/rijkshuisstijl/src/assets/");
 
@@ -25,7 +12,3 @@ if ($colors) {
 
 $css = $parser->getCss();
 echo $css;
-
-if (is_memcache_available()) {
-    $cache->save($key, $css, 0);
-}
