@@ -9,11 +9,13 @@ $special = elgg_get_plugin_setting("special", "rijkshuisstijl");
         ]); ?>
     </div>
 
-    <div class="rhs-section rhs-section--background-grey">
-        <?php echo elgg_view("rijkshuisstijl/elements/news", array(
-            "show_title" => true
-        )); ?>
-    </div>
+    <?php if ($special !== "cpf"): ?>
+        <div class="rhs-section rhs-section--background-grey">
+            <?php echo elgg_view("rijkshuisstijl/elements/news", array(
+                "show_title" => true
+            )); ?>
+        </div>
+    <?php endif; ?>
 
     <?php echo elgg_view("rijkshuisstijl/elements/banner"); ?>
 

@@ -44,6 +44,8 @@ $limit = ($special == "cpf" ? 15 : 5)
                             </div>
                         </div>
                     </div>
+                <?php elseif ($special == "cpf"): ?>
+                    <!-- Show nothing -->
                 <?php else: ?>
                     <div class="rhs-col-lg-12">
                         <div data-accordion-item="" class="rhs-card-list rhs-card-list--margin-bottom">
