@@ -31,7 +31,10 @@ function rijkshuisstijl_get_popular_objects($subtype = 'question', ElggGroup $gr
     global $CONFIG;
 
     $id = (int) get_subtype_id("object", $subtype);
-    $sql = "SELECT guid FROM elgg_entity_views WHERE type = 'object' AND subtype = {$id} AND site_guid = {$CONFIG->site_guid}";
+    $time = time() - 3600 * 24 * 30;
+
+    $sql = "SELECT ev.guid FROM elgg_entity_views ev LEFT JOIN elgg_entities e ON ev.guid = e.guid WHERE ev.type = 'object' AND ev.subtype = {$id} AND ev.site_guid = {$CONFIG->site_guid} AND e.time_created > {$time}";
+
     if ($group) {
         $container_guid = (int) $group->guid;
         $sql .= " AND container_guid = {$container_guid}";
