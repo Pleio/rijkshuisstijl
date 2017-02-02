@@ -37,7 +37,7 @@ function rijkshuisstijl_get_popular_objects($subtype = 'question', ElggGroup $gr
 
     if ($group) {
         $container_guid = (int) $group->guid;
-        $sql .= " AND container_guid = {$container_guid}";
+        $sql .= " AND ev.container_guid = {$container_guid}";
     }
 
     $limit = (int) $limit;
