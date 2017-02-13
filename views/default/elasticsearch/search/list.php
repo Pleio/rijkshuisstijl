@@ -57,6 +57,6 @@
             'count' => $vars['results']['count']
         );
 
-        echo elgg_view('navigation/pagination', $options);
+        echo elgg_view('navigation/fastpagination', $options);
     ?>
 </div>

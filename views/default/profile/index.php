@@ -132,27 +132,16 @@
                   <dd><?php echo $vars['number_upvotes']; ?></dd>
                   <dt><?php echo elgg_echo('rijkshuisstijl:profile:downvotes') ?></dt>
                   <dd><?php echo $vars['number_downvotes']; ?></dd>
+
+                  <?php if (elgg_is_admin_logged_in()): ?>
+                    <dt class="rhs-admin__option">
+                      <a href="/admin/users/edit?guid=<?php echo $targetUser->guid; ?>">
+                        <?php echo elgg_echo("rijkshuisstijl:manage_user"); ?>
+                      </a>
+                    </dt>
+                  <?php endif; ?>
               </dl>
             </div>
-
-            <?php if (elgg_is_admin_logged_in()): ?>
-              <div class="rhs-admin__options elgg-avatar">
-                <ul>
-                  <li><span class="js-toggleModal" data-modal-id="#details"><?php echo elgg_echo("rijkshuisstijl:show_details"); ?></span></li>
-                  <li><?php echo elgg_echo("rijkshuisstijl:manage_user"); ?></li>
-                </ul>
-
-                <?php
-                $params = array(
-                  'entity' => $targetUser,
-                  'username' => $targetUser->username,
-                  'name' => $targetUser->name,
-                );
-                echo elgg_view_icon('hover-menu');
-                echo elgg_view_menu('user_hover', $params);
-                ?>
-              </div>
-            <?php endif; ?>
           </div>
         </div>
       </div>
@@ -203,16 +192,4 @@
       </div>
     </div>
   </div>
-  <?php if (elgg_is_admin_logged_in()): ?>
-    <div id="details" tabindex="0" class="rhs-modal">
-      <div data-modal-id="#details" class="rhs-modal__background js-toggleModal"></div>
-      <div class="rhs-modal__box">
-        <button data-modal-id="#details" class="rhs-modal__close js-toggleModal">Sluit modal</button>
-        <h2 class="rhs-modal__title">Details van gebruiker</h2>
-        <div class="rhs-modal__content">
-          <?php echo elgg_view("profile/details"); ?>
-        </div>
-      </div>
-    </div>
-  <?php endif; ?>
 </div>

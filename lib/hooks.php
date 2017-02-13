@@ -66,3 +66,24 @@ function rijkshuisstijl_site_menu_prepare($hook, $type, $value, $params) {
 
     return $return;
 }
+
+function rijkshuisstijl_user_setup_menu($hook, $type, $items, $params) {
+    $entity = elgg_extract("entity", $params);
+    if (!$entity || !$entity instanceof ElggUser) {
+        return $items;
+    }
+
+    foreach ($items as $key => $item) {
+        if (in_array($item->getName(), ["add_friend"])) {
+            unset($items[$key]);
+        }
+    }
+
+    $items[] = ElggMenuItem::factory([
+        "name" => "edit",
+        "text" => elgg_echo("rijkshuisstijl:edit"),
+        "href" => "/admin/users/edit?guid={$entity->guid}"
+    ]);
+
+    return $items;
+}

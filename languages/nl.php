@@ -150,7 +150,19 @@ $dutch = array(
     'rijkshuisstijl:object:pinboard' => 'bericht',
     'rijkshuisstijl:object:answer' => 'antwoord',
     'rijkshuisstijl:object:comment' => 'reactie',
-    'registration:dupeemail' => 'Dit e-mail adres is al geregistreerd. Vraag <a href="/forgotpassword">hier</a> uw wachtwoord op.'
+    'registration:dupeemail' => 'Dit e-mail adres is al geregistreerd. Vraag <a href="/forgotpassword">hier</a> uw wachtwoord op.',
+    'admin:users:all' => 'Alle gebruikers',
+    'admin:users:edit' => 'Wijzig gebruiker',
+    'rijkshuisstijl:admin:profile:details' => 'Profiel details',
+    'rijkshuisstijl:time_created' => 'Aanmaakdatum',
+    'rijkshuisstijl:time_updated' => 'Laatste wijzigdatum',
+    'rijkshuisstijl:last_action' => 'Laatste actie',
+    'rijkshuisstijl:prev_last_action' => 'Voorlaatste actie',
+    'rijkshuisstijl:last_login' => 'Laatste login',
+    'rijkshuisstijl:prev_last_login' => 'Voorlaatste login',
+    'rijkshuisstijl:admin:profile:edit' => 'Wijzig profiel',
+    'rijkshuisstijl:view_profile' => 'Bekijk profiel'
+
 );
 
 add_translation('nl', $dutch);

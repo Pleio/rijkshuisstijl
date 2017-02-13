@@ -23,6 +23,7 @@ $count = elgg_extract('count', $vars);
 $base_url = elgg_extract('base_url', $vars, '');
 $display_as_list = elgg_extract('display_as_list', $vars, true);
 $pagination = elgg_extract('pagination', $vars, true);
+$fast_pagination = elgg_extract('fast_pagination', $vars, false);
 $offset_key = elgg_extract('offset_key', $vars, 'offset');
 
 $list_class = 'elgg-list';
@@ -66,15 +67,25 @@ if ($display_as_list) {
 }
 
 if ($pagination && $count) {
-    $html .= '<div class="forum__pagination">';
-    $html .= elgg_view('navigation/pagination', array(
-        'base_url' => $base_url,
-        'offset' => $offset,
-        'count' => $count,
-        'limit' => $limit,
-        'offset_key' => $offset_key,
-    ));
-    $html .= '</div>';
+    if ($fast_pagination) {
+        $html .= '<div class="forum__pagination">';
+        $html .= elgg_view('navigation/fastpagination', array(
+            'base_url' => $base_url,
+            'offset' => $offset,
+            'count' => $count,
+            'limit' => $limit,
+            'offset_key' => $offset_key,
+        ));
+        $html .= '</div>';
+    } else {
+        $html .= elgg_view('navigation/pagination', array(
+            'base_url' => $base_url,
+            'offset' => $offset,
+            'count' => $count,
+            'limit' => $limit,
+            'offset_key' => $offset_key,
+        ));
+    }
 }
 
 echo $html;

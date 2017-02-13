@@ -12,7 +12,8 @@ if ($user_guid) {
 $options = array(
     "type" => "object",
     "subtype" => "question",
-    "full_view" => false
+    "full_view" => false,
+    "fast_pagination" => true
 );
 
 $topic = get_input("topic");

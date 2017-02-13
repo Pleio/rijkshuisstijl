@@ -82,15 +82,23 @@ function rijkshuisstijl_init() {
     	elgg_load_js("elgg.embed");
     }
 
+    if (elgg_in_context("admin")) {
+        elgg_register_plugin_hook_handler("register", "menu:entity", "rijkshuisstijl_user_setup_menu", 502);
+    }
+
     // revert hacks of older Elgg modules
     elgg_unextend_view("page/elements/head", "subsite_manager/topbar_fix");
 
 	elgg_register_page_handler("login", "rijkshuisstijl_pages_login_handler");
 	elgg_register_page_handler("forgotpassword", "rijkshuisstijl_pages_forgotpassword_handler");
+	elgg_register_page_handler("profile", "rijkshuisstijl_profile_page_handler");
 	elgg_register_page_handler("register", "rijkshuisstijl_pages_register_handler");
 	elgg_register_page_handler("resetpassword", "rijkshuisstijl_pages_resetpassword_handler");
 	elgg_register_page_handler("search", "rijkshuisstijl_search_page_handler");
 	elgg_register_page_handler("graphql", "rijkshuisstijl_graphql_page_handler");
+	elgg_register_page_handler("videos", "rijkshuisstijl_videos_page_handler");
+
+    elgg_unregister_page_handler("avatar", "elgg_avatar_page_handler");
 
 	// automatically subscribe users to question when they post a question
 	elgg_register_event_handler("create", "object", "rijkshuisstijl_create_object_handler");
@@ -105,6 +113,9 @@ function rijkshuisstijl_init() {
 
 	elgg_unregister_action("user/passwordreset");
 	elgg_register_action("user/passwordreset", dirname(__FILE__) . "/actions/user/passwordreset.php", "public");
+
+    elgg_unregister_action("profile/edit");
+    elgg_register_action("profile/edit", dirname(__FILE__) . "/actions/profile/edit.php");
 
 	elgg_unregister_action("logout");
 	elgg_register_action("logout", dirname(__FILE__) . "/actions/logout.php");
@@ -121,6 +132,8 @@ function rijkshuisstijl_init() {
 	elgg_register_action("rijkshuisstijl/search", dirname(__FILE__) . "/actions/search.php", "public");
 	elgg_register_action("rijkshuisstijl/vote", dirname(__FILE__) . "/actions/vote.php");
 
+    elgg_register_admin_menu_item("administer", "all", "users");
+
     if (!isset($_COOKIE["CSRF_TOKEN"])) {
         $token = md5(openssl_random_pseudo_bytes(32));
         $domain = ini_get("session.cookie_domain");
@@ -128,59 +141,26 @@ function rijkshuisstijl_init() {
     }
 }
 
-/**
- * Profile page handler
- *
- * @param array $page Array of URL segments passed by the page handling mechanism
- * @return bool
- */
 function rijkshuisstijl_profile_page_handler($page) {
 	if (isset($page[0])) {
-		$username = $page[0];
-		$user = get_user_by_username($username);
-		elgg_set_page_owner_guid($user->guid);
-	} elseif (elgg_is_logged_in()) {
-		forward(elgg_get_logged_in_user_entity()->getURL());
-	}
+        $username = $page[0];
+        $user = get_user_by_username($username);
+        elgg_set_page_owner_guid($user->guid);
+    } elseif (elgg_is_logged_in()) {
+        forward(elgg_get_logged_in_user_entity()->getURL());
+    }
 
-	// short circuit if invalid or banned username
-	if (!$user || ($user->isBanned() && !elgg_is_admin_logged_in())) {
-		register_error(elgg_echo("profile:notfound"));
-		forward();
+	switch ($page[1]) {
+		case "interests":
+			include(dirname(__FILE__) . "/pages/profile/interests.php");
+			return true;
+		case "settings":
+			include(dirname(__FILE__) . "/pages/profile/settings.php");
+			return true;
+		default:
+			include(dirname(__FILE__) . "/pages/profile/index.php");
+			return true;
 	}
-
-	$action = NULL;
-	if (isset($page[1])) {
-		$action = $page[1];
-	}
-
-	if ($action == "edit") {
-		// use the core profile edit page
-		require dirname(__FILE__) . "/pages/profile/edit.php";
-		return true;
-	}
-	else if ($action == "interests")
-	{
-		require dirname(__FILE__) . "/pages/profile/interests.php";
-		return true;
-	}
-	else if ($action == "settings")
-	{
-		require dirname(__FILE__) . "/pages/profile/settings.php";
-		return true;
-	}
-	else
-	{
-		require dirname(__FILE__) . "/pages/profile/index.php";
-		return true;
-	}
-
-	// main profile page
-	$content = elgg_view("profile/wrapper");
-
-	$body = elgg_view_layout("one_column", array("content" => $content));
-	echo elgg_view_page($user->name, $body);
-	return true;
 }
 
 function rijkshuisstijl_page_handler($page) {
@@ -195,6 +175,25 @@ function rijkshuisstijl_page_handler($page) {
 					return true;
 			}
 	}
+}
+
+function rijkshuisstijl_videos_page_handler($page) {
+    switch($segments[0]) {
+        case "add":
+            include(dirname(__FILE__) . "/pages/videos/edit.php");
+
+            break;
+        case "edit":
+            set_input("guid", $segments[1]);
+            include(dirname(__FILE__) . "/pages/videos/edit.php");
+            break;
+        case "all":
+        default:
+            include(dirname(__FILE__) . "/pages/videos/all.php");
+            break;
+    }
+
+    return true;
 }
 
 function rijkshuisstijl_admin_page_handler($page) {
@@ -345,43 +344,6 @@ function rijkshuisstijl_route_pages_hook($hook_name, $entity_type, $return_value
 			}
 
 			include(dirname(__FILE__) . "/pages/pages/view.php");
-			return false;
-			break;
-	}
-}
-
-function rijkshuisstijl_route_profile_hook($hook_name, $entity_type, $return_value, $params) {
-	$page = elgg_extract("segments", $return_value);
-
-	if (isset($page[0])) {
-		$username = $page[0];
-		$user = get_user_by_username($username);
-		elgg_set_page_owner_guid($user->guid);
-	} elseif (elgg_is_logged_in()) {
-		forward(elgg_get_logged_in_user_entity()->getURL());
-	}
-
-	// short circuit if invalid or banned username
-	if (!$user || ($user->isBanned() && !elgg_is_admin_logged_in())) {
-		register_error(elgg_echo("profile:notfound"));
-		forward();
-	}
-
-	switch ($page[1]) {
-		case "edit":
-			include(dirname(__FILE__) . "/pages/profile/edit.php");
-			return false;
-			break;
-		case "interests":
-			include(dirname(__FILE__) . "/pages/profile/interests.php");
-			return false;
-			break;
-		case "settings":
-			include(dirname(__FILE__) . "/pages/profile/settings.php");
-			return false;
-			break;
-		default:
-			include(dirname(__FILE__) . "/pages/profile/index.php");
 			return false;
 			break;
 	}

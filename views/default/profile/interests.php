@@ -74,82 +74,87 @@
               </label>
             </p>
 
-            <p class="rhs-form__element rhs-form__element--no-padding">
-              <label for="option-2" class="rhs-checkbox rhs-checkbox--theme">
-                <?php $options = array(
-                  "id" => "option-2",
-                  "name" => "option-$opt"
-                  //"class" => "rhs-checkbox__input js-validateCheckbox"
-                );
+            <?php if (elgg_is_active_plugin("newsletter")): ?>
+              <p class="rhs-form__element rhs-form__element--no-padding">
+                <label for="option-2" class="rhs-checkbox rhs-checkbox--theme">
+                  <?php $options = array(
+                    "id" => "option-2",
+                    "name" => "option-$opt"
+                    //"class" => "rhs-checkbox__input js-validateCheckbox"
+                  );
 
-                if (newsletter_check_user_subscription($targetUser, elgg_get_site_entity()))
-                {
-                  $options['checked'] = 'checked';
-                }
+                  if (newsletter_check_user_subscription($targetUser, elgg_get_site_entity()))
+                  {
+                    $options['checked'] = 'checked';
+                  }
 
-                ?>
-                <?php echo elgg_view("input/checkbox", $options) ?>
-                <?php echo elgg_echo('rijkshuisstijl:profile:interests:receivenewsletter'); ?>
-                </label>
-            </p>
+                  ?>
+                  <?php echo elgg_view("input/checkbox", $options) ?>
+                  <?php echo elgg_echo('rijkshuisstijl:profile:interests:receivenewsletter'); ?>
+                  </label>
+              </p>
+            <?php endif; ?>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="rhs-section rhs-section--item rhs-section--background-transparent">
-      <div class="rhs-profile-block rhs-profile-block--small-bottom-padding">
-        <div class="rhs-row">
-          <div class="rhs-col-sm-12">
-            <h2 class="rhs-profile-block__title"><?php echo elgg_echo('rijkshuisstijl:profile:interests:emailsummary') ?></h2>
-          </div>
-        </div>
-        <div class="rhs-row">
-          <?php
-            $groups = rijkshuisstijl_get_featured_groups();
-            $groupCountPerColumn = ceil(count($groups) / 3);
-            $groupIndex = 0;
 
-            for ($i = 0; $i < 3; $i++) :
-              if ($groupIndex >= count($groups))
-                break;
-          ?>
-            <div class="rhs-col-md-4 rhs-col-sm-6">
-              <?php
-                for ($j = 0; $j < $groupCountPerColumn; $j++) :
-                  if ($groupIndex >= count($groups))
-                    break;
-
-                  $group = $groups[$groupIndex++];
-                  $interval = $targetUser->getPrivateSetting("digest_" . $group->guid);
-              ?>
-                  <p class="rhs-form__element">
-                    <label class="rhs-form__label"><span class="rhs-form__label-text"><?php echo $group->name ?></span>
-                      <?php echo elgg_view("input/dropdown", array(
-                        "name" => "groupNotifications",
-                        "data-group-id" => $group->guid,
-                        "data-label" => "custom",
-                        "value" =>  $interval,
-                        "options_values" => array(
-                          "none" => elgg_echo("digest:interval:none"),
-                          "daily" => elgg_echo("digest:interval:daily"),
-                          "weekly" => elgg_echo("digest:interval:weekly"),
-                          "fortnightly" => elgg_echo("digest:interval:fortnightly"),
-                          "Monthly" => elgg_echo("digest:interval:monthly")
-                        )
-                      ));
-                      ?>
-                    </label>
-                  </p>
-              <?php
-                endfor;
-              ?>
+    <?php if (elgg_is_active_plugin("digest")): ?>
+      <div class="rhs-section rhs-section--item rhs-section--background-transparent">
+        <div class="rhs-profile-block rhs-profile-block--small-bottom-padding">
+          <div class="rhs-row">
+            <div class="rhs-col-sm-12">
+              <h2 class="rhs-profile-block__title"><?php echo elgg_echo('rijkshuisstijl:profile:interests:emailsummary') ?></h2>
             </div>
-          <?php
-            endfor;
-          ?>
+          </div>
+          <div class="rhs-row">
+            <?php
+              $groups = rijkshuisstijl_get_featured_groups();
+              $groupCountPerColumn = ceil(count($groups) / 3);
+              $groupIndex = 0;
+
+              for ($i = 0; $i < 3; $i++) :
+                if ($groupIndex >= count($groups))
+                  break;
+            ?>
+              <div class="rhs-col-md-4 rhs-col-sm-6">
+                <?php
+                  for ($j = 0; $j < $groupCountPerColumn; $j++) :
+                    if ($groupIndex >= count($groups))
+                      break;
+
+                    $group = $groups[$groupIndex++];
+                    $interval = $targetUser->getPrivateSetting("digest_" . $group->guid);
+                ?>
+                    <p class="rhs-form__element">
+                      <label class="rhs-form__label"><span class="rhs-form__label-text"><?php echo $group->name ?></span>
+                        <?php echo elgg_view("input/dropdown", array(
+                          "name" => "groupNotifications",
+                          "data-group-id" => $group->guid,
+                          "data-label" => "custom",
+                          "value" =>  $interval,
+                          "options_values" => array(
+                            "none" => elgg_echo("digest:interval:none"),
+                            "daily" => elgg_echo("digest:interval:daily"),
+                            "weekly" => elgg_echo("digest:interval:weekly"),
+                            "fortnightly" => elgg_echo("digest:interval:fortnightly"),
+                            "Monthly" => elgg_echo("digest:interval:monthly")
+                          )
+                        ));
+                        ?>
+                      </label>
+                    </p>
+                <?php
+                  endfor;
+                ?>
+              </div>
+            <?php
+              endfor;
+            ?>
+          </div>
         </div>
       </div>
-    </div>
+    <?php endif; ?>
   </div>
 </div>

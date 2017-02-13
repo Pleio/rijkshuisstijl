@@ -150,7 +150,18 @@ $english = array(
     'rijkshuisstijl:object:pinboard' => 'message',
     'rijkshuisstijl:object:answer' => 'answer',
     'rijkshuisstijl:object:comment' => 'comment',
-    'registration:dupeemail' => 'This e-mail address is already registered. Request your password <a href="/forgotpassword">here</a>.'
+    'registration:dupeemail' => 'This e-mail address is already registered. Request your password <a href="/forgotpassword">here</a>.',
+    'admin:users:all' => 'All users',
+    'admin:users:edit' => 'Edit user',
+    'rijkshuisstijl:admin:profile:details' => 'Profile details',
+    'rijkshuisstijl:time_created' => 'Time created',
+    'rijkshuisstijl:time_updated' => 'Time updated',
+    'rijkshuisstijl:last_action' => 'Last action',
+    'rijkshuisstijl:prev_last_action' => 'Previous last action',
+    'rijkshuisstijl:last_login' => 'Last login',
+    'rijkshuisstijl:prev_last_login' => 'Previous last login',
+    'rijkshuisstijl:admin:profile:edit' => 'Edit profile',
+    'rijkshuisstijl:view_profile' => 'View profile'
 );
 
 add_translation('en', $english);
