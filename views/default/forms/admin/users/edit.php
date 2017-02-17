@@ -1,4 +1,6 @@
-<?php $user = elgg_extract("user", $vars); ?>
+<?php 
+$user = elgg_extract("entity", $vars); 
+?>
 
 <?php echo elgg_view_module(
     "inline",

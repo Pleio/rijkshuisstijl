@@ -10,7 +10,7 @@ foreach ($fields as $category_key => $category) {
         $valtype = $field->metadata_type;
 
         $metadata = elgg_get_metadata(array(
-            'guid' => $vars['entity']->guid,
+            'guid' => $user->guid,
             'metadata_name' => $shortname,
             'limit' => false
         ));
