@@ -5,6 +5,11 @@ $items = ["time_created", "time_updated", "last_action", "prev_last_action", "la
 
 <table class="elgg-table">
     <tr>
+        <td><?php echo elgg_echo("username"); ?></td>
+        <td><?php echo $user->username; ?></td>
+    </tr>
+
+    <tr>
         <td><?php echo elgg_echo("email"); ?></td>
         <td><?php echo $user->email; ?></td>
     </tr>
