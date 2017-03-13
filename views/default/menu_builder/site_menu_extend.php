@@ -9,7 +9,7 @@ if (isset($_SESSION["menu_builder_edit_mode"])) {
     function menu_builder_reorder_menu(menu){
         var menu_items = new Array();
 
-        $(menu).find(" > li:not(.elgg-menu-item-menu-builder-add, .elgg-menu-item-menu-builder-switch-context, .elgg-menu-item-menu-builder-edit-mode) > a").each(function(index, elem){
+        $(menu).find("a").each(function(index, elem){
             menu_items.push($(elem).attr("id"));
         });
 
@@ -75,12 +75,21 @@ if (isset($_SESSION["menu_builder_edit_mode"])) {
             event.preventDefault();
         });
 
-        $(".elgg-menu-site, .elgg-menu-site .elgg-child-menu").sortable({
-            items: " > li:not(.elgg-menu-item-menu-builder-add, .elgg-menu-item-menu-builder-switch-context, .elgg-menu-item-menu-builder-edit-mode)",
-            update: function(event, ui) {
+        // main items
+        $(".rhs-main-navigation__wrapper").sortable({
+            items: ".rhs-dropdown",
+            update: function(e, ui) {
                 menu_builder_reorder_menu(this);
             }
         });
+
+        // sub items
+        $(".rhs-dropdown__wrapper").sortable({
+            items: ".rhs-dropdown__link",
+            update: function(e, ui) {
+                menu_builder_reorder_menu(this);
+            }
+        })
 
 
 
