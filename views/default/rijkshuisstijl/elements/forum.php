@@ -17,6 +17,18 @@ $limit = ($special == "cpf" ? 15 : 5)
   </a>
 <?php endif; ?>
 
+<?php if ($special == "cpf"): ?>
+    <form method="get" action="/questions/all">
+      <div class="rhs-bulletin-action">
+        <div class="rhs-row">
+            <div class="rhs-col-lg-3">
+                <?php echo elgg_view("rijkshuisstijl/input/topic"); ?>
+            </div>
+        </div>
+      </div>
+    </form>
+<?php endif; ?>
+
 <div class="rhs-row">
   <?php foreach ($groups as $group): ?>
     <div class="rhs-col-lg-<?php echo ($special === "cpf") ? 12 : 6; ?>">
