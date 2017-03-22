@@ -180,13 +180,12 @@ function rijkshuisstijl_page_handler($page) {
 }
 
 function rijkshuisstijl_videos_page_handler($page) {
-    switch($segments[0]) {
+    switch($page[0]) {
         case "add":
             include(dirname(__FILE__) . "/pages/videos/edit.php");
-
             break;
         case "edit":
-            set_input("guid", $segments[1]);
+            set_input("guid", $page[1]);
             include(dirname(__FILE__) . "/pages/videos/edit.php");
             break;
         case "all":
