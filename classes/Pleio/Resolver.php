@@ -286,4 +286,18 @@ class Resolver {
             "entities" => $entities
         ];
     }
+
+    static function tagsAutocomplete($a, $args, $c) {
+        $q = sanitize_string($args["q"]);
+        if (!$q) {
+            return [];
+        }
+        
+        $tags = string_to_tag_array(elgg_get_plugin_setting("tags", "rijkshuisstijl"));
+
+        $result = preg_grep('~' . $q . '~', $tags);
+        $result = array_slice($result, 0, 5);
+
+        return $result;
+    }
 }

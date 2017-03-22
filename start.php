@@ -82,6 +82,8 @@ function rijkshuisstijl_init() {
     	elgg_load_js("elgg.embed");
     }
 
+    elgg_extend_view("css/admin", "rijkshuisstijl/css/admin");
+
     if (elgg_in_context("admin")) {
         elgg_register_plugin_hook_handler("register", "menu:entity", "rijkshuisstijl_user_setup_menu", 502);
     }

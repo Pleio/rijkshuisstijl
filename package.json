@@ -25,6 +25,7 @@
     "core-js": "^2.4.1",
     "es6-promise": "^4.0.5",
     "graphql-tag": "^0.1.14",
+    "immutable": "^3.8.1",
     "isomorphic-fetch": "^2.2.1",
     "jsx-loader": "^0.13.2",
     "lodash": "^4.16.3",

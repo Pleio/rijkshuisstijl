@@ -346,6 +346,15 @@ class SchemaBuilder {
                     ],
                     "resolve" => "Pleio\Resolver::search"
                 ],
+                "tagsAutocomplete" => [
+                    "type" => Type::listOf(Type::string()),
+                    "args" => [
+                        "q" => [
+                            "type" => Type::nonNull(Type::string())
+                        ]
+                    ],
+                    "resolve" => "Pleio\Resolver::tagsAutocomplete"
+                ],
                 "entities" => [
                     "type" => $entityListType,
                     "args" => [

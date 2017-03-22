@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom'
 import React from 'react'
 
 import SearchResults from './SearchResults'
+import Tags from './components/Tags'
 import CommentList from './components/CommentList'
 import ApolloClient, { createNetworkInterface }  from 'apollo-client';
 import { ApolloProvider } from 'react-apollo';
@@ -57,6 +58,19 @@ function rijkshuisstijl_init() {
             comments
         )
     }
+
+    $("[data-tags]").each(function() {
+        var value = $(this).data("value").split(",").filter(function(item) {
+            return item
+        })
+
+        ReactDOM.render(
+            <ApolloProvider client={client}>
+                <Tags name={$(this).data("name")} value={value} />
+            </ApolloProvider>,
+            this
+        )
+    })
 }
 
 elgg.register_hook_handler("init", "system", rijkshuisstijl_init);

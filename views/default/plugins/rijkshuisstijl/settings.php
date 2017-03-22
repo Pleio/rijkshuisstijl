@@ -111,3 +111,10 @@ echo "<p>";
     ));
 echo "</p>";
 
+echo "<p>";
+    echo "<label>" . elgg_echo("tags") . "</label>";
+    ?>
+    <div style="clear: both" id="rijkshuisstijl-tags" data-value="<?php echo $plugin->tags;?>"></div>
+    <?php
+echo "</p>";
+
