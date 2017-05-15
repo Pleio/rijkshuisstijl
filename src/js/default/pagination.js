@@ -13,7 +13,12 @@ var $ = require("jquery");
 
         var parser = document.createElement('a');
         parser.href = window.location.href;
+        
+        var url = parser.pathname;
+        if (url.substr(0, 1) != "/") {
+            url = "/" + url;
+        }
 
-        window.location.href = parser.protocol + "//" + parser.hostname + parser.pathname + "?offset=" + (page - 1) * 10 + "&limit=10";
+        window.location.href = url + "?offset=" + (page - 1) * 10 + "&limit=10";
     })
 })();
