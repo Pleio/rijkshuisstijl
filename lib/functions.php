@@ -193,3 +193,30 @@ function rijkshuisstijl_get_online_users() {
         ]
     ));
 }
+
+function rijkshuisstijl_blog_can_comment(ElggObject $object) {
+    if (!$object instanceof ElggObject) {
+        return false;
+    }
+
+    if ($object->comments_on === "On") {
+        return true;
+    }
+
+    return false;
+}
+
+function rijkshuisstijl_count_answers(ElggObject $object) {
+    if (!$object instanceof ElggObject) {
+        return 0;
+    }
+
+    $options = [
+        "type" => "object",
+        "subtype" => "comment",
+        "container_guid" => $object->guid,
+        "count" => true
+    ];
+
+    return elgg_get_entities($options);
+}
