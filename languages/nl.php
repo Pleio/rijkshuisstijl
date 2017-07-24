@@ -161,8 +161,9 @@ $dutch = array(
     'rijkshuisstijl:last_login' => 'Laatste login',
     'rijkshuisstijl:prev_last_login' => 'Voorlaatste login',
     'rijkshuisstijl:admin:profile:edit' => 'Wijzig profiel',
-    'rijkshuisstijl:view_profile' => 'Bekijk profiel'
-
+    'rijkshuisstijl:view_profile' => 'Bekijk profiel',
+    'polls:topic' => 'Verwant forum topic',
+    'polls:link' => 'Externe link'
 );
 
 add_translation('nl', $dutch);

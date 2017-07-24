@@ -17,6 +17,14 @@ $special = elgg_get_plugin_setting("special", "rijkshuisstijl");
         </div>
     <?php endif; ?>
 
+    <?php if (elgg_is_active_plugin("polls")): ?>
+        <div class="rhs-section rhs-section--with-row rhs-section--no-subtitle">
+            <div class="rhs-container">
+                <?php echo elgg_view("rijkshuisstijl/elements/poll"); ?>
+            </div>
+        </div>
+    <?php endif; ?>
+
     <?php echo elgg_view("rijkshuisstijl/elements/banner"); ?>
 
     <?php if (elgg_is_active_plugin("pinboard")): ?>

@@ -220,3 +220,68 @@ function rijkshuisstijl_count_answers(ElggObject $object) {
 
     return elgg_get_entities($options);
 }
+
+function rijkshuisstijl_get_latest_poll() {
+    $options = [
+        "type" => "object",
+        "subtype" => "poll",
+        "limit" => 1
+    ];
+
+    $entities = elgg_get_entities($options);
+
+    if (!$entities) {
+        return false;
+    }
+
+    return $entities[0];
+}
+
+function rijkshuisstijl_calculate_poll_results($poll) {
+    $total = (int) $poll->countAnnotations("vote");
+    $responses = $poll->getAnnotations("vote", 9999, 0, "desc");
+
+    $highest = 0;
+    $result = [];
+
+    foreach (polls_get_choice_array($poll) as $option) {
+        $count = polls_get_response_count($option, $responses) ?: 0;
+
+        $result[] = [
+            "title" => $option,
+            "count" => $count,
+            "percentage" => ($total !== 0) ? round(($count / $total) * 100) : 0,
+        ];
+
+        if ($count > $highest) {
+            $highest = $count;
+        }
+    }
+
+    foreach ($result as $key => $item) {
+        if ($item["count"] == $highest) {
+            $result[$key]["most_votes"] = true;
+            break;
+        }
+    }
+
+    return $result;
+}
+
+function rijkshuisstijl_can_vote_on_poll($poll) {
+    $logged_in = elgg_get_logged_in_user_entity();
+
+    if (!$logged_in) {
+        return false;
+    }
+
+    if ($poll->close_date && $poll->close_date < time()) {
+        return false;
+    }
+
+    if (!polls_check_for_previous_vote($poll, $logged_in->guid)) {
+        return true;
+    }
+
+    return false;
+}

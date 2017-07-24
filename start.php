@@ -52,6 +52,8 @@ function rijkshuisstijl_init() {
 
 		elgg_register_action("rijkshuisstijl/admin/banner", dirname(__FILE__) . "/actions/admin/banner.php", "admin");
 		elgg_register_action("rijkshuisstijl/validate_becon", dirname(__FILE__) . "/actions/validate_becon.php", "public");
+        elgg_register_action("polls/vote", dirname(__FILE__) . "/actions/polls/vote.php");
+        elgg_register_action("polls/edit", dirname(__FILE__) . "/actions/polls/edit.php");
     }
 
 	elgg_register_plugin_hook_handler("route", "profile", "rijkshuisstijl_route_profile_hook", 100);

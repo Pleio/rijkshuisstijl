@@ -161,7 +161,9 @@ $english = array(
     'rijkshuisstijl:last_login' => 'Last login',
     'rijkshuisstijl:prev_last_login' => 'Previous last login',
     'rijkshuisstijl:admin:profile:edit' => 'Edit profile',
-    'rijkshuisstijl:view_profile' => 'View profile'
+    'rijkshuisstijl:view_profile' => 'View profile',
+    'polls:topic' => 'Link to discussion',
+    'polls:link' => 'External link'
 );
 
 add_translation('en', $english);
