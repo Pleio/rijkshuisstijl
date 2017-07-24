@@ -1,0 +1,26 @@
+.@{namespace}-related {
+    display: block;
+    margin-bottom: 2.5rem;
+    text-decoration: none;
+    color: inherit;
+
+    &:hover .@{namespace}-related__more {
+        color: @color-septenary;
+    }
+}
+
+.@{namespace}-related__title {
+    color: @color-septenary;
+}
+
+.@{namespace}-related__more {
+    margin-top: .5rem;
+    color: @color-quaternary;
+    transition: color 0.2s ease;
+
+    &:before {
+        content: @icon-arrow-right-circle;
+        font-family: @font--icons;
+        font-size: 2rem;
+    }
+}

@@ -1,65 +1,65 @@
 .@{namespace}-radios {
-  .clearfix();
+    .clearfix();
 }
 
 .@{namespace}-radio {
-  display: block;
-  padding-left: 3rem;
-  padding-top: 0.1rem;
-  padding-bottom: 0.3rem;
-  position: relative;
-  cursor: pointer;
+    display: block;
+    padding-left: 3rem;
+    padding-top: 0.1rem;
+    padding-bottom: 0.3rem;
+    position: relative;
+    cursor: pointer;
 
-  a {
-    .link()
-  }
+    a {
+        .link()
+    }
 }
 
 .@{namespace}-radio--floated { // This is to display them next to each other
-  float: left;
-  margin-right: 3rem;
+    float: left;
+    margin-right: 3rem;
 }
 
 .@{namespace}-radio__placeholder {
-  width: 2rem;
-  height: 2rem;
-  position: absolute;
-  left: 0;
-  top: 0.2rem;
-  background-color: @color-white;
-  border: 2px solid @color-grey--60;
-  border-radius: 50%;
-  transition: @trans-all;
-
-  .focus > & {
-    border-color: @color-septenary;
-  }
-
-  &:after {
-    content: '';
-    position: absolute;
-    border-radius: 50%;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%) scale(0.6);
     width: 2rem;
     height: 2rem;
+    position: absolute;
+    left: 0;
+    top: 0.2rem;
     background-color: @color-white;
+    border: 2px solid @color-grey--60;
+    border-radius: 50%;
     transition: @trans-all;
 
-    :hover > & {
-      background-color: @color-grey--50;
+    .focus > &:after {
+        background-color: @color-primary;
     }
 
-    .chosen & {
-      background-color: @color-tertiary;
+    &:after {
+        content: '';
+        position: absolute;
+        border-radius: 50%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(0.6);
+        width: 2rem;
+        height: 2rem;
+        background-color: @color-white;
+        transition: @trans-all;
+
+        :hover > & {
+            background-color: @color-primary;
+        }
+
+        .chosen & {
+            background-color: @color-septenary;
+        }
     }
-  }
 }
 
 .@{namespace}-radio__input {
-  opacity: 0;
-  position: absolute;
-  top: 0;
-  left: 0;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
 }

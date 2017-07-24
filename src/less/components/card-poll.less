@@ -1,0 +1,158 @@
+.@{namespace}-card-poll {
+    border-bottom: 1px solid @color-grey--60;
+    position: relative;
+    display: flex;
+    padding: 2.7rem 3rem 3rem 3rem;
+    box-shadow: @box-shadow-big;
+    border: none;
+    background-color: @color-nonary;
+
+    @media (max-width: @screen-sm-max) {
+        flex-wrap: wrap;
+    }
+
+    @media (max-width: @screen-sm-max) {
+        font-size: 1.6rem;
+        line-height: 2.2rem;
+    }
+
+    &.___results {
+        background-color: white;
+    }
+
+    .rhs-radio {
+        margin-bottom: .5rem;
+    }
+}
+
+.@{namespace}-card-poll__icon {
+    flex: 0 0 auto;
+    width: 5rem;
+    height: 5rem;
+    margin: .7rem 2rem 0 0;
+    display: flex;
+
+    @media (max-width: @screen-sm-max) {
+        display: none;
+    }
+}
+
+.@{namespace}-card-poll--margin-bottom {
+    margin-bottom: 2rem;
+}
+
+.@{namespace}-card-poll__title {
+    margin: 0 0 1.5rem;
+    padding: 0;
+    font-size: 2.4rem;
+    line-height: 3rem;
+
+    @media (min-width: @screen-md) {
+        font-size: 2.8rem;
+        line-height: 3.4rem;
+    }
+}
+
+.@{namespace}-card-poll__content {
+    flex: 1 1 auto;
+    width: 100%;
+}
+
+.@{namespace}-card-poll__actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    font-size: @font-size--medium;
+    color: @color-grey--80;
+    margin-top: 2.5rem;
+
+    > * {
+        &:not(:last-child) {
+            margin-right: 1rem;
+        }
+    }
+
+    > * + .@{namespace}-card-poll__stats {
+        @media (max-width: @screen-md-max) {
+            margin-top: 1rem;
+        }
+
+        @media (min-width: @screen-lg) {
+            margin-left: 1rem;
+        }
+    }
+
+    span {
+        padding: .8rem 0;
+    }
+}
+
+.@{namespace}-card-poll__stats {
+    display: flex;
+    align-items: center;
+
+    > *:not(:last-child) {
+        margin-right: 1rem;
+    }
+
+    @media (max-width: @screen-md-max) {
+        width: 100%;
+    }
+}
+
+.@{namespace}-card-poll__votes {
+    display: flex;
+    align-items: center;
+}
+
+.@{namespace}-card-poll__votes-icon {
+    position: relative;
+    width: 2rem;
+    height: 2rem;
+    border: 2px solid @color-grey--60;
+    border-radius: 50%;
+    margin: 0 .7rem 0 0;
+
+    &:after {
+        content: '';
+        position: absolute;
+        border-radius: 50%;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+        width: 1.2rem;
+        height: 1.2rem;
+        background-color: @color-grey--60;
+    }
+}
+
+.@{namespace}-card-poll__related {
+    @media (max-width: @screen-sm-max) {
+        width: 100%;
+    }
+
+    @media (min-width: @screen-md) {
+        margin-left: 2rem;
+        width: 22rem;
+        flex: 0 0 auto;
+        display: flex;
+    }
+}
+
+.@{namespace}-card-poll__related-content {
+    @media (max-width: @screen-sm-max) {
+        float: left; // makes negative margin work in FF & IE
+        width: 100%;
+        margin-top: 1.5rem;
+        margin-bottom: -2.5rem;
+        padding-top: 2rem;
+        border-top: 1px solid @color-grey--40;
+    }
+
+    @media (min-width: @screen-md) {
+        padding-left: 2rem;
+        border-left: 1px solid @color-grey--40;
+    }
+}
