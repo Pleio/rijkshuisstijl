@@ -162,6 +162,9 @@ $english = array(
     'rijkshuisstijl:prev_last_login' => 'Previous last login',
     'rijkshuisstijl:admin:profile:edit' => 'Edit profile',
     'rijkshuisstijl:view_profile' => 'View profile',
+    'rijkshuisstijl:vote' => 'vote',
+    'rijkshuisstijl:votes' => 'votes',
+    'rijkshuisstijl:closes' => 'The poll closes on',
     'polls:topic' => 'Link to discussion',
     'polls:link' => 'External link'
 );

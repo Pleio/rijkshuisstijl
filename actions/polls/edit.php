@@ -57,6 +57,7 @@ if ($guid) {
             $poll->title = $question;
             $poll->topic = $topic;
             $poll->link = $link;
+            $poll->comments_on = "Off";
                 
             if (!$poll->save()) {
                 register_error(elgg_echo("polls:error"));
@@ -126,6 +127,8 @@ if ($guid) {
         $poll->title = $question;
         $poll->topic = $topic;
         $poll->link = $link;
+
+        $poll->comments_on = "Off";
 
         if (!$poll->save()) {
             register_error(elgg_echo("polls:error"));

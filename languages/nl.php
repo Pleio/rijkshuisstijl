@@ -162,6 +162,9 @@ $dutch = array(
     'rijkshuisstijl:prev_last_login' => 'Voorlaatste login',
     'rijkshuisstijl:admin:profile:edit' => 'Wijzig profiel',
     'rijkshuisstijl:view_profile' => 'Bekijk profiel',
+    'rijkshuisstijl:vote' => 'stem',
+    'rijkshuisstijl:votes' => 'stemmen',
+    'rijkshuisstijl:closes' => 'Peiling sluit',
     'polls:topic' => 'Verwant forum topic',
     'polls:link' => 'Externe link'
 );

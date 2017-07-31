@@ -69,3 +69,5 @@ echo $entity_hidden;
 echo elgg_view("input/submit", array("name" => "submit", "value" => elgg_echo("save")));
 
 ?>
+
+<div style="height:200px"></div>

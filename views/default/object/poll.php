@@ -13,7 +13,7 @@ if (isset($vars['entity'])) {
     $owner = $poll->getOwnerEntity();
     $container = $poll->getContainerEntity();
     $categories = elgg_view('output/categories', $vars);
-        
+
     $owner_icon = elgg_view_entity_icon($owner, 'tiny');
     $owner_link = elgg_view('output/url', array(
                 'href' => "polls/owner/$owner->username",
@@ -23,22 +23,6 @@ if (isset($vars['entity'])) {
     $author_text = elgg_echo('byline', array($owner_link));
     $tags = elgg_view('output/tags', array('tags' => $poll->tags));
     $date = elgg_view_friendly_time($poll->time_created);
-
-    // TODO: support comments off
-    // The "on" status changes for comments, so best to check for !Off
-    $comments_link = '';
-    if ($poll->comments_on != 'Off') {
-        $comments_count = $poll->countComments();
-        //only display if there are commments
-        if ($comments_count != 0) {
-            $text = elgg_echo("comments") . " ($comments_count)";
-            $comments_link = elgg_view('output/url', array(
-                        'href' => $poll->getURL() . '#poll-comments',
-                        'text' => $text,
-                        'is_trusted' => true,
-            ));
-        }
-    }
 
     // do not show the metadata and controls in widget view
     $metadata = '';
@@ -50,8 +34,8 @@ if (isset($vars['entity'])) {
             'class' => 'elgg-menu-hz',
         ));
     }
-        
-    $subtitle = "$author_text $date $comments_link $categories";
+
+    $subtitle = "$author_text $date $categories";
     if ($full) {
 
         $params = array(
@@ -71,7 +55,7 @@ if (isset($vars['entity'])) {
 
     } else {
         // brief view
-    
+
         $params = array(
             'entity' => $poll,
             'metadata' => $metadata,

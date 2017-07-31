@@ -39,7 +39,7 @@ if (elgg_instanceof($poll,'object','poll')) {
                 // Success message
                 system_message(elgg_echo("polls:responded"));
                 // Forward to the poll page
-                forward("/");
+                forward("/#poll");
             }
         }
     }
