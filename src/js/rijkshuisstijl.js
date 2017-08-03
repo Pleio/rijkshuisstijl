@@ -20,6 +20,7 @@ require("./default/mobile-nav-sub-menu.js");
 require("./default/modal.js");
 require("./default/nav-search.js");
 require("./default/pagination.js");
+require("./default/poll.js");
 require("./default/profile.js");
 require("./default/profile-upload.js");
 require("./default/question-modal.js");

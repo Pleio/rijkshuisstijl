@@ -8,6 +8,9 @@
 </div>
 <div class="rhs-card-poll__actions">
     <button class="rhs-button rhs-button--color-quaternary js-submitForm" type="submit">Stem</button>
+    <?php if ($poll->canEdit()): ?>
+        <button class="rhs-button rhs-button--color-quaternary rhs-button--line" data-toggle-poll>Tussenstand</button>
+    <?php endif; ?>
     <?php echo elgg_view("rijkshuisstijl/elements/poll/stats", ["poll" => $poll]); ?>
 </div>
 

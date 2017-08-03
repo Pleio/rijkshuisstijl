@@ -279,9 +279,20 @@ function rijkshuisstijl_can_vote_on_poll($poll) {
         return false;
     }
 
-    if (!polls_check_for_previous_vote($poll, $logged_in->guid)) {
-        return true;
+    $options = array(
+        'guid'  =>  $poll->guid,
+        'type'  =>  "object",
+        'subtype' => "poll",
+        'annotation_name' => "vote",
+        'annotation_owner_guid' => $logged_in->guid,
+        'limit' => 1
+    );
+
+    $votes = elgg_get_annotations($options);
+    if ($votes) {
+        return false;
     }
 
-    return false;
+    return true;
+
 }
