@@ -130,6 +130,10 @@ if ($guid) {
 
         $poll->comments_on = "Off";
 
+        if ($close_date) {
+            $poll->close_date = $close_date;
+        }
+
         if (!$poll->save()) {
             register_error(elgg_echo("polls:error"));
             if ($container_guid) {
