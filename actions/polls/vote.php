@@ -24,17 +24,24 @@ if (!rijkshuisstijl_can_vote_on_poll($poll)) {
 $user_guid = elgg_get_logged_in_user_guid();
 
 // check to see if this user has already voted
-$options = array("annotation_name" => "vote", "annotation_owner_guid" => $user_guid, "guid" => $guid);
-if (elgg_get_annotations($options)) {
-    register_error(elgg_echo("polls:novote"));
-    forward("/");
-}
+$options = [
+    "annotation_name" => "vote",
+    "annotation_owner_guid" => $user_guid,
+    "guid" => $guid
+];
 
-$poll->annotate("vote", $response, $poll->access_id);
+$result = elgg_get_annotations($options);
 
-$polls_vote_in_river = elgg_get_plugin_setting("vote_in_river","polls");
-if ($polls_vote_in_river != "no") {
-    add_to_river("river/object/poll/vote","vote",$user_guid,$poll->guid);
+if ($result) {
+    $result = $result[0];
+    $result->value = $response;
+    $result->save();
+} else {
+    $poll->annotate("vote", $response, $poll->access_id);
+    $polls_vote_in_river = elgg_get_plugin_setting("vote_in_river","polls");
+    if ($polls_vote_in_river != "no") {
+        add_to_river("river/object/poll/vote","vote",$user_guid,$poll->guid);
+    }
 }
 
 system_message(elgg_echo("polls:responded"));

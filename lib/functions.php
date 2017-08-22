@@ -279,6 +279,16 @@ function rijkshuisstijl_can_vote_on_poll($poll) {
         return false;
     }
 
+    return true;
+}
+
+function rijkshuisstijl_has_voted_on_poll($poll) {
+    $logged_in = elgg_get_logged_in_user_entity();
+
+    if (!$logged_in) {
+        return false;
+    }
+
     $options = array(
         'guid'  =>  $poll->guid,
         'type'  =>  "object",
@@ -290,9 +300,8 @@ function rijkshuisstijl_can_vote_on_poll($poll) {
 
     $votes = elgg_get_annotations($options);
     if ($votes) {
-        return false;
+        return $votes[0];
     }
 
-    return true;
-
+    return false;
 }
