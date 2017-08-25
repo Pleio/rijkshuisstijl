@@ -15,8 +15,6 @@ $number_of_choices = (int) get_input('number_of_choices',0);
 $front_page = get_input('front_page');
 $close_date = (int) get_input('close_date');
 $tags = get_input('tags');
-$link = get_input('link');
-$topic = get_input('topic');
 $access_id = get_input('access_id');
 $container_guid = get_input('container_guid');
 $guid = get_input('guid');
@@ -37,6 +35,22 @@ if ($number_of_choices) {
     }
 }
 
+$links = [];
+foreach (get_input("links", []) as $i => $link) {
+    $links[] = [
+        "title" => $link["title"],
+        "link" => $link["link"]
+    ];
+}
+
+$topics = [];
+foreach (get_input("topics", []) as $i => $topic) {
+    $topics[] = [
+        "title" => $topic["title"],
+        "link" => $topic["link"]
+    ];
+}
+
 $user = elgg_get_logged_in_user_entity();
 
 if ($guid) {
@@ -52,13 +66,15 @@ if ($guid) {
             // Otherwise, save the poll
         } else {
             $poll->access_id = $access_id;
-        
+
             $poll->question = $question;
             $poll->title = $question;
-            $poll->topic = $topic;
-            $poll->link = $link;
+
+            $poll->topics = json_encode($topics);
+            $poll->links = json_encode($links);
+
             $poll->comments_on = "Off";
-                
+
             if (!$poll->save()) {
                 register_error(elgg_echo("polls:error"));
                 if ($container_guid) {
@@ -68,23 +84,23 @@ if ($guid) {
                 }
                 exit;
             }
-            
+
             elgg_clear_sticky_form('polls');
-            
+
             polls_delete_choices($poll);
             polls_add_choices($poll,$new_choices);
             polls_manage_front_page($poll,$front_page);
-        
+
             if (is_array($tagarray)) {
                 $poll->tags = $tagarray;
             }
-            
+
             if ($close_date) {
                 $poll->close_date = $close_date;
             } else {
                 unset($poll->close_date);
             }
-            
+
             // Success message
             system_message(elgg_echo("polls:edited"));
         }
@@ -110,23 +126,24 @@ if ($guid) {
         }
     } else {
         // Otherwise, save the poll
-    
+
         // Initialise a new ElggObject
         $poll = new ElggObject();
-    
+
         // Tell the system it's a poll
         $poll->subtype = "poll";
-    
+
         // Set its owner to the current user
         $poll->owner_guid = $user->guid;
         $poll->container_guid = $container_guid;
-    
+
         $poll->access_id = $access_id;
-    
+
         $poll->question = $question;
         $poll->title = $question;
-        $poll->topic = $topic;
-        $poll->link = $link;
+
+        $poll->topics = json_encode($topics);
+        $poll->links = json_encode($links);
 
         $poll->comments_on = "Off";
 
@@ -143,21 +160,21 @@ if ($guid) {
             }
             exit;
         }
-        
+
         elgg_clear_sticky_form('polls');
 
         polls_add_choices($poll,$new_choices);
         polls_manage_front_page($poll,$front_page);
-    
+
         if (is_array($tagarray)) {
             $poll->tags = $tagarray;
         }
-        
+
         $polls_create_in_river = elgg_get_plugin_setting('create_in_river','polls');
         if ($polls_create_in_river != 'no') {
             add_to_river('river/object/poll/create','create',elgg_get_logged_in_user_guid(),$poll->guid);
         }
-    
+
         // Success message
         system_message(elgg_echo("polls:added"));
     }

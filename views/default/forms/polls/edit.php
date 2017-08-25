@@ -45,12 +45,12 @@ echo "</div>";
 
 echo "<div>";
 echo "<label>" . elgg_echo("polls:topic") . "</label><br />";
-echo elgg_view("input/text", array("name" => "topic", "value" => $vars["entity"]->topic, "id" => "polls-topic"));
+echo elgg_view("polls/input/links", array("name" => "topics", "value" => $vars["entity"]->topics, "id" => "polls-topic"));
 echo "</div>";
 
 echo "<div>";
 echo "<label>" . elgg_echo("polls:link") . "</label><br />";
-echo elgg_view("input/text", array("name" => "link", "value" => $vars["entity"]->link, "id" => "polls-link"));
+echo elgg_view("polls/input/links", array("name" => "links", "value" => $vars["entity"]->links, "id" => "polls-link"));
 echo "</div>";
 
 echo "<div>";
