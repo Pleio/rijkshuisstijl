@@ -88,7 +88,10 @@ function rijkshuisstijl_init() {
 
     if (elgg_in_context("admin")) {
         elgg_register_plugin_hook_handler("register", "menu:entity", "rijkshuisstijl_user_setup_menu", 502);
-    }
+	}
+
+    elgg_unregister_plugin_hook_handler("email", "system", "html_email_handler_email_hook");
+    elgg_register_plugin_hook_handler("email", "system", "rijkshuisstijl_email_handler");
 
     // revert hacks of older Elgg modules
     elgg_unextend_view("page/elements/head", "subsite_manager/topbar_fix");
@@ -350,4 +353,50 @@ function rijkshuisstijl_route_pages_hook($hook_name, $entity_type, $return_value
 			return false;
 			break;
 	}
+}
+
+function rijkshuisstijl_email_handler($hook, $type, $return, $params) {
+    global $CONFIG;
+    $site = elgg_get_site_entity();
+
+    $message_id = sprintf("<%s.%s@%s>", base_convert(microtime(), 10, 36), base_convert(bin2hex(openssl_random_pseudo_bytes(8)), 16, 36), $_SERVER["SERVER_NAME"]);
+
+    $reply_to = "=?UTF-8?B?" . base64_encode($site->name) . "?= ";
+
+    if ($site->email) {
+        $reply_to .= "<" . $site->email . ">";
+    } elseif (isset($CONFIG->email_from)) {
+        $reply_to .= "<{$CONFIG->email_from[1]}>";
+    } else {
+        $reply_to .= "<noreply@" . get_site_domain($site->guid) . ">";
+    }
+
+    $headers = "Sender: {$params["from"]}\r\n"
+        . "From: {$params["from"]}\r\n"
+        . "Reply-To: {$reply_to}\r\n"
+        . "Message-Id: {$message_id}\r\n"
+        . "MIME-Version: 1.0\r\n"
+        . "Content-Type: text/html; charset=UTF-8\r\n";
+
+    // Sanitise subject by stripping line endings
+    $subject = preg_replace("/(\r\n|\r|\n)/", " ", $params["subject"]);
+
+    $body = $params["body"];
+    $body = nl2br($body);
+
+    $email_params = [
+        "subject" => $subject,
+        "body" => $body
+    ];
+
+    if (!is_array($params["params"])) {
+        $params["params"] = [];
+    }
+
+    return mail(
+        $params["to"],
+        $subject,
+        elgg_view("emails/default", array_merge($email_params, $params["params"])),
+        $headers
+    );
 }
