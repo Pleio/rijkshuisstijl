@@ -166,7 +166,9 @@ $dutch = array(
     'rijkshuisstijl:votes' => 'stemmen',
     'rijkshuisstijl:closes' => 'Peiling sluit',
     'polls:topic' => 'Verwant forum topic',
-    'polls:link' => 'Externe link'
+    'polls:link' => 'Externe link',
+    'rijkshuisstijl:becon_management' => 'BECONnummer beheer',
+    'rijkshuisstijl:becon_management:explanation' => 'Als beheerder kun je voor je organisatie een actueel overzicht opvragen. Nadat je op de knop geklikt hebt ontvang je een e-mail met een link. Via deze link kun je direct het overzicht (.csv) downloaden.'
 );
 
 add_translation('nl', $dutch);

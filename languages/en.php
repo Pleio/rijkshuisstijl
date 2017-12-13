@@ -166,7 +166,9 @@ $english = array(
     'rijkshuisstijl:votes' => 'votes',
     'rijkshuisstijl:closes' => 'The poll closes on',
     'polls:topic' => 'Link to discussion',
-    'polls:link' => 'External link'
+    'polls:link' => 'External link',
+    'rijkshuisstijl:becon_management' => 'BECON management',
+    'rijkshuisstijl:becon_management:explanation' => 'You as a BECONnumber administrator are able to download an actual overview of users using your BECONnumber.'
 );
 
 add_translation('en', $english);

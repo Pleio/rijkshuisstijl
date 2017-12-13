@@ -99,6 +99,21 @@
       </div>
     </div>
 
+    <?php if (elgg_is_active_plugin("pleio_beconnummer") && pleio_beconnummer_is_manager($user)): ?>
+      <div class="rhs-section rhs-section--item rhs-section--background-transparent">
+        <div class="rhs-profile-block">
+          <div class="rhs-row">
+            <div class="rhs-col-md-5">
+              <h2 class="rhs-profile-block__title"><?php echo elgg_echo('rijkshuisstijl:becon_management') ?></h2>
+              <p class="rhs-form__element">
+                <?php echo elgg_echo('rijkshuisstijl:becon_management:explanation'); ?>
+              </p>
+              <?php echo elgg_view_form("pleio_beconnummer/request_overview"); ?>
+            </div>
+          </div>
+        </div>
+      </div>
+    <?php endif; ?>
 
     <?php if (elgg_is_active_plugin("digest")): ?>
       <div class="rhs-section rhs-section--item rhs-section--background-transparent">
