@@ -35,7 +35,7 @@ function rijkshuisstijl_init() {
     elgg_register_plugin_hook_handler("action", "plugins/settings/save", "rijkshuisstijl_plugins_settings_save");
 
 	$special = elgg_get_plugin_setting("special", "rijkshuisstijl");
-    if (in_array($special, ["ffd", "ht", "cpf"])) {
+    if (in_array($special, ["ffd", "ht"])) {
 		elgg_register_plugin_hook_handler("index", "system", "rijkshuisstijl_custom_index", 40); // must be very early
 
 		elgg_register_plugin_hook_handler("route", "news", "rijkshuisstijl_route_news_hook", 100);

@@ -133,7 +133,6 @@ $english = array(
     'rijkshuisstijl:none' => 'None',
     'rijkshuisstijl:ffd' => 'Forum Fiscaal Dienstverleners',
     'rijkshuisstijl:ht' => 'Horizontaal toezicht',
-    'rijkshuisstijl:cpf' => 'CPF',
     'rijkshuisstijl:filters' => 'Show content filters',
     'rijkshuisstijl:colors' => 'Colors',
     'rijkshuisstijl:color' => 'Color',

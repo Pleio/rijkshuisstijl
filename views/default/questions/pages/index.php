@@ -4,8 +4,6 @@ $groups = rijkshuisstijl_get_featured_groups();
 $user = elgg_get_logged_in_user_entity();
 $popular_users = rijkshuisstijl_get_popular_users();
 $special = elgg_get_plugin_setting("special", "rijkshuisstijl");
-$limit = ($special == "cpf" ? 15 : 5)
-
 ?>
 
 <div class="rhs-sections">
@@ -44,8 +42,6 @@ $limit = ($special == "cpf" ? 15 : 5)
                             </div>
                         </div>
                     </div>
-                <?php elseif ($special == "cpf"): ?>
-                    <!-- Show nothing -->
                 <?php else: ?>
                     <div class="rhs-col-lg-12">
                         <div data-accordion-item="" class="rhs-card-list rhs-card-list--margin-bottom">
@@ -54,7 +50,7 @@ $limit = ($special == "cpf" ? 15 : 5)
                             </h3>
                             <div class="rhs-card-list__content">
                                 <?php
-                                foreach (rijkshuisstijl_get_latest_objects('question', null, $limit) as $question)
+                                foreach (rijkshuisstijl_get_latest_objects('question', null, 5) as $question)
                                     echo elgg_view("rijkshuisstijl/elements/question_row", array('question' => $question));
                                 ?>
                                 <a href="/questions/all" title="<?php echo elgg_echo("rijkshuisstijl:all"); ?>" class="rhs-read-more rhs-card-list__read-more">
