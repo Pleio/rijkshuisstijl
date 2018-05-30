@@ -1,9 +1,12 @@
 <?php
 
 $category_options = array(
-    'all' => elgg_echo("rijkshuisstijl:all_categories"),
-    'news' => elgg_echo("rijkshuisstijl:news"),
-    'jurisprudence' => elgg_echo("rijkshuisstijl:jurisprudence")
+    '' => elgg_echo("rijkshuisstijl:all_categories"),
+    'nieuws' => elgg_echo("rijkshuisstijl:news"),
+    'juris' => elgg_echo("rijkshuisstijl:juris"),
+    'handreiking' => elgg_echo("rijkshuisstijl:handreiking"),
+    'achtergrond' => elgg_echo("rijkshuisstijl:achtergrond"),
+    'blog' => elgg_echo("rijkshuisstijl:blog"),
 );
 
 $options = array(

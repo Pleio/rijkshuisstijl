@@ -36,23 +36,10 @@ if ($topic == "mine") {
     }
 }
 
-$category = get_input("category", null);
+$category = get_input("category");
 if ($category) {
-    $tags = get_metastring_id("tags");
-    $juris = get_metastring_id("juris");
-
-    if ($tags && $juris) {
-        $options["joins"] = "LEFT JOIN elgg_metadata md ON e.guid = md.entity_guid AND md.name_id = {$tags} AND md.value_id = {$juris}";
-
-        switch ($category) {
-            case "news":
-                $options["wheres"] = "md.value_id IS NULL";
-                break;
-            case "jurisprudence":
-                $options["wheres"] = "md.value_id IS NOT NULL";
-                break;
-        }
-    }
+    $options["metadata_name"] = "tags";
+    $options["metadata_value"] = $category;
 }
 
 $title = elgg_echo("news");
@@ -60,7 +47,7 @@ $body = elgg_view_layout("content", array(
     "title" => "",
     "filter" => "",
     "content" => elgg_view("news/pages/all", array(
-        "entities" => elgg_list_entities($options)
+        "entities" => elgg_list_entities_from_metadata($options)
     ))
 ));
 

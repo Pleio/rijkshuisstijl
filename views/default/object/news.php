@@ -114,8 +114,24 @@ if ($full) {
     echo '<span class="rhs-news-list__item__title">' . $entity->title . '</span>';
     echo '<span class="rhs-news-list__item__category">';
 
-    if ((is_array($entity->tags) && in_array('juris', $entity->tags)) || $entity->tags == "juris") {
-      echo '<span class="rhs-icon-jurisprudentie rhs-news-list__item__category__icon"></span>';
+    if ($entity->tags) {
+        $tags = $entity->tags;
+        if (!is_array($tags)) {
+            $tags = [$tags];
+        }
+
+        if (in_array('juris', $tags)) {
+            echo '<span class="rhs-icon-jurisprudentie rhs-news-list__item__category__icon"></span>';
+        }
+
+        if (in_array('blog', $tags)) {
+            echo '<span class="rhs-icon-pencil rhs-news-list__item__category__icon"></span>';
+        }
+
+        if (in_array('handreiking', $tags)) {
+            echo '<span class="rhs-icon-newspaper rhs-news-list__item__category__icon"></span>';
+        }
+
     }
 
     if ($container instanceof ElggGroup) {
