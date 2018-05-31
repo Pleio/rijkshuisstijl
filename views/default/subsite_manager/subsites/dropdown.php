@@ -1,3 +1,8 @@
+<?php
+if (!function_exists("subsite_manager_on_subsite")) {
+	return;
+}
+?>
 <?php $base_url = elgg_get_site_url(); ?>
 <div class="rhs-dropdown">
 	<a data-dropdown-trigger href="#" title="Pleio" class="rhs-top-navigation__link rhs-top-navigation__link--left rhs-dropdown__trigger">Pleio</a>
