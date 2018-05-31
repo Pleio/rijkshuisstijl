@@ -1,6 +1,7 @@
 <?php
 $site = elgg_get_site_entity();
 
+$to = elgg_extract("to", $vars);
 $subject = elgg_extract("subject", $vars);
 $overview = elgg_extract("overview", $vars);
 ?>
@@ -33,6 +34,9 @@ $overview = elgg_extract("overview", $vars);
         .text-button2 a { color:#ffffff; text-decoration:none }
         .text-button a { color:#009fe3; text-decoration:none }
         .pre-header a { color:#999999; text-decoration:none }
+
+        .unsubscribe { color:#c8c8c8; font-size: 14px; }
+        .unsubscribe a { color:#c8c8c8; }
 
         .h3 a { color: #01689b; text-decoration: none; }
 
@@ -132,6 +136,16 @@ $overview = elgg_extract("overview", $vars);
                                     <td valign="top" style="padding:20px">
                                         <table align="left" width="100%" border="0" cellpadding="0" cellspacing="0" style="min-width:100%;">
                                             <tbody>
+                                            <?php if ($to): ?>
+                                                <tr>
+                                                    <td valign="top"
+                                                        class="unsubscribe"
+                                                        style="padding-right: 9px; padding-left: 9px; padding-top: 0; padding-bottom: 20px; font-family:Arial,sans-serif; text-align:center; color:#c8c8c8;">
+                                                        <?php echo elgg_echo("pleio_template_selector:notification:explain"); ?><br />
+                                                        <?php echo elgg_echo("pleio_template_selector:notification:link", ["{$site->url}notifications/personal/{$to->username}"]); ?>
+                                                    </td>
+                                                </tr>
+                                            <?php endif; ?>
                                             <tr>
                                                 <td valign="top"
                                                     style="padding-right: 9px; padding-left: 9px; padding-top: 0; padding-bottom: 0; text-align:center;">
