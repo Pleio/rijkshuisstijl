@@ -129,6 +129,10 @@ if ($full) {
         }
 
         if (in_array('handreiking', $tags)) {
+            echo '<span class="rhs-icon-file rhs-news-list__item__category__icon"></span>';
+        }
+
+        if (in_array('achtergrond', $tags)) {
             echo '<span class="rhs-icon-newspaper rhs-news-list__item__category__icon"></span>';
         }
 
