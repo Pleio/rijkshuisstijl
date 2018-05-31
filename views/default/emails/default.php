@@ -141,8 +141,8 @@ $overview = elgg_extract("overview", $vars);
                                                     <td valign="top"
                                                         class="unsubscribe"
                                                         style="padding-right: 9px; padding-left: 9px; padding-top: 0; padding-bottom: 20px; font-family:Arial,sans-serif; text-align:center; color:#c8c8c8;">
-                                                        <?php echo elgg_echo("pleio_template_selector:notification:explain"); ?><br />
-                                                        <?php echo elgg_echo("pleio_template_selector:notification:link", ["{$site->url}notifications/personal/{$to->username}"]); ?>
+                                                        <?php echo elgg_echo("rijkshuisstijl:notification:explain"); ?><br />
+                                                        <?php echo elgg_echo("rijkshuisstijl:notification:link", ["{$site->url}profile/{$to->username}/interests"]); ?>
                                                     </td>
                                                 </tr>
                                             <?php endif; ?>

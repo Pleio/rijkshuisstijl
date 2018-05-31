@@ -170,7 +170,9 @@ $english = array(
     'polls:topic' => 'Link to discussion',
     'polls:link' => 'External link',
     'rijkshuisstijl:becon_management' => 'BECON management',
-    'rijkshuisstijl:becon_management:explanation' => 'You as a BECONnumber administrator are able to download an actual overview of users using your BECONnumber.'
+    'rijkshuisstijl:becon_management:explanation' => 'You as a BECONnumber administrator are able to download an actual overview of users using your BECONnumber.',
+    'rijkshuisstijl:notification:explain' => "You recieve this e-mail because you are subscribed for the notifications.",
+    'rijkshuisstijl:notification:link' => "Click <a href=\"%s\">here</a> to change the settings.",
 );
 
 add_translation('en', $english);

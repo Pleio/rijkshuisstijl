@@ -170,7 +170,10 @@ $dutch = array(
     'polls:topic' => 'Verwant forum topic',
     'polls:link' => 'Externe link',
     'rijkshuisstijl:becon_management' => 'BECONnummer beheer',
-    'rijkshuisstijl:becon_management:explanation' => 'Als beheerder kun je voor je organisatie een actueel overzicht opvragen. Nadat je op de knop geklikt hebt ontvang je een e-mail met een link. Via deze link kun je direct het overzicht (.csv) downloaden.'
+    'rijkshuisstijl:becon_management:explanation' => 'Als beheerder kun je voor je organisatie een actueel overzicht opvragen. Nadat je op de knop geklikt hebt ontvang je een e-mail met een link. Via deze link kun je direct het overzicht (.csv) downloaden.',
+    'rijkshuisstijl:notification:explain' => "Je ontvangt deze e-mail omdat je aangemeld bent voor de notificaties.",
+    'rijkshuisstijl:notification:link' => "Klik <a href=\"%s\">hier</a> om je instellingen aan te passen.",
+
 );
 
 add_translation('nl', $dutch);
